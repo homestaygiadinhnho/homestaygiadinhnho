@@ -3848,7 +3848,7 @@ template {
   font-family: "Cereal";
   font-style: normal;
   font-display: swap;
-  src: url(https://anamart.vn/wp-content/themes/seedlet/assets/font/Anamart-Regular.woff2)
+  src: url({{site.baseurl}}/assets/fonts/Anamart-Regular.woff2)
     format("woff2");
   font-weight: 400;
 }
@@ -3856,7 +3856,7 @@ template {
   font-family: "Cereal";
   font-style: normal;
   font-display: swap;
-  src: url(https://anamart.vn/wp-content/themes/seedlet/assets/font/BogleWeb-Regular.woff2)
+  src: url({{site.baseurl}}/assets/fonts/BogleWeb-Regular.woff2)
     format("woff2");
   font-weight: 400;
 }
@@ -3864,7 +3864,7 @@ template {
   font-family: "Cereal";
   font-style: normal;
   font-display: swap;
-  src: url(https://anamart.vn/wp-content/themes/seedlet/assets/font/Anamart-Bold.woff2)
+  src: url({{site.baseurl}}/assets/fonts/Anamart-Bold.woff2)
     format("woff2");
   font-weight: 700;
 }
@@ -3872,7 +3872,7 @@ template {
   font-family: "Cereal";
   font-style: normal;
   font-display: swap;
-  src: url(https://anamart.vn/wp-content/themes/seedlet/assets/font/BogleWeb-Bold.woff2)
+  src: url({{site.baseurl}}/assets/fonts/BogleWeb-Bold.woff2)
     format("woff2");
   font-weight: 700;
 }
