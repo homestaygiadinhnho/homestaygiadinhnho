@@ -4,34 +4,760 @@ title: "Chào mừng đến với Homestay Gia Đình Nhỏ"
 description: "Tận hưởng kỳ nghỉ tuyệt vời cùng gia đình tại Homestay Gia Đình Nhỏ - nơi mang đến không gian thư giãn và ấm cúng."
 ---
 
-# Chào mừng đến với Homestay Gia Đình Nhỏ
+          <div class="container">
+            <div class="postTeaser__Featured">
+              <article class="postTeaser post-421306 post type-post status-publish format-standard has-post-thumbnail hentry category-stays tag-destinations tag-homes tag-listicle" data-post-id="421306">
+                <div class="postTeaser__inner">
+                  <div class="row">
+                    <div class="postTeaser__imageWrap-featured">
+                      <div class="postTeaser__imageWrap--featured">
+                        <div class="postTeaser__image postTeaser__image--featured">
+                          <a class="postTeaser__imageLink" href="https://news.airbnb.com/2024-fall-trends-revealed/" tabindex="-1">
+                            <img alt="House surrounded by folliage" width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Luxury-Home-w_-Hot-Tub-Photo-Credit-Courtesy-of-Airbnb-.jpeg?resize=1100%2C725 1100w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Luxury-Home-w_-Hot-Tub-Photo-Credit-Courtesy-of-Airbnb-.jpeg?zoom=2&amp;resize=1100%2C725 1460w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Luxury-Home-w_-Hot-Tub-Photo-Credit-Courtesy-of-Airbnb-.jpeg?zoom=3&amp;resize=1100%2C725 2190w" sizes="(max-width: 1100px) 100vw, 1100px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Luxury-Home-w_-Hot-Tub-Photo-Credit-Courtesy-of-Airbnb-.jpeg">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="postTeaser__textWrap-featured">
+                      <div class="postTeaser__textWrap-featured-inner">
+                        <header>
+                          <div class="postTeaser__meta">
+                            <time class="postTeaser__updated" datetime="2024-08-27T06:00:00-07:00">August 27, 2024</time>
+                          </div>
+                          <h3 class="postTeaser__title postTeaser__title--featured"><a class="postTeaser__titleLink" href="https://news.airbnb.com/2024-fall-trends-revealed/">2024 fall trends: shoulder season savings, leaf peeping, and event-cations</a></h3>
+                        </header>
+                        <div class="postTeaser__entrySummary">
 
-**Homestay Gia Đình Nhỏ** là điểm đến lý tưởng cho những kỳ nghỉ thư giãn và sum vầy bên gia đình. Chúng tôi cung cấp một không gian ấm cúng, thân thiện và gần gũi với thiên nhiên, cùng với các tiện nghi hiện đại để đảm bảo bạn có một trải nghiệm tuyệt vời nhất.
+                        </div>
+                        <a class="btn btn--gradient" href="https://news.airbnb.com/2024-fall-trends-revealed/">
+                          <span class="thermal-bg" style="background-position: calc((100 - var(--mouse-x)) * 1%) calc((100 - var(--mouse-y)) * 1%); --mouse-x: 0; --mouse-y: 0;"></span>
+                          <span>Read more</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
 
-## Tại sao chọn chúng tôi?
+            <div class="postTeaser__group postTeaser__group--four-column-even">
+              <h2 class="postTeaser__gridTitle">Latest news</h2>
+              <div class="postTeaser__groupInner row postTeaser__groupInner--four-column-even">
+                <article class="postTeaser col-md-3 post-421850 post type-post status-publish format-standard has-post-thumbnail hentry category-company-information tag-trust" data-post-id="421850" data-timestamp="1725550507">
+                  <div class="postTeaser__inner postTeaser__inner--standard">
+                    <div class="postTeaser__imageWrap--standard">
+                      <div class="postTeaser__image postTeaser__image--standard">
+                        <a class="postTeaser__imageLink" href="https://news.airbnb.com/funding-crucial-resources-in-the-fight-against-human-trafficking/" tabindex="-1">
+                          <img alt="" width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2020/03/BeloRauschNewsroomFeatured_200316.png?resize=2000%2C1340 2000w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/03/BeloRauschNewsroomFeatured_200316.png?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/03/BeloRauschNewsroomFeatured_200316.png?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/03/BeloRauschNewsroomFeatured_200316.png?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/03/BeloRauschNewsroomFeatured_200316.png?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/03/BeloRauschNewsroomFeatured_200316.png?resize=676%2C453 676w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/03/BeloRauschNewsroomFeatured_200316.png?resize=527%2C353 527w" sizes="(max-width: 527px) 100vw, 527px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2020/03/BeloRauschNewsroomFeatured_200316.png">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="postTeaser__textWrap">
+                      <header>
+                        <h3 class="postTeaser__title postTeaser__title--standard four-column-even"><a class="postTeaser__titleLink" href="https://news.airbnb.com/funding-crucial-resources-in-the-fight-against-human-trafficking/">Funding crucial resources in the fight against human trafficking</a></h3>
+                        <div class="postTeaser__hdrMeta">
+                          <div class="postTeaser__meta">
+                            <time class="postTeaser__updated" datetime="2024-09-05T08:35:07-07:00">September 5, 2024</time>
+                          </div>
+                        </div>
+                      </header>
 
-- **Vị trí thuận tiện**: Tọa lạc ở một vị trí dễ dàng tiếp cận, gần các điểm du lịch nổi bật.
-- **Không gian ấm cúng**: Các phòng nghỉ được thiết kế để mang lại cảm giác như ở nhà, với sự chú trọng đến từng chi tiết.
-- **Dịch vụ chu đáo**: Đội ngũ nhân viên của chúng tôi luôn sẵn sàng phục vụ bạn với nụ cười và sự tận tâm.
+                    </div>
+                  </div>
+                </article>
+                <article class="postTeaser col-md-3 post-421611 post type-post status-publish format-standard has-post-thumbnail hentry category-public-policy tag-new-york-city location-new-york-city" data-post-id="421611" data-timestamp="1725357600">
+                  <div class="postTeaser__inner postTeaser__inner--standard">
+                    <div class="postTeaser__imageWrap--standard">
+                      <div class="postTeaser__image postTeaser__image--standard">
+                        <a class="postTeaser__imageLink" href="https://news.airbnb.com/nyc-rules-higher-prices-for-travelers-no-impact-on-housing/" tabindex="-1">
+                          <img alt="" width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2021/02/Discover-Feed_New-York-City_Krupnick_121003_0001_RET_Large-1.jpg?resize=2000%2C1340 2000w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/02/Discover-Feed_New-York-City_Krupnick_121003_0001_RET_Large-1.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/02/Discover-Feed_New-York-City_Krupnick_121003_0001_RET_Large-1.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/02/Discover-Feed_New-York-City_Krupnick_121003_0001_RET_Large-1.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/02/Discover-Feed_New-York-City_Krupnick_121003_0001_RET_Large-1.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/02/Discover-Feed_New-York-City_Krupnick_121003_0001_RET_Large-1.jpg?resize=676%2C453 676w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/02/Discover-Feed_New-York-City_Krupnick_121003_0001_RET_Large-1.jpg?resize=527%2C353 527w" sizes="(max-width: 527px) 100vw, 527px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/02/Discover-Feed_New-York-City_Krupnick_121003_0001_RET_Large-1.jpg">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="postTeaser__textWrap">
+                      <header>
+                        <h3 class="postTeaser__title postTeaser__title--standard four-column-even"><a class="postTeaser__titleLink" href="https://news.airbnb.com/nyc-rules-higher-prices-for-travelers-no-impact-on-housing/">NYC’s rules one year later: Higher prices for travelers, no housing impact</a></h3>
+                        <div class="postTeaser__hdrMeta">
+                          <div class="postTeaser__meta">
+                            <time class="postTeaser__updated" datetime="2024-09-03T03:00:00-07:00">September 3, 2024</time>
+                          </div>
+                        </div>
+                      </header>
 
-## Dịch vụ của chúng tôi
+                    </div>
+                  </div>
+                </article>
+                <article class="postTeaser col-md-3 post-421642 post type-post status-publish format-standard has-post-thumbnail hentry category-company-information tag-trust" data-post-id="421642" data-timestamp="1725040803">
+                  <div class="postTeaser__inner postTeaser__inner--standard">
+                    <div class="postTeaser__imageWrap--standard">
+                      <div class="postTeaser__image postTeaser__image--standard">
+                        <a class="postTeaser__imageLink" href="https://news.airbnb.com/two-years-of-progress-with-our-trust-and-safety-advisory-coalition/" tabindex="-1">
+                          <img alt="" width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2021/06/Newsroom_TrustSafety_003.jpg?resize=2000%2C1340 2000w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/06/Newsroom_TrustSafety_003.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/06/Newsroom_TrustSafety_003.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/06/Newsroom_TrustSafety_003.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/06/Newsroom_TrustSafety_003.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/06/Newsroom_TrustSafety_003.jpg?resize=676%2C453 676w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/06/Newsroom_TrustSafety_003.jpg?resize=527%2C353 527w" sizes="(max-width: 527px) 100vw, 527px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/06/Newsroom_TrustSafety_003.jpg">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="postTeaser__textWrap">
+                      <header>
+                        <h3 class="postTeaser__title postTeaser__title--standard four-column-even"><a class="postTeaser__titleLink" href="https://news.airbnb.com/two-years-of-progress-with-our-trust-and-safety-advisory-coalition/">Two years of progress with our Trust and Safety Advisory Coalition</a></h3>
+                        <div class="postTeaser__hdrMeta">
+                          <div class="postTeaser__meta">
+                            <time class="postTeaser__updated" datetime="2024-08-30T11:00:03-07:00">August 30, 2024</time>
+                          </div>
+                        </div>
+                      </header>
 
-- **Phòng nghỉ thoải mái**: Được trang bị đầy đủ tiện nghi để bạn có thể nghỉ ngơi và thư giãn.
-- **Khu vực sinh hoạt chung**: Không gian để gia đình bạn có thể quây quần, trò chuyện và tận hưởng thời gian bên nhau.
-- **Hoạt động giải trí**: Các hoạt động thú vị và dịch vụ giải trí để bạn có thể trải nghiệm trong suốt kỳ nghỉ.
+                    </div>
+                  </div>
+                </article>
+                <article class="postTeaser col-md-3 post-421285 post type-post status-publish format-standard has-post-thumbnail hentry category-community category-company-information" data-post-id="421285" data-timestamp="1724421600">
+                  <div class="postTeaser__inner postTeaser__inner--standard">
+                    <div class="postTeaser__imageWrap--standard">
+                      <div class="postTeaser__image postTeaser__image--standard">
+                        <a class="postTeaser__imageLink" href="https://news.airbnb.com/supporting-the-refugee-paralympic-team-for-paris-2024-paralympic-games/" tabindex="-1">
+                          <img alt="" width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/RPT2-courtesy-getty.jpg?resize=2000%2C1340 2000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/RPT2-courtesy-getty.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/RPT2-courtesy-getty.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/RPT2-courtesy-getty.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/RPT2-courtesy-getty.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/RPT2-courtesy-getty.jpg?resize=676%2C453 676w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/RPT2-courtesy-getty.jpg?resize=527%2C353 527w" sizes="(max-width: 527px) 100vw, 527px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/RPT2-courtesy-getty.jpg">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="postTeaser__textWrap">
+                      <header>
+                        <h3 class="postTeaser__title postTeaser__title--standard four-column-even"><a class="postTeaser__titleLink" href="https://news.airbnb.com/supporting-the-refugee-paralympic-team-for-paris-2024-paralympic-games/">Supporting the Refugee Paralympic Team for the Paris 2024 Paralympic Games</a></h3>
+                        <div class="postTeaser__hdrMeta">
+                          <div class="postTeaser__meta">
+                            <time class="postTeaser__updated" datetime="2024-08-23T07:00:00-07:00">August 23, 2024</time>
+                          </div>
+                        </div>
+                      </header>
 
-## Đặt phòng
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="socialSection__wrap">
+              <h2 class="socialSection__title">
+                Follow Airbnb for news and travel inspiration
+              </h2>
+              <div class="socialFollow__icons">
+                <a class="socialFollow__link" href="https://twitter.com/airbnb" aria-label="Twitter">
+                  <div class="icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.31742 6.77491L15.1457 0H13.7646L8.70389 5.88256L4.66193 0H0L6.11224 8.89547L0 16H1.38119L6.72542 9.78782L10.994 16H15.656L9.31708 6.77491H9.31742ZM7.42569 8.97384L6.80639 8.08805L1.87886 1.03974H4.00029L7.97687 6.72795L8.59617 7.61374L13.7652 15.0075H11.6438L7.42569 8.97418V8.97384Z" fill="#222222"></path>
+                    </svg>
+                  </div>
+                </a>
+                <a class="socialFollow__link" href="https://instagram.com/airbnb" aria-label="Instagram">
+                  <div class="icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M26.9383 1.06167C26.2267 0.35 25.3867 0 24.4067 0H3.59333C2.60167 0 1.76167 0.35 1.06167 1.06167C0.361667 1.77333 0 2.61333 0 3.59333V24.4067C0 25.3983 0.35 26.2383 1.06167 26.9383C1.77333 27.6383 2.61333 28 3.59333 28H24.4067C25.3983 28 26.2383 27.65 26.9383 26.9383C27.6383 26.2267 28 25.3867 28 24.4067V3.59333C28 2.60167 27.65 1.76167 26.9383 1.06167ZM10.045 10.0917C11.1417 9.03 12.4717 8.49333 14.0117 8.49333C15.5633 8.49333 16.8933 9.03 17.99 10.0917C19.0867 11.1533 19.635 12.4367 19.635 13.9417C19.635 15.4467 19.0867 16.73 17.99 17.7917C16.8933 18.8533 15.5633 19.39 14.0117 19.39C12.4717 19.39 11.1417 18.8533 10.045 17.7917C8.94833 16.73 8.4 15.4467 8.4 13.9417C8.4 12.4367 8.94833 11.1533 10.045 10.0917ZM24.815 23.66C24.815 23.975 24.71 24.2433 24.4883 24.4533C24.387 24.558 24.2655 24.6409 24.1311 24.697C23.9967 24.7532 23.8523 24.7814 23.7067 24.78H4.22333C4.07584 24.7823 3.92941 24.7546 3.79301 24.6984C3.6566 24.6422 3.53308 24.5589 3.43 24.4533C3.32603 24.3497 3.24443 24.2258 3.19025 24.0893C3.13606 23.9529 3.11045 23.8067 3.115 23.66V11.8417H5.68167C5.43848 12.6155 5.31648 13.4222 5.32 14.2333C5.32 16.5667 6.17167 18.5617 7.875 20.2067C9.57833 21.8517 11.62 22.68 14.0233 22.68C15.5556 22.6924 17.0642 22.3021 18.3983 21.5483C19.7077 20.8227 20.8024 19.7642 21.5717 18.48C22.3439 17.2031 22.7477 15.7373 22.7383 14.245C22.7383 13.4167 22.61 12.6233 22.3767 11.8533H24.8383V23.66H24.815ZM24.815 7.385C24.815 7.735 24.6867 8.03833 24.4533 8.28333C24.336 8.4015 24.1959 8.49452 24.0414 8.5567C23.887 8.61889 23.7215 8.64893 23.555 8.645H20.3817C20.0317 8.645 19.7283 8.51667 19.4833 8.28333C19.3652 8.16603 19.2721 8.02588 19.21 7.87142C19.1478 7.71697 19.1177 7.55146 19.1217 7.385V4.375C19.1217 4.03667 19.25 3.745 19.4833 3.48833C19.7167 3.23167 20.0317 3.115 20.3817 3.115H23.555C23.905 3.115 24.2083 3.24333 24.4533 3.48833C24.6983 3.73333 24.815 4.03667 24.815 4.375V7.385Z" fill="#222222"></path>
+                    </svg>
+                  </div>
+                </a>
+                <a class="socialFollow__link" href="https://www.linkedin.com/company/airbnb" aria-label="LinkedIn">
+                  <div class="icon">
+                    <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.625 8.05029H7.91666V17.6336H10.8333V12.9915C10.8333 11.4357 11.4062 10.4461 12.7833 10.4461C13.7762 10.4461 14.1667 11.364 14.1667 12.9915V17.6336H17.0833V12.3407C17.0833 9.48279 16.3996 7.92529 13.5187 7.92529C12.0158 7.92529 11.0154 8.62863 10.625 9.41113V8.05029Z" fill="#222222"></path>
+                      <path d="M5.83333 17.5086H2.91667V7.92529H5.83333V17.5086Z" fill="#222222"></path>
+                      <path d="M4.375 6.67529C5.41042 6.67529 6.25 5.83571 6.25 4.80029C6.25 3.76488 5.41042 2.92529 4.375 2.92529C3.33958 2.92529 2.5 3.76488 2.5 4.80029C2.5 5.83571 3.33958 6.67529 4.375 6.67529Z" fill="#222222"></path>
+                    </svg>
+                  </div>
+                </a>
+                <a class="socialFollow__link" href="https://www.tiktok.com/@airbnb" aria-label="TikTok">
+                  <div class="icon">
+                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.4096 4.08525C13.8959 3.76529 13.4553 3.34089 13.1164 2.83962C12.7774 2.33834 12.5476 1.77139 12.4419 1.17556C12.4213 1.05845 12.4059 0.940055 12.3956 0.821659V0.425293H9.2954V12.7307C9.29268 13.4203 9.01674 14.0807 8.52804 14.5672C8.03934 15.0537 7.37772 15.3267 6.68813 15.3264C6.28097 15.3268 5.8794 15.2316 5.51575 15.0484C5.0849 14.8312 4.72277 14.4987 4.46967 14.0879C4.21656 13.6771 4.08241 13.2042 4.08214 12.7217C4.08248 12.0308 4.35719 11.3682 4.84587 10.8798C5.33455 10.3914 5.9972 10.117 6.68813 10.117C6.95668 10.1165 7.22368 10.1577 7.47957 10.2392V7.79412V7.09533C7.22065 7.06038 6.95969 7.04275 6.69842 7.04257C5.18767 7.04222 3.73864 7.64195 2.67002 8.70985C1.60139 9.77775 1.00068 11.2264 1 12.7371C0.999727 13.6726 1.23011 14.5936 1.67074 15.4188C2.11138 16.2439 2.74867 16.9477 3.5262 17.4678C4.46508 18.0959 5.57013 18.4293 6.69971 18.4253C8.21024 18.4253 9.65894 17.8254 10.7273 16.7575C11.7956 15.6896 12.3962 14.2412 12.3968 12.7307V6.44415C13.6492 7.33935 15.1506 7.81957 16.69 7.81728V4.73643C15.8838 4.73779 15.0935 4.51212 14.4096 4.08525Z" fill="#222222"></path>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="postsSliderSec postsSliderSec__offcanvas">
+            <div class="container postsSliderSec__container">
+              <div class="row postSliderGrid">
+                <h2 class="postSlider__title">
+                  Introducing Icons
+                </h2>
+                <p class="postSlider__desc">
+                  Explore the extraordinary experiences hosted by the greatest names in music, film, television, art, sports, and more.
+                </p>
+                <div class="postSlider__navWrap">
+                  <button aria-label="Button: Previous Image" type="button" class="postSlider__navPrev postSliderOffcanvas__navPrev swiper-button-disabled" disabled="">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="fill: none; height: 16px; width: 16px; stroke-width: 3; overflow: visible;">
+                      <g fill="none">
+                        <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path>
+                      </g>
+                    </svg>
+                  </button>
+                  <button aria-label="Button: Next Image" type="button" class="postSlider__navNext postSliderOffcanvas__navNext">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="fill:none;height:16px;width:16px;stroke-width:3;overflow:visible" aria-hidden="true" role="presentation" focusable="false">
+                      <g fill="none">
+                        <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+                <div class="postSlider postSliderOffcanvas swiper-initialized swiper-horizontal swiper-backface-hidden">
+                  <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                    <article class="postSliderTeaser swiper-slide post-419993 post type-post status-publish format-standard has-post-thumbnail hentry category-stays swiper-slide-active" data-post-id="419993" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/polly-pocket/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/21-Polly-Pocket-Icons-Airbnb-Credit-Juan-Navarro-Above-Summit-.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/21-Polly-Pocket-Icons-Airbnb-Credit-Juan-Navarro-Above-Summit-.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/21-Polly-Pocket-Icons-Airbnb-Credit-Juan-Navarro-Above-Summit-.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/21-Polly-Pocket-Icons-Airbnb-Credit-Juan-Navarro-Above-Summit-.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="A life-sized purple Polly Pocket compact sits open in a lush green field with a forest in the background." class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/21-Polly-Pocket-Icons-Airbnb-Credit-Juan-Navarro-Above-Summit-.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Sleepover at Polly Pocket’s Compact
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-08-07T07:00:00-07:00">August 7, 2024</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-419606 post type-post status-publish format-standard has-post-thumbnail hentry category-stays swiper-slide-next" data-post-id="419606" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/step-behind-the-velvet-rope-into-kevin-harts-coramino-live-lounge/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/10-Kevin-Hart-Experience-Icons-Airbnb-Credit-Bethany-Mollenkof.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/10-Kevin-Hart-Experience-Icons-Airbnb-Credit-Bethany-Mollenkof.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/10-Kevin-Hart-Experience-Icons-Airbnb-Credit-Bethany-Mollenkof.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/10-Kevin-Hart-Experience-Icons-Airbnb-Credit-Bethany-Mollenkof.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="Kevin Hart standing smiling amongst plush red curtains" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/10-Kevin-Hart-Experience-Icons-Airbnb-Credit-Bethany-Mollenkof.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Go VIP with Kevin Hart
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-07-23T06:00:00-07:00">July 23, 2024</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-415459 post type-post status-publish format-standard has-post-thumbnail hentry category-stays" data-post-id="415459" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/make-core-memories-at-the-inside-out-2-headquarters/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/01-Inside-Out-2-Icons-Airbnb-Credit-Ryan-Lowry.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/01-Inside-Out-2-Icons-Airbnb-Credit-Ryan-Lowry.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/01-Inside-Out-2-Icons-Airbnb-Credit-Ryan-Lowry.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/01-Inside-Out-2-Icons-Airbnb-Credit-Ryan-Lowry.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="Purple room that has tubes running along the walls filled with green, blue, yellow, purple, and red balls. In the center of the room stand two modern red couches and a pedestal containing the bright colored balls in a ring near the top with a single yellow ball on top." class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/01-Inside-Out-2-Icons-Airbnb-Credit-Ryan-Lowry.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Make core memories with Inside Out 2
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-06-12T11:00:00-07:00">June 12, 2024</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-414606 post type-post status-publish format-standard has-post-thumbnail hentry category-stays" data-post-id="414606" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/celebrate-the-start-of-the-olympic-games-paris-2024-from-the-heart-of-the-city/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/10-Orsay-2-Icons-Airbnb-Credit-Wendy-Huynh.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/10-Orsay-2-Icons-Airbnb-Credit-Wendy-Huynh.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/10-Orsay-2-Icons-Airbnb-Credit-Wendy-Huynh.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/10-Orsay-2-Icons-Airbnb-Credit-Wendy-Huynh.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="The terrace at Musée d’Orsay overlooking the River Seine." class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/06/10-Orsay-2-Icons-Airbnb-Credit-Wendy-Huynh.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Open the Olympic Games at Musée d’Orsay
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-06-05T05:00:00-07:00">June 5, 2024</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-411947 post type-post status-publish format-standard has-post-thumbnail hentry category-product category-stays tag-icons" data-post-id="411947" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/experience-the-magic-of-the-incredibles-up-and-inside-out-2-on-airbnb/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/05/FEATURED-IMAGE-Incredibles-Icons-Airbnb-Credit-Spencer-Lowell.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/05/FEATURED-IMAGE-Incredibles-Icons-Airbnb-Credit-Spencer-Lowell.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/05/FEATURED-IMAGE-Incredibles-Icons-Airbnb-Credit-Spencer-Lowell.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/05/FEATURED-IMAGE-Incredibles-Icons-Airbnb-Credit-Spencer-Lowell.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="Edna Mode from Incredibles office with two display mannequins on the wall. There is a desk in the middle with the two modern yellow chairs for guests. In the background on the wall there is a large screen showing information about the suit including stats and a photo of Mr. Incredibles in his red and black suit, including his black eye mask" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/05/FEATURED-IMAGE-Incredibles-Icons-Airbnb-Credit-Spencer-Lowell.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Design your Incredibles Supersuit
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-05-16T06:00:00-07:00">May 16, 2024</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-381959 post type-post status-publish format-standard has-post-thumbnail hentry category-stays" data-post-id="381959" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/spend-the-night-in-shreks-swamp-now-on-airbnb/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/01-Shrek-Airbnb-Exterior-Credit-Alix-McIntosh-1.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/01-Shrek-Airbnb-Exterior-Credit-Alix-McIntosh-1.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/01-Shrek-Airbnb-Exterior-Credit-Alix-McIntosh-1.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/01-Shrek-Airbnb-Exterior-Credit-Alix-McIntosh-1.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="Exterior of Shrek's Swamp, a house built under a stump" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/01-Shrek-Airbnb-Exterior-Credit-Alix-McIntosh-1.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Shrek’s Swamp
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2023-09-26T07:00:00-07:00">September 26, 2023</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-375193 post type-post status-publish format-standard has-post-thumbnail hentry category-stays tag-homes" data-post-id="375193" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/barbies-malibu-dreamhouse-is-back-on-airbnb-but-this-time-kens-hosting/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/01-Kens-DreamHouse-Airbnb-Exterior-Credit-Hogwash-Studios-2.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/01-Kens-DreamHouse-Airbnb-Exterior-Credit-Hogwash-Studios-2.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/01-Kens-DreamHouse-Airbnb-Exterior-Credit-Hogwash-Studios-2.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/01-Kens-DreamHouse-Airbnb-Exterior-Credit-Hogwash-Studios-2.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/01-Kens-DreamHouse-Airbnb-Exterior-Credit-Hogwash-Studios-2.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Barbie’s Malibu DreamHouse, Ken’s Way
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2023-06-26T14:49:14-07:00">June 26, 2023</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-359981 post type-post status-publish format-standard has-post-thumbnail hentry category-stays" data-post-id="359981" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/give-mae-the-evening-off-and-spend-the-night-at-ted-lassos-favorite-pub/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2023/03/01-Ted-Lasso-Airbnb-Exterior-Credit-Henry-Woide-1-1.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/03/01-Ted-Lasso-Airbnb-Exterior-Credit-Henry-Woide-1-1.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/03/01-Ted-Lasso-Airbnb-Exterior-Credit-Henry-Woide-1-1.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/03/01-Ted-Lasso-Airbnb-Exterior-Credit-Henry-Woide-1-1.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/03/01-Ted-Lasso-Airbnb-Exterior-Credit-Henry-Woide-1-1.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Ted Lasso’s Favorite Pub
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2023-03-07T06:00:00-08:00">March 7, 2023</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-355090 post type-post status-publish format-standard has-post-thumbnail hentry category-stays" data-post-id="355090" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/get-glazed-with-seth-rogen-at-his-creative-retreat-now-on-airbnb/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2023/01/01-Houseplant-Airbnb-Seth-Rogen-Portrait-Credit-Yuri-Hasegawa-and-Hogwash-Studios.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/01/01-Houseplant-Airbnb-Seth-Rogen-Portrait-Credit-Yuri-Hasegawa-and-Hogwash-Studios.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/01/01-Houseplant-Airbnb-Seth-Rogen-Portrait-Credit-Yuri-Hasegawa-and-Hogwash-Studios.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/01/01-Houseplant-Airbnb-Seth-Rogen-Portrait-Credit-Yuri-Hasegawa-and-Hogwash-Studios.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/01/01-Houseplant-Airbnb-Seth-Rogen-Portrait-Credit-Yuri-Hasegawa-and-Hogwash-Studios.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              Houseplant Retreat
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2023-01-31T06:00:00-08:00">January 31, 2023</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    <article class="postSliderTeaser swiper-slide post-247443 post type-post status-publish format-standard has-post-thumbnail hentry category-stays" data-post-id="247443" style="width: 460.8px; margin-right: 24px;">
+                      <a href="https://news.airbnb.com/store-manager-lists-worlds-last-blockbuster-on-airbnb-for-local-residents/">
+                        <div class="postSliderTeaser__img">
+                          <img width="730" height="487" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2020/08/Exterior_Hero-NewsroomThumbnail.jpg?resize=950%2C633&amp;zoom=2 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/08/Exterior_Hero-NewsroomThumbnail.jpg?resize=768%2C512&amp;zoom=2 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/08/Exterior_Hero-NewsroomThumbnail.jpg?resize=510%2C340&amp;zoom=2 510w, https://news.airbnb.com/wp-content/uploads/sites/4/2020/08/Exterior_Hero-NewsroomThumbnail.jpg?resize=300%2C200&amp;zoom=2 300w" sizes="730px" alt="The bright sign illuminates the night sky at the world's last BLOCKBUSTER store in Bend, Oregon." class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2020/08/Exterior_Hero-NewsroomThumbnail.jpg">
+                        </div>
+                        <div class="postSliderTeaser__text">
+                          <header>
+                            <h3 class="postSliderTeaser__title">
+                              The Last Blockbuster
+                            </h3>
+                          </header>
+                          <div class="postSliderTeaser__meta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2020-08-11T06:00:00-07:00">August 11, 2020</time>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="newsByTopic container">
+            <h2 class="postTeaser__gridTitle postTeaser__gridTitle--cats">
+              News by topic
+            </h2>
+            <div class="postCats__wrap">
+              <ul class="postCats" role="tablist">
+                <li class="postCats__item active" role="presentation">
+                  <a href="#" role="tab" aria-controls="post-grid" data-cat="all" aria-selected="true">All</a>
+                </li>
+                <li class="postCats__item" role="presentation">
+                  <a href="https://news.airbnb.com/category/company-information/" role="tab" aria-controls="post-grid" data-cat="company-information" data-cat-id="45" aria-selected="false">Company</a>
+                </li>
+                <li class="postCats__item" role="presentation">
+                  <a href="https://news.airbnb.com/category/stays/" role="tab" aria-controls="post-grid" data-cat="stays" data-cat-id="738" aria-selected="false">Stays</a>
+                </li>
+                <li class="postCats__item" role="presentation">
+                  <a href="https://news.airbnb.com/category/product/" role="tab" aria-controls="post-grid" data-cat="product" data-cat-id="27529" aria-selected="false">Product</a>
+                </li>
+                <li class="postCats__item" role="presentation">
+                  <a href="https://news.airbnb.com/category/public-policy/" role="tab" aria-controls="post-grid" data-cat="public-policy" data-cat-id="18609" aria-selected="false">Policy</a>
+                </li>
+                <li class="postCats__item" role="presentation">
+                  <a href="https://news.airbnb.com/category/community/" role="tab" aria-controls="post-grid" data-cat="community" data-cat-id="55" aria-selected="false">Community</a>
+                </li>
+                <li class="postCats__item" role="presentation">
+                  <a href="https://news.airbnb.com/category/airbnb-org/" role="tab" aria-controls="post-grid" data-cat="airbnb-org" data-cat-id="24513" aria-selected="false">Airbnb.org</a>
+                </li>
+              </ul>
+            </div>
+            <div class="postsGrid postsGridTabPanel js-postsGridTabPanel" id="post-grid" role="tabpanel">
+              <div class="postTeaser__group postTeaser__group--four-column">
+                <div class="postTeaser__groupInner row ">
 
-Hãy liên hệ với chúng tôi để biết thêm thông tin hoặc đặt phòng. Chúng tôi rất vui được đón tiếp bạn và gia đình tại **Homestay Gia Đình Nhỏ**!
+                  <article class="postTeaser col-md-2 col-mdpl-3 post-421182 post type-post status-publish format-standard has-post-thumbnail hentry category-community category-destinations tag-destinations tag-news" data-post-id="421182" data-timestamp="1724257069">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a class="postTeaser__imageLink" href="https://news.airbnb.com/searches-surge-120-for-airbnbs-in-college-football-towns-this-labor-day/" tabindex="-1">
+                            <img alt="A Louisville Cardinals football player is about to kick a football with coaches, players, and fans in the stands in the background" width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2017/11/university-of-louisville-by-kyngpao-flickr.jpg?resize=2000%2C1340 2000w, https://news.airbnb.com/wp-content/uploads/sites/4/2017/11/university-of-louisville-by-kyngpao-flickr.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2017/11/university-of-louisville-by-kyngpao-flickr.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2017/11/university-of-louisville-by-kyngpao-flickr.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2017/11/university-of-louisville-by-kyngpao-flickr.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2017/11/university-of-louisville-by-kyngpao-flickr.jpg?resize=676%2C453 676w, https://news.airbnb.com/wp-content/uploads/sites/4/2017/11/university-of-louisville-by-kyngpao-flickr.jpg?resize=527%2C353 527w" sizes="(max-width: 527px) 100vw, 527px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2017/11/university-of-louisville-by-kyngpao-flickr.jpg">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard"><a class="postTeaser__titleLink" href="https://news.airbnb.com/searches-surge-120-for-airbnbs-in-college-football-towns-this-labor-day/">Searches surge nearly 130% in college football towns this Labor Day weekend</a></h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-08-21T09:17:49-07:00">August 21, 2024</time>
+                            </div>
+                          </div>
+                        </header>
 
-- **Email**: [contact@homestaygiadinhnho.com](mailto:contact@homestaygiadinhnho.com)
-- **Số điện thoại**: +123-456-7890
+                      </div>
+                    </div>
+                  </article>
+                  <article class="postTeaser col-md-2 col-mdpl-3 post-421091 post type-post status-publish format-standard has-post-thumbnail hentry category-community tag-news tag-product" data-post-id="421091" data-timestamp="1724245200">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a class="postTeaser__imageLink" href="https://news.airbnb.com/smart-lock-integrations-available-to-all-us-and-canada-hosts/" tabindex="-1">
+                            <img alt="" width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/PJM013418Q316-Garden_Home-02923.jpg?resize=2000%2C1340 2000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/PJM013418Q316-Garden_Home-02923.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/PJM013418Q316-Garden_Home-02923.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/PJM013418Q316-Garden_Home-02923.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/PJM013418Q316-Garden_Home-02923.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/PJM013418Q316-Garden_Home-02923.jpg?resize=676%2C453 676w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/PJM013418Q316-Garden_Home-02923.jpg?resize=527%2C353 527w" sizes="(max-width: 527px) 100vw, 527px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/PJM013418Q316-Garden_Home-02923.jpg">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard"><a class="postTeaser__titleLink" href="https://news.airbnb.com/smart-lock-integrations-available-to-all-us-and-canada-hosts/">Smart lock integrations are now available to all hosts in the US and Canada</a></h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-08-21T06:00:00-07:00">August 21, 2024</time>
+                            </div>
+                          </div>
+                        </header>
 
-## Theo dõi chúng tôi
+                      </div>
+                    </div>
+                  </article>
+                  <article class="postTeaser col-md-2 col-mdpl-3 post-420999 post type-post status-publish format-standard has-post-thumbnail hentry category-stays tag-city-portal location-arizona location-california location-colorado location-florida location-north-carolina location-texas location-united-states location-utah location-washington" data-post-id="420999" data-timestamp="1723726800">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a class="postTeaser__imageLink" href="https://news.airbnb.com/local-travel-on-the-rise-see-the-top-trending-destinations-locals-love/" tabindex="-1">
+                            <img alt="Industrial looking farmhouse and treehouse hybrid with a silo alongside it." width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/Riverfront-Getaway-with-a-View-.jpeg?resize=2000%2C1340 2000w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/Riverfront-Getaway-with-a-View-.jpeg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/Riverfront-Getaway-with-a-View-.jpeg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/Riverfront-Getaway-with-a-View-.jpeg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/Riverfront-Getaway-with-a-View-.jpeg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/Riverfront-Getaway-with-a-View-.jpeg?resize=676%2C453 676w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/Riverfront-Getaway-with-a-View-.jpeg?resize=527%2C353 527w" sizes="(max-width: 527px) 100vw, 527px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/Riverfront-Getaway-with-a-View-.jpeg">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard"><a class="postTeaser__titleLink" href="https://news.airbnb.com/local-travel-on-the-rise-see-the-top-trending-destinations-locals-love/">Local travel on the rise: See the top trending destinations locals love</a></h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-08-15T06:00:00-07:00">August 15, 2024</time>
+                            </div>
+                          </div>
+                        </header>
 
-- **Facebook**: [Homestay Gia Đình Nhỏ](https://www.facebook.com/homestaygiadinhnho)
-- **Instagram**: [@homestaygiadinhnho](https://www.instagram.com/homestaygiadinhnho)
+                      </div>
+                    </div>
+                  </article>
+                  <article class="postTeaser col-md-2 col-mdpl-3 post-420677 post type-post status-publish format-standard has-post-thumbnail hentry category-company-information category-product category-stays tag-homes" data-post-id="420677" data-timestamp="1723100400">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a class="postTeaser__imageLink" href="https://news.airbnb.com/paris-2024-paralympic-games-countdown-tips-to-book-last-minute-on-airbnb/" tabindex="-1">
+                            <img alt="" width="1100" height="725" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Copy-of-Sophie_216212958_London_147.jpg?resize=2000%2C1340 2000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Copy-of-Sophie_216212958_London_147.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Copy-of-Sophie_216212958_London_147.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Copy-of-Sophie_216212958_London_147.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Copy-of-Sophie_216212958_London_147.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Copy-of-Sophie_216212958_London_147.jpg?resize=676%2C453 676w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Copy-of-Sophie_216212958_London_147.jpg?resize=527%2C353 527w" sizes="(max-width: 527px) 100vw, 527px" class="optanon-category-C0012 " src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/Copy-of-Sophie_216212958_London_147.jpg">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard"><a class="postTeaser__titleLink" href="https://news.airbnb.com/paris-2024-paralympic-games-countdown-tips-to-book-last-minute-on-airbnb/">Paris 2024 Paralympic Games countdown: Tips to book last-minute on Airbnb</a></h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <time class="postTeaser__updated" datetime="2024-08-08T00:00:00-07:00">August 8, 2024</time>
+                            </div>
+                          </div>
+                        </header>
 
----
+                      </div>
+                    </div>
+                  </article>
+                  <article data-timestamp="1722924360" data-post-id="420383" class="postTeaser col-md-2 col-mdpl-3 post-420383 post type-post status-publish format-standard has-post-thumbnail hentry category-company-information">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a tabindex="-1" href="https://news.airbnb.com/airbnb-q2-2024-financial-results/" class="postTeaser__imageLink">
+                            <img sizes="(max-width: 527px) 100vw, 527px" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/AIR_Q22024_NewsroomPost_08.05.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/AIR_Q22024_NewsroomPost_08.05.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/AIR_Q22024_NewsroomPost_08.05.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/AIR_Q22024_NewsroomPost_08.05.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/AIR_Q22024_NewsroomPost_08.05.jpg?resize=527%2C353 527w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/AIR_Q22024_NewsroomPost_08.05.jpg?zoom=3&amp;resize=527%2C353 1581w" alt="" class="attachment-post-teaser-standout size-post-teaser-standout wp-post-image" src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/08/AIR_Q22024_NewsroomPost_08.05.jpg?resize=527%2C353" height="353" width="527">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard">
+                            <a href="https://news.airbnb.com/airbnb-q2-2024-financial-results/" class="postTeaser__titleLink">
+                              Airbnb Q2 2024 financial results
+                            </a>
+                          </h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <a id="postTeaser__srDate" class="sr-only">August 5, 2024</a>
+                              <time aria-hidden="true" datetime="2024-08-06T13:06:00" class="postTeaser__updated">August 5, 2024</time>
+                            </div>
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                  </article>
+                  <article data-timestamp="1722808800" data-post-id="420169" class="postTeaser col-md-2 col-mdpl-3 post-420169 post type-post status-publish format-standard has-post-thumbnail hentry category-company-information">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a tabindex="-1" href="https://news.airbnb.com/joining-forces-with-top-financial-crimes-association-to-combat-travel-scams/" class="postTeaser__imageLink">
+                            <img sizes="(max-width: 527px) 100vw, 527px" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2021/08/Newsroom_TrustSafety_004.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/08/Newsroom_TrustSafety_004.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/08/Newsroom_TrustSafety_004.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/08/Newsroom_TrustSafety_004.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/08/Newsroom_TrustSafety_004.jpg?resize=527%2C353 527w, https://news.airbnb.com/wp-content/uploads/sites/4/2021/08/Newsroom_TrustSafety_004.jpg?zoom=3&amp;resize=527%2C353 1581w" alt="" class="attachment-post-teaser-standout size-post-teaser-standout wp-post-image" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/08/Newsroom_TrustSafety_004.jpg?resize=527%2C353" height="353" width="527">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard">
+                            <a href="https://news.airbnb.com/joining-forces-with-top-financial-crimes-association-to-combat-travel-scams/" class="postTeaser__titleLink">
+                              Joining forces with top financial crimes association to combat travel scams
+                            </a>
+                          </h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <a id="postTeaser__srDate" class="sr-only">August 4, 2024</a>
+                              <time aria-hidden="true" datetime="2024-08-05T05:00:00" class="postTeaser__updated">August 4, 2024</time>
+                            </div>
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                  </article>
+                  <article data-timestamp="1721779200" data-post-id="419698" class="postTeaser col-md-2 col-mdpl-3 post-419698 post type-post status-publish format-standard has-post-thumbnail hentry category-stays">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a tabindex="-1" href="https://news.airbnb.com/celebrate-ugly-bettys-comeback-and-book-her-home-now-on-airbnb/" class="postTeaser__imageLink">
+                            <img sizes="(max-width: 527px) 100vw, 527px" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Bettys-bed.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Bettys-bed.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Bettys-bed.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Bettys-bed.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Bettys-bed.jpg?resize=527%2C353 527w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Bettys-bed.jpg?zoom=3&amp;resize=527%2C353 1581w" alt="" class="attachment-post-teaser-standout size-post-teaser-standout wp-post-image" src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Bettys-bed.jpg?resize=527%2C353" height="353" width="527">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard">
+                            <a href="https://news.airbnb.com/celebrate-ugly-bettys-comeback-and-book-her-home-now-on-airbnb/" class="postTeaser__titleLink">
+                              Celebrate Ugly Betty’s comeback and book her home, now on Airbnb
+                            </a>
+                          </h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <a id="postTeaser__srDate" class="sr-only">July 23, 2024</a>
+                              <time aria-hidden="true" datetime="2024-07-24T07:00:00" class="postTeaser__updated">July 23, 2024</time>
+                            </div>
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                  </article>
+                  <article data-timestamp="1721768400" data-post-id="419777" class="postTeaser col-md-2 col-mdpl-3 post-419777 post type-post status-publish format-standard has-post-thumbnail hentry category-company-information">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a tabindex="-1" href="https://news.airbnb.com/summer-travel-support-for-our-community/" class="postTeaser__imageLink">
+                            <img sizes="(max-width: 527px) 100vw, 527px" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/Newsroom_TrustSafety_008.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/Newsroom_TrustSafety_008.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/Newsroom_TrustSafety_008.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/Newsroom_TrustSafety_008.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/Newsroom_TrustSafety_008.jpg?resize=527%2C353 527w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/Newsroom_TrustSafety_008.jpg?zoom=3&amp;resize=527%2C353 1581w" alt="" class="attachment-post-teaser-standout size-post-teaser-standout wp-post-image" src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/06/Newsroom_TrustSafety_008.jpg?resize=527%2C353" height="353" width="527">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard">
+                            <a href="https://news.airbnb.com/summer-travel-support-for-our-community/" class="postTeaser__titleLink">
+                              Summer travel support for our community
+                            </a>
+                          </h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <a id="postTeaser__srDate" class="sr-only">July 23, 2024</a>
+                              <time aria-hidden="true" datetime="2024-07-24T04:00:00" class="postTeaser__updated">July 23, 2024</time>
+                            </div>
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                  </article>
+                  <article data-timestamp="1721592060" data-post-id="419418" class="postTeaser col-md-2 col-mdpl-3 post-419418 post type-post status-publish format-standard has-post-thumbnail hentry category-stays">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a tabindex="-1" href="https://news.airbnb.com/paris-region-now-has-over-1000-stays-with-step-free-accessibility-features/" class="postTeaser__imageLink">
+                            <img sizes="(max-width: 527px) 100vw, 527px" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/39930389_0261.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/39930389_0261.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/39930389_0261.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/39930389_0261.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/39930389_0261.jpg?resize=527%2C353 527w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/39930389_0261.jpg?zoom=3&amp;resize=527%2C353 1581w" alt="" class="attachment-post-teaser-standout size-post-teaser-standout wp-post-image" src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/39930389_0261.jpg?resize=527%2C353" height="353" width="527">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard">
+                            <a href="https://news.airbnb.com/paris-region-now-has-over-1000-stays-with-step-free-accessibility-features/" class="postTeaser__titleLink">
+                              Paris region now has over 1,000 listings with step-free accessibility features
+                            </a>
+                          </h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <a id="postTeaser__srDate" class="sr-only">July 21, 2024</a>
+                              <time aria-hidden="true" datetime="2024-07-22T03:01:00" class="postTeaser__updated">July 21, 2024</time>
+                            </div>
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                  </article>
+                  <article data-timestamp="1721264400" data-post-id="418960" class="postTeaser col-md-2 col-mdpl-3 post-418960 post type-post status-publish format-standard has-post-thumbnail hentry category-stays">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a tabindex="-1" href="https://news.airbnb.com/paris-2024-countdown-where-to-book-last-minute-travel/" class="postTeaser__imageLink">
+                            <img sizes="(max-width: 527px) 100vw, 527px" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Eiffel-Tower-Views-Design-Apartment.-View-from-flat.-Photo-courtesy-of-Airbnb-community-RET-1-1.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Eiffel-Tower-Views-Design-Apartment.-View-from-flat.-Photo-courtesy-of-Airbnb-community-RET-1-1.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Eiffel-Tower-Views-Design-Apartment.-View-from-flat.-Photo-courtesy-of-Airbnb-community-RET-1-1.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Eiffel-Tower-Views-Design-Apartment.-View-from-flat.-Photo-courtesy-of-Airbnb-community-RET-1-1.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Eiffel-Tower-Views-Design-Apartment.-View-from-flat.-Photo-courtesy-of-Airbnb-community-RET-1-1.jpg?resize=527%2C353 527w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Eiffel-Tower-Views-Design-Apartment.-View-from-flat.-Photo-courtesy-of-Airbnb-community-RET-1-1.jpg?zoom=3&amp;resize=527%2C353 1581w" alt="" class="attachment-post-teaser-standout size-post-teaser-standout wp-post-image" src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/Eiffel-Tower-Views-Design-Apartment.-View-from-flat.-Photo-courtesy-of-Airbnb-community-RET-1-1.jpg?resize=527%2C353" height="353" width="527">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard">
+                            <a href="https://news.airbnb.com/paris-2024-countdown-where-to-book-last-minute-travel/" class="postTeaser__titleLink">
+                              Paris 2024 countdown: Where to book last-minute
+                            </a>
+                          </h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <a id="postTeaser__srDate" class="sr-only">July 17, 2024</a>
+                              <time aria-hidden="true" datetime="2024-07-18T08:00:00" class="postTeaser__updated">July 17, 2024</time>
+                            </div>
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                  </article>
+                  <article data-timestamp="1721237722" data-post-id="418928" class="postTeaser col-md-2 col-mdpl-3 post-418928 post type-post status-publish format-standard has-post-thumbnail hentry category-company-information">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a tabindex="-1" href="https://news.airbnb.com/paris-2024-airbnb-continues-commitment-to-athlete-support-with-airbnb500-travel-grant/" class="postTeaser__imageLink">
+                            <img sizes="(max-width: 527px) 100vw, 527px" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/2-preferred-PJM013418Q411-_DRE5926.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/2-preferred-PJM013418Q411-_DRE5926.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/2-preferred-PJM013418Q411-_DRE5926.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/2-preferred-PJM013418Q411-_DRE5926.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/2-preferred-PJM013418Q411-_DRE5926.jpg?resize=527%2C353 527w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/2-preferred-PJM013418Q411-_DRE5926.jpg?zoom=3&amp;resize=527%2C353 1581w" alt="" class="attachment-post-teaser-standout size-post-teaser-standout wp-post-image" src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/07/2-preferred-PJM013418Q411-_DRE5926.jpg?resize=527%2C353" height="353" width="527">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard">
+                            <a href="https://news.airbnb.com/paris-2024-airbnb-continues-commitment-to-athlete-support-with-airbnb500-travel-grant/" class="postTeaser__titleLink">
+                              Paris 2024: Airbnb continues commitment to athlete support with Airbnb500 travel grant
+                            </a>
+                          </h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <a id="postTeaser__srDate" class="sr-only">July 17, 2024</a>
+                              <time aria-hidden="true" datetime="2024-07-18T00:35:22" class="postTeaser__updated">July 17, 2024</time>
+                            </div>
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                  </article>
+                  <article data-timestamp="1720994400" data-post-id="418571" class="postTeaser col-md-2 col-mdpl-3 post-418571 post type-post status-publish format-standard has-post-thumbnail hentry category-community">
+                    <div class="postTeaser__inner postTeaser__inner--standard">
+                      <div class="postTeaser__imageWrap--standard">
+                        <div class="postTeaser__image postTeaser__image--standard">
+                          <a tabindex="-1" href="https://news.airbnb.com/supporting-local-solutions-to-help-housing-affordability/" class="postTeaser__imageLink">
+                            <img sizes="(max-width: 527px) 100vw, 527px" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2024/01/US_10787413_ChristinaHudson_2002_NEW_1600px.jpg?resize=300%2C200 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/01/US_10787413_ChristinaHudson_2002_NEW_1600px.jpg?resize=1024%2C686 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/01/US_10787413_ChristinaHudson_2002_NEW_1600px.jpg?resize=697%2C467 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/01/US_10787413_ChristinaHudson_2002_NEW_1600px.jpg?resize=1000%2C670 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/01/US_10787413_ChristinaHudson_2002_NEW_1600px.jpg?resize=527%2C353 527w, https://news.airbnb.com/wp-content/uploads/sites/4/2024/01/US_10787413_ChristinaHudson_2002_NEW_1600px.jpg?zoom=3&amp;resize=527%2C353 1581w" alt="" class="attachment-post-teaser-standout size-post-teaser-standout wp-post-image" src="https://news.airbnb.com/wp-content/uploads/sites/4/2024/01/US_10787413_ChristinaHudson_2002_NEW_1600px.jpg?resize=527%2C353" height="353" width="527">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="postTeaser__textWrap">
+                        <header>
+                          <h3 class="postTeaser__title postTeaser__title--standard">
+                            <a href="https://news.airbnb.com/supporting-local-solutions-to-help-housing-affordability/" class="postTeaser__titleLink">
+                              Supporting local solutions to help drive housing affordability in the US
+                            </a>
+                          </h3>
+                          <div class="postTeaser__hdrMeta">
+                            <div class="postTeaser__meta">
+                              <a id="postTeaser__srDate" class="sr-only">July 14, 2024</a>
+                              <time aria-hidden="true" datetime="2024-07-15T05:00:00" class="postTeaser__updated">July 14, 2024</time>
+                            </div>
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="postCats__footer">
+              <button class="btn btn--loadMore js-load-more-posts" data-col-count="3" data-sort-by-time="1" style="">
+                View more
+              </button>
 
-Cảm ơn bạn đã ghé thăm trang web của chúng tôi. Chúng tôi mong được phục vụ bạn trong thời gian tới!
+              <div class="loading-more js-loading-more" style="display: none;">
+                <div class="loader-1"></div>
+                <div class="loader-2"></div>
+                <div class="loader-3"></div>
+              </div>
+            </div>
+          </div>
+          <div class="foundersLetter_Wrap">
+            <div class="foundersLetter container">
+              <div class="foundersLetter_Inner">
+                <div class="row">
+                  <div class="foundersLetter__right">
+                    <div class="foundersLetter__textWrap">
+                      <h2 class="foundersLetter__header">What makes Airbnb, Airbnb</h2>
+                      <p class="foundersLetter__text">A letter from our founders</p>
+                      <a href="https://news.airbnb.com/what-makes-airbnb-airbnb/" class="foundersLetter__button">
+                        Read more
+                      </a>
+                    </div>
+                  </div>
+                  <div class="foundersLetter__left">
+                    <div class="foundersLetter__imageWrap">
+                      <img width="1024" height="768" class="optanon-category-C0012 attachment-large size-large" alt="" decoding="async" loading="lazy" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=3956 3956w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=300 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=768 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=1024 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=1536 1536w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=2048 2048w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=950 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=697 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=1000 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?w=3000 3000w" sizes="(max-width: 1024px) 100vw, 1024px" src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/09/FoundersRauschSt_201203_001_photos_v2_x4_RET.jpg?fit=1024%2C768">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
