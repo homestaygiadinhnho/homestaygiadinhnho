@@ -15,3 +15,11 @@ build/
 
 # Bỏ qua tất cả các tệp và thư mục bắt đầu bằng dấu chấm
 .*
+
+# Các mục Jekyll cụ thể
+_site
+.sass-cache
+.jekyll-metadata
+
+# Các mục Ruby và Node.js cụ thể
+Gemfile.lock
