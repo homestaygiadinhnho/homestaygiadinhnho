@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: "Chào mừng đến với Homestay Gia Đình Nhỏ"
 description: "Tận hưởng kỳ nghỉ tuyệt vời cùng gia đình tại Homestay Gia Đình Nhỏ - nơi mang đến không gian thư giãn và ấm cúng."
 ---
