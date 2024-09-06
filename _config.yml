@@ -1,0 +1,56 @@
+# Site Configuration
+title: "Homestay Gia Đình Nhỏ" # Tên trang web
+description: "Homestay Gia Đình Nhỏ là nơi lý tưởng để bạn tận hưởng những khoảnh khắc thư giãn và bình yên cùng gia đình trong không gian ấm cúng, thân thiện. Tọa lạc tại vị trí thuận tiện, homestay của chúng tôi mang đến cho bạn trải nghiệm hòa mình với thiên nhiên, cùng những tiện nghi hiện đại. Tại đây, bạn có thể cảm nhận sự gần gũi, chân thật như ở chính ngôi nhà của mình, với dịch vụ chu đáo và sự hiếu khách." # Mô tả trang web
+logo: "assets/images/logo.png" # Đường dẫn đến logo của trang
+favicon: "assets/images/favicon.ico" # Favicon cho trang
+baseurl: "" # Để trống nếu chạy ở root
+url: "https://homestaygiadinhnho.github.io/homestaygiadinhnho" # URL của trang GitHub Pages
+disqus: "" # Nếu sử dụng Disqus, thêm shortname của trang Disqus, nếu không thì để trống
+email: "contact@homestaygiadinhnho.com" # Email liên hệ
+mailchimp-list: "" # Mailchimp URL nếu có, hoặc để trống nếu không sử dụng
+
+# Navigation
+include: ["_pages"]
+permalink: /:title/ # Cấu trúc permalink cho các trang
+
+# Plugins - Các plugin Jekyll
+plugins:
+  - jekyll-feed # Tạo RSS feed
+  - jekyll-sitemap # Tạo sitemap cho trang
+  - jekyll-paginate # Phân trang
+  - jekyll-seo-tag # Tối ưu hóa SEO
+
+# Authors - Thông tin về tác giả (có thể bỏ qua nếu không cần)
+authors:
+  - name: "Homestay Gia Đình Nhỏ"
+    site: "https://homestaygiadinhnho.github.io/homestaygiadinhnho"
+    avatar: "/assets/images/logo.png"
+    bio: "Chúng tôi là đội ngũ đứng sau Homestay Gia Đình Nhỏ, mang đến cho bạn những trải nghiệm nghỉ dưỡng đáng nhớ."
+    email: "contact@homestaygiadinhnho.com"
+  
+# Defaults - Cấu hình mặc định cho bài viết và trang
+defaults:
+
+  # Mặc định cho tất cả bài viết
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: "Homestay Gia Đình Nhỏ"
+      avatar: "/assets/images/logo.png"
+      
+  # Mặc định cho tất cả các trang
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+
+# Markdown & Syntax Highlighting - Cấu hình Markdown và highlighter cho mã code
+markdown: kramdown
+highlighter: rouge
+
+# Pagination - Phân trang
+paginate: 10
+
+# Exclude - Các tệp và thư mục không cần đưa vào trang build
+exclude: [README.md, package.json, node_modules, Gruntfile.js, grunt.js, Gruntfile.coffee]
