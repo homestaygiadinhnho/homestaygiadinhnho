@@ -1,20 +1,18 @@
 source "https://rubygems.org"
 
-# Khai báo phiên bản Ruby cụ thể
-ruby "2.7.4" # Thay thế 2.7.4 bằng phiên bản Ruby của bạn
+# Khai báo phiên bản Ruby của bạn
+ruby "2.7.4" # Thay thế bằng phiên bản Ruby mà bạn sử dụng
 
 # Khai báo các gem cần thiết cho dự án
-gem "rails", "~> 6.1.4"
 gem "jekyll", "~> 4.2.0"
-gem "nokogiri", "~> 1.11.1"
-
-# Khai báo các gem cho Jekyll plugins
-group :jekyll_plugins do
-  gem 'jekyll-feed'
-  gem 'jekyll-sitemap'
-  gem 'jekyll-paginate'
-  gem 'jekyll-seo-tag'
-end
+gem "jekyll-feed", "~> 0.12.0"
+gem "jekyll-paginate", "~> 1.1.0"
+gem "jekyll-seo-tag", "~> 2.7.0"
+gem "jekyll-sitemap", "~> 1.4.0"
 
 # Nếu bạn sử dụng Windows, thêm gem 'wdm'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
+# Các gem khác có thể cần thiết cho dự án của bạn
+gem "nokogiri", "~> 1.11.1"
+gem "sassc", "~> 2.4.0" # Nếu bạn sử dụng Sass
