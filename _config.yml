@@ -23,7 +23,7 @@ plugins:
 # Authors - Thông tin về tác giả (có thể bỏ qua nếu không cần)
 authors:
   - name: "Homestay Gia Đình Nhỏ"
-    site: "https://homestaygiadinhnho.github.io/homestaygiadinhnho"
+    site: "https://homestaygiadinhnho.github.io/"
     avatar: "/assets/images/logo.png"
     bio: "Chúng tôi là đội ngũ đứng sau Homestay Gia Đình Nhỏ, mang đến cho bạn những trải nghiệm nghỉ dưỡng đáng nhớ."
     email: "contact@homestaygiadinhnho.com"
