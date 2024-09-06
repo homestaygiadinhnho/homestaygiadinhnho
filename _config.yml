@@ -4,7 +4,7 @@ description: "Homestay Gia Đình Nhỏ là nơi lý tưởng để bạn tận 
 logo: "assets/images/logo.png" # Đường dẫn đến logo của trang
 favicon: "assets/images/favicon.ico" # Favicon cho trang
 baseurl: "" # Để trống nếu chạy ở root
-url: "https://homestaygiadinhnho.github.io/homestaygiadinhnho" # URL của trang GitHub Pages
+url: "https://homestaygiadinhnho.github.io" # URL của trang GitHub Pages
 disqus: "" # Nếu sử dụng Disqus, thêm shortname của trang Disqus, nếu không thì để trống
 email: "contact@homestaygiadinhnho.com" # Email liên hệ
 mailchimp-list: "" # Mailchimp URL nếu có, hoặc để trống nếu không sử dụng
