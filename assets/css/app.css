@@ -7,7 +7,7 @@
 }
 :root {
   --swiper-theme-color: #007aff;
-  --typography-text: Arial;
+  --typography-text: Playfair Display;
 }
 .swiper,
 swiper-container {
