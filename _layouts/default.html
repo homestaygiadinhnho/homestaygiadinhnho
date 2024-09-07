@@ -1,46 +1,62 @@
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'vi' }}">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://news.airbnb.com/wp-content/themes/presser/resources/assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://news.airbnb.com/wp-content/themes/presser/resources/assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://news.airbnb.com/wp-content/themes/presser/resources/assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="https://news.airbnb.com/wp-content/themes/presser/resources/assets/favicon/site.webmanifest">
-  <link rel="mask-icon" href="https://news.airbnb.com/wp-content/themes/presser/resources/assets/favicon/safari-pinned-tab.svg" color="#ff5a5f">
-  <link rel="shortcut icon" href="https://news.airbnb.com/wp-content/themes/presser/resources/assets/favicon/favicon.ico">
+  
+  <!-- Favicon Links -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ site.baseurl }}/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="{{ site.baseurl }}/assets/favicon/safari-pinned-tab.svg" color="#ff5a5f">
+  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon/favicon.ico">
   <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-config" content="https://news.airbnb.com/wp-content/themes/presser/resources/assets/favicon/browserconfig.xml">
+  <meta name="msapplication-config" content="{{ site.baseurl }}/assets/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="alternate" href="https://news.airbnb.com/en-in/" hreflang="en-US">
-  <title>Airbnb Newsroom</title>
-  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/app.css">
 
-  <meta name="description" content="Airbnb Newsroom is a home for news and announcements from Airbnb, a global community of hosts and travelers.">
-  <link rel="canonical" href="https://news.airbnb.com/">
-  <meta property="og:locale" content="en_US">
+  <!-- SEO Tags -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="alternate" href="{{ page.url | prepend: site.baseurl }}" hreflang="{{ page.lang | default: 'en-US' }}">
+  
+  <title>{{ page.title | default: site.title }}</title>
+  
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="canonical" href="{{ page.url | prepend: site.baseurl }}">
+  
+  <meta property="og:locale" content="{{ site.locale | default: 'en_US' }}">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Airbnb Newsroom">
-  <meta property="og:description" content="Airbnb Newsroom is a home for news and announcements from Airbnb, a global community of hosts and travelers.">
-  <meta property="og:url" content="https://news.airbnb.com/">
-  <meta property="og:site_name" content="Airbnb Newsroom">
-  <meta property="article:modified_time" content="2024-08-29T16:43:58+00:00">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:url" content="{{ page.url | prepend: site.baseurl }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="article:modified_time" content="{{ page.date | date_to_xmlschema }}">
+  
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.airbnb.com/xmlrpc.php?rsd">
-  <meta name="generator" content="WordPress 6.6.1">
-  <link rel="icon" href="https://news.airbnb.com/wp-content/uploads/sites/4/2018/07/logo.png?fit=28%2C29" sizes="32x32">
-  <link rel="icon" href="https://news.airbnb.com/wp-content/uploads/sites/4/2018/07/logo.png?fit=28%2C29" sizes="192x192">
-  <link rel="apple-touch-icon" href="https://news.airbnb.com/wp-content/uploads/sites/4/2018/07/logo.png?fit=28%2C29">
-  <meta name="msapplication-TileImage" content="https://news.airbnb.com/wp-content/uploads/sites/4/2018/07/logo.png?fit=28%2C29">
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/app.css">
+
+  <!-- RSS and WordPress Related Tags -->
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{ site.baseurl }}/xmlrpc.php?rsd">
+  <meta name="generator" content="WordPress {{ site.wordpress_version }}">
+  
+  <!-- Icons -->
+  <link rel="icon" href="{{ site.baseurl }}/assets/img/logo.png" sizes="32x32">
+  <link rel="icon" href="{{ site.baseurl }}/assets/img/logo.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/img/logo.png">
+  <meta name="msapplication-TileImage" content="{{ site.baseurl }}/assets/img/logo.png">
 </head>
 
-<body class="home page-template-default page page-id-56089 app-data index-data singular-data page-data page-56089-data page-home-6-data front-page-data">
+<body class="{{ page.class | default: 'home' }}">
   <div class="offcanvas-wrap">
     <div class="offcanvas-wrap-overlay"></div>
+
+    <!-- Include Header -->
     {% include header.html %}
+
     <div class="wrap" role="document">
       <div class="content">
         <main class="main" id="mainContent" tabindex="-1">
@@ -48,6 +64,8 @@
         </main>
       </div>
     </div>
+
+    <!-- Include Footer and Navigation -->
     {% include footer.html %}
     {% include navigation.html %}
   </div>
