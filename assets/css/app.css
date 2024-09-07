@@ -7,6 +7,7 @@
 }
 :root {
   --swiper-theme-color: #007aff;
+  --typography-text: Arial;
 }
 .swiper,
 swiper-container {
@@ -3845,7 +3846,7 @@ template {
   }
 }
 @font-face {
-  font-family: "Cereal";
+  font-family: Anamart;
   font-style: normal;
   font-display: swap;
   src: url(https://homestaygiadinhnho.github.io/assets/fonts/Anamart-Regular.woff2)
@@ -3853,7 +3854,7 @@ template {
   font-weight: 400;
 }
 @font-face {
-  font-family: "Cereal";
+  font-family: Anamart;
   font-style: normal;
   font-display: swap;
   src: url(https://homestaygiadinhnho.github.io/assets/fonts/BogleWeb-Regular.woff2)
@@ -3861,7 +3862,7 @@ template {
   font-weight: 400;
 }
 @font-face {
-  font-family: "Cereal";
+  font-family: Anamart;
   font-style: normal;
   font-display: swap;
   src: url(https://homestaygiadinhnho.github.io/assets/fonts/Anamart-Bold.woff2)
@@ -3869,7 +3870,7 @@ template {
   font-weight: 700;
 }
 @font-face {
-  font-family: "Cereal";
+  font-family: Anamart;
   font-style: normal;
   font-display: swap;
   src: url(https://homestaygiadinhnho.github.io/assets/fonts/BogleWeb-Bold.woff2)
@@ -5085,7 +5086,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   color: #222;
-  font-family: Cereal, sans-serif;
+  font-family: var(--typography-text);
 }
 @media (max-width: 743.98px) {
   body {
@@ -15234,7 +15235,7 @@ body.frozen {
   -ms-flex-item-align: start;
   align-self: start;
   text-align: center;
-  font-family: Cereal, sans-serif;
+  font-family: var(--typography-text);
   font-size: 1rem;
   font-weight: 500;
   padding-top: 8px;
@@ -35206,7 +35207,7 @@ body .wpb_gallery_slides ul li {
 .page-template-template-nyc-host-headline .container-inner h1 {
   text-align: center;
   margin-bottom: 16px;
-  font-family: "Cereal";
+  font-family: var(--typography-text);
   font-weight: 600;
   color: #2b2b2b;
   font-size: 4rem;
@@ -35218,7 +35219,7 @@ body .wpb_gallery_slides ul li {
 }
 .page-template-template-nyc-host-headline .container-inner .intro {
   text-align: center;
-  font-family: "Cereal";
+  font-family: var(--typography-text);
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.25;
@@ -35248,7 +35249,7 @@ body .wpb_gallery_slides ul li {
   display: block;
 }
 .page-template-template-nyc-host-headline .grid-tile h2 {
-  font-family: "Cereal";
+  font-family: var(--typography-text);
   font-weight: 600;
   font-size: 1.125rem;
   color: #484848;
@@ -35292,7 +35293,7 @@ body .wpb_gallery_slides ul li {
   padding: 15px;
   color: #fff;
   font-size: 1.5rem;
-  font-family: "Cereal";
+  font-family: var(--typography-text);
   font-weight: 600;
 }
 .page-template-template-nyc-host-headline .img-box .caption span {
@@ -39991,117 +39992,4 @@ body.search .jetpack-search-form input[name="s"].show-placeholder::placeholder {
 }
 .milestone-message {
   padding-top: 1em;
-}
-body.jetpack-subscribe-modal-open {
-  overflow: hidden;
-}
-.jetpack-subscribe-modal {
-  background-color: initial;
-  height: 100%;
-  left: 0;
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  transition: all 0.4s;
-  visibility: hidden;
-  width: 100%;
-  z-index: 50000;
-}
-.jetpack-subscribe-modal.open {
-  background-color: #0000004d;
-  visibility: visible;
-}
-.jetpack-subscribe-modal__modal-content {
-  background-color: #fefefe;
-  border-radius: 10px;
-  box-sizing: border-box;
-  margin: 15% auto;
-  max-width: 600px;
-  overflow: hidden;
-  position: relative;
-  text-wrap: balance;
-  top: 100%;
-  transition: all 0.4s;
-  visibility: hidden;
-  width: 100%;
-}
-.jetpack-subscribe-modal.open .jetpack-subscribe-modal__modal-content {
-  top: 0;
-  visibility: visible;
-}
-.jetpack-subscribe-modal__modal-content p {
-  text-wrap: balance;
-  text-wrap: pretty;
-}
-@media screen and (max-width: 640px) {
-  .jetpack-subscribe-modal__modal-content {
-    width: 94%;
-  }
-}
-body.jetpack-subscribe-overlay-open {
-  overflow: hidden;
-}
-.jetpack-subscribe-overlay {
-  --jetpack-subscribe-overlay--background-color: var(
-    --wp--preset--color--background,
-    var(--wp--preset--color--base, var(--wp--preset--color--contrast, #f9f9f9))
-  );
-  background-color: initial;
-  height: 100%;
-  left: 0;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  transition: background-color 0.4s, visibility 0.4s;
-  visibility: hidden;
-  width: 100%;
-  z-index: 50000;
-}
-.jetpack-subscribe-overlay__content {
-  margin: 15% auto;
-  max-width: 400px;
-  overflow: hidden;
-  position: relative;
-  text-wrap: pretty;
-  top: 100%;
-  transition: top 0.4s, visibility 0.4s;
-  visibility: hidden;
-  width: 100%;
-}
-.jetpack-subscribe-overlay__close {
-  cursor: pointer;
-  display: none;
-  height: 24px;
-  position: absolute;
-  right: 32px;
-  top: 32px;
-  width: 24px;
-}
-body.admin-bar .jetpack-subscribe-overlay__close {
-  top: 64px;
-}
-.jetpack-subscribe-overlay__to-content {
-  bottom: 64px;
-  display: none;
-  left: 0;
-  margin: 0 auto;
-  position: fixed;
-  right: 0;
-}
-.jetpack-subscribe-overlay.open {
-  background-color: var(--jetpack-subscribe-overlay--background-color);
-  visibility: visible;
-}
-.jetpack-subscribe-overlay.open .jetpack-subscribe-overlay__content {
-  top: 0;
-  visibility: visible;
-}
-.jetpack-subscribe-overlay.open .jetpack-subscribe-overlay__close,
-.jetpack-subscribe-overlay.open .jetpack-subscribe-overlay__to-content {
-  display: block;
-}
-@media screen and (max-width: 640px) {
-  .jetpack-subscribe-overlay__content {
-    width: 94%;
-  }
 }
