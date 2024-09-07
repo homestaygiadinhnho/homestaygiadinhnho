@@ -1,8 +1,8 @@
 # Site Configuration
 title: "Homestay Gia Đình Nhỏ" # Tên trang web
 description: "Homestay Gia Đình Nhỏ là nơi lý tưởng để bạn tận hưởng những khoảnh khắc thư giãn và bình yên cùng gia đình trong không gian ấm cúng, thân thiện. Tọa lạc tại vị trí thuận tiện, homestay của chúng tôi mang đến cho bạn trải nghiệm hòa mình với thiên nhiên, cùng những tiện nghi hiện đại. Tại đây, bạn có thể cảm nhận sự gần gũi, chân thật như ở chính ngôi nhà của mình, với dịch vụ chu đáo và sự hiếu khách." # Mô tả trang web
-logo: "assets/images/logo.png" # Đường dẫn đến logo của trang
-favicon: "assets/images/favicon.ico" # Favicon cho trang
+logo: "assets/favicon/logo.png" # Đường dẫn đến logo của trang
+favicon: "assets/favicon/favicon.ico" # Favicon cho trang
 baseurl: "" # Để trống nếu chạy ở root
 url: "https://homestaygiadinhnho.github.io" # URL của trang GitHub Pages
 disqus: "" # Nếu sử dụng Disqus, thêm shortname của trang Disqus, nếu không thì để trống
@@ -24,20 +24,19 @@ plugins:
 authors:
   - name: "Homestay Gia Đình Nhỏ"
     site: "https://homestaygiadinhnho.github.io/"
-    avatar: "/assets/images/logo.png"
+    avatar: "/assets/favicon/logo.png"
     bio: "Chúng tôi là đội ngũ đứng sau Homestay Gia Đình Nhỏ, mang đến cho bạn những trải nghiệm nghỉ dưỡng đáng nhớ."
     email: "contact@homestaygiadinhnho.com"
-  
+
 # Defaults - Cấu hình mặc định cho bài viết và trang
 defaults:
-
   # Mặc định cho tất cả bài viết
   - scope:
       path: "_posts"
     values:
       layout: post
       author: "Homestay Gia Đình Nhỏ"
-      avatar: "/assets/images/logo.png"
+      avatar: "/assets/favicon/logo.png"
       
   # Mặc định cho tất cả các trang
   - scope:
@@ -54,3 +53,26 @@ paginate: 10
 
 # Exclude - Các tệp và thư mục không cần đưa vào trang build
 exclude: [README.md, package.json, node_modules, Gruntfile.js, grunt.js, Gruntfile.coffee]
+
+# SEO Tags
+seo_tag:
+  title: "{{ site.title }}"
+  description: "{{ site.description }}"
+  url: "{{ site.url }}"
+  logo: "{{ site.logo }}"
+
+# Analytics (cấu hình nếu sử dụng Google Analytics)
+google_analytics: "UA-XXXXXXXXX-X" # Thay đổi UA-XXXXXXXXX-X bằng mã Google Analytics của bạn
+
+# Sitemap
+sitemap:
+  url: "{{ site.url }}/sitemap.xml"
+
+# Robots.txt
+robots:
+  enabled: true
+  # Optional: You can also specify specific rules here
+
+# Cache Busting - Không nên sử dụng nếu không cần thiết
+# cache_busting:
+#   enabled: true
