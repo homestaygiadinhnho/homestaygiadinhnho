@@ -51,372 +51,368 @@ sections:
 ---
 
 <div>
-    <header class="relative overflow-hidden" data-hidable="true" data-movable="true">
-      <img src="{{ page.header_image }}" class="w-full object-cover" alt="pg">
-      <div class="absolute w-full h-full top-0 left-0 z-10">
-        <div class="flex gap-x-2 h-full items-center">
-          <div class="flex-1 text-center">
-            <div class="w-full xl:pl-[165px]">
-              <div class="font-elsie text-[20px] xl:text-[50px] xxl:text-[100px] text-tl3red" data-editable="true">Save the Date</div>
-              <div class="font-playfairDisplay text-[30px] md:text-[50px] xl:text-[120px] text-tl3green leading-[1]">
-                <div data-editable="true">{{ page.bride_name }}</div>
-                <div>
-                  <img src="{{ page.double_hear }}" class="inline-block xl:w-auto w-[30px] md:w-[50px]" alt="dh">
-                </div>
-                <div data-editable="true">{{ page.groom_name }}</div>
+  <header class="relative overflow-hidden" data-hidable="true" data-movable="true">
+    <img src="{{ page.header_image }}" class="w-full object-cover" alt="pg">
+    <div class="absolute w-full h-full top-0 left-0 z-10">
+      <div class="flex gap-x-2 h-full items-center">
+        <div class="flex-1 text-center">
+          <div class="w-full xl:pl-[165px]">
+            <div class="font-elsie text-[20px] xl:text-[50px] xxl:text-[100px] text-tl3red" data-editable="true">Save the Date</div>
+            <div class="font-playfairDisplay text-[30px] md:text-[50px] xl:text-[120px] text-tl3green leading-[1]">
+              <div data-editable="true">{{ page.bride_name }}</div>
+              <div>
+                <img src="{{ page.double_hear }}" class="inline-block xl:w-auto w-[30px] md:w-[50px]" alt="dh">
               </div>
-              <div data-editable="true" class="text-[14px] md:text-[20px] lg:text-[24px] xxl:text-[48px] text-tl3blue font-dosis">{{ page.wedding_date }}</div>
+              <div data-editable="true">{{ page.groom_name }}</div>
+            </div>
+            <div data-editable="true" class="text-[14px] md:text-[20px] lg:text-[24px] xxl:text-[48px] text-tl3blue font-dosis">{{ page.wedding_date }}</div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <div class="w-full xl:pt-[130px] relative inline-block">
+            <img data-editable="true" class="lg:max-w-[90%] max-h-[869px] aspect-[853/708] -rotate-12 object-cover [clip-path:polygon(-41%_0,50%_91%,141%_0)] [mask:radial-gradient(at_70%_31%,#000_29%,#0000_30%),radial-gradient(at_30%_31%,#000_29%,#0000_30%),linear-gradient(#000_0_0)_bottom/100%_50%_no-repeat]" src="{{ page.hero_image }}" alt="">
+            <div class="absolute bottom-[10px] lg:bottom-[20px] right-[30px] lg:right-[50px] xl:right-[20%]">
+              <img src="{{ page.heart_image }}" class="w-[40px] md:w-[100px] xl:w-auto" alt="">
             </div>
           </div>
-          <div class="flex-1">
-            <div class="w-full xl:pt-[130px] relative inline-block">
-              <img data-editable="true" class="lg:max-w-[90%] max-h-[869px] aspect-[853/708] -rotate-12 object-cover [clip-path:polygon(-41%_0,50%_91%,141%_0)] [mask:radial-gradient(at_70%_31%,#000_29%,#0000_30%),radial-gradient(at_30%_31%,#000_29%,#0000_30%),linear-gradient(#000_0_0)_bottom/100%_50%_no-repeat]" src="{{ page.hero_image }}" alt="">
-              <div class="absolute bottom-[10px] lg:bottom-[20px] right-[30px] lg:right-[50px] xl:right-[20%]">
-                <img src="{{ page.heart_image }}" class="w-[40px] md:w-[100px] xl:w-auto" alt="">
-              </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute top-[95px] left-0">
+      <img src="{{ page.leaf1_image }}" class="xl:w-auto w-[100px]" alt="">
+    </div>
+    <div class="absolute bottom-[-80px] right-0">
+      <img src="{{ page.leaf2_image }}" class="xl:w-auto w-[100px]" alt="">
+    </div>
+  </header>
+
+  <div class="relative flex items-center justify-center py-[40px] gap-[15px] xl:gap-[75px] px-[30px]">
+    <div class="text-center">
+      <div class="relative group inline-block">
+        <div class="overflow-hidden rounded-extra-round text-center xl:text-left">
+          <img src="{{ page.groom_image }}" data-editable="true" class="aspect-[2/3] max-w-[165px] md:max-w-[350px] xl:max-w-[600px] xl:h-auto object-cover xl:w-auto inline-block" alt="">
+        </div>
+        <div class="group-hover:opacity-100 absolute w-[92%] h-[92%] bg-[rgba(0,67,105,0.7)] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-extra-round text-center xl:pt-[100px] xl:px-[80px] p-[10px] md:p-[20px] w-[260px] opacity-0 duration-100">
+          <p class="text-[12px] xl:text-[48px] text-[#fff]" data-editable="true">Chú rể</p>
+          <div data-editable="true" class="font-playfairDisplay text-[28px] md:text-[50px] xl:text-[90px] text-[#E5DDC8] leading-[1]">{{ page.groom_name }}</div>
+          <div data-editable="true" class="text-[12px] md:text-[15px] xl:text-[26px] xl:leading-[38px] text-[#F9F8F4] xl:mt-[10px]">{{ page.groom_description }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center xl:text-left my-[50px] xl:my-0">
+      <img src="{{ page.heart_1_image }}" class="w-[32px] lg:w-auto inline-block" alt="">
+    </div>
+    <div class="text-center">
+      <div class="relative group inline-block">
+        <div class="overflow-hidden rounded-extra-round text-center xl:text-left">
+          <img src="{{ page.bride_image }}" data-editable="true" class="aspect-[2/3] max-w-[165px] md:max-w-[350px] xl:max-w-[600px] xl:h-auto object-cover xl:w-auto inline-block" alt="">
+        </div>
+        <div class="group-hover:opacity-100 absolute w-[92%] h-[92%] bg-[rgba(0,67,105,0.7)] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-extra-round text-center xl:pt-[100px] xl:px-[80px] p-[10px] md:p-[20px] w-[260px] opacity-0 duration-100">
+          <p class="text-[12px] xl:text-[48px] text-[#fff]" data-editable="true">Cô dâu</p>
+          <div data-editable="true" class="font-playfairDisplay text-[28px] md:text-[50px] xl:text-[90px] text-[#E5DDC8] leading-[1]">{{ page.bride_name }}</div>
+          <div data-editable="true" class="text-[12px] md:text-[15px] xl:text-[26px] xl:leading-[38px] text-[#F9F8F4] xl:mt-[10px]">{{ page.bride_description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative" data-hidable="true" data-movable="true">
+    <div>
+      <img src="{{ page.countdown_image }}" class="h-[100px] xl:h-[200px] w-full object-cover" alt="">
+    </div>
+    <div class="flex items-center absolute justify-center w-full h-full top-0 left-0 bg-[rgba(219,31,72,1)]">
+      <div class="flex gap-[10px] md:gap-[55px] items-center justify-center text-center leading-[1]">
+        <div>
+          <div id="countdown-days" class="vs-time-days font-elsie font-black text-[35px] xl:text-[50px] text-[#EAC894]"></div>
+          <div class="text-white font-dosis font-normal text-[18px] xl:text-[24px] mt-[15px]">Ngày</div>
+        </div>
+        <div class="font-elsie text-[30px] xl:text-[62px] text-[#EAC894]">:</div>
+        <div>
+          <div id="countdown-hours" class="vs-time-hours font-elsie font-black text-[35px] xl:text-[50px] text-[#EAC894]"></div>
+          <div class="text-white font-dosis font-normal text-[18px] xl:text-[24px] mt-[15px]">Giờ</div>
+        </div>
+        <div class="font-elsie text-[30px] xl:text-[62px] text-[#EAC894]">:</div>
+        <div>
+          <div id="countdown-minutes" class="vs-time-minutes font-elsie font-black text-[35px] xl:text-[50px] text-[#EAC894]"></div>
+          <div class="text-white font-dosis font-normal text-[18px] xl:text-[24px] mt-[15px]">Phút</div>
+        </div>
+        <div class="font-elsie text-[30px] xl:text-[62px] text-[#EAC894]">:</div>
+        <div>
+          <div id="countdown-seconds" class="vs-time-seconds font-elsie font-black text-[35px] xl:text-[50px] text-[#EAC894]"></div>
+          <div class="text-white font-dosis font-normal text-[18px] xl:text-[24px] mt-[15px]">Giây</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="xxl:flex justify-center relative xl:pb-[142px] pt-[25px] xl:pt-[192px] px-[25px] md:px-0" data-hidable="true" data-movable="true">
+    <div class="xxl:absolute top-[82px] left-[120px] xxl:mb-0 mb-[40px] text-center xxl:text-left">
+      <div class="xxl:[border-bottom-left-radius:0px] xxl:[border-bottom-right-radius:0px] inline-block overflow-hidden">
+        <img src="{{ page.groom_image_1 }}" data-editable="true" class="inline-block lg:w-auto aspect-[345/478] w-auto h-auto max-w-[345px] max-h-[478px] object-cover" alt="">
+      </div>
+    </div>
+    <div class="text-center mt-[30px] xl:mt-0">
+      <div class="flex text-[17px] xl:text-[26px]">
+        <div class="flex-1">
+          <div>
+            <div class="font-bold" data-editable="true">NHÀ TRAI</div>
+            <div>
+              <span data-editable="true">{{ page.groom_representative_1 }}</span><br><span data-editable="true">{{ page.groom_representative_2 }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <div>
+            <div class="font-bold" data-editable="true">NHÀ GÁI</div>
+            <div>
+              <span data-editable="true">{{ page.bride_representative_1 }}</span><br><span data-editable="true">{{ page.bride_representative_2 }}</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="absolute top-[95px] left-0">
-        <img src="{{ page.leaf1_image }}" class="xl:w-auto w-[100px]" alt="">
-      </div>
-      <div class="absolute bottom-[-80px] right-0">
-        <img src="{{ page.leaf2_image }}" class="xl:w-auto w-[100px]" alt="">
-      </div>
-    </header>
-
-<div class="relative flex items-center justify-center py-[40px] gap-[15px] xl:gap-[75px] px-[30px]">
-  <div class="text-center">
-    <div class="relative group inline-block">
-      <div class="overflow-hidden rounded-extra-round text-center xl:text-left">
-        <img src="{{ page.groom_image }}" data-editable="true" class="aspect-[2/3] max-w-[165px] md:max-w-[350px] xl:max-w-[600px] xl:h-auto object-cover xl:w-auto inline-block" alt="">
-      </div>
-      <div class="group-hover:opacity-100 absolute w-[92%] h-[92%] bg-[rgba(0,67,105,0.7)] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-extra-round text-center xl:pt-[100px] xl:px-[80px] p-[10px] md:p-[20px] w-[260px] opacity-0 duration-100">
-        <p class="text-[12px] xl:text-[48px] text-[#fff]" data-editable="true">Chú rể</p>
-        <div data-editable="true" class="font-playfairDisplay text-[28px] md:text-[50px] xl:text-[90px] text-[#E5DDC8] leading-[1]">{{ page.groom_name }}</div>
-        <div data-editable="true" class="text-[12px] md:text-[15px] xl:text-[26px] xl:leading-[38px] text-[#F9F8F4] xl:mt-[10px]">{{ page.groom_description }}</div>
-      </div>
-    </div>
-  </div>
-  <div class="text-center xl:text-left my-[50px] xl:my-0">
-    <img src="{{ page.heart_1_image }}" class="w-[32px] lg:w-auto inline-block" alt="">
-  </div>
-  <div class="text-center">
-    <div class="relative group inline-block">
-      <div class="overflow-hidden rounded-extra-round text-center xl:text-left">
-        <img src="{{ page.bride_image }}" data-editable="true" class="aspect-[2/3] max-w-[165px] md:max-w-[350px] xl:max-w-[600px] xl:h-auto object-cover xl:w-auto inline-block" alt="">
-      </div>
-      <div class="group-hover:opacity-100 absolute w-[92%] h-[92%] bg-[rgba(0,67,105,0.7)] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-extra-round text-center xl:pt-[100px] xl:px-[80px] p-[10px] md:p-[20px] w-[260px] opacity-0 duration-100">
-        <p class="text-[12px] xl:text-[48px] text-[#fff]" data-editable="true">Cô dâu</p>
-        <div data-editable="true" class="font-playfairDisplay text-[28px] md:text-[50px] xl:text-[90px] text-[#E5DDC8] leading-[1]">{{ page.bride_name }}</div>
-        <div data-editable="true" class="text-[12px] md:text-[15px] xl:text-[26px] xl:leading-[38px] text-[#F9F8F4] xl:mt-[10px]">{{ page.bride_description }}</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="relative" data-hidable="true" data-movable="true">
-  <div>
-    <img src="{{ page.countdown_image }}" class="h-[100px] xl:h-[200px] w-full object-cover" alt="">
-  </div>
-  <div class="flex items-center absolute justify-center w-full h-full top-0 left-0 bg-[rgba(219,31,72,1)]">
-    <div class="flex gap-[10px] md:gap-[55px] items-center justify-center text-center leading-[1]">
-      <div>
-        <div id="countdown-days" class="vs-time-days font-elsie font-black text-[35px] xl:text-[50px] text-[#EAC894]"></div>
-        <div class="text-white font-dosis font-normal text-[18px] xl:text-[24px] mt-[15px]">Ngày</div>
-      </div>
-      <div class="font-elsie text-[30px] xl:text-[62px] text-[#EAC894]">:</div>
-      <div>
-        <div id="countdown-hours" class="vs-time-hours font-elsie font-black text-[35px] xl:text-[50px] text-[#EAC894]"></div>
-        <div class="text-white font-dosis font-normal text-[18px] xl:text-[24px] mt-[15px]">Giờ</div>
-      </div>
-      <div class="font-elsie text-[30px] xl:text-[62px] text-[#EAC894]">:</div>
-      <div>
-        <div id="countdown-minutes" class="vs-time-minutes font-elsie font-black text-[35px] xl:text-[50px] text-[#EAC894]"></div>
-        <div class="text-white font-dosis font-normal text-[18px] xl:text-[24px] mt-[15px]">Phút</div>
-      </div>
-      <div class="font-elsie text-[30px] xl:text-[62px] text-[#EAC894]">:</div>
-      <div>
-        <div id="countdown-seconds" class="vs-time-seconds font-elsie font-black text-[35px] xl:text-[50px] text-[#EAC894]"></div>
-        <div class="text-white font-dosis font-normal text-[18px] xl:text-[24px] mt-[15px]">Giây</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="xxl:flex justify-center relative xl:pb-[142px] pt-[25px] xl:pt-[192px] px-[25px] md:px-0" data-hidable="true" data-movable="true">
-  <div class="xxl:absolute top-[82px] left-[120px] xxl:mb-0 mb-[40px] text-center xxl:text-left">
-    <div class="xxl:[border-bottom-left-radius:0px] xxl:[border-bottom-right-radius:0px] inline-block overflow-hidden">
-      <img src="{{ page.groom_image_1 }}" data-editable="true" class="inline-block lg:w-auto aspect-[345/478] w-auto h-auto max-w-[345px] max-h-[478px] object-cover" alt="">
-    </div>
-  </div>
-  <div class="text-center mt-[30px] xl:mt-0">
-    <div class="flex text-[17px] xl:text-[26px]">
-      <div class="flex-1">
-        <div>
-          <div class="font-bold" data-editable="true">NHÀ TRAI</div>
-          <div>
-            <span data-editable="true">{{ page.groom_representative_1 }}</span><br><span data-editable="true">{{ page.groom_representative_2 }}</span>
-          </div>
+      <div class="text-[17px] xl:text-[26px] my-[50px]">
+        <div class="text-tl3red font-bold" data-editable="true">TRÂN TRỌNG KÍNH MỜI</div>
+        <div class="font-bold justify-center flex-wrap text-center flex gap-x-2">
+          <div class="vs-attendance-name-text">Bạn cùng Gia Đình</div>
         </div>
+        <div class="flex justify-center text-[16px] font-playfairDisplay xl:text-[16px]" data-editable="true">(Tới dự Lễ Thành Hôn của hai con chúng tôi)</div>
       </div>
-      <div class="flex-1">
+      <div class="flex gap-[10px] md:gap-[50px] justify-center text-[35px] xl:text-[56px] font-playfairDisplay text-tl3green leading-[1] items-center">
+        <div data-editable="true">{{ page.surname_groom_name }}<br>{{ page.groom_name }}</div>
         <div>
-          <div class="font-bold" data-editable="true">NHÀ GÁI</div>
-          <div>
-            <span data-editable="true">{{ page.bride_representative_1 }}</span><br><span data-editable="true">{{ page.bride_representative_2 }}</span>
-          </div>
+          <img src="{{ page.heart_d_image }}" class="inline-block object-cover w-[50px]" data-editable="true" alt="">
         </div>
+        <div data-editable="true">{{ page.surname_bride_name }}<br>{{ page.bride_name }}</div>
+      </div>
+      <div class="text-[16px] xl:text-[22px] mt-[50px]">
+        <span class="font-bold" data-editable="true">Tổ chức vào hồi {{ page.wedding_time }}, {{ page.wedding_date_week_calendar }}</span><br>
+        <span class="text-tl3red font-bold" data-editable="true">{{ page.wedding_date_solar_calendar }}</span><br>
+        <span class="font-playfairDisplay text-[16px] xl:text-[16px] mt-4 block" data-editable="true">(Tức ngày {{ page.wedding_date_moon_calendar }})</span><br>
+        <span class="font-bold" data-editable="true">{{ page.wedding_venue_label }}</span><br>
+        <span class="font-bold" data-editable="true">{{ page.wedding_venue }}</span><br>
+        <span class="flex justify-center font-playfairDisplay text-[16px] xl:text-[16px] mt-4" data-editable="true">Sự hiện diện của Quý khách là niềm vinh hạnh<br>cho gia đình chúng tôi.</span>
       </div>
     </div>
-    <div class="text-[17px] xl:text-[26px] my-[50px]">
-      <div class="text-tl3red font-bold" data-editable="true">TRÂN TRỌNG KÍNH MỜI</div>
-      <div class="font-bold justify-center flex-wrap text-center flex gap-x-2">
-        <div class="vs-attendance-name-text">Bạn cùng Gia Đình</div>
+    <div class="xxl:absolute top-[82px] xxl:mt-0 right-[120px] text-center xxl:text-left mt-[50px]">
+      <div class="xxl:[border-top-left-radius:0px] xxl:[border-top-right-radius:0px] inline-block overflow-hidden">
+        <img src="{{ page.bride_image_1 }}" data-editable="true" class="inline-block lg:w-auto aspect-[345/478] w-auto h-auto max-w-[345px] max-h-[478px] object-cover" alt="">
       </div>
-      <div class="flex justify-center text-[16px] font-playfairDisplay xl:text-[16px]" data-editable="true">(Tới dự Lễ Thành Hôn của hai con chúng tôi)</div>
-    </div>
-    <div class="flex gap-[10px] md:gap-[50px] justify-center text-[35px] xl:text-[56px] font-playfairDisplay text-tl3green leading-[1] items-center">
-      <div data-editable="true">{{ page.surname_groom_name }}<br>{{ page.groom_name }}</div>
-      <div>
-        <img src="{{ page.heart_d_image }}" class="inline-block object-cover w-[50px]" data-editable="true" alt="">
-      </div>
-      <div data-editable="true">{{ page.surname_bride_name }}<br>{{ page.bride_name }}</div>
-    </div>
-    <div class="text-[16px] xl:text-[22px] mt-[50px]">
-      <span class="font-bold" data-editable="true">Tổ chức vào hồi {{ page.wedding_time }}, {{ page.wedding_date_week_calendar }}</span><br>
-      <span class="text-tl3red font-bold" data-editable="true">{{ page.wedding_date_solar_calendar }}</span><br>
-      <span class="font-playfairDisplay text-[16px] xl:text-[16px] mt-4 block" data-editable="true">(Tức ngày {{ page.wedding_date_moon_calendar }})</span><br>
-      <span class="font-bold" data-editable="true">{{ page.wedding_venue_label }}</span><br>
-      <span class="font-bold" data-editable="true">{{ page.wedding_venue }}</span><br>
-      <span class="flex justify-center font-playfairDisplay text-[16px] xl:text-[16px] mt-4" data-editable="true">Sự hiện diện của Quý khách là niềm vinh hạnh<br>cho gia đình chúng tôi.</span>
     </div>
   </div>
-  <div class="xxl:absolute top-[82px] xxl:mt-0 right-[120px] text-center xxl:text-left mt-[50px]">
-    <div class="xxl:[border-top-left-radius:0px] xxl:[border-top-right-radius:0px] inline-block overflow-hidden">
-      <img src="{{ page.bride_image_1 }}" data-editable="true" class="inline-block lg:w-auto aspect-[345/478] w-auto h-auto max-w-[345px] max-h-[478px] object-cover" alt="">
-    </div>
-  </div>
-</div>
 
-<div data-hidable="true" data-movable="true">
-  <div class="font-elsie text-tl3white text-[30px] xl:text-[56px] text-center py-[17px] my-[30px] lg:mt-[100px] lg:mb-[100px] xl:mb-0" style="background-image: linear-gradient(to right, rgba(217, 217, 217, 0), rgba(1, 148, 154, 0.7), rgba(217, 217, 217, 0));" data-editable="true">Love Story</div>
-  <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] xl:py-[80px]">
-    {% for section in page.sections %}
+  <div data-hidable="true" data-movable="true">
+    <div class="font-elsie text-tl3white text-[30px] xl:text-[56px] text-center py-[17px] my-[30px] lg:mt-[100px] lg:mb-[100px] xl:mb-0" style="background-image: linear-gradient(to right, rgba(217, 217, 217, 0), rgba(1, 148, 154, 0.7), rgba(217, 217, 217, 0));" data-editable="true">Love Story</div>
+    <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] xl:py-[80px]">
+      {% for section in page.sections %}
       <div class="flex flex-col sm:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
-         {% assign mod = forloop.index0 | modulo: 2 %}
+        {% assign mod = forloop.index0 | modulo: 2 %}
         {% if mod == 0 %}
-          <div class="flex-1 translate-x-[0px] relative z-10">
-            <div class="overflow-hidden text-center text-left">
-              <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="{{ section.heading }}">
-            </div>
+        <div class="flex-1 translate-x-[0px] relative z-10">
+          <div class="overflow-hidden text-center text-left">
+            <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="{{ section.heading }}">
           </div>
-          <div class="flex-1 xl:text-center">
-            <div class="border border-tl3green h-full px-[25px] pt-[30px]">
-              <div class="text-tl3green font-elsie font-black leading-[1]">
-                <div class="text-[20px] md:text-[30px] xl:text-[50px] text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
-                <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
-{% assign month_number = section.date | date: "%m" %}
-{% assign year_number = section.date | date: "%Y" %}
-{% case month_number %}
-  {% when "01" %} {% assign month_name = "Tháng 1" %}
-  {% when "02" %} {% assign month_name = "Tháng 2" %}
-  {% when "03" %} {% assign month_name = "Tháng 3" %}
-  {% when "04" %} {% assign month_name = "Tháng 4" %}
-  {% when "05" %} {% assign month_name = "Tháng 5" %}
-  {% when "06" %} {% assign month_name = "Tháng 6" %}
-  {% when "07" %} {% assign month_name = "Tháng 7" %}
-  {% when "08" %} {% assign month_name = "Tháng 8" %}
-  {% when "09" %} {% assign month_name = "Tháng 9" %}
-  {% when "10" %} {% assign month_name = "Tháng 10" %}
-  {% when "11" %} {% assign month_name = "Tháng 11" %}
-  {% when "12" %} {% assign month_name = "Tháng 12" %}
-{% endcase %}
-<div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ month_name }}, {{ year_number }}</div>
-              </div>
-              <div class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center" data-editable="true">{{ section.heading }}</div>
-              <div class="text-[12px] md:text-[15px] pb-[50px] xl:text-[20px] text-center mt-[20px]" data-editable="true">{{ section.description }}</div>
+        </div>
+        <div class="flex-1 xl:text-center">
+          <div class="border border-tl3green h-full px-[25px] pt-[30px]">
+            <div class="text-tl3green font-elsie font-black leading-[1]">
+              <div class="text-[20px] md:text-[30px] xl:text-[50px] text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
+              <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
+              {% assign month_number = section.date | date: "%m" %}
+              {% assign year_number = section.date | date: "%Y" %}
+              {% case month_number %}
+              {% when "01" %} {% assign month_name = "Tháng 1" %}
+              {% when "02" %} {% assign month_name = "Tháng 2" %}
+              {% when "03" %} {% assign month_name = "Tháng 3" %}
+              {% when "04" %} {% assign month_name = "Tháng 4" %}
+              {% when "05" %} {% assign month_name = "Tháng 5" %}
+              {% when "06" %} {% assign month_name = "Tháng 6" %}
+              {% when "07" %} {% assign month_name = "Tháng 7" %}
+              {% when "08" %} {% assign month_name = "Tháng 8" %}
+              {% when "09" %} {% assign month_name = "Tháng 9" %}
+              {% when "10" %} {% assign month_name = "Tháng 10" %}
+              {% when "11" %} {% assign month_name = "Tháng 11" %}
+              {% when "12" %} {% assign month_name = "Tháng 12" %}
+              {% endcase %}
+              <div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ month_name }}, {{ year_number }}</div>
             </div>
+            <div class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center" data-editable="true">{{ section.heading }}</div>
+            <div class="text-[12px] md:text-[15px] pb-[50px] xl:text-[20px] text-center mt-[20px]" data-editable="true">{{ section.description }}</div>
           </div>
+        </div>
         {% else %}
-          <div class="flex-1 xl:text-center">
-            <div class="border border-tl3green h-full px-[25px] pt-[30px]">
-              <div class="text-tl3green font-elsie font-black leading-[1]">
-                <div class="text-[20px] md:text-[30px] xl:text-[50px] text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
-                <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
-{% assign month_number = section.date | date: "%m" %}
-{% assign year_number = section.date | date: "%Y" %}
-{% case month_number %}
-  {% when "01" %} {% assign month_name = "Tháng 1" %}
-  {% when "02" %} {% assign month_name = "Tháng 2" %}
-  {% when "03" %} {% assign month_name = "Tháng 3" %}
-  {% when "04" %} {% assign month_name = "Tháng 4" %}
-  {% when "05" %} {% assign month_name = "Tháng 5" %}
-  {% when "06" %} {% assign month_name = "Tháng 6" %}
-  {% when "07" %} {% assign month_name = "Tháng 7" %}
-  {% when "08" %} {% assign month_name = "Tháng 8" %}
-  {% when "09" %} {% assign month_name = "Tháng 9" %}
-  {% when "10" %} {% assign month_name = "Tháng 10" %}
-  {% when "11" %} {% assign month_name = "Tháng 11" %}
-  {% when "12" %} {% assign month_name = "Tháng 12" %}
-{% endcase %}
-<div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ month_name }}, {{ year_number }}</div>
+        <div class="flex-1 xl:text-center">
+          <div class="border border-tl3green h-full px-[25px] pt-[30px]">
+            <div class="text-tl3green font-elsie font-black leading-[1]">
+              <div class="text-[20px] md:text-[30px] xl:text-[50px] text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
+              <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
+              {% assign month_number = section.date | date: "%m" %}
+              {% assign year_number = section.date | date: "%Y" %}
+              {% case month_number %}
+              {% when "01" %} {% assign month_name = "Tháng 1" %}
+              {% when "02" %} {% assign month_name = "Tháng 2" %}
+              {% when "03" %} {% assign month_name = "Tháng 3" %}
+              {% when "04" %} {% assign month_name = "Tháng 4" %}
+              {% when "05" %} {% assign month_name = "Tháng 5" %}
+              {% when "06" %} {% assign month_name = "Tháng 6" %}
+              {% when "07" %} {% assign month_name = "Tháng 7" %}
+              {% when "08" %} {% assign month_name = "Tháng 8" %}
+              {% when "09" %} {% assign month_name = "Tháng 9" %}
+              {% when "10" %} {% assign month_name = "Tháng 10" %}
+              {% when "11" %} {% assign month_name = "Tháng 11" %}
+              {% when "12" %} {% assign month_name = "Tháng 12" %}
+              {% endcase %}
+              <div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ month_name }}, {{ year_number }}</div>
 
-        
-              </div>
-              <div class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center" data-editable="true">{{ section.heading }}</div>
-              <div class="text-[12px] md:text-[15px] pb-[50px] xl:text-[20px] text-center mt-[20px]" data-editable="true">{{ section.description }}</div>
             </div>
+            <div class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center" data-editable="true">{{ section.heading }}</div>
+            <div class="text-[12px] md:text-[15px] pb-[50px] xl:text-[20px] text-center mt-[20px]" data-editable="true">{{ section.description }}</div>
           </div>
-          <div class="flex-1 translate-x-[0px] relative z-10">
-            <div class="overflow-hidden text-center text-left">
-              <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="{{ section.heading }}">
-            </div>
+        </div>
+        <div class="flex-1 translate-x-[0px] relative z-10">
+          <div class="overflow-hidden text-center text-left">
+            <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="{{ section.heading }}">
           </div>
+        </div>
         {% endif %}
       </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="relative py-[25px] xl:py-[80px] mt-[50px] xl:mt-[150px]" data-hidable="true" data-movable="true" data-uuid="6653c1d44fa77">
+    <div class="absolute w-full h-full top-0 left-0 z-[-2]" data-uuid="6653c1d44fa79">
+      <img src="https://api.vesey.click/templates/vs-template-3/g-bg.png" class="w-full h-full object-cover" alt="" data-uuid="6653c1d44fa7b">
+    </div>
+    <div class="absolute top-0 left-0 w-full h-full bg-[rgba(219,31,72,0.85)] z-[-1]" data-uuid="6653c1d44fa7e"></div>
+    <div class="text-[25px] xl:text-[56px] font-elsie text-white leading-[1] text-center" data-editable="true" data-uuid="6653c1d44fa80">
+      WEDDING GALLERY
+    </div>
+
+    <div class="px-[25px] flex flex-col xl:gap-y-14 gap-y-4 xl:px-[120px] mt-[25px] xl:mt-[80px]" data-uuid="6653c1d44fa82">
+      <div class="flex gap-[10px] xl:gap-[40px]" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fa85">
+        <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fa87">
+          <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px]" data-uuid="6653c1d44fa8a">
+            <a href="https://api.vesey.click/templates/vs-template-3/wg-1.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44fa8c">
+              <img src="https://api.vesey.click/templates/vs-template-3/wg-1.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44fa8e">
+            </a>
+          </div>
+        </div>
+        <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fa91">
+          <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px]" data-uuid="6653c1d44fa93">
+            <a href="https://api.vesey.click/templates/vs-template-3/wg-2.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44fa96">
+              <img src="https://api.vesey.click/templates/vs-template-3/wg-2.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44fa98">
+            </a>
+          </div>
+        </div>
+        <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fa9b">
+          <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px]" data-uuid="6653c1d44fa9d">
+            <a href="https://api.vesey.click/templates/vs-template-3/wg-1.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44faa0">
+              <img src="https://api.vesey.click/templates/vs-template-3/wg-1.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44faa2">
+            </a>
+          </div>
+        </div>
+        <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44faa5">
+          <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px]" data-uuid="6653c1d44faa8">
+            <a href="https://api.vesey.click/templates/vs-template-3/wg-2.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44faaa">
+              <img src="https://api.vesey.click/templates/vs-template-3/wg-2.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44faad">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-[10px] xl:gap-[40px]" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fab0">
+        <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fab2">
+          <div class="overflow-hidden [border-bottom-left-radius:999px] [border-bottom-right-radius:999px]" data-uuid="6653c1d44fac8">
+            <a href="https://api.vesey.click/templates/vs-template-3/wg-3.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44facb">
+              <img src="https://api.vesey.click/templates/vs-template-3/wg-3.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44face">
+            </a>
+          </div>
+        </div>
+        <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fad0">
+          <div class="overflow-hidden [border-bottom-left-radius:999px] [border-bottom-right-radius:999px]" data-uuid="6653c1d44fad3">
+            <a href="https://api.vesey.click/templates/vs-template-3/wg-4.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44fad6">
+              <img src="https://api.vesey.click/templates/vs-template-3/wg-4.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44fad9">
+            </a>
+          </div>
+        </div>
+        <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fadb">
+          <div class="overflow-hidden [border-bottom-left-radius:999px] [border-bottom-right-radius:999px]" data-uuid="6653c1d44fade">
+            <a href="https://api.vesey.click/templates/vs-template-3/wg-3.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44fae1">
+              <img src="https://api.vesey.click/templates/vs-template-3/wg-3.png" class="aspect-[13/16] object-cover" alt="" data-editable="true" data-uuid="6653c1d44fae4">
+            </a>
+          </div>
+        </div>
+        <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fae6">
+          <div class="overflow-hidden [border-bottom-left-radius:999px] [border-bottom-right-radius:999px]" data-uuid="6653c1d44fae9">
+            <a href="https://api.vesey.click/templates/vs-template-3/wg-4.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44faec">
+              <img src="https://api.vesey.click/templates/vs-template-3/wg-4.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44faef">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-[30px] lg:mt-[110px] text-center" data-hidable="true" data-movable="true" data-uuid="6653c1d44faf1">
+    <div class="font-elsie text-[30px] xl:text-[56px] leading-[1] text-tl3red" data-editable="true" data-uuid="6653c1d44faf4">
+      THAM GIA CÙNG CHÚNG MÌNH
+    </div>
+
+    <div class="flex flex-wrap gap-x-4 flex-row gap-y-[60px] px-[25px] md:px-[120px] mt-[30px] xl:mt-[100px]" data-uuid="6653c1d44faf7">
+      <div class="flex-1" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fafb">
+        <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px] [border-bottom-left-radius:999px] [border-bottom-right-radius:999px] border border-tl3green inline-block w-[135px] md:w-auto" data-uuid="6653c1d44fafe">
+          <div class="text-center xl:text-left" data-uuid="6653c1d44fb00">
+            <img src="https://api.vesey.click/templates/vs-template-3/guest-invitation.jpeg" class="inline-block xl:w-full aspect-[449/363] object-cover max-h-[363px]" alt="" data-editable="true" data-uuid="6653c1d44fb03">
+          </div>
+          <div class="p-[10px] md:pt-[26px] md:pb-[30px] xl:pb-[80px] md:px-[45px]" data-uuid="6653c1d44fb06">
+            <div class="font-playfairDisplay text-tl3green text-[20px] md:text-[60px] leading-[1]" data-editable="true" data-uuid="6653c1d44fb0f">
+              Đón khách
+            </div>
+            <div class="text-[10px] md:text-[20px] md:leading-[28px] mt-[10px]" data-editable="true" data-uuid="6653c1d44fb13">
+              Thứ hai, 12 tháng 4, 2024, 5:00<br data-uuid="6653c1d44fb16">
+              chiều – 5:30 chiều<br data-uuid="6653c1d44fb19">
+              Nhà hàng tiệc cưới Sông Mây<br data-uuid="6653c1d44fb1c">
+              Sđt: 09233441**
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fb1f">
+        <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px] [border-bottom-left-radius:999px] [border-bottom-right-radius:999px] border border-tl3green inline-block w-[135px] md:w-auto" data-uuid="6653c1d44fb22">
+          <div class="text-center xl:text-left" data-uuid="6653c1d44fb25">
+            <img src="https://api.vesey.click/templates/vs-template-3/lam-le.jpg" data-editable="true" class="inline-block xl:w-full aspect-[449/363] object-cover max-h-[363px]" alt="" data-uuid="6653c1d44fb28">
+          </div>
+          <div class="p-[10px] md:pt-[26px] md:pb-[30px] xl:pb-[80px] md:px-[45px]" data-uuid="6653c1d44fb2b">
+            <div class="font-playfairDisplay text-tl3green text-[20px] md:text-[60px] leading-[1]" data-editable="true" data-uuid="6653c1d44fb2e">
+              Làm lễ
+            </div>
+            <div class="text-[10px] md:text-[20px] md:leading-[28px] mt-[10px]" data-editable="true" data-uuid="6653c1d44fb31">
+              Thứ hai, 12 tháng 4, 2024, 5:00<br data-uuid="6653c1d44fb34">
+              chiều – 5:30 chiều<br data-uuid="6653c1d44fb37">
+              Nhà hàng tiệc cưới Sông Mây<br data-uuid="6653c1d44fb3b">
+              Sđt: 09233441**
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fb47">
+        <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px] [border-bottom-left-radius:999px] [border-bottom-right-radius:999px] border border-tl3green inline-block w-[135px] md:w-auto" data-uuid="6653c1d44fb4b">
+          <div class="text-center xl:text-left" data-uuid="6653c1d44fb4e">
+            <img src="https://api.vesey.click/templates/vs-template-3/khai-tiec.jpg" data-editable="true" class="inline-block xl:w-full aspect-[449/363] object-cover max-h-[363px]" alt="" data-uuid="6653c1d44fb52">
+          </div>
+          <div class="p-[10px] md:pt-[26px] md:pb-[30px] xl:pb-[80px] md:px-[45px]" data-uuid="6653c1d44fb55">
+            <div class="font-playfairDisplay text-tl3green text-[20px] md:text-[60px] leading-[1]" data-editable="true" data-uuid="6653c1d44fb58">
+              Nhập tiệc
+            </div>
+            <div class="text-[10px] md:text-[20px] md:leading-[28px] mt-[10px]" data-editable="true" data-uuid="6653c1d44fb5c">
+              Thứ hai, 12 tháng 4, 2024, 5:00<br data-uuid="6653c1d44fb5f">
+              chiều – 5:30 chiều<br data-uuid="6653c1d44fb62">
+              Nhà hàng tiệc cưới Sông Mây<br data-uuid="6653c1d44fb65">
+              Sđt: 09233441**
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-    <div class="relative py-[25px] xl:py-[80px] mt-[50px] xl:mt-[150px]" data-hidable="true" data-movable="true" data-uuid="6653c1d44fa77">
-      <div class="absolute w-full h-full top-0 left-0 z-[-2]" data-uuid="6653c1d44fa79">
-        <img src="https://api.vesey.click/templates/vs-template-3/g-bg.png" class="w-full h-full object-cover" alt="" data-uuid="6653c1d44fa7b">
-      </div>
-      <div class="absolute top-0 left-0 w-full h-full bg-[rgba(219,31,72,0.85)] z-[-1]" data-uuid="6653c1d44fa7e"></div>
-      <div class="text-[25px] xl:text-[56px] font-elsie text-white leading-[1] text-center" data-editable="true" data-uuid="6653c1d44fa80">
-        WEDDING GALLERY
-      </div>
-
-      <div class="px-[25px] flex flex-col xl:gap-y-14 gap-y-4 xl:px-[120px] mt-[25px] xl:mt-[80px]" data-uuid="6653c1d44fa82">
-        <div class="flex gap-[10px] xl:gap-[40px]" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fa85">
-          <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fa87">
-            <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px]" data-uuid="6653c1d44fa8a">
-              <a href="https://api.vesey.click/templates/vs-template-3/wg-1.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44fa8c">
-                <img src="https://api.vesey.click/templates/vs-template-3/wg-1.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44fa8e">
-              </a>
-            </div>
-          </div>
-          <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fa91">
-            <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px]" data-uuid="6653c1d44fa93">
-              <a href="https://api.vesey.click/templates/vs-template-3/wg-2.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44fa96">
-                <img src="https://api.vesey.click/templates/vs-template-3/wg-2.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44fa98">
-              </a>
-            </div>
-          </div>
-          <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fa9b">
-            <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px]" data-uuid="6653c1d44fa9d">
-              <a href="https://api.vesey.click/templates/vs-template-3/wg-1.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44faa0">
-                <img src="https://api.vesey.click/templates/vs-template-3/wg-1.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44faa2">
-              </a>
-            </div>
-          </div>
-          <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44faa5">
-            <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px]" data-uuid="6653c1d44faa8">
-              <a href="https://api.vesey.click/templates/vs-template-3/wg-2.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44faaa">
-                <img src="https://api.vesey.click/templates/vs-template-3/wg-2.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44faad">
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex gap-[10px] xl:gap-[40px]" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fab0">
-          <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fab2">
-            <div class="overflow-hidden [border-bottom-left-radius:999px] [border-bottom-right-radius:999px]" data-uuid="6653c1d44fac8">
-              <a href="https://api.vesey.click/templates/vs-template-3/wg-3.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44facb">
-                <img src="https://api.vesey.click/templates/vs-template-3/wg-3.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44face">
-              </a>
-            </div>
-          </div>
-          <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fad0">
-            <div class="overflow-hidden [border-bottom-left-radius:999px] [border-bottom-right-radius:999px]" data-uuid="6653c1d44fad3">
-              <a href="https://api.vesey.click/templates/vs-template-3/wg-4.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44fad6">
-                <img src="https://api.vesey.click/templates/vs-template-3/wg-4.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44fad9">
-              </a>
-            </div>
-          </div>
-          <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fadb">
-            <div class="overflow-hidden [border-bottom-left-radius:999px] [border-bottom-right-radius:999px]" data-uuid="6653c1d44fade">
-              <a href="https://api.vesey.click/templates/vs-template-3/wg-3.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44fae1">
-                <img src="https://api.vesey.click/templates/vs-template-3/wg-3.png" class="aspect-[13/16] object-cover" alt="" data-editable="true" data-uuid="6653c1d44fae4">
-              </a>
-            </div>
-          </div>
-          <div class="flex-1" data-copyable="true" data-removable="true" data-uuid="6653c1d44fae6">
-            <div class="overflow-hidden [border-bottom-left-radius:999px] [border-bottom-right-radius:999px]" data-uuid="6653c1d44fae9">
-              <a href="https://api.vesey.click/templates/vs-template-3/wg-4.png" class="fancybox" data-fancybox="gallery" data-uuid="6653c1d44faec">
-                <img src="https://api.vesey.click/templates/vs-template-3/wg-4.png" class="aspect-[13/16] object-cover" data-editable="true" alt="" data-uuid="6653c1d44faef">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-[30px] lg:mt-[110px] text-center" data-hidable="true" data-movable="true" data-uuid="6653c1d44faf1">
-      <div class="font-elsie text-[30px] xl:text-[56px] leading-[1] text-tl3red" data-editable="true" data-uuid="6653c1d44faf4">
-        THAM GIA CÙNG CHÚNG MÌNH
-      </div>
-
-      <div class="flex flex-wrap gap-x-4 flex-row gap-y-[60px] px-[25px] md:px-[120px] mt-[30px] xl:mt-[100px]" data-uuid="6653c1d44faf7">
-        <div class="flex-1" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fafb">
-          <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px] [border-bottom-left-radius:999px] [border-bottom-right-radius:999px] border border-tl3green inline-block w-[135px] md:w-auto" data-uuid="6653c1d44fafe">
-            <div class="text-center xl:text-left" data-uuid="6653c1d44fb00">
-              <img src="https://api.vesey.click/templates/vs-template-3/guest-invitation.jpeg" class="inline-block xl:w-full aspect-[449/363] object-cover max-h-[363px]" alt="" data-editable="true" data-uuid="6653c1d44fb03">
-            </div>
-            <div class="p-[10px] md:pt-[26px] md:pb-[30px] xl:pb-[80px] md:px-[45px]" data-uuid="6653c1d44fb06">
-              <div class="font-playfairDisplay text-tl3green text-[20px] md:text-[60px] leading-[1]" data-editable="true" data-uuid="6653c1d44fb0f">
-                Đón khách
-              </div>
-              <div class="text-[10px] md:text-[20px] md:leading-[28px] mt-[10px]" data-editable="true" data-uuid="6653c1d44fb13">
-                Thứ hai, 12 tháng 4, 2024, 5:00<br data-uuid="6653c1d44fb16">
-                chiều – 5:30 chiều<br data-uuid="6653c1d44fb19">
-                Nhà hàng tiệc cưới Sông Mây<br data-uuid="6653c1d44fb1c">
-                Sđt: 09233441**
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex-1" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fb1f">
-          <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px] [border-bottom-left-radius:999px] [border-bottom-right-radius:999px] border border-tl3green inline-block w-[135px] md:w-auto" data-uuid="6653c1d44fb22">
-            <div class="text-center xl:text-left" data-uuid="6653c1d44fb25">
-              <img src="https://api.vesey.click/templates/vs-template-3/lam-le.jpg" data-editable="true" class="inline-block xl:w-full aspect-[449/363] object-cover max-h-[363px]" alt="" data-uuid="6653c1d44fb28">
-            </div>
-            <div class="p-[10px] md:pt-[26px] md:pb-[30px] xl:pb-[80px] md:px-[45px]" data-uuid="6653c1d44fb2b">
-              <div class="font-playfairDisplay text-tl3green text-[20px] md:text-[60px] leading-[1]" data-editable="true" data-uuid="6653c1d44fb2e">
-                Làm lễ
-              </div>
-              <div class="text-[10px] md:text-[20px] md:leading-[28px] mt-[10px]" data-editable="true" data-uuid="6653c1d44fb31">
-                Thứ hai, 12 tháng 4, 2024, 5:00<br data-uuid="6653c1d44fb34">
-                chiều – 5:30 chiều<br data-uuid="6653c1d44fb37">
-                Nhà hàng tiệc cưới Sông Mây<br data-uuid="6653c1d44fb3b">
-                Sđt: 09233441**
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex-1" data-copyable="true" data-movable="true" data-removable="true" data-uuid="6653c1d44fb47">
-          <div class="overflow-hidden [border-top-left-radius:999px] [border-top-right-radius:999px] [border-bottom-left-radius:999px] [border-bottom-right-radius:999px] border border-tl3green inline-block w-[135px] md:w-auto" data-uuid="6653c1d44fb4b">
-            <div class="text-center xl:text-left" data-uuid="6653c1d44fb4e">
-              <img src="https://api.vesey.click/templates/vs-template-3/khai-tiec.jpg" data-editable="true" class="inline-block xl:w-full aspect-[449/363] object-cover max-h-[363px]" alt="" data-uuid="6653c1d44fb52">
-            </div>
-            <div class="p-[10px] md:pt-[26px] md:pb-[30px] xl:pb-[80px] md:px-[45px]" data-uuid="6653c1d44fb55">
-              <div class="font-playfairDisplay text-tl3green text-[20px] md:text-[60px] leading-[1]" data-editable="true" data-uuid="6653c1d44fb58">
-                Nhập tiệc
-              </div>
-              <div class="text-[10px] md:text-[20px] md:leading-[28px] mt-[10px]" data-editable="true" data-uuid="6653c1d44fb5c">
-                Thứ hai, 12 tháng 4, 2024, 5:00<br data-uuid="6653c1d44fb5f">
-                chiều – 5:30 chiều<br data-uuid="6653c1d44fb62">
-                Nhà hàng tiệc cưới Sông Mây<br data-uuid="6653c1d44fb65">
-                Sđt: 09233441**
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
