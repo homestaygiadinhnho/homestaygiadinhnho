@@ -239,7 +239,7 @@ sections:
   <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] md:px-[100px] xl:px-[327px] xl:py-[80px]">
 
     {% if sections %}
-      {% for section in sections %}
+      {% for section in page.sections %}
       <div class="flex flex-col sm:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
         {% if forloop.index0 % 2 == 0 %}
         <div class="flex-1 translate-x-[0px] relative z-10">
