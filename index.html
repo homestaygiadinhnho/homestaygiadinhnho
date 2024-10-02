@@ -238,7 +238,7 @@ sections:
   <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] xl:py-[80px]">
     {% for section in page.sections %}
       <div class="flex flex-col sm:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
-         {% if forloop.index0 | modulo: 2 == 0 %}
+         {% if forloop.index0 | modulo: 2 == 0 %}        
           <div class="flex-1 translate-x-[0px] relative z-10">
             <div class="overflow-hidden text-center text-left">
               <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="{{ section.heading }}">
@@ -274,50 +274,9 @@ sections:
           </div>
         {% endif %}
       </div>
-    <div>Index: {{ forloop.index0 }}</div>
     {% endfor %}
   </div>
 </div>
-
-
-<div data-hidable="true" data-movable="true">
-  <div class="font-elsie text-tl3white text-[30px] xl:text-[56px] text-center py-[17px] my-[30px] lg:mt-[100px] lg:mb-[100px] xl:mb-0" style="background-image: linear-gradient(to right, rgba(217, 217, 217, 0), rgba(1, 148, 154, 0.7), rgba(217, 217, 217, 0));" data-editable="true">Love Story</div>
-  <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] md:px-[100px] xl:px-[327px] xl:py-[80px]">
-    {% for section in page.sections %}
-      <div class="flex flex-col sm:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
-        {% if forloop.index0 % 2 == 0 %}
-          <div class="flex-1 bg-blue-200"> <!-- Hình bên trái cho số chẵn -->
-            <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="">
-            <h3 data-editable="true">{{ section.heading }}</h3>
-            <p data-editable="true">{{ section.description }}</p>
-            <span>{{ section.date }}</span>
-          </div>
-          <div class="flex-1"> <!-- Nội dung bên phải -->
-            <div class="text-tl3green font-elsie font-black leading-[1]">
-              <div class="text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
-              <div class="text-center" data-editable="true">{{ section.date | date: "%B, %Y" }}</div>
-            </div>
-          </div>
-        {% else %}
-          <div class="flex-1"> <!-- Nội dung bên trái -->
-            <div class="text-tl3green font-elsie font-black leading-[1]">
-              <div class="text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
-              <div class="text-center" data-editable="true">{{ section.date | date: "%B, %Y" }}</div>
-            </div>
-          </div>
-          <div class="flex-1 bg-red-200"> <!-- Hình bên phải cho số lẻ -->
-            <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="">
-            <h3 data-editable="true">{{ section.heading }}</h3>
-            <p data-editable="true">{{ section.description }}</p>
-            <span>{{ section.date }}</span>
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-</div>
-
-
 
 
 <div data-hidable="true" data-movable="true">
