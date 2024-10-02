@@ -22,27 +22,18 @@ wedding_date: "07/10/2024"
 countdown_image: "https://api.vesey.click/templates/vs-template-3/cd-bg.png"
 ---
 <script>
-  // Đặt ngày cưới
   const weddingDate = new Date("2024-10-07T11:00:00").getTime();
-
-  // Cập nhật đồng hồ mỗi giây
   const updateCountdown = setInterval(() => {
     const now = new Date().getTime();
     const distance = weddingDate - now;
-
-    // Tính toán thời gian
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Hiển thị kết quả
     document.getElementById("countdown-days").innerText = days;
     document.getElementById("countdown-hours").innerText = hours;
     document.getElementById("countdown-minutes").innerText = minutes;
     document.getElementById("countdown-seconds").innerText = seconds;
-
-    // Nếu đã đến ngày cưới, thông báo và dừng đồng hồ
     if (distance < 0) {
       clearInterval(updateCountdown);
       document.getElementById("countdown-days").innerText = "0";
@@ -52,18 +43,13 @@ countdown_image: "https://api.vesey.click/templates/vs-template-3/cd-bg.png"
       alert("Chúc mừng ngày cưới!");
     }
   }, 1000);
-
-  // Đếm xuôi thời gian
   const updateElapsedTime = setInterval(() => {
     const now = new Date().getTime();
     const elapsed = now - weddingDate;
-
-    // Tính toán thời gian
     const elapsedDays = Math.floor(elapsed / (1000 * 60 * 60 * 24));
     const elapsedHours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const elapsedMinutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
     const elapsedSeconds = Math.floor((elapsed % (1000 * 60)) / 1000);
-
     console.log(`Đã trôi qua ${elapsedDays} ngày, ${elapsedHours} giờ, ${elapsedMinutes} phút, ${elapsedSeconds} giây`);
   }, 1000);
 </script>
