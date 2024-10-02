@@ -279,14 +279,15 @@ sections:
 </div>
 
 
-  {% for section in page.sections %}
-  <p>Index: {{ forloop.index0 }}</p>
-  {% if forloop.index0 % 2 == 0 %}
+{% for section in page.sections %}
+  <p>Index: {{ forloop.index }}</p>
+  {% if forloop.index % 2 == 0 %}
     <p>Even Index</p>
   {% else %}
     <p>Odd Index</p>
   {% endif %}
 {% endfor %}
+
 
 
 <div data-hidable="true" data-movable="true">
