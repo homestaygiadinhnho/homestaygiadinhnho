@@ -238,7 +238,7 @@ sections:
   <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] xl:py-[80px]">
     {% for section in page.sections %}
       <div class="flex flex-col sm:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
-         {% if forloop.index0 % 2 == 0 %}
+         {% if forloop.index0 | modulo: 2 == 0 %}
           <div class="flex-1 translate-x-[0px] relative z-10">
             <div class="overflow-hidden text-center text-left">
               <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="{{ section.heading }}">
