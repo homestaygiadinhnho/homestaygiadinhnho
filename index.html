@@ -235,7 +235,9 @@ sections:
 
 
 <div data-hidable="true" data-movable="true">
-  <div class="font-elsie text-tl3white text-[30px] xl:text-[56px] text-center py-[17px] my-[30px] lg:mt-[100px] lg:mb-[100px] xl:mb-0" style="background-image: linear-gradient(to right, rgba(217, 217, 217, 0), rgba(1, 148, 154, 0.7), rgba(217, 217, 217, 0));" data-editable="true">Love Story</div>
+  <div class="font-elsie text-tl3white text-[30px] xl:text-[56px] text-center py-[17px] my-[30px] lg:mt-[100px] lg:mb-[100px] xl:mb-0" style="background-image: linear-gradient(to right, rgba(217, 217, 217, 0), rgba(1, 148, 154, 0.7), rgba(217, 217, 217, 0));" data-editable="true">
+    Love Story
+  </div>
 
   <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] md:px-[100px] xl:px-[327px] xl:py-[80px]">
 
@@ -255,7 +257,7 @@ sections:
               <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
               <div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ section.date | date: "%B, %Y" }}</div>
             </div>
-            <div data-editable="true" class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center">{{ section.heading }}</div>
+            <div class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center" data-editable="true">{{ section.heading }}</div>
             <div class="text-[12px] md:text-[15px] pb-[50px] xl:text-[20px] text-center mt-[20px]" data-editable="true">{{ section.description }}</div>
           </div>
         </div>
@@ -280,13 +282,10 @@ sections:
       </div>
       {% endfor %}
     {% else %}
-      <p>Không.</p>
+      <p>Không có nội dung để hiển thị.</p>
     {% endif %}
   </div>
 </div>
-
-
-  
 
 
 <div data-hidable="true" data-movable="true">
