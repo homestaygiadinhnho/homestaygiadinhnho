@@ -281,10 +281,10 @@ sections:
 
 {% for section in page.sections %}
   <p>Index: {{ forloop.index }}</p>
-  {% if forloop.index % 2 == 0 %}
+  {% if forloop.index | modulo: 2 == 0 %}
     <p>Even Index</p>
   {% else %}
-    <p>Odd Index</p>
+    <p>Odd Index 333</p>
   {% endif %}
 {% endfor %}
 
