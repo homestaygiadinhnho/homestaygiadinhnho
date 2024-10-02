@@ -262,7 +262,8 @@ sections:
               <div class="text-tl3green font-elsie font-black leading-[1]">
                 <div class="text-[20px] md:text-[30px] xl:text-[50px] text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
                 <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
-                <div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ section.date | date: "%B, %Y" }}</div>
+                {% assign month_names = "Tháng 1,Tháng 2,Tháng 3,Tháng 4,Tháng 5,Tháng 6,Tháng 7,Tháng 8,Tháng 9,Tháng 10,Tháng 11,Tháng 12" | split: "," %}
+                <div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ month_names[section.date | date: "%m" | minus: 1] }}, {{ section.date | date: "%Y" }}</div>
               </div>
               <div class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center" data-editable="true">{{ section.heading }}</div>
               <div class="text-[12px] md:text-[15px] pb-[50px] xl:text-[20px] text-center mt-[20px]" data-editable="true">{{ section.description }}</div>
