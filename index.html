@@ -282,8 +282,8 @@ sections:
 {% for section in page.sections %}
         <p>Index: {{ forloop.index }}</p> <!-- In ra chỉ số -->
 
-       {% if forloop.index0 % 2 == 0 %}
-    <p>Even Index 0</p>
+       {% if forloop.index0 % 2 === 0 %}
+    <p>Even Index 1</p>
   {% else %}
     <p>Odd Index 2</p>
   {% endif %}
