@@ -238,7 +238,8 @@ sections:
   <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] xl:py-[80px]">
     {% for section in page.sections %}
       <div class="flex flex-col sm:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
-         {% if forloop.index0 | modulo: 2 == 0 %}        
+         {% assign mod = forloop.index | modulo: 2 %}
+        {% if mod == 0 %}
           <div class="flex-1 translate-x-[0px] relative z-10">
             <div class="overflow-hidden text-center text-left">
               <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="{{ section.heading }}">
@@ -277,17 +278,6 @@ sections:
     {% endfor %}
   </div>
 </div>
-
-
-{% for section in page.sections %}
-        <p>Index: {{ forloop.index }}</p> <!-- In ra chỉ số -->
-    {% assign mod = forloop.index | modulo: 2 %}
-    {% if mod == 0 %}
-         even
-    {% else %}
-        odd
-    {% endif %}
-{% endfor %}
 
 
 
