@@ -165,6 +165,46 @@
       transform: scale(1);
     }
   </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    const weddingDate = new Date("2024-10-07T11:00:00").getTime();
+
+    const updateCountdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      $("#countdown-days").text(days);
+      $("#countdown-hours").text(hours);
+      $("#countdown-minutes").text(minutes);
+      $("#countdown-seconds").text(seconds);
+
+      if (distance < 0) {
+        clearInterval(updateCountdown);
+        $("#countdown-days, #countdown-hours, #countdown-minutes, #countdown-seconds").text("0");
+        alert("Chúc mừng ngày cưới!");
+      }
+    }, 1000);
+
+    const updateElapsedTime = setInterval(() => {
+      const now = new Date().getTime();
+      const elapsed = now - weddingDate;
+
+      const elapsedDays = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+      const elapsedHours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const elapsedMinutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+      const elapsedSeconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+      console.log(`Đã trôi qua ${elapsedDays} ngày, ${elapsedHours} giờ, ${elapsedMinutes} phút, ${elapsedSeconds} giây`);
+    }, 1000);
+  });
+</script>
   
   <!-- Icons -->
   <link rel="icon" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png" sizes="32x32">
