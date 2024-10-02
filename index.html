@@ -236,10 +236,9 @@ sections:
 <div data-hidable="true" data-movable="true">
   <div class="font-elsie text-tl3white text-[30px] xl:text-[56px] text-center py-[17px] my-[30px] lg:mt-[100px] lg:mb-[100px] xl:mb-0" style="background-image: linear-gradient(to right, rgba(217, 217, 217, 0), rgba(1, 148, 154, 0.7), rgba(217, 217, 217, 0));" data-editable="true">Love Story</div>
   <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] xl:py-[80px]">
-    {% assign index = 0 %}
     {% for section in page.sections %}
       <div class="flex flex-col sm:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
-         {% if index % 2 == 0 %}
+         {% if forloop.index0 % 2 == 0 %}
           <div class="flex-1 translate-x-[0px] relative z-10">
             <div class="overflow-hidden text-center text-left">
               <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="{{ section.heading }}">
@@ -274,7 +273,6 @@ sections:
             </div>
           </div>
         {% endif %}
-        {% assign index = index | plus: 1 %}
       </div>
     {% endfor %}
   </div>
