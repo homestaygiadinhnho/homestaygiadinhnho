@@ -44,6 +44,54 @@
   <!-- CSS -->
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/app.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tl2pink: "#EF7C8E",
+            tl2green: "#2E765E",
+            tl3red: "#DB1F48",
+            tl3green: "#01949A",
+            tl3blue: "#004369",
+            tl4green: "#062B0E",
+            tl4pink: "#F7ABC6",
+            tl4black: "#062B0E",
+            tl4gold: "#C6A47F",
+          },
+        },
+        fontFamily: {
+          cursive: ['"Imperial Script", cursive'],
+          poppins: ["Poppins, sans-serif"],
+          dancingScript: ['"Dancing Script", cursive'],
+          deltaGothic: ['"Dela Gothic One", sans-serif'],
+          farsan: ["Farsan, sans-serif"],
+          reemKufi: ["Reem Kufi, sans-serif"],
+          rozhaOne: ['"Rozha One", serif'],
+          dongle: ["Dongle, sans-serif"],
+          roadRage: ["'Road Rage', sans-serif"],
+          corinthia: ["Corinthia, cursive"],
+          dosis: ["dosis, sans-serif"],
+          elsie: ["'Elsie Swash Caps', serif"],
+          economica: ["Economica, sans-serif"],
+          charm: ["Charm, cursive"],
+          advent: ["'Advent Pro', sans-serif"],
+          courier: ["'Courier Prime', monospace"],
+          cherish: ["Cherish, cursive"],
+          anton: ["Anton, sans-serif"],
+        },
+        screens: {
+          sm: "640px",
+          md: "768px",
+          lg: "992px",
+          "2lg": "1024px",
+          xl: "1200px",
+          xxl: "1600px",
+          "2xl": "1920px",
+        },
+      },
+    };
+  </script>
   
   <!-- Icons -->
   <link rel="icon" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png" sizes="32x32">
