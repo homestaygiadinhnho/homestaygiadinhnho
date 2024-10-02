@@ -262,9 +262,23 @@ sections:
               <div class="text-tl3green font-elsie font-black leading-[1]">
                 <div class="text-[20px] md:text-[30px] xl:text-[50px] text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
                 <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
-{% assign month_names = "Tháng 1,Tháng 2,Tháng 3,Tháng 4,Tháng 5,Tháng 6,Tháng 7,Tháng 8,Tháng 9,Tháng 10,Tháng 11,Tháng 12" | split: "," %}
-{% assign month_number = section.date | date: "%m" | plus: 0 %}
-<div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ month_names[month_number | minus: 1] }}, {{ section.date | date: "%Y" }}</div>
+{% assign month_number = section.date | date: "%m" %}
+{% assign year_number = section.date | date: "%Y" %}
+{% case month_number %}
+  {% when "01" %} {% assign month_name = "Tháng 1" %}
+  {% when "02" %} {% assign month_name = "Tháng 2" %}
+  {% when "03" %} {% assign month_name = "Tháng 3" %}
+  {% when "04" %} {% assign month_name = "Tháng 4" %}
+  {% when "05" %} {% assign month_name = "Tháng 5" %}
+  {% when "06" %} {% assign month_name = "Tháng 6" %}
+  {% when "07" %} {% assign month_name = "Tháng 7" %}
+  {% when "08" %} {% assign month_name = "Tháng 8" %}
+  {% when "09" %} {% assign month_name = "Tháng 9" %}
+  {% when "10" %} {% assign month_name = "Tháng 10" %}
+  {% when "11" %} {% assign month_name = "Tháng 11" %}
+  {% when "12" %} {% assign month_name = "Tháng 12" %}
+{% endcase %}
+<div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ month_name }}, {{ year_number }}</div>
 
                 <div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ month_names[section.date | date: "%m" | minus: 1] }}, {{ section.date | date: "%Y" }}</div>
               </div>
