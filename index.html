@@ -279,6 +279,53 @@ sections:
 </div>
 
 
+<div data-hidable="true" data-movable="true">
+  <div class="font-elsie text-tl3white text-[30px] xl:text-[56px] text-center py-[17px] my-[30px] lg:mt-[100px] lg:mb-[100px] xl:mb-0" style="background-image: linear-gradient(to right, rgba(217, 217, 217, 0), rgba(1, 148, 154, 0.7), rgba(217, 217, 217, 0));" data-editable="true">Love Story</div>
+  <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] md:px-[100px] xl:px-[327px] xl:py-[80px]">
+    {% for section in page.sections %}
+      <div class="flex flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row xxl:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
+        {% if forloop.index0 | modulo: 2 == 0 %}
+          <div class="flex-1 translate-x-[0px] relative z-10">
+            <div class="overflow-hidden text-center text-left">
+              <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="">
+            </div>
+          </div>
+          <div class="xl:translate-x-[0px] flex-1 xl:text-center">
+            <div class="border border-tl3green h-full px-[25px] pt-[30px]">
+              <div class="text-tl3green font-elsie font-black leading-[1]">
+                <div class="text-[20px] md:text-[30px] xl:text-[50px] text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
+                <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
+                <div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ section.date | date: "%B, %Y" }}</div>
+              </div>
+              <div data-editable="true" class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center">{{ section.heading }}</div>
+              <div class="text-[12px] md:text-[15px] pb-[50px] xl:text-[20px] text-center mt-[20px]" data-editable="true">{{ section.description }}</div>
+            </div>
+          </div>
+        {% else %}
+          <div class="flex-1 xl:text-center">
+            <div class="border border-tl3green h-full px-[25px] pt-[30px]">
+              <div class="text-tl3green font-elsie font-black leading-[1]">
+                <div class="text-[20px] md:text-[30px] xl:text-[50px] text-center" data-editable="true">{{ section.date | date: "%d" }}</div>
+                <div class="w-[80px] xl:w-[226px] bg-tl3green h-[1px] mx-auto my-[10px]"></div>
+                <div class="text-[14px] md:text-[20px] xl:text-[34px] text-center" data-editable="true">{{ section.date | date: "%B, %Y" }}</div>
+              </div>
+              <div class="font-playfairDisplay text-[20px] md:text-[35px] lg:text-[35px] text-tl3red leading-[1] mt-[20px] text-center" data-editable="true">{{ section.heading }}</div>
+              <div class="text-[12px] md:text-[15px] pb-[50px] xl:text-[20px] text-center mt-[20px]" data-editable="true">{{ section.description }}</div>
+            </div>
+          </div>
+          <div class="flex-1 translate-x-[0px] relative z-10">
+            <div class="overflow-hidden text-center text-left">
+              <img src="{{ section.image }}" data-editable="true" class="w-full h-full object-cover" alt="">
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
 
 <div data-hidable="true" data-movable="true">
   <div class="font-elsie text-tl3white text-[30px] xl:text-[56px] text-center py-[17px] my-[30px] lg:mt-[100px] lg:mb-[100px] xl:mb-0" style="background-image: linear-gradient(to right, rgba(217, 217, 217, 0), rgba(1, 148, 154, 0.7), rgba(217, 217, 217, 0));" data-editable="true">Love Story</div>
