@@ -236,8 +236,8 @@ sections:
 
   <div class="flex flex-col gap-y-16 xl:gap-y-32 px-[25px] md:px-[100px] xl:px-[327px] xl:py-[80px]">
 
-    {% if sections %}
-      {% for section in page.sections %}
+    {% if sections.size > 0 %}
+      {% for section in sections %}
       <div class="flex flex-col sm:flex-row items-stretch" data-copyable="true" data-movable="true" data-removable="true">
         {% if forloop.index0 % 2 == 0 %}
         <div class="flex-1 translate-x-[0px] relative z-10">
@@ -277,7 +277,7 @@ sections:
       </div>
       {% endfor %}
     {% else %}
-      <p>Không có nội dung để hiển thị.</p>
+      <p>Không có nội dung.</p>
     {% endif %}
   </div>
 </div>
