@@ -175,11 +175,6 @@
 
 <body class="{{ page.class | default: 'home' }}">
   <div class="offcanvas-wrap">
-    <div class="offcanvas-wrap-overlay"></div>
-
-    <!-- Include Header -->
-    {% include header.html %}
-
     <div class="wrap" role="document">
       <div class="content">
         <main class="main" id="mainContent" tabindex="-1">
@@ -187,10 +182,6 @@
         </main>
       </div>
     </div>
-
-    <!-- Include Footer and Navigation -->
-    {% include footer.html %}
-    {% include navigation.html %}
   </div>
 </body>
 
