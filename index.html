@@ -5,48 +5,50 @@ description: "Tận hưởng kỳ nghỉ tuyệt vời cùng gia đình tại Ho
 lang: "vi"
 date: 2024-09-07
 class: "home"
+header_image: "https://api.vesey.click/templates/vs-template-3/save-date-bg.png"
+hero_image: "https://api.vesey.click/templates/vs-template-3/hero.jpg"
+double_hear: "https://api.vesey.click/templates/vs-template-3/double-hear.png"
+heart_image: "https://api.vesey.click/templates/vs-template-3/heart.png"
+leaf1_image: "https://api.vesey.click/templates/vs-template-3/leaf-1.png"
+leaf2_image: "https://api.vesey.click/templates/vs-template-3/leaf-2.png"
+groom_name: "Văn Dân"
+bride_name: "Bình An"
+wedding_date: "25 tháng 12, 2025"
 ---
 
-<div data-uuid="6653c1d44f923">
-    <header class="relative overflow-hidden" data-hidable="true" data-movable="true" data-uuid="6653c1d44f928">
-      <img src="https://api.vesey.click/templates/vs-template-3/save-date-bg.png" class="w-full object-cover" alt="pg" data-uuid="6653c1d44f929">
-
-      <div class="absolute w-full h-full top-0 left-0 z-10" data-uuid="6653c1d44f92a">
-        <div class="flex gap-x-2 h-full items-center" data-uuid="6653c1d44f92b">
-          <div class="flex-1 text-center" data-uuid="6653c1d44f92c">
-            <div class="w-full xl:pl-[165px]" data-uuid="6653c1d44f92d">
-              <div class="font-elsie text-[20px] xl:text-[50px] xxl:text-[100px] text-tl3red" data-editable="true" data-uuid="6653c1d44f92e">
-                SAVE THE DATE
-              </div>
-              <div class="font-playfairDisplay text-[30px] md:text-[50px] xl:text-[120px] text-tl3green leading-[1]" data-uuid="6653c1d44f92f">
-                <div data-editable="true" data-uuid="6653c1d44f930">Bình An</div>
-                <div data-uuid="6653c1d44f931">
-                  <img src="https://api.vesey.click/templates/vs-template-3/double-hear.png" class="inline-block xl:w-auto w-[30px] md:w-[50px]" alt="dh" data-uuid="6653c1d44f932">
+<div>
+    <header class="relative overflow-hidden" data-hidable="true" data-movable="true">
+      <img src="{{ page.header_image }}" class="w-full object-cover" alt="pg">
+      <div class="absolute w-full h-full top-0 left-0 z-10">
+        <div class="flex gap-x-2 h-full items-center">
+          <div class="flex-1 text-center">
+            <div class="w-full xl:pl-[165px]">
+              <div class="font-elsie text-[20px] xl:text-[50px] xxl:text-[100px] text-tl3red" data-editable="true">SAVE THE DATE</div>
+              <div class="font-playfairDisplay text-[30px] md:text-[50px] xl:text-[120px] text-tl3green leading-[1]">
+                <div data-editable="true">{{ page.bride_name }}</div>
+                <div>
+                  <img src="{{ page.double_hear }}" class="inline-block xl:w-auto w-[30px] md:w-[50px]" alt="dh">
                 </div>
-                <div data-editable="true" data-uuid="6653c1d44f933">Văn Dân</div>
+                <div data-editable="true">{{ page.groom_name }}</div>
               </div>
-              <div data-editable="true" class="text-[14px] md:text-[20px] lg:text-[24px] xxl:text-[48px] text-tl3blue font-dosis" data-uuid="6653c1d44f934">
-                Chúng mình cưới, 25 tháng 12, 2025
-              </div>
+              <div data-editable="true" class="text-[14px] md:text-[20px] lg:text-[24px] xxl:text-[48px] text-tl3blue font-dosis">Chúng mình cưới, {{ page.wedding_date }}</div>
             </div>
           </div>
-          <div class="flex-1" data-uuid="6653c1d44f935">
-            <div class="w-full xl:pt-[130px] relative inline-block" data-uuid="6653c1d44f936">
-              <img data-editable="true" class="lg:max-w-[90%] max-h-[869px] aspect-[853/708] -rotate-12 object-cover [clip-path:polygon(-41%_0,50%_91%,141%_0)] [mask:radial-gradient(at_70%_31%,#000_29%,#0000_30%),radial-gradient(at_30%_31%,#000_29%,#0000_30%),linear-gradient(#000_0_0)_bottom/100%_50%_no-repeat]" src="https://api.vesey.click/templates/vs-template-3/hero.jpg" alt="" data-uuid="6653c1d44f937">
-
-              <div class="absolute bottom-[10px] lg:bottom-[20px] right-[30px] lg:right-[50px] xl:right-[20%]" data-uuid="6653c1d44f938">
-                <img src="https://api.vesey.click/templates/vs-template-3/heart.png" class="w-[40px] md:w-[100px] xl:w-auto" alt="" data-uuid="6653c1d44f939">
+          <div class="flex-1">
+            <div class="w-full xl:pt-[130px] relative inline-block">
+              <img data-editable="true" class="lg:max-w-[90%] max-h-[869px] aspect-[853/708] -rotate-12 object-cover [clip-path:polygon(-41%_0,50%_91%,141%_0)] [mask:radial-gradient(at_70%_31%,#000_29%,#0000_30%),radial-gradient(at_30%_31%,#000_29%,#0000_30%),linear-gradient(#000_0_0)_bottom/100%_50%_no-repeat]" src="{{ page.hero_image }}" alt="">
+              <div class="absolute bottom-[10px] lg:bottom-[20px] right-[30px] lg:right-[50px] xl:right-[20%]">
+                <img src="{{ page.heart_image }}" class="w-[40px] md:w-[100px] xl:w-auto" alt="">
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="absolute top-[95px] left-0" data-uuid="6653c1d44f93a">
-        <img src="https://api.vesey.click/templates/vs-template-3/leaf-1.png" class="xl:w-auto w-[100px]" alt="" data-uuid="6653c1d44f93b">
+      <div class="absolute top-[95px] left-0">
+        <img src="{{ page.leaf1_image }}" class="xl:w-auto w-[100px]" alt="">
       </div>
-      <div class="absolute bottom-[-80px] right-0" data-uuid="6653c1d44f93c">
-        <img src="https://api.vesey.click/templates/vs-template-3/leaf-2.png" class="xl:w-auto w-[100px]" alt="" data-uuid="6653c1d44f93d">
+      <div class="absolute bottom-[-80px] right-0">
+        <img src="{{ page.leaf2_image }}" class="xl:w-auto w-[100px]" alt="">
       </div>
     </header>
 
