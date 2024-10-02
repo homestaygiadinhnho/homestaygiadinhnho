@@ -98,6 +98,22 @@
     };
   </script>
   <style>
+.heart-shape {
+  position: relative;
+  width: 200px; /* Chiều rộng của hình trái tim */
+  height: 200px; /* Chiều cao của hình trái tim */
+  overflow: hidden;
+}
+
+.heart-shape img {
+  position: absolute;
+  top: -50%; /* Đẩy ảnh lên để tạo hình trái tim */
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 300%; /* Mở rộng kích thước để che phủ */
+  height: auto;
+  clip-path: polygon(50% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
     @font-face {
       font-family: Anamart;
       font-style: normal;
