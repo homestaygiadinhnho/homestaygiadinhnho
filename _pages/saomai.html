@@ -32,8 +32,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         };
 
         // Khởi tạo Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const database = firebase.database(); // Khởi tạo Realtime Database
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
 
         // Hàm tìm kiếm video
         function searchVideos() {
