@@ -277,52 +277,37 @@ sections:
 
 
 
-<div class="slideshow-container">
-
-<div class="mySlides fade">
-  <img src="https://api.vesey.click/templates/vs-template-3/wg-1.png" style="width:100%">
+<div class="slider">
+    <div class="slides">
+        <div class="slide"><img src="https://api.vesey.click/templates/vs-template-3/hero.jpg" alt="Hình 1"></div>
+        <div class="slide"><img src="https://api.vesey.click/templates/vs-template-3/dating.jpeg" alt="Hình 2"></div>
+        <div class="slide"><img src="https://api.vesey.click/templates/vs-template-3/save-date-bg.png" alt="Hình 3"></div>
+        <div class="slide"><img src="https://api.vesey.click/templates/vs-template-3/heart.png" alt="Hình 4"></div>
+    </div>
+    <div class="buttons">
+        <button class="button" id="prev">❮</button>
+        <button class="button" id="next">❯</button>
+    </div>
 </div>
 
-<div class="mySlides fade">
-  <img src="https://api.vesey.click/templates/vs-template-3/wg-2.png" style="width:100%">
-</div>
-
-<div class="mySlides fade">
-  <img src="https://api.vesey.click/templates/vs-template-3/wg-3.png" style="width:100%">
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-  
 <script>
-let slideIndex = 1;
-showSlides(slideIndex);
+    const slides = document.querySelector('.slides');
+    const slideCount = document.querySelectorAll('.slide').length;
+    let currentIndex = 0;
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+    document.getElementById('next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlidePosition();
+    });
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+    document.getElementById('prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateSlidePosition();
+    });
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
+    function updateSlidePosition() {
+        slides.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+    }
 </script>
   
 
