@@ -1,8 +1,8 @@
 ---
 layout: 
-title: "Sao Mai Media"
+title: "Karaoke Sao Mai"
 permalink: /saomai
-description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ karaoke đẳng cấp."
+description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ Karaoke đẳng cấp."
 ---
 
 <!DOCTYPE html>
@@ -16,12 +16,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 </head>
 <body class="bg-gray-900 text-white">
     <div class="container mx-auto py-10 text-center">
-        <h1 class="text-4xl font-bold mb-6">Karaoke Sao Mai</h1>
-        <input type="text" id="searchInput" placeholder="Tìm kiếm bài hát karaoke..." class="p-2 text-black w-1/2 mb-4">
-        <button onclick="searchVideos()" class="bg-blue-500 p-2 rounded">Tìm Kiếm</button>
-
-        <div id="videoList" class="grid grid-cols-1 gap-4 mt-8"></div>
-
+        <h1 class="text-4xl font-bold mb-6">Hát Karaoke</h1>
         <div id="player" class="mt-10">
             <div id="youtubePlayer" class="w-full h-64"></div>
         </div>
@@ -29,97 +24,31 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
     <script>
         let player;
-        let queue = [];
-        let currentSong = null;
-
-        // Hàm tìm kiếm video
-        function searchVideos() {
-            const query = document.getElementById('searchInput').value;
-            const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Thay bằng API Key của bạn
-            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${query}+karaoke&type=video&key=${apiKey}`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const videoList = document.getElementById('videoList');
-                    videoList.innerHTML = '';
-                    data.items.forEach(item => {
-                        const videoId = item.id.videoId;
-                        const title = item.snippet.title;
-                        const thumbnailUrl = item.snippet.thumbnails.medium.url;
-
-                        const videoItem = document.createElement('div');
-                        videoItem.classList.add('bg-gray-800', 'p-4', 'rounded', 'cursor-pointer', 'flex', 'items-center', 'space-x-4');
-
-                        const thumbnail = document.createElement('img');
-                        thumbnail.src = thumbnailUrl;
-                        thumbnail.alt = title;
-                        thumbnail.classList.add('w-32', 'h-24', 'object-cover', 'rounded');
-
-                        const videoInfo = document.createElement('div');
-                        videoInfo.innerHTML = `<p>${title}</p>`;
-
-                        const addButton = document.createElement('button');
-                        addButton.textContent = "Chọn";
-                        addButton.classList.add('bg-yellow-500', 'hover:bg-yellow-400', 'p-2', 'rounded-lg', 'text-black');
-                        addButton.onclick = () => addToQueue(videoId, title);
-
-                        videoItem.appendChild(thumbnail);
-                        videoItem.appendChild(videoInfo);
-                        videoItem.appendChild(addButton);
-
-                        videoList.appendChild(videoItem);
-                    });
-                })
-                .catch(error => console.log(error));
-        }
-
-        // Hàm thêm bài hát vào danh sách chờ
-        function addToQueue(videoId, title) {
-            queue.push({ videoId, title });
-            if (!currentSong) {
-                playNextSong();
-            }
-        }
-
-        // Hàm phát bài hát tiếp theo
-        function playNextSong() {
-            if (queue.length > 0) {
-                currentSong = queue.shift();
-                loadVideo(currentSong.videoId);
-            } else {
-                currentSong = null;
-            }
-        }
-
-        // Hàm phát video từ YouTube
+        const params = new URLSearchParams(window.location.search);
+        const videoId = params.get('videoId');
         function loadVideo(videoId) {
-            if (player) {
-                player.loadVideoById(videoId);
-            } else {
-                player = new YT.Player('youtubePlayer', {
-                    height: '360',
-                    width: '640',
-                    videoId: videoId,
-                    playerVars: {
-                        'controls': 0,
-                        'disablekb': 1,
-                        'rel': 0,
-                        'showinfo': 0,
-                        'modestbranding': 1,
-                        'autoplay': 1,
-                        'fs': 1
-                    },
-                    events: {
-                        'onReady': (event) => event.target.playVideo(),
-                        'onStateChange': (event) => {
-                            if (event.data === YT.PlayerState.ENDED) {
-                                playNextSong();
-                            }
-                        }
-                    }
-                });
-            }
+            player = new YT.Player('youtubePlayer', {
+                height: '360',
+                width: '640',
+                videoId: videoId,
+                playerVars: {
+                    'controls': 0,
+                    'disablekb': 1,
+                    'rel': 0,
+                    'showinfo': 0,
+                    'modestbranding': 1,
+                    'autoplay': 1,
+                    'fs': 1
+                },
+                events: {
+                    'onReady': (event) => event.target.playVideo()
+                }
+            });
+        }
+        if (videoId) {
+            loadVideo(videoId);
+        } else {
+            document.getElementById('youtubePlayer').innerHTML = '<p class="text-red-500">Không có bài hát nào được chọn!</p>';
         }
     </script>
 </body>
