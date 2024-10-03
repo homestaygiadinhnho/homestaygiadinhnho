@@ -33,22 +33,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         // Khởi tạo Firebase
         const app = firebase.initializeApp(firebaseConfig);
         const database = firebase.database(); // Khởi tạo Realtime Database
-    </script>
-</head>
-<body class="bg-gray-900 text-white">
-    <div class="container mx-auto py-10 text-center">
-        <h1 class="text-4xl font-bold mb-6">Karaoke với YouTube</h1>
-        <input type="text" id="searchInput" placeholder="Tìm kiếm bài hát karaoke..." class="p-2 text-black w-1/2 mb-4">
-        <button onclick="searchVideos()" class="bg-blue-500 p-2 rounded">Tìm Kiếm</button>
 
-        <div id="videoList" class="grid grid-cols-1 gap-4 mt-8"></div>
-
-        <div id="player" class="mt-10">
-            <div id="youtubePlayer" class="w-full h-64"></div>
-        </div>
-    </div>
-
-    <script>
         // Hàm tìm kiếm video
         function searchVideos() {
             const query = document.getElementById('searchInput').value;
@@ -88,7 +73,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
         // Hàm lưu bài hát vào Firebase
         function saveSong(videoId, title) {
-            const songRef = firebase.database().ref('songs/' + videoId); // Tạo tham chiếu đến đường dẫn trong Realtime Database
+            const songRef = database.ref('songs/' + videoId); // Tạo tham chiếu đến đường dẫn trong Realtime Database
             songRef.set({ title: title, videoId: videoId }) // Lưu videoId và title vào database
                 .then(() => {
                     alert('Bài hát đã được lưu!');
@@ -100,6 +85,18 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     </script>
 
     <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto py-10 text-center">
+        <h1 class="text-4xl font-bold mb-6">Karaoke với YouTube</h1>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm bài hát karaoke..." class="p-2 text-black w-1/2 mb-4">
+        <button onclick="searchVideos()" class="bg-blue-500 p-2 rounded">Tìm Kiếm</button>
+
+        <div id="videoList" class="grid grid-cols-1 gap-4 mt-8"></div>
+
+        <div id="player" class="mt-10">
+            <div id="youtubePlayer" class="w-full h-64"></div>
+        </div>
+    </div>
 </body>
 </html>
-
