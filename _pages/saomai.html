@@ -1,967 +1,126 @@
 ---
-layout: page
+layout: 
 title: "Sao Mai Media"
 permalink: /saomai
-description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ karaoke đẳng cấp. Trải nghiệm không gian âm nhạc sống động, giao diện thân thiện, dễ sử dụng, và thư viện bài hát phong phú."
+description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ karaoke đẳng cấp."
 ---
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karaoke Sao Mai</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto py-10 text-center">
+        <h1 class="text-4xl font-bold mb-6">Karaoke Sao Mai</h1>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm bài hát karaoke..." class="p-2 text-black w-1/2 mb-4">
+        <button onclick="searchVideos()" class="bg-blue-500 p-2 rounded">Tìm Kiếm</button>
 
-<div class="pageFeaturedImage">
-  <img src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/01/PJM013419Q206-Seasonal_Chi-Day6_2-Fairfield_Home-02731-cropped.jpg?fit=697%2C299" class="optanon-category-C0012 featuredImage--mobileOnly" alt="" title="PJM013419Q206-Seasonal_Chi-Day6_2-Fairfield_Home-02731 cropped" tabindex="0">
-<img width="2500" height="1073" src="https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?fit=2500%2C1073" class="optanon-category-C0012  featuredImage--desktopOnly wp-post-image" alt="" title="Newsroom About" tabindex="0" decoding="async" srcset="https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=5500 5500w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=300 300w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=768 768w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=1024 1024w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=1536 1536w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=2048 2048w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=950 950w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=697 697w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=1000 1000w, https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Newsroom-About.jpg?w=3000 3000w" sizes="(max-width: 2500px) 100vw, 2500px"></div>
-<div class="container">
-      <div class="page-header">
-  <h1 class="h2">About us</h1>
-</div>
-      <div class="page__entryContent">
-        <p><span style="font-weight: 400">Airbnb was born in 2007 when two hosts welcomed three guests to their San Francisco home, and has since grown to over 5 million hosts who have welcomed </span><span style="font-weight: 400">over 1.5 billion</span><span style="font-weight: 400"> guest arrivals in almost every country across the globe. Every day, hosts offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way.</span></p>
-        <section class="fastFacts ">
-  <div class="container fastFacts__container">
-          <h1 class="h2">
-        Fast facts
-      </h1>
-        <div class="row fastFacts__grid" data-staggered-reveal="">
-              <div class="fastFacts__fastFact visible" data-reveal="">
-          <div class="fastFact">
-      <h3 class="fastFact__title">
-      8<abbr title="million">M+</abbr>
-    </h3>
-        <p class="fastFact__descrip">active listings worldwide</p>
-        <p class="fastFact__footnote">as of June 30, 2024</p>
-  </div>
-        </div>
-              <div class="fastFacts__fastFact visible" data-reveal="">
-          <div class="fastFact">
-      <h3 class="fastFact__title">
-      100<abbr title="thousand">K+</abbr>
-    </h3>
-        <p class="fastFact__descrip">cities and towns with active Airbnb listings</p>
-        <p class="fastFact__footnote">as of December 31, 2023</p>
-  </div>
-        </div>
-              <div class="fastFacts__fastFact visible" data-reveal="">
-          <div class="fastFact">
-      <h3 class="fastFact__title">
-      220+
-    </h3>
-        <p class="fastFact__descrip">countries and regions with Airbnb listings</p>
-        <p class="fastFact__footnote">as of December 31, 2023</p>
-  </div>
-        </div>
-              <div class="fastFacts__fastFact visible" data-reveal="">
-          <div class="fastFact">
-      <h3 class="fastFact__title">
-      1.5<abbr title="billion">B+</abbr>
-    </h3>
-        <p class="fastFact__descrip">Airbnb guest arrivals all-time</p>
-        <p class="fastFact__footnote">as of December 31, 2023</p>
-  </div>
-        </div>
-              <div class="fastFacts__fastFact visible" data-reveal="">
-          <div class="fastFact">
-      <h3 class="fastFact__title">
-      5<abbr title="million">M</abbr>+
-    </h3>
-        <p class="fastFact__descrip">hosts on Airbnb</p>
-        <p class="fastFact__footnote">as of December 31, 2023</p>
-  </div>
-        </div>
-              <div class="fastFacts__fastFact visible" data-reveal="">
-          <div class="fastFact">
-      <h3 class="fastFact__title">
-      $250<abbr title="billion">B</abbr>+
-    </h3>
-        <p class="fastFact__descrip">earned by hosts, all-time</p>
-        <p class="fastFact__footnote">as of December 31, 2023</p>
-  </div>
-        </div>
-              <div class="fastFacts__fastFact visible" data-reveal="">
-          <div class="fastFact">
-      <h3 class="fastFact__title">
-      $14<abbr title="thousand">K</abbr>
-    </h3>
-        <p class="fastFact__descrip">earned by the typical US host in 2023</p>
-        <p class="fastFact__footnote">as of December 31, 2023</p>
-  </div>
-        </div>
-              <div class="fastFacts__fastFact visible" data-reveal="">
-          <div class="fastFact">
-      <h3 class="fastFact__title">
-      $10<abbr title="billion">B</abbr>+
-    </h3>
-        <p class="fastFact__descrip">total taxes collected and remitted globally</p>
-        <p class="fastFact__footnote">as of December 31, 2023</p>
-  </div>
-        </div>
-          </div>
-  </div>
-</section>
-            <section class="leadership aboutSectionMargin"><h1 class="h2">Founders</h1>
-    <div class="leadership__grid">
-      <div class="row">
-      <div class="leadership__person col-md-2 col-mdpl-4 col-lg-4">
-        <a href="https://news.airbnb.com/about-us/leadership/brian-chesky/" class="leadership__personLink">
-          <div class="leadership__personImg">
-            <img src="https://news.airbnb.com/wp-content/uploads/sites/4/2016/10/140602_AirBnb_Brian_3837_SquareCrop.jpg?fit=950%2C950" alt="140602_AirBnb_Brian_3837_SquareCrop" class="optanon-category-C0012 ">
-          </div>
-          <h2 class="leadership__personName">
-            Brian Chesky
-          </h2>
-        </a><h3 class="leadership__personTitle">Airbnb Co-founder and Chief Executive Officer</h3></div>
-      <div class="leadership__person col-md-2 col-mdpl-4 col-lg-4">
-        <a href="https://news.airbnb.com/about-us/leadership/nathan-blecharczyk/" class="leadership__personLink">
-          <div class="leadership__personImg">
-            <img src="https://news.airbnb.com/wp-content/uploads/sites/4/2016/10/leadership_nate.jpg?fit=950%2C950" alt="leadership_nate" class="optanon-category-C0012 ">
-          </div>
-          <h2 class="leadership__personName">
-            Nathan Blecharczyk
-          </h2>
-        </a><h3 class="leadership__personTitle">Airbnb Co-founder and Chief Strategy Officer</h3></div>
-      <div class="leadership__person col-md-2 col-mdpl-4 col-lg-4">
-        <a href="https://news.airbnb.com/about-us/leadership/joe-gebbia/" class="leadership__personLink">
-          <div class="leadership__personImg">
-            <img src="https://news.airbnb.com/wp-content/uploads/sites/4/2016/10/Airbnb_Joe_Square.jpg?fit=950%2C950" alt="Airbnb_Joe_Square" class="optanon-category-C0012 ">
-          </div>
-          <h2 class="leadership__personName">
-            Joe Gebbia
-          </h2>
-        </a><h3 class="leadership__personTitle">Airbnb Co-founder and Chairman of Airbnb.org</h3></div>
-      </div>
-    </div></section>              <section class="timeline aboutSectionMargin js-timeline">
-	<h1 class="timeline__title h2">The Airbnb story</h1>
+        <div id="videoList" class="grid grid-cols-1 gap-4 mt-8"></div>
 
-	<div class="timeline__nav">
-	  <div class="timeline__navInner">
-		<label for="timelineNavBtn" id="timelineNavLabel" class="timeline__navLabel">Select Year</label>
-		<div class="timeline__navDropdown js-timeline-dropdown">
-		  <button id="timelineNavBtn" class="timeline__navBtn js-timeline-year-btn" aria-expanded="false">2007</button>
-		  <ul class="timeline__navModal js-timeline-year-modal" role="listbox" aria-labelledby="timelineNavLabel">
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2007">
-				  2007
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2008">
-				  2008
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2009">
-				  2009
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2010">
-				  2010
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2011">
-				  2011
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2012">
-				  2012
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2013">
-				  2013
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2014">
-				  2014
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2015">
-				  2015
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2016">
-				  2016
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2017">
-				  2017
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2019">
-				  2019
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2020">
-				  2020
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2021">
-				  2021
-				</button>
-			  </li>
-						  <li>
-				<button class="timeline__navModalItem js-timeline-year-modal-item" data-timeline-nav-year="2022">
-				  2022
-				</button>
-			  </li>
-					  </ul>
-		</div>
-	  </div>
-	</div>
-
-	<div class="js-story-slider timeline__storySlider slick-initialized slick-slider"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button><div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 17484px; transform: translate3d(-1128px, 0px, 0px);"><div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2021" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2021_May@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			May 2021
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We announce the Airbnb 2021 Release: 100+ upgrades to our service and product to make traveling and hosting easier</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2021" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="950" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/11/Airbnb-Story-May-2022-2021-Winter-Release-B.jpg?fit=950%2C950&amp;resize=950%2C950" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2021
-			</h3>
-			<div class="timeline__storySlideContent">
-			We announce the Airbnb 2021 Winter Release: 50+ upgrades including AirCover for hosts, Translation Engine and more.
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2022" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="950" src="https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Airbnb-Story-Nov-2021-2022-Summer-Release.jpg?fit=950%2C950&amp;resize=950%2C950" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			May 2022
-			</h3>
-			<div class="timeline__storySlideContent">
-			We announce the Airbnb 2022 Summer Release: the biggest change to Airbnb in a decade featuring Airbnb Categories, Split Stays and AirCover for guests.
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2022" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="633" src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/01/Airbnb-2022-Winter-Release-1.jpg?fit=950%2C633&amp;resize=950%2C633" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2022
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We introduce Airbnb Setup, a new easy way for millions of people to host on Airbnb. We also announce we’re providing even more AirCover for hosts and adding six new Airbnb Categories.&nbsp;</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 258px;" tabindex="0"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2007" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img loading="lazy" decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2007_October@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			October 2007
-			</h3>
-			<div class="timeline__storySlideContent">
-			Brian and Joe host Airbed &amp; Breakfast’s first guests
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 258px;" tabindex="0"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2008" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2008_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2008
-			</h3>
-			<div class="timeline__storySlideContent">
-			Airbed &amp; Breakfast officially launches during SXSW. Two bookings!
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 258px;" tabindex="0"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2008" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="902" src="https://news.airbnb.com/wp-content/uploads/sites/4/2008/08/2008.png?fit=950%2C902&amp;resize=950%2C902" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			August 2008
-			</h3>
-			<div class="timeline__storySlideContent">
-			The Airbed &amp; Breakfast website launches in time for the Democratic National Convention and gets 80 bookings
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 258px;" tabindex="0"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2008" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2008_August_2@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			August 2008
-			</h3>
-			<div class="timeline__storySlideContent">
-			We launch Payments, our bespoke payments platform which in 2019 processed about $70 billion in guest and host transactions in over 40 currencies
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2009" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2009_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2009
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We officially change our name from Airbed &amp; Breakfast&nbsp; to Airbnb and expand beyond rooms to offer apartments, whole homes, and vacation rentals</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2010" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2010_November@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2010
-			</h3>
-			<div class="timeline__storySlideContent">
-			We launch our app and Instant Book feature
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="6" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2011" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2011_June@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			June 2011
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We begin our international expansion with the opening of our German office</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="7" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2012" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2012_May@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			May 2012
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We introduce our $1M Host Guarantee</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="8" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2012" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2012_November@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2012
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">In response to Hurricane Sandy, we partner with New York City to house displaced residents and launch our Disaster Relief Tool</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="9" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2013" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2013_June@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			June 2013
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We open our 888 Brannan Street HQ, a few blocks from our first listing on Rausch Street</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="10" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2014" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2014_July@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			July 2014
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We introduce our new logo, the Belo</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="11" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2015" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2015_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2015
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Airbnb becomes the official alternative accommodations provider for the 2016 Rio Games</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="12" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2015" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2015_April@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			April 2015
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Airbnb launches in Cuba</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="13" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2016" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2016_November@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2016
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Airbnb launches Experiences</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="14" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2017" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2017_February@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			February 2017
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We air our #weaccept Super Bowl ad to protest the US travel ban</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="15" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2017" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2017_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2017
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch our Chinese brand, Aibiying</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="16" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2019" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2019_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2019
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Airbnb formally agrees to acquire HotelTonight</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="17" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2019" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2019_November@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2019
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Announcement of our nine-year partnership with the International Olympic Committee</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="18" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch Frontline Stays to safely house medical workers and other first responders during the COVID-19 pandemic</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="19" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_April@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			April 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch Online Experiences in response to our hosts needing a way to make up for lost earnings during the pandemic</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="20" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_June_1@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			June 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch our Enhanced Cleaning Protocol to help hosts and guests book with confidence during the pandemic</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="21" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_June_2B@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			June 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">In partnership with Color of Change, we announce Project Lighthouse, a groundbreaking effort to help fight discrimination</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="22" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_September@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			September 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch City Portal, a one-stop shop for local governments to help them understand and enforce responsible home sharing</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="23" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_December@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			December 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We become a publicly traded company and ring the bell with hosts around the world who make Airbnb, Airbnb</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="24" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="950" src="https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Airbnb-Story-Dec-2020-airbnb.org_.jpg?fit=950%2C950&amp;resize=950%2C950" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			December 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			We announce the launch of Airbnb.org, a non-profit that connects people to places to stay in times of crisis.
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="25" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2021" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2021_May@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			May 2021
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We announce the Airbnb 2021 Release: 100+ upgrades to our service and product to make traveling and hosting easier</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="26" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2021" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="950" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/11/Airbnb-Story-May-2022-2021-Winter-Release-B.jpg?fit=950%2C950&amp;resize=950%2C950" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2021
-			</h3>
-			<div class="timeline__storySlideContent">
-			We announce the Airbnb 2021 Winter Release: 50+ upgrades including AirCover for hosts, Translation Engine and more.
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="27" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2022" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="950" src="https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Airbnb-Story-Nov-2021-2022-Summer-Release.jpg?fit=950%2C950&amp;resize=950%2C950" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			May 2022
-			</h3>
-			<div class="timeline__storySlideContent">
-			We announce the Airbnb 2022 Summer Release: the biggest change to Airbnb in a decade featuring Airbnb Categories, Split Stays and AirCover for guests.
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide" data-slick-index="28" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2022" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="633" src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/01/Airbnb-2022-Winter-Release-1.jpg?fit=950%2C633&amp;resize=950%2C633" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2022
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We introduce Airbnb Setup, a new easy way for millions of people to host on Airbnb. We also announce we’re providing even more AirCover for hosts and adding six new Airbnb Categories.&nbsp;</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="29" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2007" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img loading="lazy" decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2007_October@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			October 2007
-			</h3>
-			<div class="timeline__storySlideContent">
-			Brian and Joe host Airbed &amp; Breakfast’s first guests
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="30" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2008" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2008_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2008
-			</h3>
-			<div class="timeline__storySlideContent">
-			Airbed &amp; Breakfast officially launches during SXSW. Two bookings!
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="31" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2008" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="902" src="https://news.airbnb.com/wp-content/uploads/sites/4/2008/08/2008.png?fit=950%2C902&amp;resize=950%2C902" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			August 2008
-			</h3>
-			<div class="timeline__storySlideContent">
-			The Airbed &amp; Breakfast website launches in time for the Democratic National Convention and gets 80 bookings
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="32" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2008" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2008_August_2@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			August 2008
-			</h3>
-			<div class="timeline__storySlideContent">
-			We launch Payments, our bespoke payments platform which in 2019 processed about $70 billion in guest and host transactions in over 40 currencies
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="33" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2009" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2009_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2009
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We officially change our name from Airbed &amp; Breakfast&nbsp; to Airbnb and expand beyond rooms to offer apartments, whole homes, and vacation rentals</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="34" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2010" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2010_November@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2010
-			</h3>
-			<div class="timeline__storySlideContent">
-			We launch our app and Instant Book feature
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="35" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2011" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2011_June@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			June 2011
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We begin our international expansion with the opening of our German office</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="36" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2012" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2012_May@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			May 2012
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We introduce our $1M Host Guarantee</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="37" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2012" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2012_November@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2012
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">In response to Hurricane Sandy, we partner with New York City to house displaced residents and launch our Disaster Relief Tool</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="38" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2013" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2013_June@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			June 2013
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We open our 888 Brannan Street HQ, a few blocks from our first listing on Rausch Street</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="39" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2014" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2014_July@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			July 2014
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We introduce our new logo, the Belo</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="40" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2015" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2015_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2015
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Airbnb becomes the official alternative accommodations provider for the 2016 Rio Games</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="41" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2015" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2015_April@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			April 2015
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Airbnb launches in Cuba</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="42" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2016" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2016_November@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2016
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Airbnb launches Experiences</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="43" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2017" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2017_February@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			February 2017
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We air our #weaccept Super Bowl ad to protest the US travel ban</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="44" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2017" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2017_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2017
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch our Chinese brand, Aibiying</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="45" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2019" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2019_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2019
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Airbnb formally agrees to acquire HotelTonight</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="46" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2019" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2019_November@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2019
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">Announcement of our nine-year partnership with the International Olympic Committee</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="47" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_March@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			March 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch Frontline Stays to safely house medical workers and other first responders during the COVID-19 pandemic</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="48" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_April@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			April 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch Online Experiences in response to our hosts needing a way to make up for lost earnings during the pandemic</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="49" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_June_1@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			June 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch our Enhanced Cleaning Protocol to help hosts and guests book with confidence during the pandemic</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="50" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_June_2B@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			June 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">In partnership with Color of Change, we announce Project Lighthouse, a groundbreaking effort to help fight discrimination</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="51" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_September@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			September 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We launch City Portal, a one-stop shop for local governments to help them understand and enforce responsible home sharing</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="52" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2020_December@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			December 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We become a publicly traded company and ring the bell with hosts around the world who make Airbnb, Airbnb</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="53" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2020" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="950" src="https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Airbnb-Story-Dec-2020-airbnb.org_.jpg?fit=950%2C950&amp;resize=950%2C950" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			December 2020
-			</h3>
-			<div class="timeline__storySlideContent">
-			We announce the launch of Airbnb.org, a non-profit that connects people to places to stay in times of crisis.
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="54" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2021" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="616" height="616" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/07/2021_May@2X.jpg?fit=616%2C616&amp;resize=616%2C616" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			May 2021
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We announce the Airbnb 2021 Release: 100+ upgrades to our service and product to make traveling and hosting easier</span>
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="55" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2021" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="950" src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/11/Airbnb-Story-May-2022-2021-Winter-Release-B.jpg?fit=950%2C950&amp;resize=950%2C950" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2021
-			</h3>
-			<div class="timeline__storySlideContent">
-			We announce the Airbnb 2021 Winter Release: 50+ upgrades including AirCover for hosts, Translation Engine and more.
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="56" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2022" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="950" src="https://news.airbnb.com/wp-content/uploads/sites/4/2022/09/Airbnb-Story-Nov-2021-2022-Summer-Release.jpg?fit=950%2C950&amp;resize=950%2C950" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			May 2022
-			</h3>
-			<div class="timeline__storySlideContent">
-			We announce the Airbnb 2022 Summer Release: the biggest change to Airbnb in a decade featuring Airbnb Categories, Split Stays and AirCover for guests.
-			</div>
-		  </div>
-		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="57" aria-hidden="true" style="width: 258px;" tabindex="-1"><div><div class="timeline__storySlide js-timeline-story-slide" data-timeline-slide-year="2022" style="width: 100%; display: inline-block;">
-		  <div class="timeline__storySlideImg">
-		  <img decoding="async" width="950" height="633" src="https://news.airbnb.com/wp-content/uploads/sites/4/2023/01/Airbnb-2022-Winter-Release-1.jpg?fit=950%2C633&amp;resize=950%2C633" class="optanon-category-C0012 attachment-grid-third size-grid-third wp-post-image" alt="" loading="lazy" data-recalc-dims="1">
-		  </div>
-		  <div class="timeline__storySlideText">
-			<h3 class="timeline__storySlideTitle">
-			November 2022
-			</h3>
-			<div class="timeline__storySlideContent">
-			<span style="font-weight: 400">We introduce Airbnb Setup, a new easy way for millions of people to host on Airbnb. We also announce we’re providing even more AirCover for hosts and adding six new Airbnb Categories.&nbsp;</span>
-			</div>
-		  </div>
-		</div></div></div></div></div><button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button></div>
-
-  </section>
-                  </div>
+        <div id="player" class="mt-10">
+            <div id="youtubePlayer" class="w-full h-64"></div>
+        </div>
     </div>
+
+    <script>
+        let player;
+        let queue = [];
+        let currentSong = null;
+
+        // Hàm tìm kiếm video
+        function searchVideos() {
+            const query = document.getElementById('searchInput').value;
+            const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Thay bằng API Key của bạn
+            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${query}+karaoke&type=video&key=${apiKey}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const videoList = document.getElementById('videoList');
+                    videoList.innerHTML = '';
+                    data.items.forEach(item => {
+                        const videoId = item.id.videoId;
+                        const title = item.snippet.title;
+                        const thumbnailUrl = item.snippet.thumbnails.medium.url;
+
+                        const videoItem = document.createElement('div');
+                        videoItem.classList.add('bg-gray-800', 'p-4', 'rounded', 'cursor-pointer', 'flex', 'items-center', 'space-x-4');
+
+                        const thumbnail = document.createElement('img');
+                        thumbnail.src = thumbnailUrl;
+                        thumbnail.alt = title;
+                        thumbnail.classList.add('w-32', 'h-24', 'object-cover', 'rounded');
+
+                        const videoInfo = document.createElement('div');
+                        videoInfo.innerHTML = `<p>${title}</p>`;
+
+                        const addButton = document.createElement('button');
+                        addButton.textContent = "Chọn";
+                        addButton.classList.add('bg-yellow-500', 'hover:bg-yellow-400', 'p-2', 'rounded-lg', 'text-black');
+                        addButton.onclick = () => addToQueue(videoId, title);
+
+                        videoItem.appendChild(thumbnail);
+                        videoItem.appendChild(videoInfo);
+                        videoItem.appendChild(addButton);
+
+                        videoList.appendChild(videoItem);
+                    });
+                })
+                .catch(error => console.log(error));
+        }
+
+        // Hàm thêm bài hát vào danh sách chờ
+        function addToQueue(videoId, title) {
+            queue.push({ videoId, title });
+            if (!currentSong) {
+                playNextSong();
+            }
+        }
+
+        // Hàm phát bài hát tiếp theo
+        function playNextSong() {
+            if (queue.length > 0) {
+                currentSong = queue.shift();
+                loadVideo(currentSong.videoId);
+            } else {
+                currentSong = null;
+            }
+        }
+
+        // Hàm phát video từ YouTube
+        function loadVideo(videoId) {
+            if (player) {
+                player.loadVideoById(videoId);
+            } else {
+                player = new YT.Player('youtubePlayer', {
+                    height: '360',
+                    width: '640',
+                    videoId: videoId,
+                    playerVars: {
+                        'controls': 0,
+                        'disablekb': 1,
+                        'rel': 0,
+                        'showinfo': 0,
+                        'modestbranding': 1,
+                        'autoplay': 1,
+                        'fs': 1
+                    },
+                    events: {
+                        'onReady': (event) => event.target.playVideo(),
+                        'onStateChange': (event) => {
+                            if (event.data === YT.PlayerState.ENDED) {
+                                playNextSong();
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
