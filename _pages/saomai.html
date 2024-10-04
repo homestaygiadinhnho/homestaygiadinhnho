@@ -17,7 +17,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         // Khởi tạo Supabase
         const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co'; // Thay bằng URL của bạn
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay bằng Anon Key của bạn
-        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey); // Đổi tên biến
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
         // Hàm tìm kiếm video
         function searchVideos() {
@@ -44,8 +44,14 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                         selectButton.textContent = "Hát Ngay";
                         selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
                         selectButton.onclick = () => {
-                            saveSong(videoId, title); // Lưu bài hát vào Supabase
-                            window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
+                            const name = prompt("Nhập tên của bạn:");
+                            const age = prompt("Nhập tuổi của bạn:");
+                            if (name && age) {
+                                saveSong(videoId, name, age); // Lưu bài hát vào Supabase
+                                window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
+                            } else {
+                                alert("Bạn phải nhập đầy đủ tên và tuổi!");
+                            }
                         };
 
                         videoItem.appendChild(videoInfo);
@@ -57,10 +63,10 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         }
 
         // Hàm lưu bài hát vào Supabase
-        async function saveSong(videoId, title) {
-            const { data, error } = await supabaseClient // Sử dụng biến supabaseClient
+        async function saveSong(videoId, name, age) {
+            const { data, error } = await supabaseClient
                 .from('songs')
-                .insert([{ title: title, video_id: videoId }]);
+                .insert([{ name: name, age: age, video_id: videoId }]);
 
             if (error) {
                 console.error('Lỗi khi lưu bài hát: ', error);
