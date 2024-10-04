@@ -15,21 +15,21 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script>
         // Khởi tạo Supabase
-        const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co'; // Thay bằng URL của bạn
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay bằng Anon Key của bạn
+        const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
         const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
         // Hàm tìm kiếm video
         function searchVideos() {
             const query = document.getElementById('searchInput').value;
-            const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4'; // Thay bằng API Key của bạn
+            const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
             const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${query}+karaoke&type=video&key=${apiKey}`;
 
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     const videoList = document.getElementById('videoList');
-                    videoList.innerHTML = ''; // Xóa danh sách video trước đó
+                    videoList.innerHTML = '';
                     data.items.forEach(item => {
                         const videoId = item.id.videoId;
                         const title = item.snippet.title;
@@ -48,6 +48,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                             const age = prompt("Nhập tuổi của bạn:");
                             if (name && age) {
                                 saveSong(videoId, name, age);
+                                window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
                             } else {
                                 alert("Bạn phải nhập đầy đủ tên và tuổi!");
                             }
@@ -61,9 +62,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                 .catch(error => console.log(error));
         }
 
-        // Hàm lưu bài hát vào Supabase
         async function saveSong(videoId, name, age) {
-            console.log("Saving song:", { videoId, name, age });
             const { data, error } = await supabaseClient
                 .from('karaoke_songs')
                 .insert([{ name: name, age: age, video_id: videoId }]);
@@ -84,8 +83,19 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
         <div id="videoList" class="grid grid-cols-1 gap-4 mt-8"></div>
 
-        <div id="player" class="mt-10">
-            <div id="youtubePlayer" class="w-full h-64"></div>
+        <!-- Giao diện hiển thị bài hát karaoke -->
+        <div id="karaokeDisplay" class="mt-10">
+            <h2 class="text-2xl mb-4">Bài hát đang phát</h2>
+            <div id="currentSong" class="bg-gray-800 p-4 rounded-lg">
+                <h3 id="songTitle" class="text-xl"></h3>
+                <iframe id="youtubePlayer" class="w-full h-64" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Giao diện xem các bài hát đã chọn -->
+        <div id="selectedSongs" class="mt-10">
+            <h2 class="text-2xl mb-4">Các bài hát đã chọn</h2>
+            <ul id="songList" class="list-disc list-inside"></ul>
         </div>
     </div>
     <script src="https://www.youtube.com/iframe_api"></script>
