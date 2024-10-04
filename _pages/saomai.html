@@ -33,9 +33,10 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay bằng Anon Key của bạn
         const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
+        // Hàm tìm kiếm video
         function searchVideos() {
             const query = document.getElementById('searchInput').value;
-            const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
+            const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4'; // Thay bằng API Key của bạn
             const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${query}+karaoke&type=video&key=${apiKey}`;
 
             fetch(url)
@@ -69,6 +70,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                 .catch(error => console.log(error));
         }
 
+        // Hàm lưu bài hát vào Supabase
         async function saveSong(videoId, title) {
             const { data, error } = await supabase
                 .from('songs')
