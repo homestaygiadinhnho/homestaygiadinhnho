@@ -65,7 +65,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         // Hàm lưu bài hát vào Supabase
         async function saveSong(videoId, name, age) {
             const { data, error } = await supabaseClient
-                .from('songs')
+                .from('karaoke_songs')
                 .insert([{ name: name, age: age, video_id: videoId }]);
 
             if (error) {
