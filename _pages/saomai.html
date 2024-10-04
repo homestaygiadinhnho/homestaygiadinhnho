@@ -47,8 +47,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                             const name = prompt("Nhập tên của bạn:");
                             const age = prompt("Nhập tuổi của bạn:");
                             if (name && age) {
-                                saveSong(videoId, name, age); // Lưu bài hát vào Supabase
-                                window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
+                                saveSong(videoId, name, age);
                             } else {
                                 alert("Bạn phải nhập đầy đủ tên và tuổi!");
                             }
