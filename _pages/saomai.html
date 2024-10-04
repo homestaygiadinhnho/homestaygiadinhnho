@@ -26,27 +26,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         </div>
     </div>
 
-    <!-- Firebase App (the core Firebase SDK) -->
-    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js"></script>
     <script>
-        // Cấu hình Firebase của bạn
-        const firebaseConfig = {
-            apiKey: "AIzaSyD3eEaMfCsptITqEq8RUG96ATNxZK7HApo",
-            authDomain: "sao-mai-media.firebaseapp.com",
-            databaseURL: "https://sao-mai-media-default-rtdb.firebaseio.com",
-            projectId: "sao-mai-media",
-            storageBucket: "sao-mai-media.appspot.com",
-            messagingSenderId: "178305038455",
-            appId: "1:178305038455:web:628db22e31b65395d12e72",
-            measurementId: "G-YPMNJW5W9D"
-        };
-
-        // Khởi tạo Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const database = firebase.database(); // Khởi tạo Realtime Database
-
-        // Hàm tìm kiếm video
         function searchVideos() {
             const query = document.getElementById('searchInput').value;
             const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4'; // Thay bằng API Key của bạn
@@ -71,7 +51,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                         selectButton.textContent = "Hát Ngay";
                         selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
                         selectButton.onclick = () => {
-                            saveSong(videoId, title); // Lưu bài hát vào Firebase
+                            saveSong(videoId, title); // Lưu bài hát vào Google Sheets
                             window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
                         };
 
@@ -83,19 +63,26 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                 .catch(error => console.log(error));
         }
 
-        // Hàm lưu bài hát vào Firebase
         function saveSong(videoId, title) {
-            const songRef = database.ref('songs/' + videoId); // Tạo tham chiếu đến đường dẫn trong Realtime Database
-            songRef.set({ title: title, videoId: videoId }) // Lưu videoId và title vào database
-                .then(() => {
-                    alert('Bài hát đã được lưu!');
-                })
-                .catch(error => {
-                    console.error('Lỗi khi lưu bài hát: ', error);
-                });
+            const url = "https://script.google.com/macros/s/AKfycbwkOKbWJRAhhoZsVJj8bXGwQUFnaLjP_azd3HmdCSdaez_TwSYfuu-xKyKfWEwsLNeJ4Q/exec"; // URL của Apps Script Web App
+            const data = { name: name, age: age, videoId: videoId };
+
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert('Bài hát đã được lưu vào Google Sheets!');
+            })
+            .catch(error => {
+                console.error('Lỗi khi lưu bài hát vào Google Sheets: ', error);
+            });
         }
     </script>
 
     <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
