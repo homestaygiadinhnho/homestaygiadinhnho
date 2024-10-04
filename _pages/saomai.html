@@ -65,7 +65,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
         function saveSong(videoId, title) {
             const url = "https://script.google.com/macros/s/AKfycbwkOKbWJRAhhoZsVJj8bXGwQUFnaLjP_azd3HmdCSdaez_TwSYfuu-xKyKfWEwsLNeJ4Q/exec"; // URL của Apps Script Web App
-            const data = { name: name, age: age, videoId: videoId };
+            const data = { videoId: videoId, title: title };
 
             fetch(url, {
                 method: 'POST',
