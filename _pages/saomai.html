@@ -12,6 +12,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karaoke với YouTube</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body class="bg-gray-900 text-white">
     <div class="container mx-auto py-10 text-center">
@@ -27,9 +28,14 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     </div>
 
     <script>
+        // Khởi tạo Supabase
+        const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co'; // Thay bằng URL của bạn
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay bằng Anon Key của bạn
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
         function searchVideos() {
             const query = document.getElementById('searchInput').value;
-            const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4'; // Thay bằng API Key của bạn
+            const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
             const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${query}+karaoke&type=video&key=${apiKey}`;
 
             fetch(url)
@@ -51,7 +57,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                         selectButton.textContent = "Hát Ngay";
                         selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
                         selectButton.onclick = () => {
-                            saveSong(videoId, title); // Lưu bài hát vào Google Sheets
+                            saveSong(videoId, title); // Lưu bài hát vào Supabase
                             window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
                         };
 
@@ -63,26 +69,19 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
                 .catch(error => console.log(error));
         }
 
-        function saveSong(videoId, title) {
-            const url = "https://script.google.com/macros/s/AKfycbyq6w3sQtANKTFsVPB9LLlUN05TqFD4CooWM4qOSg0pQg9kbFD41frp9W1c9dBY6ewt/exec"; // URL của Apps Script Web App
-            const data = { videoId: videoId, title: title };
+        async function saveSong(videoId, title) {
+            const { data, error } = await supabase
+                .from('songs')
+                .insert([{ title: title, video_id: videoId }]);
 
-            fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { 'Content-Type': 'application/json' }
-            })
-            .then(response => response.text())
-            .then(result => {
-                alert('Bài hát đã được lưu vào Google Sheets!');
-            })
-            .catch(error => {
-                console.error('Lỗi khi lưu bài hát vào Google Sheets: ', error);
-            });
+            if (error) {
+                console.error('Lỗi khi lưu bài hát: ', error);
+            } else {
+                alert('Bài hát đã được lưu vào Supabase!');
+            }
         }
     </script>
 
     <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
-
