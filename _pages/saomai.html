@@ -13,12 +13,29 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     <title>Karaoke với YouTube</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUI-Regular-cc3b1de388efa4cbca6c75cebc24585e.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUITitleVariable-8769ccfde3379b7ebcadd9529b49d0cc.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUITitle-Bold-37290f1de77f297fcc26d71e9afcf43f.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUI-Bold-4264b799009b1db5c491778b1bc8e5b7.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUITitleVariable-8769ccfde3379b7ebcadd9529b49d0cc.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUITitle-Extrabold-ba6c73cd7f82c81e49cf2204017803ed.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <style>
+        @font-face {
+  font-family: Anamart;
+  font-style: normal;
+  font-display: swap;
+  src: url(https://homestaygiadinhnho.github.io/assets/fonts/SpotifyMixUI-Regular.woff2)
+    format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: Anamart;
+  font-style: normal;
+  font-display: swap;
+  src: url(https://homestaygiadinhnho.github.io/assets/fonts/SpotifyMixUI-Bold.woff2)
+    format("woff2");
+  font-weight: 700;
+}
+
+        body {
+            font-family: Anamart;
+        }
+        
+    </style>
     <script>
         // Khởi tạo Supabase
         const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
@@ -81,7 +98,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         }
     </script>
 </head>
-<body class="bg-gray-900 text-white" style="font-family: SpotifyMixUI">
+<body class="bg-gray-900 text-white">
     <div class="container mx-auto py-4 text-center">
         <h1 class="text-4xl font-bold mb-6">Karaoke với YouTube</h1>
 <div class="flex justify-center items-center my-8">
