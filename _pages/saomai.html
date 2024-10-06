@@ -114,6 +114,13 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       font-weight: 700;
       padding: 0 4px;
     }
+#videoList > div:first-child {
+    margin-top: 24px; /* Đặt margin-top cho videoItem đầu tiên */
+}
+
+#videoList > div:last-child {
+    margin-bottom: 92px; /* Đặt margin-bottom cho videoItem cuối cùng */
+}
   </style>
   <script>
     // Khởi tạo Supabase
@@ -221,9 +228,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
           // Thêm videoItem vào videoList
 videoList.appendChild(videoItem);
 
-                            if (videoList.children.length === 0) {
-            videoItem.style.marginTop = '24px'; // Đặt margin-bottom cho videoItem cuối cùng
-          } 
 
                   if (videoList.children.length === data.items.length) {
             videoItem.style.marginBottom = '92px'; // Đặt margin-bottom cho videoItem cuối cùng
