@@ -35,6 +35,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       font-family: saomaiMedia;
     }
   </style>
+<div id="videoList"></div>
+
 <script>
   // Khởi tạo Supabase
   const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
@@ -46,25 +48,55 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     const query = document.getElementById('searchInput').value;
     const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${query}+karaoke&type=video&key=${apiKey}`;
+    
     fetch(url)
       .then(response => response.json())
-      .then(data => {
+      .then(async data => {
         const videoList = document.getElementById('videoList');
         videoList.innerHTML = ''; // Xóa danh sách video cũ
-        data.items.forEach(item => {
+
+        // Lấy videoIds để tìm thêm thông tin từ video API
+        const videoIds = data.items.map(item => item.id.videoId).join(',');
+
+        // Gọi API để lấy thông tin chi tiết về video
+        const videoDetailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds}&key=${apiKey}`;
+        const videoDetailsResponse = await fetch(videoDetailsUrl);
+        const videoDetailsData = await videoDetailsResponse.json();
+
+        data.items.forEach((item, index) => {
           const videoId = item.id.videoId;
           const title = item.snippet.title;
-          const videoItem = document.createElement('div');
-          videoItem.classList.add('bg-gray-800', 'p-4', 'rounded', 'cursor-pointer');
+          const channelTitle = item.snippet.channelTitle;
+          const thumbnailUrl = item.snippet.thumbnails.medium.url;
+          const publishedAt = new Date(item.snippet.publishedAt).toLocaleDateString();
+          
+          // Thông tin chi tiết về video từ videoDetailsData
+          const viewCount = videoDetailsData.items[index].statistics.viewCount;
+          const duration = formatDuration(videoDetailsData.items[index].contentDetails.duration);
 
-          // Thông tin video
+          // Tạo video item
+          const videoItem = document.createElement('div');
+          videoItem.classList.add('bg-gray-800', 'p-4', 'rounded', 'cursor-pointer', 'flex', 'mb-4');
+          
+          // Tạo phần hình ảnh (thumbnail)
+          const thumbnail = document.createElement('img');
+          thumbnail.src = thumbnailUrl;
+          thumbnail.classList.add('w-40', 'h-24', 'rounded-lg', 'mr-4');
+
+          // Tạo phần thông tin
           const videoInfo = document.createElement('div');
-          videoInfo.innerHTML = `<p>${title}</p>`;
+          videoInfo.classList.add('flex-grow');
+          videoInfo.innerHTML = `
+            <p class="text-white font-bold">${title}</p>
+            <p class="text-gray-400">Người đăng: ${channelTitle}</p>
+            <p class="text-gray-400">Lượt xem: ${viewCount} | Ngày đăng: ${publishedAt}</p>
+            <p class="text-gray-400">Thời lượng: ${duration}</p>
+          `;
 
           // Nút "Hát Ngay"
           const selectButton = document.createElement('button');
           selectButton.textContent = "Hát Ngay";
-          selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
+          selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black', 'ml-4');
           selectButton.onclick = () => {
             const name = prompt("Nhập tên của bạn:");
             const age = prompt("Nhập tuổi của bạn:");
@@ -76,19 +108,36 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
             }
           };
 
+          // Thêm thumbnail và videoInfo vào videoItem
+          videoItem.appendChild(thumbnail);
           videoItem.appendChild(videoInfo);
           videoItem.appendChild(selectButton);
+          
+          // Thêm videoItem vào videoList
           videoList.appendChild(videoItem);
         });
       })
       .catch(error => console.log(error));
   }
 
-  // Hàm xử lý khi nhấn phím Enter
-  function handleSearch(event) {
-    if (event.key === 'Enter') {
-      searchVideos();
+  // Hàm định dạng thời gian (ISO 8601 duration)
+  function formatDuration(duration) {
+    let hours = 0, minutes = 0, seconds = 0;
+    duration = duration.replace('PT', '');
+    if (duration.indexOf('H') > -1) {
+      let split = duration.split('H');
+      hours = parseInt(split[0], 10);
+      duration = split[1];
     }
+    if (duration.indexOf('M') > -1) {
+      let split = duration.split('M');
+      minutes = parseInt(split[0], 10);
+      duration = split[1];
+    }
+    if (duration.indexOf('S') > -1) {
+      seconds = parseInt(duration.replace('S', ''), 10);
+    }
+    return `${hours > 0 ? hours + 'h ' : ''}${minutes > 0 ? minutes + 'm ' : ''}${seconds}s`;
   }
 
   // Lưu thông tin bài hát vào Supabase
@@ -104,6 +153,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
   }
 </script>
+
 </head>
 
 <body class="bg-black text-white mx-auto container">
