@@ -159,6 +159,26 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         thumbnail.classList.add('w-full', 'h-60');
         thumbnail.style.objectFit = 'cover';
 
+const durationOverlay = document.createElement('div');
+durationOverlay.classList.add('thumbnail-overlay-badge-shape', 'absolute', 'bottom-0', 'right-0', 'm-2'); // Định vị ở góc dưới bên phải
+
+// Tạo badge cho thời gian
+const badgeShape = document.createElement('badge-shape');
+badgeShape.classList.add('badge-shape-wiz', 'badge-shape-wiz--thumbnail-default', 'badge-shape-wiz--thumbnail-badge');
+badgeShape.setAttribute('role', 'img');
+badgeShape.setAttribute('aria-label', duration); // Sử dụng biến duration của bạn ở đây
+
+// Thêm thời gian vào badge
+const badgeText = document.createElement('div');
+badgeText.classList.add('badge-shape-wiz__text');
+badgeText.textContent = duration; // Sử dụng biến duration của bạn ở đây
+
+// Ghép các phần lại với nhau
+badgeShape.appendChild(badgeText);
+durationOverlay.appendChild(badgeShape);
+thumbnailContainer.appendChild(thumbnail);
+thumbnailContainer.appendChild(durationOverlay); 
+
         // Tạo phần avatar người đăng và thông tin video
         const avatarContainer = document.createElement('div');
         avatarContainer.classList.add('flex', 'items-center');
