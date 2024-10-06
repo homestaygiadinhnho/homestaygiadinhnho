@@ -131,24 +131,41 @@ function searchVideos() {
     .catch(error => console.log(error));
 }
   // Hàm định dạng thời gian (ISO 8601 duration)
-  function formatDuration(duration) {
+function formatDuration(duration) {
     let hours = 0, minutes = 0, seconds = 0;
     duration = duration.replace('PT', '');
+
+    // Kiểm tra và lấy giờ
     if (duration.indexOf('H') > -1) {
-      let split = duration.split('H');
-      hours = parseInt(split[0], 10);
-      duration = split[1];
+        let split = duration.split('H');
+        hours = parseInt(split[0], 10);
+        duration = split[1];
     }
+
+    // Kiểm tra và lấy phút
     if (duration.indexOf('M') > -1) {
-      let split = duration.split('M');
-      minutes = parseInt(split[0], 10);
-      duration = split[1];
+        let split = duration.split('M');
+        minutes = parseInt(split[0], 10);
+        duration = split[1];
     }
+
+    // Kiểm tra và lấy giây
     if (duration.indexOf('S') > -1) {
-      seconds = parseInt(duration.replace('S', ''), 10);
+        seconds = parseInt(duration.replace('S', ''), 10);
     }
-    return `${hours > 0 ? hours + 'h ' : ''}${minutes > 0 ? minutes + 'm ' : ''}${seconds}s`;
-  }
+
+    // Định dạng lại thành dạng `mm:ss`
+    // Chuyển đổi giờ thành phút nếu có
+    if (hours > 0) {
+        minutes += hours * 60;
+    }
+
+    // Đảm bảo phút và giây có 2 chữ số
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(seconds).padStart(2, '0');
+
+    return `${formattedMinutes}:${formattedSeconds}`;
+}
 
   // Lưu thông tin bài hát vào Supabase
   async function saveSong(videoId, name, age) {
