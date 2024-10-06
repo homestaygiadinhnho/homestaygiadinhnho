@@ -100,6 +100,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         const avatar = document.createElement('img');
         avatar.src = channelThumbnailUrl; // Sử dụng hình ảnh đại diện của kênh
         avatar.classList.add('rounded-full', 'w-10', 'h-10');
+        avatar.style.objectFit = 'cover';
 
         const videoInfo = document.createElement('div');
         videoInfo.classList.add('ml-3', 'text-left');
