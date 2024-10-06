@@ -129,6 +129,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         const selectButton = document.createElement('button');
         selectButton.textContent = "Chọn";
         selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black', 'mt-2');
+        selectButton.style.margin = '8px 12px';
         selectButton.onclick = () => {
           const name = prompt("Nhập tên của bạn:");
           const age = prompt("Nhập tuổi của bạn:");
