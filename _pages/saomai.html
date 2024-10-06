@@ -122,8 +122,18 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         thumbnailContainer.appendChild(thumbnail);
         avatarContainer.appendChild(avatar);
         avatarContainer.appendChild(videoInfo);
+
+         const actionButtonContainer = document.createElement('span');
+actionButtonContainer.classList.add('flex-shrink-0');
+actionButtonContainer.innerHTML = `<button aria-label="Action menu" title="" class="flex items-center justify-center w-12 h-12 text-base font-medium rounded-full bg-transparent border-none cursor-pointer focus:outline-none"><div aria-hidden="true" class="w-6 h-6"><span class="inline-flex items-center justify-center w-6 h-6 fill-current"><span class="flex items-center justify-center w-full h-full"><div class="w-full h-full block"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="w-full h-full"><path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path></svg></div></span></span></div></button>`;
+        videoInfo.appendChild(actionButtonContainer);
+        
         videoItem.appendChild(thumbnailContainer);
         videoItem.appendChild(avatarContainer);
+
+       
+
+        
         
         // Nút "Chọn"
         const selectButton = document.createElement('button');
