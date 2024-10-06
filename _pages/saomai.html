@@ -218,14 +218,22 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
           // Thêm nút chọn vào videoItem
           videoItem.appendChild(selectButton);
           // Thêm videoItem vào videoList
-
 data.items.forEach((item, index) => {
+    // Tạo videoItem cho mỗi item
+    const videoItem = document.createElement('div');
+    videoItem.classList.add('rounded', 'cursor-pointer', 'flex', 'w-full', 'flex-col');
+
+    // Thêm các phần tử con vào videoItem như đã thực hiện trước đó...
+    // Tạo phần hình ảnh, avatar, thông tin video, nút chọn, v.v.
+
+    // Thêm videoItem vào videoList
     videoList.appendChild(videoItem);
-    if (index === 0) {
-        videoItem.style.marginTop = '24px';
-    }
+
+    // Kiểm tra xem videoItem có phải là cuối cùng không
     if (index === data.items.length - 1) {
-        videoItem.style.marginBottom = '92px'; 
+        videoItem.style.marginBottom = '92px'; // Đặt margin-bottom cho videoItem cuối cùng
+    } else if (index === 0) {
+        videoItem.style.marginTop = '24px'; // Đặt margin-top cho video item đầu tiên
     }
 });
 
