@@ -215,6 +215,9 @@ actionButtonContainer.innerHTML = `<button aria-label="Action menu" title="" cla
         
         // Thêm videoItem vào videoList
         videoList.appendChild(videoItem);
+        if (videoList.children.length === data.items.length) {
+  videoItem.style.marginBottom = '92px'; // Đặt margin-bottom cho videoItem cuối cùng
+}
       });
     } catch (error) {
       console.error('Error fetching video data:', error);
