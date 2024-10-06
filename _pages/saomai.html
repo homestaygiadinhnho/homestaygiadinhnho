@@ -46,8 +46,11 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     font-size: inherit;
 }
 
-    .ld.ld-Heart:before {
-    content: "\f167";
+    .ld.ld-Play:before {
+    content: "\f19a";
+}
+        .ld.ld-Selected:before {
+    content: "\f1a8";
 }
 
 .line-clamp-2 {
@@ -332,19 +335,19 @@ actionButtonContainer.innerHTML = `<button aria-label="Action menu" title="" cla
 
 <div class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white flex justify-around p-4 shadow-lg">
   <button class="flex flex-col items-center">
-    <i class="fas fa-play"></i>
+    <i class="ld ld-Play" style="font-size:1rem;vertical-align:-0.175em;width:16px;height:1rem;box-sizing:content-box" aria-hidden="true"></i>
     <span>Đang phát</span>
   </button>
   <button class="flex flex-col items-center">
-    <i class="fas fa-check-circle"></i>
+    <i class="ld ld-Selected" style="font-size:1rem;vertical-align:-0.175em;width:16px;height:1rem;box-sizing:content-box" aria-hidden="true"></i>
     <span>Đã chọn</span>
   </button>
   <button class="flex flex-col items-center">
-    <i class="fas fa-list"></i>
+    <i class="ld ld-Heart" style="font-size:1rem;vertical-align:-0.175em;width:16px;height:1rem;box-sizing:content-box" aria-hidden="true"></i>
     <span>Chọn bài</span>
   </button>
   <button class="flex flex-col items-center">
-    <i class="fas fa-cogs"></i>
+    <i class="ld ld-Heart" style="font-size:1rem;vertical-align:-0.175em;width:16px;height:1rem;box-sizing:content-box" aria-hidden="true"></i>
     <span>Dịch vụ</span>
   </button>
   <button class="flex flex-col items-center">
