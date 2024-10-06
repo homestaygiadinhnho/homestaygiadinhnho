@@ -43,6 +43,29 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     body {
       font-family: saomaiMedia;
     }
+
+    .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2d3748; /* Màu nền tối */
+  color: white; /* Màu chữ trắng */
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem; /* Padding cho phần tử */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng */
+}
+
+.bottom-nav div {
+  text-align: center; /* Căn giữa nội dung */
+}
+
+.bottom-nav i {
+  font-size: 24px; /* Kích thước icon */
+  margin-bottom: 0.25rem; /* Khoảng cách giữa icon và chữ */
+}
+
   </style>
 
 <script>
@@ -284,6 +307,32 @@ actionButtonContainer.innerHTML = `<button aria-label="Action menu" title="" cla
     </div>
   </div>
   <script src="https://www.youtube.com/iframe_api"></script>
+
+<div class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white flex justify-around p-4 shadow-lg">
+  <div class="flex flex-col items-center">
+    <i class="fas fa-play"></i>
+    <span>Đang phát</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <i class="fas fa-check-circle"></i>
+    <span>Đã chọn</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <i class="fas fa-list"></i>
+    <span>Chọn bài</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <i class="fas fa-cogs"></i>
+    <span>Dịch vụ</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <i class="fas fa-bullhorn"></i>
+    <span>Quảng cáo</span>
+  </div>
+</div>
+
+
+  
 </body>
 
 </html>
