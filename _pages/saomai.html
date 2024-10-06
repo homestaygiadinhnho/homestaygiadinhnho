@@ -84,29 +84,39 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
           const thumbnail = document.createElement('img');
           thumbnail.src = thumbnailUrl;
-          thumbnail.classList.add('w-40', 'h-24', 'rounded-lg');
+          thumbnail.classList.add('w-full', 'h-48', 'rounded-lg');
 
-          // Tạo phần overlay cho thời gian
-          const durationOverlay = document.createElement('div');
-          durationOverlay.classList.add('absolute', 'bottom-2', 'right-2', 'bg-black', 'bg-opacity-70', 'text-white', 'text-xs', 'rounded', 'p-1');
-          durationOverlay.innerHTML = `<div class="badge-shape-wiz__text">${duration}</div>`;
+          // Tạo phần avatar người đăng
+          const avatarContainer = document.createElement('div');
+          avatarContainer.classList.add('flex', 'items-center', 'mt-2');
 
-          // Thêm thumbnail và overlay vào thumbnailContainer
-          thumbnailContainer.appendChild(thumbnail);
-          thumbnailContainer.appendChild(durationOverlay);
+          const avatar = document.createElement('div');
+          avatar.innerHTML = `
+            <div style="width: 40px; height: 40px; display: block;">
+              <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%; fill: currentcolor;">
+                <path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path>
+              </svg>
+            </div>
+          `;
 
-          // Tạo phần thông tin
           const videoInfo = document.createElement('div');
-          videoInfo.classList.add('flex-grow', 'flex', 'flex-col', 'text-left');
+          videoInfo.classList.add('ml-3', 'text-left');
           videoInfo.innerHTML = `
               <p class="text-white font-bold">${title}</p>
               <p class="text-gray-400">${channelTitle} • ${formatViews(viewCount)} • ${formatDate(publishedAt)}</p>
           `;
 
+          // Thêm thumbnail, avatar và thông tin vào videoItem
+          thumbnailContainer.appendChild(thumbnail);
+          avatarContainer.appendChild(avatar);
+          avatarContainer.appendChild(videoInfo);
+          videoItem.appendChild(thumbnailContainer);
+          videoItem.appendChild(avatarContainer);
+          
           // Nút "Chọn"
           const selectButton = document.createElement('button');
           selectButton.textContent = "Chọn";
-          selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
+          selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black', 'mt-2');
           selectButton.onclick = () => {
             const name = prompt("Nhập tên của bạn:");
             const age = prompt("Nhập tuổi của bạn:");
@@ -118,9 +128,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
             }
           };
 
-          // Thêm thumbnailContainer, videoInfo và selectButton vào videoItem
-          videoItem.appendChild(thumbnailContainer);
-          videoItem.appendChild(videoInfo);
+          // Thêm nút chọn vào videoItem
           videoItem.appendChild(selectButton);
           
           // Thêm videoItem vào videoList
@@ -197,17 +205,18 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   // Lưu thông tin bài hát vào Supabase
   async function saveSong(videoId, name, age) {
     const { data, error } = await supabaseClient
-      .from('karaoke_songs')
-      .insert([{ name: name, age: age, video_id: videoId }]);
+      .from('songs')
+      .insert([
+        { video_id: videoId, name: name, age: age }
+      ]);
 
     if (error) {
-      console.error('Lỗi khi lưu bài hát: ', error);
+      console.error('Error saving song:', error);
     } else {
-      alert('Bài hát đã được lưu vào Supabase!');
+      console.log('Song saved:', data);
     }
   }
 </script>
-
 
 </head>
 
