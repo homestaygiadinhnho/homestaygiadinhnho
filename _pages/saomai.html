@@ -43,83 +43,93 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
   // Hàm tìm kiếm video
-  function searchVideos() {
-    const query = document.getElementById('searchInput').value;
-    const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${query}+karaoke&type=video&key=${apiKey}`;
-    
-    fetch(url)
-      .then(response => response.json())
-      .then(async data => {
-        const videoList = document.getElementById('videoList');
-        videoList.innerHTML = ''; // Xóa danh sách video cũ
+function searchVideos() {
+  const query = document.getElementById('searchInput').value;
+  const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${query}+karaoke&type=video&key=${apiKey}`;
+  
+  fetch(url)
+    .then(response => response.json())
+    .then(async data => {
+      const videoList = document.getElementById('videoList');
+      videoList.innerHTML = ''; // Xóa danh sách video cũ
 
-        // Lấy videoIds để tìm thêm thông tin từ video API
-        const videoIds = data.items.map(item => item.id.videoId).join(',');
+      // Lấy videoIds để tìm thêm thông tin từ video API
+      const videoIds = data.items.map(item => item.id.videoId).join(',');
 
-        // Gọi API để lấy thông tin chi tiết về video
-        const videoDetailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds}&key=${apiKey}`;
-        const videoDetailsResponse = await fetch(videoDetailsUrl);
-        const videoDetailsData = await videoDetailsResponse.json();
+      // Gọi API để lấy thông tin chi tiết về video
+      const videoDetailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds}&key=${apiKey}`;
+      const videoDetailsResponse = await fetch(videoDetailsUrl);
+      const videoDetailsData = await videoDetailsResponse.json();
 
-        data.items.forEach((item, index) => {
-          const videoId = item.id.videoId;
-          const title = item.snippet.title;
-          const channelTitle = item.snippet.channelTitle;
-          const thumbnailUrl = item.snippet.thumbnails.medium.url;
-          const publishedAt = new Date(item.snippet.publishedAt).toLocaleDateString();
-          
-          // Thông tin chi tiết về video từ videoDetailsData
-          const viewCount = videoDetailsData.items[index].statistics.viewCount;
-          const duration = formatDuration(videoDetailsData.items[index].contentDetails.duration);
+      data.items.forEach((item, index) => {
+        const videoId = item.id.videoId;
+        const title = item.snippet.title;
+        const channelTitle = item.snippet.channelTitle;
+        const thumbnailUrl = item.snippet.thumbnails.medium.url;
+        const publishedAt = new Date(item.snippet.publishedAt).toLocaleDateString();
+        
+        // Thông tin chi tiết về video từ videoDetailsData
+        const viewCount = videoDetailsData.items[index].statistics.viewCount;
+        const duration = formatDuration(videoDetailsData.items[index].contentDetails.duration);
 
-          // Tạo video item
-          const videoItem = document.createElement('div');
-          videoItem.classList.add('p-4', 'rounded', 'cursor-pointer', 'flex', 'w-full', 'gap-4');
-          videoItem.style.background = '#1f1f1f';
-          
-          // Tạo phần hình ảnh (thumbnail)
-          const thumbnail = document.createElement('img');
-          thumbnail.src = thumbnailUrl;
-          thumbnail.classList.add('w-40', 'h-24', 'rounded-lg');
+        // Tạo video item
+        const videoItem = document.createElement('div');
+        videoItem.classList.add('p-4', 'rounded', 'cursor-pointer', 'flex', 'w-full', 'gap-4');
+        videoItem.style.background = '#1f1f1f';
+        
+        // Tạo phần hình ảnh (thumbnail)
+        const thumbnailContainer = document.createElement('div');
+        thumbnailContainer.classList.add('relative');
 
-          // Tạo phần thông tin
-          const videoInfo = document.createElement('div');
-          videoInfo.classList.add('flex-grow', 'flex', 'flex-col', 'text-left');
-          videoInfo.innerHTML = `
-            <p class="text-white font-bold">${title}</p>
-            <p class="text-gray-400">Người đăng: ${channelTitle}</p>
-            <p class="text-gray-400">Lượt xem: ${viewCount} | Ngày đăng: ${publishedAt}</p>
-            <p class="text-gray-400">Thời lượng: ${duration}</p>
-          `;
+        const thumbnail = document.createElement('img');
+        thumbnail.src = thumbnailUrl;
+        thumbnail.classList.add('w-40', 'h-24', 'rounded-lg');
 
-          // Nút "Hát Ngay"
-          const selectButton = document.createElement('button');
-          selectButton.textContent = "Chọn";
-          selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
-          selectButton.onclick = () => {
-            const name = prompt("Nhập tên của bạn:");
-            const age = prompt("Nhập tuổi của bạn:");
-            if (name && age) {
-              saveSong(videoId, name, age);
-              window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
-            } else {
-              alert("Bạn phải nhập đầy đủ tên và tuổi!");
-            }
-          };
+        // Tạo phần overlay cho thời gian
+        const durationOverlay = document.createElement('div');
+        durationOverlay.classList.add('absolute', 'bottom-2', 'right-2', 'bg-black', 'bg-opacity-70', 'text-white', 'text-xs', 'rounded', 'p-1');
+        durationOverlay.innerHTML = `<div class="badge-shape-wiz__text">${duration}</div>`;
 
-          // Thêm thumbnail và videoInfo vào videoItem
-          videoItem.appendChild(thumbnail);
-          videoItem.appendChild(videoInfo);
-          videoItem.appendChild(selectButton);
-          
-          // Thêm videoItem vào videoList
-          videoList.appendChild(videoItem);
-        });
-      })
-      .catch(error => console.log(error));
-  }
+        // Thêm thumbnail và overlay vào thumbnailContainer
+        thumbnailContainer.appendChild(thumbnail);
+        thumbnailContainer.appendChild(durationOverlay);
 
+        // Tạo phần thông tin
+        const videoInfo = document.createElement('div');
+        videoInfo.classList.add('flex-grow', 'flex', 'flex-col', 'text-left');
+        videoInfo.innerHTML = `
+          <p class="text-white font-bold">${title}</p>
+          <p class="text-gray-400">Người đăng: ${channelTitle}</p>
+          <p class="text-gray-400">Lượt xem: ${viewCount} | Ngày đăng: ${publishedAt}</p>
+        `;
+
+        // Nút "Chọn"
+        const selectButton = document.createElement('button');
+        selectButton.textContent = "Chọn";
+        selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
+        selectButton.onclick = () => {
+          const name = prompt("Nhập tên của bạn:");
+          const age = prompt("Nhập tuổi của bạn:");
+          if (name && age) {
+            saveSong(videoId, name, age);
+            window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
+          } else {
+            alert("Bạn phải nhập đầy đủ tên và tuổi!");
+          }
+        };
+
+        // Thêm thumbnailContainer, videoInfo và selectButton vào videoItem
+        videoItem.appendChild(thumbnailContainer);
+        videoItem.appendChild(videoInfo);
+        videoItem.appendChild(selectButton);
+        
+        // Thêm videoItem vào videoList
+        videoList.appendChild(videoItem);
+      });
+    })
+    .catch(error => console.log(error));
+}
   // Hàm định dạng thời gian (ISO 8601 duration)
   function formatDuration(duration) {
     let hours = 0, minutes = 0, seconds = 0;
