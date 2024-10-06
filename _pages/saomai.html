@@ -114,7 +114,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   async function searchVideos() {
     const query = document.getElementById('searchInput').value;
     const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${query}+karaoke&type=video&key=${apiKey}`;
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}+karaoke&type=video&key=${apiKey}`;
 
     try {
       const response = await fetch(url);
