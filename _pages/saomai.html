@@ -7,135 +7,132 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karaoke với YouTube</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <style>
-        @font-face {
-  font-family: saomaiMedia;
-  font-style: normal;
-  font-display: swap;
-  src: url(https://homestaygiadinhnho.github.io/assets/fonts/CircularSp-Book.woff2)
-    format("woff2");
-  font-weight: 400;
-}
-@font-face {
-  font-family: saomaiMedia;
-  font-style: normal;
-  font-display: swap;
-  src: url(https://homestaygiadinhnho.github.io/assets/fonts/CircularSpTitle-Bold.woff2)
-    format("woff2");
-  font-weight: 700;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karaoke với YouTube</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    @font-face {
+      font-family: saomaiMedia;
+      font-style: normal;
+      font-display: swap;
+      src: url(https://homestaygiadinhnho.github.io/assets/fonts/CircularSp-Book.woff2) format("woff2");
+      font-weight: 400;
+    }
 
-        body {
-            font-family: saomaiMedia;
-        }
-        
-    </style>
-    <script>
-        // Khởi tạo Supabase
-        const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+    @font-face {
+      font-family: saomaiMedia;
+      font-style: normal;
+      font-display: swap;
+      src: url(https://homestaygiadinhnho.github.io/assets/fonts/CircularSpTitle-Bold.woff2) format("woff2");
+      font-weight: 700;
+    }
 
-        // Hàm tìm kiếm video
-        function searchVideos() {
-            const query = document.getElementById('searchInput').value;
-            const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
-            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${query}+karaoke&type=video&key=${apiKey}`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const videoList = document.getElementById('videoList');
-                    videoList.innerHTML = '';
-                    data.items.forEach(item => {
-                        const videoId = item.id.videoId;
-                        const title = item.snippet.title;
-
-                        const videoItem = document.createElement('div');
-                        videoItem.classList.add('bg-gray-800', 'p-4', 'rounded', 'cursor-pointer');
-
-                        const videoInfo = document.createElement('div');
-                        videoInfo.innerHTML = `<p>${title}</p>`;
-
-                        const selectButton = document.createElement('button');
-                        selectButton.textContent = "Hát Ngay";
-                        selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
-                        selectButton.onclick = () => {
-                            const name = prompt("Nhập tên của bạn:");
-                            const age = prompt("Nhập tuổi của bạn:");
-                            if (name && age) {
-                                saveSong(videoId, name, age);
-                                window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
-                            } else {
-                                alert("Bạn phải nhập đầy đủ tên và tuổi!");
-                            }
-                        };
-
-                        videoItem.appendChild(videoInfo);
-                        videoItem.appendChild(selectButton);
-                        videoList.appendChild(videoItem);
-                    });
-                })
-                .catch(error => console.log(error));
-        }
-
-        async function saveSong(videoId, name, age) {
-            const { data, error } = await supabaseClient
-                .from('karaoke_songs')
-                .insert([{ name: name, age: age, video_id: videoId }]);
-
-            if (error) {
-                console.error('Lỗi khi lưu bài hát: ', error);
-            } else {
-                alert('Bài hát đã được lưu vào Supabase!');
-            }
-        }
-    </script>
+    body {
+      font-family: saomaiMedia;
+    }
+  </style>
+  <script>
+    // Khởi tạo Supabase
+    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+    // Hàm tìm kiếm video
+    function searchVideos() {
+      const query = document.getElementById('searchInput').value;
+      const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${query}+karaoke&type=video&key=${apiKey}`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const videoList = document.getElementById('videoList');
+          videoList.innerHTML = '';
+          data.items.forEach(item => {
+            const videoId = item.id.videoId;
+            const title = item.snippet.title;
+            const videoItem = document.createElement('div');
+            videoItem.classList.add('bg-gray-800', 'p-4', 'rounded', 'cursor-pointer');
+            const videoInfo = document.createElement('div');
+            videoInfo.innerHTML = `<p>${title}</p>`;
+            const selectButton = document.createElement('button');
+            selectButton.textContent = "Hát Ngay";
+            selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-lg', 'text-black');
+            selectButton.onclick = () => {
+              const name = prompt("Nhập tên của bạn:");
+              const age = prompt("Nhập tuổi của bạn:");
+              if (name && age) {
+                saveSong(videoId, name, age);
+                window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
+              } else {
+                alert("Bạn phải nhập đầy đủ tên và tuổi!");
+              }
+            };
+            videoItem.appendChild(videoInfo);
+            videoItem.appendChild(selectButton);
+            videoList.appendChild(videoItem);
+          });
+        })
+        .catch(error => console.log(error));
+    }
+    async function saveSong(videoId, name, age) {
+      const {
+        data,
+        error
+      } = await supabaseClient
+        .from('karaoke_songs')
+        .insert([{
+          name: name,
+          age: age,
+          video_id: videoId
+        }]);
+      if (error) {
+        console.error('Lỗi khi lưu bài hát: ', error);
+      } else {
+        alert('Bài hát đã được lưu vào Supabase!');
+      }
+    }
+  </script>
 </head>
+
 <body class="bg-black text-white mx-auto container">
-    <div class="text-center">
-        <h1 class="text-4xl font-bold mb-6 hidden">Karaoke với YouTube</h1>
+  <div class="text-center">
+    <h1 class="text-4xl font-bold mb-6 hidden">Karaoke với YouTube</h1>
 
+    <div class="flex justify-center items-center w-full px-4" style="padding: 12px 16px;">
+      <div class="relative w-full max-w-full">
+        <!-- Biểu tượng tìm kiếm -->
+        <div class="absolute inset-y-0 left-0 p-3 flex items-center pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"></path>
+          </svg>
+        </div>
 
-
-<div class="flex justify-center items-center w-full px-4" style="padding: 12px 16px;">
-  <div class="relative w-full max-w-full">
-    <!-- Biểu tượng tìm kiếm -->
-    <div class="absolute inset-y-0 left-0 p-3 flex items-center pointer-events-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 16 16" fill="currentColor">
-        <path d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"></path>
-      </svg>
+        <!-- Trường nhập liệu -->
+        <input type="text" id="searchInput" autocomplete="off" placeholder="Bạn muốn nghe gì?" class="p-3 pl-12 pr-14 w-full h-10 text-white font-bold rounded-full border-1 border-gray-300" onkeydown="handleSearch(event)" style="background:#1f1f1f;padding:8px 40px;border:none;border-radius:4px;line-height: 1.5rem;">
+      </div>
     </div>
 
-    <!-- Trường nhập liệu -->
-    <input type="text" id="searchInput" autocomplete="off" placeholder="Bạn muốn nghe gì?" class="p-3 pl-12 pr-14 w-full h-10 text-white font-bold rounded-full border-1 border-gray-300" onkeydown="handleSearch(event)" style="background:#1f1f1f;padding:8px 40px;border:none;border-radius:4px;line-height: 1.5rem;">
+    <div id="videoList" class="grid grid-cols-1 gap-4 mt-8"></div>
+
+    <!-- Giao diện hiển thị bài hát karaoke -->
+    <div id="karaokeDisplay" class="mt-10">
+      <h2 class="text-2xl mb-4">Bài hát đang phát</h2>
+      <div id="currentSong" class="bg-gray-800 p-4 rounded-lg">
+        <h3 id="songTitle" class="text-xl"></h3>
+        <iframe id="youtubePlayer" class="w-full h-64" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Giao diện xem các bài hát đã chọn -->
+    <div id="selectedSongs" class="mt-10">
+      <h2 class="text-2xl mb-4">Các bài hát đã chọn</h2>
+      <ul id="songList" class="list-disc list-inside"></ul>
+    </div>
   </div>
-</div>
-
-
-        <div id="videoList" class="grid grid-cols-1 gap-4 mt-8"></div>
-
-        <!-- Giao diện hiển thị bài hát karaoke -->
-        <div id="karaokeDisplay" class="mt-10">
-            <h2 class="text-2xl mb-4">Bài hát đang phát</h2>
-            <div id="currentSong" class="bg-gray-800 p-4 rounded-lg">
-                <h3 id="songTitle" class="text-xl"></h3>
-                <iframe id="youtubePlayer" class="w-full h-64" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Giao diện xem các bài hát đã chọn -->
-        <div id="selectedSongs" class="mt-10">
-            <h2 class="text-2xl mb-4">Các bài hát đã chọn</h2>
-            <ul id="songList" class="list-disc list-inside"></ul>
-        </div>
-    </div>
-    <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 </body>
+
 </html>
