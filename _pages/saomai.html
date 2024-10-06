@@ -229,16 +229,22 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
 
     function displayYourImage() {
-      const videoList = document.getElementById('videoList');
-      // Tạo phần tử hình ảnh
-      const yourImage = document.createElement('img');
-      yourImage.src = 'https://i.ytimg.com/vi/-78H85f14TE/maxresdefault.jpg'; // Thay thế với URL của hình ảnh của bạn
-      yourImage.classList.add('w-full', 'h-60', 'object-cover', 'mb-6'); // Thêm lớp để định dạng hình ảnh
-      // Thêm hình ảnh vào videoList
-      videoList.appendChild(yourImage); // Thêm hình ảnh vào videoList
+        const videoList = document.getElementById('videoList');
+        if (!videoList) {
+            console.error("Element with id 'videoList' not found.");
+            return; // Thoát hàm nếu không tìm thấy phần tử
+        }
+        // Tạo phần tử hình ảnh
+        const yourImage = document.createElement('img');
+        yourImage.src = 'https://i.ytimg.com/vi/-78H85f14TE/maxresdefault.jpg'; // Thay thế với URL của hình ảnh của bạn
+        yourImage.classList.add('w-full', 'h-60', 'object-cover', 'mb-6'); // Thêm lớp để định dạng hình ảnh
+        // Thêm hình ảnh vào videoList
+        videoList.appendChild(yourImage); // Thêm hình ảnh vào videoList
     }
     // Gọi hàm để hiển thị hình ảnh ngay khi trang được tải
-    displayYourImage();
+    document.addEventListener("DOMContentLoaded", function() {
+        displayYourImage(); // Gọi hàm khi DOM đã sẵn sàng
+    });
 
     function formatViews(views) {
       const viewCount = parseInt(views, 10);
