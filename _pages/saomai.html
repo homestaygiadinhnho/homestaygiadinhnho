@@ -203,8 +203,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
             // Nút chọn bài hát
             const selectButton = $('<button>', {
               text: 'Tôi chọn hát bài này',
-              class: 'bg-green-500 hover:bg-green-400 p-2 rounded-sm text-white mt-2 font-bold',
-              css: { margin: '8px 16px', background: '#1abc54' },
+              class: 'bg-green-500 hover:bg-green-400 p-2 rounded-sm text-white mt-2 font-bold text-xl',
+              css: { margin: '8px 16px', background: '#1abc54', color: '#fff' },
               click: () => handleSongSelection(videoId, title)
             });
 
@@ -243,7 +243,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
     // Format số lượt xem
     function formatViews(views) {
-      return views > 1000000 ? (views / 1000000).toFixed(1) + 'Tr lượt xem' : views > 1000 ? (views / 1000).toFixed(1) + 'N lượt xem' : views + ' lượt xem';
+      return views > 1000000 ? (views / 1000000).toFixed(1) + ' Tr lượt xem' : views > 1000 ? (views / 1000).toFixed(1) + ' N lượt xem' : views + ' lượt xem';
     }
 
     // Format thời gian (YouTube duration format -> hh:mm:ss)
