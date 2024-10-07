@@ -34,7 +34,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     async function fetchSelectedSongs() {
       try {
         const { data, error } = await supabaseClient
-          .from('songs')
+          .from('karaoke_songs')
           .select('name, age, video_id');
         
         if (error) throw error;
