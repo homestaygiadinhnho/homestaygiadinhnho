@@ -119,21 +119,22 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
 
     
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+.message {
+    font-size: 40px; /* Kích thước chữ lớn */
+    color: #ffffff; /* Màu chữ sáng */
+    text-align: center; /* Căn giữa văn bản */
+    overflow: hidden; /* Ẩn phần văn bản ngoài kích thước */
+    white-space: nowrap; /* Không cho xuống dòng */
+    border-right: 0.15em solid orange; /* Đường viền bên phải cho hiệu ứng gạch chân */
+    width: 0; /* Đặt chiều rộng ban đầu là 0 */
+    animation: typing 4s steps(30, end) forwards; /* Hiệu ứng viết chữ */
 }
 
-.message {
-    font-size: 24px; /* Kích thước chữ */
-    color: #fff; /* Màu chữ */
-    animation: blink 1s linear infinite; /* Hiệu ứng đèn nháy */
-  font-weight: 700;
+@keyframes typing {
+    from { width: 0; } /* Bắt đầu với chiều rộng 0 */
+    to { width: 100%; } /* Kết thúc với chiều rộng 100% */
 }
+
 
     
   </style>
@@ -254,17 +255,16 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       }
     }
 
-    function displayMessages() {
+function displayMessages() {
     const messages = [
-        "Dàn Nhạc Sao Mai",
-        "Tiệc Cưới Diệu Phú",
-        "Gia Đình Mẫn Nguyệt",
-        "Trân Trọng Cảm Ơn"
+        "Gia đình Mẫn Nguyệt",
+        "Dàn nhạc Sao Mai",
+        "Tiệc cưới Diệu Phú",
+        "Trân trọng cảm ơn"
     ];
 
-    const messageContainer = $('#videoList');
+    const messageContainer = $('#messageContainer');
 
-    // Hiển thị từng thông điệp với hiệu ứng
     messages.forEach((message, index) => {
         setTimeout(() => {
             const messageElement = $('<div>', {
@@ -274,9 +274,9 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
             messageContainer.append(messageElement); // Thêm thông điệp vào container
 
-            // Thêm hiệu ứng hiển thị
-            messageElement.hide().fadeIn(1000); // Hiện thị với hiệu ứng fade in
-        }, index * 2000); // Độ trễ 2 giây giữa các thông điệp
+            // Thêm lớp show để kích hoạt hiệu ứng
+            messageElement.addClass('show');
+        }, index * 4000); // Độ trễ 4 giây giữa các thông điệp
     });
 }
 
@@ -284,6 +284,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 $(document).ready(function() {
     displayMessages();
 });
+
 
   </script>
 </head>
