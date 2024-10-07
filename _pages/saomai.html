@@ -117,26 +117,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     #videoList>div:last-child {
       margin-bottom: 92px;
     }
-
-    .bg-green-500 {
-      background-color: #38a169;
-    }
-
-    .hover\:bg-green-400:hover {
-      background-color: #48bb78;
-    }
-
-    .bg-black {
-      background-color: white;
-    }
-
-    .text-white {
-      color: black;
-    }
-
-    .shadow-lg {
-      background: #f7fafc;
-    }
   </style>
   <script>
     // Khởi tạo Supabase
@@ -196,7 +176,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
             });
             const videoInfo = $('<div>', { class: 'ml-3 text-left' })
               .html(`<p class="text-white font-bold text-xl line-clamp-2">${title}</p>
-                      <p class="text-gray-400 text-sm">${channelTitle} • ${formatViews(viewCount)} • ${formatDate(publishedAt)}</p>`);
+                      <p class="text-gray-400 text-sm" style="color:#b3b3b3">${channelTitle} • ${formatViews(viewCount)} • ${formatDate(publishedAt)}</p>`);
 
             avatarContainer.append(avatar).append(videoInfo);
 
