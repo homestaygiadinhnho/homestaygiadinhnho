@@ -5,74 +5,76 @@ permalink: /chonbai
 description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ Karaoke đẳng cấp."
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Danh sách bài hát đã chọn</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script>
-    // Khởi tạo Supabase
-    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+<script>
+  // Khởi tạo Supabase
+  const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+  
+  async function fetchSelectedSongs() {
+    try {
+      const { data, error } = await supabaseClient
+        .from('karaoke_songs') // Đảm bảo đúng tên bảng
+        .select('name, age, video_id');
+      
+      if (error) throw error;
 
-    // Hàm lấy dữ liệu từ bảng karaoke_songs
-    async function fetchSelectedSongs() {
-      try {
-        const { data, error } = await supabaseClient
-          .from('karaoke_songs') // Sửa lại tên bảng
-          .select('name, age, video_id');
-
-        if (error) throw error;
-
-        // Gọi hàm hiển thị các bài hát lên giao diện
-        displaySelectedSongs(data);
-      } catch (error) {
-        console.error('Error fetching selected songs:', error);
-      }
+      // Gọi hàm hiển thị các bài hát lên giao diện
+      displaySelectedSongs(data);
+      
+    } catch (error) {
+      console.error('Error fetching selected songs:', error);
     }
+  }
 
-    // Hàm hiển thị danh sách bài hát đã chọn
-    function displaySelectedSongs(songs) {
-      const selectedSongsList = document.getElementById('selectedSongsList');
-      selectedSongsList.innerHTML = ''; // Xóa các bài cũ (nếu có)
+  // Hàm hiển thị danh sách bài hát đã chọn
+  function displaySelectedSongs(songs) {
+    const selectedSongsList = document.getElementById('selectedSongsList');
+    selectedSongsList.innerHTML = ''; // Xóa các bài cũ (nếu có)
 
-      songs.forEach((song) => {
-        const songContainer = document.createElement('div');
-        songContainer.classList.add('bg-gray-800', 'p-4', 'rounded', 'w-full', 'max-w-2xl', 'shadow-md', 'flex', 'justify-between', 'items-center', 'mb-4');
+    songs.forEach((song) => {
+      const songContainer = document.createElement('div');
+      songContainer.classList.add('bg-gray-800', 'p-4', 'rounded', 'w-full', 'max-w-2xl', 'shadow-md', 'flex', 'justify-between', 'items-center');
+      
+      // Hiển thị thông tin bài hát
+      const songInfo = document.createElement('div');
+      songInfo.innerHTML = `
+        <p class="text-white text-lg font-bold">${song.name} (${song.age} tuổi)</p>
+        <p class="text-gray-400">Mã Video: ${song.video_id}</p>
+      `;
+      
+      // Nút phát video
+      const playButton = document.createElement('a');
+      playButton.href = `https://www.youtube.com/watch?v=${song.video_id}`;
+      playButton.target = '_blank';
+      playButton.textContent = "Phát bài hát";
+      playButton.classList.add('bg-green-500', 'hover:bg-green-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded');
+      
+      // Thêm các phần tử vào giao diện
+      songContainer.appendChild(songInfo);
+      songContainer.appendChild(playButton);
+      selectedSongsList.appendChild(songContainer);
+    });
+  }
 
-        // Hiển thị thông tin bài hát
-        const songInfo = document.createElement('div');
-        songInfo.innerHTML = `
-          <p class="text-white text-lg font-bold">${song.name} (${song.age} tuổi)</p>
-          <p class="text-gray-400">Mã Video: ${song.video_id}</p>
-        `;
+  // Đăng ký subscription để cập nhật danh sách bài hát
+  function subscribeToSongChanges() {
+    supabaseClient
+      .from('karaoke_songs') // Đảm bảo đúng tên bảng
+      .on('INSERT', payload => {
+        // Khi có bài hát mới được thêm, gọi lại hàm fetchSelectedSongs để cập nhật danh sách
+        fetchSelectedSongs();
+      })
+      .on('DELETE', payload => {
+        // Khi có bài hát bị xóa, gọi lại hàm fetchSelectedSongs để cập nhật danh sách
+        fetchSelectedSongs();
+      })
+      .subscribe();
+  }
 
-        // Nút phát video
-        const playButton = document.createElement('a');
-        playButton.href = `https://www.youtube.com/watch?v=${song.video_id}`;
-        playButton.target = '_blank';
-        playButton.textContent = "Phát bài hát";
-        playButton.classList.add('bg-green-500', 'hover:bg-green-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded');
-
-        // Thêm các phần tử vào giao diện
-        songContainer.appendChild(songInfo);
-        songContainer.appendChild(playButton);
-        selectedSongsList.appendChild(songContainer);
-      });
-    }
-
-    // Gọi hàm lấy danh sách bài hát khi trang tải
-    document.addEventListener('DOMContentLoaded', fetchSelectedSongs);
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-900 text-white">
-  <div class="container mx-auto p-4">
-    <h1 class="text-4xl font-bold mb-6 text-center">Danh sách bài hát đã chọn</h1>
-    <div id="selectedSongsList" class="flex flex-col items-center"></div>
-  </div>
-</body>
-</html>
+  // Gọi hàm để lấy danh sách bài hát và thiết lập subscription khi trang tải
+  document.addEventListener("DOMContentLoaded", function() {
+    fetchSelectedSongs(); // Gọi hàm khi DOM đã sẵn sàng
+    subscribeToSongChanges(); // Đăng ký subscription
+  });
+</script>
