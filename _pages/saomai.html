@@ -152,7 +152,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
             const duration = formatDuration(videoDetailsData.items[index].contentDetails.duration);
 
             // Tạo video item
-            const videoItem = $('<div>', { class: 'rounded cursor-pointer flex w-full flex-col' });
+            const videoItem = $('<div>', { class: 'cursor-pointer flex w-full flex-col' });
+            videoItem.on('click', () => handleSongSelection(videoId, title));
 
             // Tạo phần hình ảnh (thumbnail)
             const thumbnailContainer = $('<div>', { class: 'relative' });
@@ -180,15 +181,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
             avatarContainer.append(avatar).append(videoInfo);
 
-            // Nút chọn bài hát
-            const selectButton = $('<button>', {
-              text: 'Chọn hát bài này',
-              class: 'bg-green-500 hover:bg-green-400 p-2 rounded-sm text-white mt-2 font-bold text-base',
-              css: { margin: '8px 16px', background: '#1abc54', color: '#fff' },
-              click: () => handleSongSelection(videoId, title)
-            });
-
-            videoItem.append(thumbnailContainer).append(avatarContainer).append(selectButton);
+            videoItem.append(thumbnailContainer).append(avatarContainer);
             $('#videoList').append(videoItem);
           });
         });
