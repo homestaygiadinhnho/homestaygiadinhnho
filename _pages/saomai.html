@@ -175,6 +175,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
               class: 'rounded-full w-10 h-10',
               css: { objectFit: 'cover' }
             });
+
+            
             const videoInfo = $('<div>', { class: 'ml-3 text-left' })
               .html(`<p class="text-white font-bold text-xl line-clamp-2">${title}</p>
                       <p class="text-gray-400 text-sm" style="color:#b3b3b3">${channelTitle} • ${formatViews(viewCount)} • ${formatDate(publishedAt)}</p>`);
@@ -232,6 +234,27 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         return `${minutes}:${seconds}`;
       }
     }
+    function displayYourImage() {
+        const videoList = $('#videoList');
+        if (videoList.length === 0) {
+            console.error("Element with id 'videoList' not found.");
+            return; // Thoát hàm nếu không tìm thấy phần tử
+        }
+    
+        // Tạo phần tử hình ảnh
+        const yourImage = $('<img>', {
+            src: 'https://i.ytimg.com/vi/-78H85f14TE/maxresdefault.jpg', // Thay thế với URL của hình ảnh của bạn
+            class: 'w-full h-100 object-cover' // Thêm lớp để định dạng hình ảnh
+        });
+    
+        // Thêm hình ảnh vào videoList
+        videoList.append(yourImage); // Thêm hình ảnh vào videoList
+    }
+    
+    // Gọi hàm khi DOM đã sẵn sàng
+    $(document).ready(function() {
+        displayYourImage();
+    });
   </script>
 </head>
 
