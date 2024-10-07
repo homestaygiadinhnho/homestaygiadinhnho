@@ -117,12 +117,24 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     #videoList>div:last-child {
       margin-bottom: 92px;
     }
+
+    
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
 .message {
     font-size: 24px; /* Kích thước chữ */
-    color: white; /* Màu chữ */
-    margin: 10px 0; /* Khoảng cách giữa các dòng */
-  
+    color: #fff; /* Màu chữ */
+    animation: blink 1s linear infinite; /* Hiệu ứng đèn nháy */
+  font-weight: 700;
 }
+
     
   </style>
   <script>
@@ -244,10 +256,10 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
     function displayMessages() {
     const messages = [
-        "Âm Thanh Ánh Sáng Sao Mai",
+        "Dàn Nhạc Sao Mai",
         "Tiệc Cưới Diệu Phú",
-        "Gia Đình Nhà Gái",
-        "Trân Trọng Cảm Ơn Quý Khách"
+        "Gia Đình Mẫn Nguyệt",
+        "Trân Trọng Cảm Ơn"
     ];
 
     const messageContainer = $('#videoList');
