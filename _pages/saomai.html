@@ -119,21 +119,34 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
 
     
+#videoContainer {
+    position: relative;
+    height: 100vh; /* Chiều cao video full màn hình */
+}
+
 .message {
-    font-size: 40px; /* Kích thước chữ lớn */
-    color: #ffffff; /* Màu chữ sáng */
-    text-align: center; /* Căn giữa văn bản */
-    overflow: hidden; /* Ẩn phần văn bản ngoài kích thước */
-    white-space: nowrap; /* Không cho xuống dòng */
-    border-right: 0.15em solid orange; /* Đường viền bên phải cho hiệu ứng gạch chân */
-    width: 0; /* Đặt chiều rộng ban đầu là 0 */
-    animation: typing 4s steps(30, end) forwards; /* Hiệu ứng viết chữ */
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid orange;
+    width: 0;
+    animation: typing 4s steps(30, end) forwards;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards, typing 4s steps(30, end) forwards;
 }
 
 @keyframes typing {
-    from { width: 0; } /* Bắt đầu với chiều rộng 0 */
-    to { width: 100%; } /* Kết thúc với chiều rộng 100% */
+    from { width: 0; }
+    to { width: 100%; }
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 
 
     
