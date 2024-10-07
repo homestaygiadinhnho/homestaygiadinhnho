@@ -322,10 +322,10 @@ $(document).ready(function() {
 
     <div id="videoList" class="flex justify-center items-center w-full flex-col gap-6"></div>
     <div id="videoContainer" class="relative w-full h-screen overflow-hidden">
-    <iframe class="absolute top-0 left-0 w-full h-full object-cover" 
-            src="https://www.youtube.com/embed/vCmTeN_rT5U?autoplay=1&mute=1&controls=0&showinfo=0&loop=1&playlist=vCmTeN_rT5U" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-    </iframe>
+    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
+        <source src="assets/7814662-uhd_1440_2560_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div id="messageContainer" class="absolute inset-0 flex flex-col items-center justify-center text-white">
         <!-- Các thông điệp sẽ được thêm vào đây -->
     </div>
