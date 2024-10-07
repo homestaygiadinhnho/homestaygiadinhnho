@@ -122,221 +122,207 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     margin-bottom: 92px; /* Đặt margin-bottom cho videoItem cuối cùng */
 }
   </style>
-  <script>
-    // Khởi tạo Supabase
-    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-    // Hàm tìm kiếm video
-    async function searchVideos() {
-      const query = document.getElementById('searchInput').value;
-      const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
-      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}+karaoke&type=video&key=${apiKey}`;
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        const videoList = document.getElementById('videoList');
-        videoList.innerHTML = ''; // Xóa danh sách video cũ
-        // Lấy videoIds để tìm thêm thông tin từ video API
-        const videoIds = data.items.map(item => item.id.videoId).join(',');
-        // Gọi API để lấy thông tin chi tiết về video
-        const videoDetailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds}&key=${apiKey}`;
-        const videoDetailsResponse = await fetch(videoDetailsUrl);
-        const videoDetailsData = await videoDetailsResponse.json();
-        // Hiển thị thông tin video
-        data.items.forEach((item, index) => {
-          const videoId = item.id.videoId;
-          const title = item.snippet.title;
-          const channelTitle = item.snippet.channelTitle;
-          const thumbnailUrl = item.snippet.thumbnails.medium.url;
-          const channelId = item.snippet.channelId; // Lấy channelId
-          const publishedAt = item.snippet.publishedAt;
-          // Lấy hình ảnh đại diện của kênh từ API
-          const channelThumbnailUrl = item.snippet.thumbnails.default.url; // Hình ảnh đại diện của kênh
-          // Thông tin chi tiết về video từ videoDetailsData
-          const viewCount = videoDetailsData.items[index].statistics.viewCount;
-          const duration = formatDuration(videoDetailsData.items[index].contentDetails.duration);
-          // Tạo video item
-          const videoItem = document.createElement('div');
-          videoItem.classList.add('rounded', 'cursor-pointer', 'flex', 'w-full', 'flex-col');
-          // Tạo phần hình ảnh (thumbnail)
-          const thumbnailContainer = document.createElement('div');
-          thumbnailContainer.classList.add('relative');
-          const thumbnail = document.createElement('img');
-          thumbnail.src = thumbnailUrl;
-          thumbnail.classList.add('w-full', 'h-60');
-          thumbnail.style.objectFit = 'cover';
-          const durationOverlay = document.createElement('div');
-          durationOverlay.classList.add('thumbnail-overlay-badge-shape', 'absolute', 'bottom-0', 'right-0', 'm-2'); // Định vị ở góc dưới bên phải
-          // Tạo badge cho thời gian
-          const badgeShape = document.createElement('badge-shape');
-          badgeShape.classList.add('badge-shape-wiz', 'badge-shape-wiz--thumbnail-default', 'badge-shape-wiz--thumbnail-badge');
-          badgeShape.setAttribute('role', 'img');
-          badgeShape.setAttribute('aria-label', duration); // Sử dụng biến duration của bạn ở đây
-          // Thêm thời gian vào badge
-          const badgeText = document.createElement('div');
-          badgeText.classList.add('badge-shape-wiz__text');
-          badgeText.textContent = duration; // Sử dụng biến duration của bạn ở đây
-          // Ghép các phần lại với nhau
-          badgeShape.appendChild(badgeText);
-          durationOverlay.appendChild(badgeShape);
-          thumbnailContainer.appendChild(thumbnail);
-          thumbnailContainer.appendChild(durationOverlay);
-          // Tạo phần avatar người đăng và thông tin video
-          const avatarContainer = document.createElement('div');
-          avatarContainer.classList.add('flex', 'items-center');
-          avatarContainer.style.margin = '8px 0 0 16px';
-          const avatar = document.createElement('img');
-          avatar.src = channelThumbnailUrl; // Sử dụng hình ảnh đại diện của kênh
-          avatar.classList.add('rounded-full', 'w-10', 'h-10');
-          avatar.style.objectFit = 'cover';
-          const videoInfo = document.createElement('div');
-          videoInfo.classList.add('ml-3', 'text-left');
-          videoInfo.innerHTML = `
+<script>
+  // Khởi tạo Supabase
+  const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+  // Hàm tìm kiếm video
+  async function searchVideos() {
+    const query = document.getElementById('searchInput').value;
+    const apiKey = 'AIzaSyDXo9tP0rycwrE4tpXokP1AggTRP7Zt2B4';
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}+karaoke&type=video&key=${apiKey}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const videoList = document.getElementById('videoList');
+      videoList.innerHTML = ''; // Xóa danh sách video cũ
+
+      // Lấy videoIds để tìm thêm thông tin từ video API
+      const videoIds = data.items.map(item => item.id.videoId).join(',');
+      const videoDetailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds}&key=${apiKey}`;
+      const videoDetailsResponse = await fetch(videoDetailsUrl);
+      const videoDetailsData = await videoDetailsResponse.json();
+
+      // Hiển thị thông tin video
+      data.items.forEach((item, index) => {
+        const videoId = item.id.videoId;
+        const title = item.snippet.title;
+        const channelTitle = item.snippet.channelTitle;
+        const thumbnailUrl = item.snippet.thumbnails.medium.url;
+        const channelId = item.snippet.channelId;
+        const publishedAt = item.snippet.publishedAt;
+        const channelThumbnailUrl = item.snippet.thumbnails.default.url;
+
+        // Thông tin chi tiết từ videoDetailsData
+        const viewCount = videoDetailsData.items[index].statistics.viewCount;
+        const duration = formatDuration(videoDetailsData.items[index].contentDetails.duration);
+
+        // Tạo video item
+        const videoItem = document.createElement('div');
+        videoItem.classList.add('rounded', 'cursor-pointer', 'flex', 'w-full', 'flex-col');
+
+        // Tạo phần hình ảnh (thumbnail)
+        const thumbnailContainer = document.createElement('div');
+        thumbnailContainer.classList.add('relative');
+        const thumbnail = document.createElement('img');
+        thumbnail.src = thumbnailUrl;
+        thumbnail.classList.add('w-full', 'h-60');
+        thumbnail.style.objectFit = 'cover';
+
+        // Tạo badge cho thời gian
+        const durationOverlay = document.createElement('div');
+        durationOverlay.classList.add('thumbnail-overlay-badge-shape', 'absolute', 'bottom-0', 'right-0', 'm-2');
+        const badgeText = document.createElement('div');
+        badgeText.classList.add('badge-shape-wiz__text');
+        badgeText.textContent = duration;
+        durationOverlay.appendChild(badgeText);
+
+        thumbnailContainer.appendChild(thumbnail);
+        thumbnailContainer.appendChild(durationOverlay);
+
+        // Tạo phần avatar và thông tin video
+        const avatarContainer = document.createElement('div');
+        avatarContainer.classList.add('flex', 'items-center');
+        avatarContainer.style.margin = '8px 0 0 16px';
+
+        const avatar = document.createElement('img');
+        avatar.src = channelThumbnailUrl;
+        avatar.classList.add('rounded-full', 'w-10', 'h-10');
+        avatar.style.objectFit = 'cover';
+
+        const videoInfo = document.createElement('div');
+        videoInfo.classList.add('ml-3', 'text-left');
+        videoInfo.innerHTML = `
           <p class="text-white font-bold text-xl line-clamp-2">${title}</p>
           <p class="text-gray-400 text-sm">${channelTitle} • ${formatViews(viewCount)} • ${formatDate(publishedAt)}</p>
         `;
-          const actionButtonContainer = document.createElement('span');
-          actionButtonContainer.classList.add('flex-shrink-0');
-          actionButtonContainer.innerHTML = `<button aria-label="Action menu" title="" class="flex items-center justify-center w-12 h-12 text-base font-medium rounded-full bg-transparent border-none cursor-pointer focus:outline-none"><div aria-hidden="true" class="w-6 h-6"><span class="inline-flex items-center justify-center w-6 h-6 fill-current"><span class="flex items-center justify-center w-full h-full"><div class="w-full h-full block"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="w-full h-full"><path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path></svg></div></span></span></div></button>`;
-          // Thêm thumbnail, avatar và thông tin vào videoItem
-          thumbnailContainer.appendChild(thumbnail);
-          avatarContainer.appendChild(avatar);
-          avatarContainer.appendChild(videoInfo);
-          avatarContainer.appendChild(actionButtonContainer);
-          videoItem.appendChild(thumbnailContainer);
-          videoItem.appendChild(avatarContainer);
-          // Nút "Chọn"
-          const selectButton = document.createElement('button');
-          selectButton.textContent = "Tôi chọn hát bài này";
-          selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-sm', 'text-white', 'mt-2', 'font-bold');
-          selectButton.style.margin = '8px 16px';
-          selectButton.style.background = 'brown';
-          selectButton.onclick = () => {
-            const name = prompt("Nhập tên của bạn:");
-            const age = prompt("Nhập tuổi của bạn:");
-            if (name && age) {
-              saveSong(videoId, name, age);
-              window.location.href = `/saomai?videoId=${videoId}&title=${encodeURIComponent(title)}`;
-            } else {
-              alert("Bạn phải nhập đầy đủ tên và tuổi!");
-            }
-          };
-          // Thêm nút chọn vào videoItem
-          videoItem.appendChild(selectButton);
-          // Thêm videoItem vào videoList
-          // Thêm videoItem vào videoList
-videoList.appendChild(videoItem);
 
+        avatarContainer.appendChild(avatar);
+        avatarContainer.appendChild(videoInfo);
 
-                  if (videoList.children.length === data.items.length) {
-            videoItem.style.marginBottom = '92px'; // Đặt margin-bottom cho videoItem cuối cùng
-          } 
+        // Nút chọn bài hát
+        const selectButton = document.createElement('button');
+        selectButton.textContent = "Tôi chọn hát bài này";
+        selectButton.classList.add('bg-green-500', 'hover:bg-green-400', 'p-2', 'rounded-sm', 'text-white', 'mt-2', 'font-bold');
+        selectButton.style.margin = '8px 16px';
+        selectButton.style.background = 'brown';
+        selectButton.onclick = () => handleSongSelection(videoId, title);
 
+        // Thêm nút và các phần khác vào videoItem
+        videoItem.appendChild(thumbnailContainer);
+        videoItem.appendChild(avatarContainer);
+        videoItem.appendChild(selectButton);
+
+        // Thêm videoItem vào videoList
+        videoList.appendChild(videoItem);
+
+        // Đặt margin-bottom cho video cuối cùng
+        if (videoList.children.length === data.items.length) {
+          videoItem.style.marginBottom = '92px';
+        }
+      });
+    } catch (error) {
+      console.error('Error fetching video data:', error);
+    }
+  }
+
+  // Hàm xử lý chọn bài hát
+  function handleSongSelection(videoId, title) {
+    const name = prompt("Nhập tên của bạn:");
+    const age = prompt("Nhập tuổi của bạn:");
+
+    if (name && age) {
+      saveSong(videoId, name, age)
+        .then(() => {
+          // Chuyển hướng đến trang chọn bài
+          window.location.href = 'https://homestaygiadinhnho.github.io/chonbai';
+        })
+        .catch((error) => {
+          alert("Đã xảy ra lỗi khi lưu thông tin. Vui lòng thử lại.");
+          console.error('Error saving song:', error);
         });
-      } catch (error) {
-        console.error('Error fetching video data:', error);
-      }
+    } else {
+      alert("Bạn phải nhập đầy đủ tên và tuổi!");
+    }
+  }
+
+  // Hàm lưu thông tin bài hát vào Supabase
+  async function saveSong(videoId, name, age) {
+    try {
+      const { data, error } = await supabaseClient
+        .from('songs')
+        .insert([{ video_id: videoId, name: name, age: age }]);
+
+      if (error) throw error;
+
+      console.log('Song saved:', data);
+    } catch (error) {
+      console.error('Error saving song:', error);
+    }
+  }
+
+  // Hàm định dạng số lượt xem
+  function formatViews(views) {
+    const viewCount = parseInt(views, 10);
+    if (viewCount >= 1e6) {
+      return `${(viewCount / 1e6).toFixed(1)} Tr lượt xem`;
+    } else if (viewCount >= 1e3) {
+      return `${(viewCount / 1e3).toFixed(1)} N lượt xem`;
+    } else {
+      return `${viewCount} lượt xem`;
+    }
+  }
+
+  // Hàm định dạng ngày đăng
+  function formatDate(publishedAt) {
+    const publishedDate = new Date(publishedAt);
+    const now = new Date();
+    const diffTime = Math.abs(now - publishedDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays < 30) {
+      return `${diffDays} ngày trước`;
+    } else if (diffDays < 365) {
+      return `${Math.floor(diffDays / 30)} tháng trước`;
+    } else {
+      return `${Math.floor(diffDays / 365)} năm trước`;
+    }
+  }
+
+  // Hàm định dạng thời gian (ISO 8601 duration)
+  function formatDuration(duration) {
+    let hours = 0,
+      minutes = 0,
+      seconds = 0;
+    duration = duration.replace('PT', '');
+
+    if (duration.indexOf('H') > -1) {
+      let split = duration.split('H');
+      hours = parseInt(split[0], 10);
+      duration = split[1];
     }
 
-    function displayYourImage() {
-        const videoList = document.getElementById('videoList');
-        if (!videoList) {
-            console.error("Element with id 'videoList' not found.");
-            return; // Thoát hàm nếu không tìm thấy phần tử
-        }
-        // Tạo phần tử hình ảnh
-        const yourImage = document.createElement('img');
-        yourImage.src = 'https://img.weddingbazaar.com/shaadisaga_production/photos/pictures/008/366/353/new_medium/Snapinsta.app_429201812_3698065647139155_2495385149734892677_n_1080.jpg?1714038967'; // Thay thế với URL của hình ảnh của bạn
-        yourImage.classList.add('w-full', 'h-100', 'object-contain'); // Thêm lớp để định dạng hình ảnh
-        yourImage.style.maxHeight = 'calc(100vh - 132px)';
-        // Thêm hình ảnh vào videoList
-        videoList.appendChild(yourImage); // Thêm hình ảnh vào videoList
+    if (duration.indexOf('M') > -1) {
+      let split = duration.split('M');
+      minutes = parseInt(split[0], 10);
+      duration = split[1];
     }
-    // Gọi hàm để hiển thị hình ảnh ngay khi trang được tải
-    document.addEventListener("DOMContentLoaded", function() {
-        displayYourImage(); // Gọi hàm khi DOM đã sẵn sàng
-    });
 
-    function formatViews(views) {
-      const viewCount = parseInt(views, 10);
-      if (viewCount >= 1e6) {
-        return `${(viewCount / 1e6).toFixed(1)} Tr lượt xem`;
-      } else if (viewCount >= 1e3) {
-        return `${(viewCount / 1e3).toFixed(1)} N lượt xem`;
-      } else {
-        return `${viewCount} lượt xem`;
-      }
+    if (duration.indexOf('S') > -1) {
+      seconds = parseInt(duration.replace('S', ''), 10);
     }
-    // Hàm định dạng ngày đăng
-    function formatDate(publishedAt) {
-      const publishedDate = new Date(publishedAt);
-      const now = new Date();
-      const diffTime = Math.abs(now - publishedDate);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      if (diffDays < 30) {
-        return `${diffDays} ngày trước`;
-      } else if (diffDays < 365) {
-        return `${Math.floor(diffDays / 30)} tháng trước`;
-      } else {
-        return `${Math.floor(diffDays / 365)} năm trước`;
-      }
+
+    if (hours > 0) {
+      minutes += hours * 60;
     }
-    // Hàm định dạng thời gian (ISO 8601 duration)
-    function formatDuration(duration) {
-      let hours = 0,
-        minutes = 0,
-        seconds = 0;
-      duration = duration.replace('PT', '');
-      // Kiểm tra và lấy giờ
-      if (duration.indexOf('H') > -1) {
-        let split = duration.split('H');
-        hours = parseInt(split[0], 10);
-        duration = split[1];
-      }
-      // Kiểm tra và lấy phút
-      if (duration.indexOf('M') > -1) {
-        let split = duration.split('M');
-        minutes = parseInt(split[0], 10);
-        duration = split[1];
-      }
-      // Kiểm tra và lấy giây
-      if (duration.indexOf('S') > -1) {
-        seconds = parseInt(duration.replace('S', ''), 10);
-      }
-      // Định dạng lại thành dạng `mm:ss`
-      // Chuyển đổi giờ thành phút nếu có
-      if (hours > 0) {
-        minutes += hours * 60;
-      }
-      // Đảm bảo phút và giây có 2 chữ số
-      const formattedMinutes = String(minutes).padStart(2, '0');
-      const formattedSeconds = String(seconds).padStart(2, '0');
-      return `${formattedMinutes}:${formattedSeconds}`;
-    }
-    // Lưu thông tin bài hát vào Supabase
-    async function saveSong(videoId, name, age) {
-      try {
-        const {
-          data,
-          error
-        } = await supabaseClient
-          .from('songs')
-          .insert([{
-            video_id: videoId,
-            name: name,
-            age: age
-          }]);
-        if (error) {
-          throw error;
-        } else {
-          console.log('Song saved:', data);
-        }
-      } catch (error) {
-        console.error('Error saving song:', error);
-      }
-    }
-  </script>
+
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(seconds).padStart(2, '0');
+    return `${formattedMinutes}:${formattedSeconds}`;
+  }
+</script>
 
 </head>
 
