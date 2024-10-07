@@ -234,27 +234,38 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         return `${minutes}:${seconds}`;
       }
     }
-    function displayYourImage() {
-        const videoList = $('#videoList');
-        if (videoList.length === 0) {
-            console.error("Element with id 'videoList' not found.");
-            return; // Thoát hàm nếu không tìm thấy phần tử
-        }
-    
-        // Tạo phần tử hình ảnh
-        const yourImage = $('<img>', {
-            src: 'https://i.ytimg.com/vi/-78H85f14TE/maxresdefault.jpg', // Thay thế với URL của hình ảnh của bạn
-            class: 'w-full h-100 object-cover' // Thêm lớp để định dạng hình ảnh
-        });
-    
-        // Thêm hình ảnh vào videoList
-        videoList.append(yourImage); // Thêm hình ảnh vào videoList
-    }
-    
-    // Gọi hàm khi DOM đã sẵn sàng
-    $(document).ready(function() {
-        displayYourImage();
+
+    function displayMessages() {
+    const messages = [
+        "Karaoke Sao Mai",
+        "Dịch vụ tiệc cưới Diệu Phú",
+        "Gia đình nhà gái",
+        "Xin cảm ơn quý khách"
+    ];
+
+    const messageContainer = $('#videoList');
+
+    // Hiển thị từng thông điệp với hiệu ứng
+    messages.forEach((message, index) => {
+        setTimeout(() => {
+            const messageElement = $('<div>', {
+                class: 'message',
+                text: message // Nội dung của thông điệp
+            });
+
+            messageContainer.append(messageElement); // Thêm thông điệp vào container
+
+            // Thêm hiệu ứng hiển thị
+            messageElement.hide().fadeIn(1000); // Hiện thị với hiệu ứng fade in
+        }, index * 2000); // Độ trễ 2 giây giữa các thông điệp
     });
+}
+
+// Gọi hàm khi DOM đã sẵn sàng
+$(document).ready(function() {
+    displayMessages();
+});
+
   </script>
 </head>
 
