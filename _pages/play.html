@@ -14,20 +14,28 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <style>
     body {
+      margin: 0; /* Loại bỏ khoảng cách mặc định của body */
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
+      height: 100vh; /* Đảm bảo body chiếm toàn bộ chiều cao */
+      overflow: hidden; /* Ngăn cuộn trang */
     }
     #videoContainer {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: calc(100vh - 134px);
+      width: 100%; /* Chiếm toàn bộ chiều rộng */
+      height: 100%; /* Chiếm toàn bộ chiều cao */
     }
     .song-info {
       margin-top: 20px;
       text-align: center;
+    }
+    iframe {
+      width: 100%; /* Chiếm toàn bộ chiều rộng */
+      height: 100%; /* Chiếm toàn bộ chiều cao */
     }
   </style>
 </head>
@@ -37,75 +45,71 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   </div>
 
   <script>
-// Khởi tạo Supabase
-const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+    // Khởi tạo Supabase
+    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-// Hàm lấy danh sách bài hát từ Supabase
-async function fetchKaraokeSongs() {
-  try {
-    const { data, error } = await supabaseClient
-      .from('karaoke_songs') // Tên bảng của bạn
-      .select('video_id, song_name, name, age, personal');
+    // Hàm lấy danh sách bài hát từ Supabase
+    async function fetchKaraokeSongs() {
+      try {
+        const { data, error } = await supabaseClient
+          .from('karaoke_songs') // Tên bảng của bạn
+          .select('video_id, song_name, name, age, personal');
 
-    if (error) throw error;
+        if (error) throw error;
 
-    return data; // Trả về danh sách bài hát
-  } catch (error) {
-    console.error('Error fetching karaoke songs:', error);
-  }
-}
-// Hàm hiển thị và phát bài hát tự động
-async function displayAndPlaySongs() {
-  const songs = await fetchKaraokeSongs();
-  
-  if (songs.length === 0) {
-    console.log('Không có bài hát nào.');
-    return;
-  }
+        return data; // Trả về danh sách bài hát
+      } catch (error) {
+        console.error('Error fetching karaoke songs:', error);
+      }
+    }
 
-  let currentSongIndex = 0;
+    // Hàm hiển thị và phát bài hát tự động
+    async function displayAndPlaySongs() {
+      const songs = await fetchKaraokeSongs();
+      
+      if (songs.length === 0) {
+        console.log('Không có bài hát nào.');
+        return;
+      }
 
-  // Hàm phát bài hát dựa trên video_id
-  function playSong(song) {
-    const videoContainer = document.getElementById('videoContainer');
-    const videoUrl = `https://www.youtube.com/embed/${song.video_id}?autoplay=1&mute=1&loop=0`;
+      let currentSongIndex = 0;
 
-    videoContainer.innerHTML = `
-      <iframe width="560" height="315" src="${videoUrl}" 
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      <div class="song-info">
-        <h2 class="text-white text-lg">${song.song_name}</h2>
-        <p class="text-gray-400">Người chọn: ${song.personal} (${song.age} tuổi)</p>
-      </div>
-    `;
-  }
+      // Hàm phát bài hát dựa trên video_id
+      function playSong(song) {
+        const videoContainer = document.getElementById('videoContainer');
+        const videoUrl = `https://www.youtube.com/embed/${song.video_id}?autoplay=1&mute=1&loop=0`;
 
-  // Hàm để chuyển bài hát tự động
-  function nextSong() {
-    currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo hoặc lặp lại từ đầu
-    playSong(songs[currentSongIndex]);
-  }
+        videoContainer.innerHTML = `
+          <iframe src="${videoUrl}" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <div class="song-info">
+            <h2 class="text-white text-lg">${song.song_name}</h2>
+            <p class="text-gray-400">Người chọn: ${song.personal} (${song.age} tuổi)</p>
+          </div>
+        `;
+      }
 
-  // Lắng nghe sự kiện kết thúc của iframe YouTube để phát bài kế tiếp
-  function monitorSongEnd() {
-    const iframe = document.querySelector('iframe');
-    iframe.addEventListener('ended', nextSong, false); // Phát bài hát kế tiếp khi hết bài hiện tại
-  }
+      // Hàm để chuyển bài hát tự động
+      function nextSong() {
+        currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo hoặc lặp lại từ đầu
+        playSong(songs[currentSongIndex]);
+      }
 
-  // Bắt đầu phát bài hát đầu tiên
-  playSong(songs[currentSongIndex]);
+      // Bắt đầu phát bài hát đầu tiên
+      playSong(songs[currentSongIndex]);
+      
+      // Thiết lập khoảng thời gian giữa các bài hát (nếu cần)
+      const songDuration = 30000; // Thời gian chơi mỗi bài hát (30 giây)
+      setInterval(nextSong, songDuration); // Chuyển bài sau mỗi 30 giây
+    }
 
-  // Bắt đầu lắng nghe sự kiện kết thúc bài hát
-  monitorSongEnd();
-}
-
-// Gọi hàm khi trang được load
-window.onload = function() {
-  displayAndPlaySongs();
-};
-
+    // Gọi hàm khi trang được load
+    window.onload = function() {
+      displayAndPlaySongs();
+    };
   </script>
 </body>
 </html>
+
