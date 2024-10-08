@@ -23,7 +23,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       display: flex;
       justify-content: center;
       align-items: center;
-      height: calc(100vh - 134px);
+      height: calc(100vh - 134px); /* Chiều cao cho video */
     }
     iframe {
       width: 100%; 
@@ -39,7 +39,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <script>
     // Khởi tạo Supabase
     const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay thế bằng khóa Supabase của bạn
     const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
     let player;
@@ -72,11 +72,15 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
           .select('video_id, song_name, personal, checked')
           .eq('checked', 0); // Lấy các bài hát chưa được hát
 
-        if (error) throw error;
+        if (error) {
+          console.error('Error fetching karaoke songs:', error);
+          return []; // Trả về mảng rỗng nếu có lỗi
+        }
 
         return data; // Trả về danh sách bài hát
       } catch (error) {
         console.error('Error fetching karaoke songs:', error);
+        return []; // Trả về mảng rỗng nếu có lỗi
       }
     }
 
@@ -84,7 +88,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     async function displayAndPlaySongs() {
       songs = await fetchKaraokeSongs();
 
-      if (songs.length === 0) {
+      if (!songs || songs.length === 0) {
         console.log('Không có bài hát nào chưa được hát.');
         return;
       }
@@ -95,7 +99,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     // Hàm phát bài hát dựa trên video_id
     function playSong(song) {
       const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
-
       player.loadVideoByUrl(videoUrl);
       markSongAsChecked(song.video_id); // Đánh dấu bài hát là đã được hát
     }
@@ -108,7 +111,9 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
           .update({ checked: 1 }) // Đánh dấu bài hát là đã hát
           .eq('video_id', videoId); // Chỉ cập nhật bài hát tương ứng
 
-        if (error) throw error;
+        if (error) {
+          console.error('Error marking song as checked:', error);
+        }
       } catch (error) {
         console.error('Error marking song as checked:', error);
       }
