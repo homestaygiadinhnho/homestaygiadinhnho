@@ -82,6 +82,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         .from('karaoke_songs')
         .update({ playing: true })
         .eq('video_id', currentVideoId); // Đặt video hiện tại thành true
+      console.log('Danh sách videoIds hiện tại:', videoIds); 
     } catch (error) {
       console.error('Error updating playing status:', error);
     }
@@ -142,6 +143,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       console.log('Không còn video nào để phát.');
       // Cập nhật videoIds khi hết video
       videoIds = await getUnplayedVideoIds(); // Gọi hàm để lấy videoIds mới
+      console.log('Danh sách videoIds mới:', videoIds);
       if (videoIds.length > 0) {
         await playVideo(videoIds[0]); // Phát video đầu tiên trong danh sách mới
       }
@@ -151,6 +153,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   // Khởi đầu bằng cách lấy videoIds ban đầu và phát video đầu tiên
   async function startKaraoke() {
     videoIds = await getUnplayedVideoIds(); // Lấy videoIds chưa phát
+    console.log('Danh sách videoIds ban đầu:', videoIds);
     playNextVideo(); // Phát video đầu tiên
   }
 
