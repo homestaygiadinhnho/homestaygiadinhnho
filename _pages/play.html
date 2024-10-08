@@ -153,7 +153,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   // Khởi đầu bằng cách lấy videoIds ban đầu và phát video đầu tiên
   async function startKaraoke() {
     videoIds = await getUnplayedVideoIds(); // Lấy videoIds chưa phát
-    console.log('Danh sách videoIds ban đầu:', videoIds);
     playNextVideo(); // Phát video đầu tiên
   }
 
