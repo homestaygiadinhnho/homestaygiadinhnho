@@ -47,7 +47,9 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   let videoIds = [];
   let currentVideoIndex = 0;
   let player;
-  async function fetchUnplayedVideoIds() {
+
+  // Hàm để lấy danh sách videoIds chưa phát
+  async function getUnplayedVideoIds() {
     try {
       const { data, error } = await supabaseClient
         .from('karaoke_songs')
@@ -58,19 +60,32 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
       if (error) {
         console.error('Error fetching unplayed video IDs:', error);
-        return;
+        return [];
       }
-      
-      videoIds = data.map(song => song.video_id);
-      if (videoIds.length > 0) {
-        currentVideoIndex = 0; // Reset chỉ mục khi có video mới
-        displayVideo(videoIds[currentVideoIndex]); // Hiển thị video đầu tiên
-      }
+
+      return data.map(song => song.video_id);
     } catch (error) {
       console.error('Error fetching unplayed video IDs:', error);
+      return [];
     }
   }
 
+  // Hàm để phát video từ danh sách videoIds
+  async function playNextVideo() {
+    if (currentVideoIndex < videoIds.length) {
+      displayVideo(videoIds[currentVideoIndex]);
+    } else {
+      console.log('Không còn video nào để phát.');
+      // Cập nhật videoIds khi hết video
+      videoIds = await getUnplayedVideoIds(); // Gọi hàm để lấy videoIds mới
+      currentVideoIndex = 0; // Reset chỉ mục
+      if (videoIds.length > 0) {
+        displayVideo(videoIds[currentVideoIndex]); // Phát video đầu tiên trong danh sách mới
+      }
+    }
+  }
+
+  // Hàm để hiển thị video
   function displayVideo(videoId) {
     const container = document.getElementById('videoContainer');
     container.innerHTML = ''; // Xóa nội dung cũ
@@ -80,25 +95,30 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     container.appendChild(iframe); // Thêm iframe vào container
+
     player = new YT.Player(iframe, {
       events: {
         'onStateChange': onPlayerStateChange
       }
     });
   }
+
+  // Hàm xử lý trạng thái của player
   function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
-      currentVideoIndex++;
-
-      if (currentVideoIndex < videoIds.length) {
-        displayVideo(videoIds[currentVideoIndex]);
-        fetchUnplayedVideoIds();
-      } else {
-        console.log('Không còn video nào để phát.');
-      }
+      currentVideoIndex++; // Tăng chỉ mục sau khi video kết thúc
+      playNextVideo(); // Gọi hàm để phát video tiếp theo
     }
   }
-  fetchUnplayedVideoIds();
+
+  async function startKaraoke() {
+    videoIds = await getUnplayedVideoIds(); // Lấy videoIds chưa phát
+    currentVideoIndex = 0;
+    playNextVideo();
+  }
+
+  // Gọi hàm để khởi động
+  startKaraoke();
 </script>
 
 
