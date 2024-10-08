@@ -25,6 +25,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh; /* Chiều cao video */
     }
     iframe {
       width: 100%; 
@@ -40,6 +41,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
   <script>
+    // Thông tin kết nối Supabase
     const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
     const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
