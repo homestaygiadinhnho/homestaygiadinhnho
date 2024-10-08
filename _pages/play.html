@@ -55,24 +55,22 @@ async function fetchUnplayedVideoIds() {
     const { data, error } = await supabaseClient
       .from('karaoke_songs')
       .select('video_id')
-      .eq('played', false); // Chọn các bài hát chưa được hát
+      .eq('played', false)
+      .order('priority', { ascending: false }) // Sắp xếp theo priority DESC
+      .order('id', { ascending: true }); // Sắp xếp theo id ASC
 
     if (error) {
-      console.error('Error fetching unplayed video IDs:', error);
-      return []; // Trả về mảng rỗng nếu có lỗi
+      throw error;
     }
 
-    // Trả về mảng các video_id
-    const videoIds = data.map(song => song.video_id);
-    return videoIds;
-
+    return data.map(song => song.video_id); // Lấy ra danh sách video_id
   } catch (error) {
     console.error('Error fetching unplayed video IDs:', error);
-    return []; // Trả về mảng rỗng nếu có lỗi
+    return [];
   }
 }
 
-// Sử dụng hàm để lấy video_id
+// Sử dụng hàm
 fetchUnplayedVideoIds().then(videoIds => {
   console.log('Unplayed video IDs:', videoIds);
 });
