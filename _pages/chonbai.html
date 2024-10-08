@@ -119,31 +119,28 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
     // Hàm hiển thị danh sách bài hát đã chọn
     function displaySelectedSongs(songs) {
-      const selectedSongsList = document.getElementById('selectedSongsList');
-      selectedSongsList.innerHTML = ''; // Xóa các bài cũ (nếu có)
+      const selectedSongsList = $('#selectedSongsList');
+      selectedSongsList.empty(); // Xóa các bài cũ (nếu có)
 
-      songs.forEach((song) => {
-        const songContainer = document.createElement('div');
-        songContainer.classList.add('p-4', 'w-full', 'max-w-2xl', 'shadow-md', 'flex', 'justify-between', 'items-center');
+      $.each(songs, function(index, song) {
+        const songContainer = $('<div></div>').addClass('p-3 py-2 w-full max-w-2xl shadow-md flex justify-between items-center');
         
         // Hiển thị thông tin bài hát
-        const songInfo = document.createElement('div');
-        songInfo.innerHTML = `
+        const songInfo = $('<div></div>').html(`
           <p class="text-white text-lg font-bold">${song.name} (${song.age} tuổi)</p>
           <p class="text-gray-400">Mã Video: ${song.video_id}</p>
-        `;
+        `);
         
         // Nút phát video
-        const playButton = document.createElement('a');
-        playButton.href = `https://www.youtube.com/watch?v=${song.video_id}`;
-        playButton.target = '_blank';
-        playButton.textContent = "Phát bài hát";
-        playButton.classList.add('bg-green-500', 'hover:bg-green-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded');
+        const playButton = $('<a></a>')
+          .attr('href', `https://www.youtube.com/watch?v=${song.video_id}`)
+          .attr('target', '_blank')
+          .text('Phát bài hát')
+          .addClass('bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded');
         
         // Thêm các phần tử vào giao diện
-        songContainer.appendChild(songInfo);
-        songContainer.appendChild(playButton);
-        selectedSongsList.appendChild(songContainer);
+        songContainer.append(songInfo).append(playButton);
+        selectedSongsList.append(songContainer);
       });
     }
 
@@ -163,7 +160,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
 
     // Gọi hàm để lấy danh sách bài hát và thiết lập subscription khi trang tải
-    document.addEventListener("DOMContentLoaded", function() {
+    $(document).ready(function() {
       fetchSelectedSongs(); // Gọi hàm khi DOM đã sẵn sàng
       subscribeToSongChanges(); // Đăng ký subscription
     });
