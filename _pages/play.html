@@ -61,7 +61,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   }
 
   function onPlayerReady(event) {
-    displayAndPlaySongs(); // Bắt đầu phát bài hát khi player đã sẵn sàng
+    fetchKaraokeSongs(); // Lấy danh sách bài hát khi player đã sẵn sàng
   }
 
   function onPlayerStateChange(event) {
@@ -74,7 +74,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     if (event.data === YT.PlayerState.ENDED) {
       markSongAsPlayed(currentVideoId); // Đánh dấu bài hát đã được hát
       nextSong(); // Chuyển sang bài hát tiếp theo
-      subscribeToSongChanges(); // Đăng ký theo dõi thay đổi bài hát sau khi đã hát xong
     }
   }
 
@@ -90,22 +89,12 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         return [];
       }
 
-      return data;
+      songs = data;
+      currentSongIndex = 0; // Reset index
+      playSong(songs[currentSongIndex]); // Phát bài hát đầu tiên
     } catch (error) {
       console.error('Error fetching karaoke songs:', error);
-      return [];
     }
-  }
-
-  async function displayAndPlaySongs() {
-    songs = await fetchKaraokeSongs();
-
-    if (!songs || songs.length === 0) {
-      console.log('Không có bài hát nào chưa được hát.');
-      return;
-    }
-
-    playSong(songs[currentSongIndex]);
   }
 
   function playSong(song) {
@@ -148,7 +137,11 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   }
 
   function nextSong() {
-    currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo hoặc lặp lại từ đầu
+    currentSongIndex++;
+    if (currentSongIndex >= songs.length) {
+      console.log("Tất cả bài hát đã được hát.");
+      return; // Ngừng phát nếu không còn bài hát nào
+    }
     playSong(songs[currentSongIndex]);
   }
 
@@ -160,12 +153,13 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         { event: '*', schema: 'public', table: 'karaoke_songs' },
         async (payload) => {
           console.log('Real-time update:', payload);
-          await displayAndPlaySongs(); // Cập nhật danh sách khi có thay đổi
+          await fetchKaraokeSongs(); // Cập nhật danh sách bài hát sau khi có thay đổi
         }
       )
       .subscribe();
   }
 </script>
+
 
 
 
