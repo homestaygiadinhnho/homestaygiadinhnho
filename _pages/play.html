@@ -34,18 +34,40 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       width: 100%; 
       height: 100%; 
     }
+    @font-face {
+      font-family: saomaiMedia;
+      font-style: normal;
+      font-display: swap;
+      src: url(https://homestaygiadinhnho.github.io/assets/fonts/SpotifyMixUI-Regular.woff2) format("woff2");
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: saomaiMedia;
+      font-style: normal;
+      font-display: swap;
+      src: url(https://homestaygiadinhnho.github.io/assets/fonts/SpotifyMixUITitle-Bold.woff2) format("woff2");
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: ui-icons;
+      src: url(https://homestaygiadinhnho.github.io/assets/fonts/ui-icons.woff2) format("woff2");
+    }
+    
     .multicolor-3d-text {
       font-size: 48px;
       font-weight: bold;
       text-align: center;
 
-
+font-family: saomaiMedia;
       background-clip: text;
       -webkit-background-clip: text;
       text-fill-color: transparent;
       -webkit-text-fill-color: transparent;
       color: #fff;
-      text-shadow: #e0e0e0 1px 1px 0;
+      text-shadow: #FC0 1px 0 10px;
     }
   </style>
 </head>
@@ -168,7 +190,9 @@ function displayVideo(videoId) {
             'onStateChange': onPlayerStateChange
         }
     });
-
+    setTimeout(() => {
+        adOverlay.style.display = 'none';
+    }, 5000);
 }
 
   // Hàm xử lý trạng thái của player
