@@ -76,8 +76,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     try {
       const { data, error } = await supabaseClient
         .from('karaoke_songs')
-        .select('video_id, song_name, checked')
-        .eq('checked', 0);
+        .select('video_id, song_name, played')
+        .eq('played', false);
 
       if (error) {
         console.error('Error fetching karaoke songs:', error);
@@ -111,7 +111,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     try {
       const { error } = await supabaseClient
         .from('karaoke_songs')
-        .update({ checked: 1 }) // Đánh dấu bài hát là đã hát
+        .update({ played: true }) // Đánh dấu bài hát là đã hát
         .eq('video_id', videoId); // Chỉ cập nhật bài hát tương ứng
 
       if (error) {
