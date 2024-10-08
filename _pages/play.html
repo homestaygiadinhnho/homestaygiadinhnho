@@ -15,9 +15,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="{{ page.description | default: site.description }}">
   <title>{{ page.title | default: site.title }}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
@@ -54,15 +51,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       font-display: swap;
       font-family: ui-icons;
       src: url(https://homestaygiadinhnho.github.io/assets/fonts/ui-icons.woff2) format("woff2");
-    }
-    
-    .multicolor-3d-text {
-      font-size: 64px;
-      font-weight: bold;
-      text-align: center;
-      font-family: saomaiMedia;
-color: #FFFFFF;
-text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
     }
   </style>
 </head>
@@ -153,7 +141,7 @@ function displayVideo(videoId) {
 
     // Tạo iframe chứa video
     const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0`;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&modestbranding=1&rel=0&showinfo=0`;
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     
@@ -172,9 +160,9 @@ function displayVideo(videoId) {
     adOverlay.style.display = 'flex';
     adOverlay.style.justifyContent = 'center';
     adOverlay.style.alignItems = 'center';
-    adOverlay.style.fontWeight = '400';
+    adOverlay.style.fontWeight = '700';
     adOverlay.style.zIndex = '10'; // Đảm bảo lớp phủ nằm trên video
-    adOverlay.innerHTML = '<p class="bold text-6xl text-center multicolor-3d-text">SAO MAI MEDIA<br>HÂN HẠNH ĐƯỢC PHỤC VỤ</p>'; // Nội dung quảng cáo
+    adOverlay.innerHTML = '<p class="bold text-6xl text-center">Sao Mai Media<br>Hân hạnh được phục vụ</p>'; // Nội dung quảng cáo
 
     // Thêm lớp phủ vào container
     container.appendChild(adOverlay);
