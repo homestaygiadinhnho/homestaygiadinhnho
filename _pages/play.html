@@ -155,7 +155,7 @@ function displayVideo(videoId) {
     // Tạo iframe chứa video và gán id cho iframe
     const iframe = document.createElement('iframe');
     iframe.id = 'youtubeIframe'; // Gán id cho iframe
-    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1`;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0`;
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     container.appendChild(iframe); 
