@@ -137,24 +137,25 @@ function subscribeToVideoIdChanges() {
   }
 
   // Hàm để hiển thị video
-  function displayVideo(videoId) {
+function displayVideo(videoId) {
     const container = document.getElementById('videoContainer');
     container.innerHTML = ''; // Xóa nội dung cũ
 
-    // Khởi tạo YouTube Player trực tiếp, thay vì tạo thủ công iframe
-    player = new YT.Player(container, {
-      videoId: videoId,
-      playerVars: {
-        'autoplay': 1,
-        'controls': 1
-      },
-      events: {
-        'onStateChange': onPlayerStateChange
-      }
+    // Tạo iframe chứa video và gán id cho iframe
+    const iframe = document.createElement('iframe');
+    iframe.id = 'youtubeIframe'; // Gán id cho iframe
+    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1`;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    container.appendChild(iframe); 
+
+    // Khởi tạo YouTube Player từ iframe bằng id
+    player = new YT.Player('youtubeIframe', {
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
     });
-  }
-
-
+}
   // Hàm xử lý trạng thái của player
   async function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
