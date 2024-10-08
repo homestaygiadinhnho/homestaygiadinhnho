@@ -69,10 +69,25 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
   }
 
+function subscribeToVideoIdChanges() {
+  const channel = supabaseClient
+    .channel('public:karaoke_songs')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'karaoke_songs' }, async (payload) => {
+      console.log('Database change detected:', payload);
+      await getUnplayedVideoIds(); // Cập nhật videoIds khi có thay đổi
+    })
+    .subscribe();
+}
+function initialize() {
+  subscribeToVideoIdChanges(); // Đăng ký theo dõi thay đổi ngay từ đầu
+}
+
+// Gọi hàm khởi động
+initialize();
+
   // Hàm để cập nhật trạng thái playing của video
   async function updatePlayingStatus(currentVideoId) {
     try {
-      // Cập nhật video hiện tại là playing và các video khác là không
       await supabaseClient
         .from('karaoke_songs')
         .update({ playing: false }) // Đặt tất cả thành false
