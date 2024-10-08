@@ -94,86 +94,94 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         object-fit: contain;
     }    
   </style>
-  <script>
-    // Khởi tạo Supabase
-    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-    
-    // Hàm lấy danh sách các bài hát đã chọn
-    async function fetchSelectedSongs() {
-      try {
-        const { data, error } = await supabaseClient
-          .from('karaoke_songs') // Đảm bảo đúng tên bảng
-          .select('name, age, video_id');
+<script>
+  // Khởi tạo Supabase
+  const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+  
+  // Hàm lấy danh sách các bài hát đã chọn
+  async function fetchSelectedSongs() {
+    try {
+      const { data, error } = await supabaseClient
+        .from('karaoke_songs')
+        .select('song_name, name, age, created_at, personal'); // Lấy thêm song_name và Personal
         
-        if (error) throw error;
+      if (error) throw error;
 
-        // Gọi hàm hiển thị các bài hát lên giao diện
-        displaySelectedSongs(data);
-        
-      } catch (error) {
-        console.error('Error fetching selected songs:', error);
+      // Gọi hàm hiển thị các bài hát lên giao diện
+      displaySelectedSongs(data);
+      
+    } catch (error) {
+      console.error('Error fetching selected songs:', error);
+    }
+  }
+
+  // Hàm hiển thị danh sách bài hát đã chọn
+  function displaySelectedSongs(songs) {
+    const selectedSongsList = $('#selectedSongsList');
+    selectedSongsList.empty(); // Xóa các bài cũ (nếu có)
+
+    $.each(songs, function(index, song) {
+      const songContainer = $('<div></div>').addClass('p-3 py-2 w-full max-w-2xl shadow-md flex justify-between items-center');
+      
+      // Format thời gian
+      const createdAt = new Date(song.created_at);
+      const now = new Date();
+      const timeDiff = Math.round((now - createdAt) / 60000); // Tính phút trước
+      const timeText = timeDiff < 60 ? `${timeDiff} phút trước` : `${Math.round(timeDiff / 60)} giờ trước`;
+
+      // Hiển thị thông tin bài hát
+      const songInfo = $('<div></div>').html(`
+        <p class="text-white text-lg font-bold">${song.song_name}</p>
+        <p class="text-gray-400">${song.Personal} ${song.name} (${song.age} tuổi) | ${timeText}</p>
+      `);
+      
+      // Nút phát video
+      const playButton = $('<a></a>')
+        .attr('href', `https://www.youtube.com/watch?v=${song.video_id}`)
+        .attr('target', '_blank')
+        .text('Phát bài hát')
+        .addClass('bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded');
+      
+      // Thêm các phần tử vào giao diện
+      songContainer.append(songInfo).append(playButton);
+      selectedSongsList.append(songContainer);
+
+      // Kiểm tra và đặt margin-top nếu là bài đầu tiên
+      if (selectedSongsList.children().length === 1) {
+        $(songContainer).css('margin-top', '64px');
       }
-    }
 
-    // Hàm hiển thị danh sách bài hát đã chọn
-    function displaySelectedSongs(songs) {
-      const selectedSongsList = $('#selectedSongsList');
-      selectedSongsList.empty(); // Xóa các bài cũ (nếu có)
-
-      $.each(songs, function(index, song) {
-        const songContainer = $('<div></div>').addClass('p-3 py-2 w-full max-w-2xl shadow-md flex justify-between items-center');
-        
-        // Hiển thị thông tin bài hát
-        const songInfo = $('<div></div>').html(`
-          <p class="text-white text-lg font-bold">${song.name} (${song.age} tuổi)</p>
-          <p class="text-gray-400">Mã Video: ${song.video_id}</p>
-        `);
-        
-        // Nút phát video
-        const playButton = $('<a></a>')
-          .attr('href', `https://www.youtube.com/watch?v=${song.video_id}`)
-          .attr('target', '_blank')
-          .text('Phát bài hát')
-          .addClass('bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded');
-        
-        // Thêm các phần tử vào giao diện
-        songContainer.append(songInfo).append(playButton);
-        selectedSongsList.append(songContainer);
-        if (selectedSongsList.children().length === 1) {
-          $(songContainer).css('margin-top', '64px');
-        }
-    
-        // Áp dụng margin-bottom cho bài hát cuối cùng
-        if (selectedSongsList.children().length === songs.length) {
-          $(songContainer).css('margin-bottom', '82px');
-        }
-        
-      });
-    }
-
-    // Đăng ký subscription để cập nhật danh sách bài hát theo thời gian thực
-    function subscribeToSongChanges() {
-      const channel = supabaseClient
-        .channel('public:karaoke_songs') // Đăng ký kênh cho bảng karaoke_songs
-        .on(
-          'postgres_changes', // Sự kiện thay đổi từ Postgres
-          { event: '*', schema: 'public', table: 'karaoke_songs' }, // Theo dõi tất cả các sự kiện (INSERT, DELETE, UPDATE)
-          (payload) => {
-            console.log('Real-time update:', payload);
-            fetchSelectedSongs(); // Cập nhật danh sách khi có thay đổi
-          }
-        )
-        .subscribe();
-    }
-
-    // Gọi hàm để lấy danh sách bài hát và thiết lập subscription khi trang tải
-    $(document).ready(function() {
-      fetchSelectedSongs(); // Gọi hàm khi DOM đã sẵn sàng
-      subscribeToSongChanges(); // Đăng ký subscription
+      // Áp dụng margin-bottom cho bài hát cuối cùng
+      if (selectedSongsList.children().length === songs.length) {
+        $(songContainer).css('margin-bottom', '82px');
+      }
     });
-  </script>
+  }
+
+  // Đăng ký subscription để cập nhật danh sách bài hát theo thời gian thực
+  function subscribeToSongChanges() {
+    const channel = supabaseClient
+      .channel('public:karaoke_songs')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'karaoke_songs' },
+        (payload) => {
+          console.log('Real-time update:', payload);
+          fetchSelectedSongs(); // Cập nhật danh sách khi có thay đổi
+        }
+      )
+      .subscribe();
+  }
+
+  // Gọi hàm để lấy danh sách bài hát và thiết lập subscription khi trang tải
+  $(document).ready(function() {
+    fetchSelectedSongs(); // Gọi hàm khi DOM đã sẵn sàng
+    subscribeToSongChanges(); // Đăng ký subscription
+  });
+</script>
+
 </head>
 
 <body class="mx-auto container h-screen" style="max-width:720px;background: #121212;">
