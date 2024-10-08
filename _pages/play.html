@@ -46,10 +46,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
   let videoIds = [];
-  let currentVideoIndex = 0; // Chỉ mục video hiện tại
-  let player; // Biến để lưu trữ player của YouTube
-
-  // Hàm lấy video_id chưa phát
+  let currentVideoIndex = 0;
+  let player;
   async function fetchUnplayedVideoIds() {
     try {
       const { data, error } = await supabaseClient
@@ -87,8 +85,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       )
       .subscribe();
   }
-
-  // Hàm hiển thị video duy nhất
   function displayVideo(videoId) {
     const container = document.getElementById('videoContainer');
     container.innerHTML = ''; // Xóa nội dung cũ
@@ -98,31 +94,23 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     container.appendChild(iframe); // Thêm iframe vào container
-
-    // Khởi tạo player để theo dõi trạng thái
     player = new YT.Player(iframe, {
       events: {
         'onStateChange': onPlayerStateChange
       }
     });
   }
-
-  // Hàm xử lý trạng thái của player
   function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
       currentVideoIndex++; // Tăng chỉ mục video hiện tại
       if (currentVideoIndex < videoIds.length) {
         displayVideo(videoIds[currentVideoIndex]); // Hiển thị video tiếp theo
       } else {
-        console.log('Đã phát hết video.');
         subscribeToVideoIdChanges(); // Đăng ký theo dõi sự thay đổi
       }
     }
   }
-
-  // Gọi hàm để lấy videoIds ban đầu và hiển thị video đầu tiên
   fetchUnplayedVideoIds();
-  subscribeToVideoIdChanges(); // Đăng ký lắng nghe sự thay đổi ngay từ đầu
 </script>
 
 
