@@ -25,7 +25,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       display: flex;
       justify-content: center;
       align-items: center;
-      height: calc(100vh - 134px);
+      height: calc(100vh - 134px); /* Chiều cao video */
     }
     iframe {
       width: 100%; 
@@ -40,125 +40,135 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
-<script>
-  const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+  <script>
+    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-  let player;
-  let currentSongIndex = 0;
-  let songs = [];
+    let player;
+    let currentSongIndex = 0;
+    let songs = [];
 
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('videoContainer', {
-      height: '100%',
-      width: '100%',
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
-    });
-  }
-
-  function onPlayerReady(event) {
-    fetchKaraokeSongs(); // Lấy danh sách bài hát khi player đã sẵn sàng
-    subscribeToSongChanges(); // Đăng ký theo dõi thay đổi bài hát
-  }
-
-  function onPlayerStateChange(event) {
-    const currentVideoId = songs[currentSongIndex]?.video_id;
-
-    if (event.data === YT.PlayerState.PLAYING) {
-      markSongAsPlaying(currentVideoId); // Đánh dấu bài hát đang phát
-    }
-
-    if (event.data === YT.PlayerState.ENDED) {
-      markSongAsPlayed(currentVideoId); // Đánh dấu bài hát đã được hát
-      currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo
-      playSong(songs[currentSongIndex]); // Phát bài tiếp theo
-      // Khi bài hát kết thúc, cập nhật lại danh sách bài hát
-      fetchKaraokeSongs();
-    }
-  }
-
-  async function fetchKaraokeSongs() {
-    try {
-      const { data, error } = await supabaseClient
-        .from('karaoke_songs')
-        .select('video_id, song_name, playing, played')
-        .eq('played', false); // Chọn các bài hát chưa được hát
-
-      if (error) {
-        console.error('Error fetching karaoke songs:', error);
-        return;
-      }
-
-      songs = data; // Cập nhật danh sách bài hát
-      // Kiểm tra xem có bài hát nào chưa phát không
-      if (songs.length > 0 && currentSongIndex >= songs.length) {
-        currentSongIndex = 0; // Reset về bài đầu tiên nếu đã phát hết
-      }
-
-    } catch (error) {
-      console.error('Error fetching karaoke songs:', error);
-    }
-  }
-
-  function playSong(song) {
-    const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
-    player.loadVideoByUrl(videoUrl);
-  }
-
-  async function markSongAsPlaying(videoId) {
-    try {
-      const { error } = await supabaseClient
-        .from('karaoke_songs')
-        .update({ playing: true }) // Đánh dấu bài hát là đang phát
-        .eq('video_id', videoId); // Chỉ cập nhật bài hát tương ứng
-
-      if (error) {
-        console.error('Error marking song as playing:', error);
-      } else {
-        console.log(`Bài hát với video_id ${videoId} đang được phát.`);
-      }
-    } catch (error) {
-      console.error('Error marking song as playing:', error);
-    }
-  }
-
-  async function markSongAsPlayed(videoId) {
-    try {
-      const { error } = await supabaseClient
-        .from('karaoke_songs')
-        .update({ played: true, playing: false }) // Đánh dấu bài hát là đã hát và không còn đang phát
-        .eq('video_id', videoId); // Chỉ cập nhật bài hát tương ứng
-
-      if (error) {
-        console.error('Error marking song as played:', error);
-      } else {
-        console.log(`Bài hát với video_id ${videoId} đã được đánh dấu là đã hát.`);
-      }
-    } catch (error) {
-      console.error('Error marking song as played:', error);
-    }
-  }
-
-  function subscribeToSongChanges() {
-    const channel = supabaseClient
-      .channel('public:karaoke_songs')
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'karaoke_songs' },
-        async (payload) => {
-          console.log('Real-time update:', payload);
-          // Chỉ cập nhật danh sách khi bài hát đã kết thúc
-          if (payload.eventType === 'DELETE' || payload.eventType === 'INSERT' || payload.eventType === 'UPDATE') {
-            // Không làm gì cho đến khi bài hát hiện tại kết thúc
-          }
+    // Khởi tạo YouTube Player
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('videoContainer', {
+        height: '100%',
+        width: '100%',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
         }
-      )
-      .subscribe();
-  }
-</script>
+      });
+    }
+
+    // Khi player đã sẵn sàng
+    function onPlayerReady(event) {
+      fetchKaraokeSongs(); // Lấy danh sách bài hát khi player đã sẵn sàng
+      subscribeToSongChanges(); // Đăng ký theo dõi thay đổi bài hát
+    }
+
+    // Khi trạng thái của player thay đổi
+    function onPlayerStateChange(event) {
+      const currentVideoId = songs[currentSongIndex]?.video_id;
+
+      if (event.data === YT.PlayerState.PLAYING) {
+        markSongAsPlaying(currentVideoId); // Đánh dấu bài hát đang phát
+      }
+
+      if (event.data === YT.PlayerState.ENDED) {
+        markSongAsPlayed(currentVideoId); // Đánh dấu bài hát đã được hát
+        currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo
+        playSong(songs[currentSongIndex]); // Phát bài tiếp theo
+        // Khi bài hát kết thúc, cập nhật lại danh sách bài hát
+        fetchKaraokeSongs();
+      }
+    }
+
+    // Lấy danh sách bài hát từ Supabase
+    async function fetchKaraokeSongs() {
+      try {
+        const { data, error } = await supabaseClient
+          .from('karaoke_songs')
+          .select('video_id, song_name, playing, played')
+          .eq('played', false); // Chọn các bài hát chưa được hát
+
+        if (error) {
+          console.error('Error fetching karaoke songs:', error);
+          return;
+        }
+
+        songs = data; // Cập nhật danh sách bài hát
+        // Kiểm tra xem có bài hát nào chưa phát không
+        if (songs.length > 0 && currentSongIndex >= songs.length) {
+          currentSongIndex = 0; // Reset về bài đầu tiên nếu đã phát hết
+          playSong(songs[currentSongIndex]); // Phát bài đầu tiên
+        }
+
+      } catch (error) {
+        console.error('Error fetching karaoke songs:', error);
+      }
+    }
+
+    // Phát bài hát
+    function playSong(song) {
+      const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
+      player.loadVideoByUrl(videoUrl);
+    }
+
+    // Đánh dấu bài hát đang phát
+    async function markSongAsPlaying(videoId) {
+      try {
+        const { error } = await supabaseClient
+          .from('karaoke_songs')
+          .update({ playing: true }) // Đánh dấu bài hát là đang phát
+          .eq('video_id', videoId); // Chỉ cập nhật bài hát tương ứng
+
+        if (error) {
+          console.error('Error marking song as playing:', error);
+        } else {
+          console.log(`Bài hát với video_id ${videoId} đang được phát.`);
+        }
+      } catch (error) {
+        console.error('Error marking song as playing:', error);
+      }
+    }
+
+    // Đánh dấu bài hát đã được hát
+    async function markSongAsPlayed(videoId) {
+      try {
+        const { error } = await supabaseClient
+          .from('karaoke_songs')
+          .update({ played: true, playing: false }) // Đánh dấu bài hát là đã hát và không còn đang phát
+          .eq('video_id', videoId); // Chỉ cập nhật bài hát tương ứng
+
+        if (error) {
+          console.error('Error marking song as played:', error);
+        } else {
+          console.log(`Bài hát với video_id ${videoId} đã được đánh dấu là đã hát.`);
+        }
+      } catch (error) {
+        console.error('Error marking song as played:', error);
+      }
+    }
+
+    // Đăng ký theo dõi thay đổi bài hát
+    function subscribeToSongChanges() {
+      const channel = supabaseClient
+        .channel('public:karaoke_songs')
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'karaoke_songs' },
+          async (payload) => {
+            console.log('Real-time update:', payload);
+            // Chỉ cập nhật danh sách khi bài hát đã kết thúc
+            if (payload.eventType === 'DELETE' || payload.eventType === 'INSERT' || payload.eventType === 'UPDATE') {
+              // Không làm gì cho đến khi bài hát hiện tại kết thúc
+            }
+          }
+        )
+        .subscribe();
+    }
+  </script>
 </body>
 </html>
+
