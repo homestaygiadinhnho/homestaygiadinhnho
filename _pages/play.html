@@ -113,7 +113,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     // Phát bài hát
     function playSong(song) {
       const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
-      player.loadVideoByUrl(videoUrl);
+      player.loadVideoByUrl({mediaContentUrl: videoUrl});
     }
 
     // Đánh dấu bài hát đang phát
