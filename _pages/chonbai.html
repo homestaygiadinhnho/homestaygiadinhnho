@@ -105,7 +105,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     try {
       const { data, error } = await supabaseClient
         .from('karaoke_songs')
-        .select('song_name, name, age, created_at, personal'); // Lấy thêm song_name và Personal
+        .select('song_name, video_id, name, age, created_at, personal'); // Lấy thêm song_name và Personal
         
       if (error) throw error;
 
