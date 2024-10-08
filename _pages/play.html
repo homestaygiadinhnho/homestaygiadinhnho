@@ -114,22 +114,49 @@ function subscribeToVideoIdChanges() {
   }
 
   // Hàm để hiển thị video
-  function displayVideo(videoId) {
+function displayVideo(videoId) {
     const container = document.getElementById('videoContainer');
     container.innerHTML = ''; // Xóa nội dung cũ
 
+    // Tạo iframe chứa video
     const iframe = document.createElement('iframe');
     iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0`;
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
-    container.appendChild(iframe); // Thêm iframe vào container
+    
+    // Thêm iframe vào container
+    container.appendChild(iframe); 
 
+    // Tạo lớp phủ quảng cáo
+    const adOverlay = document.createElement('div');
+    adOverlay.style.position = 'absolute';
+    adOverlay.style.top = '0';
+    adOverlay.style.left = '0';
+    adOverlay.style.width = '100%';
+    adOverlay.style.height = '100%';
+    adOverlay.style.background = 'rgba(0, 0, 0, 0.5)'; // Màu nền nửa trong suốt
+    adOverlay.style.color = 'white';
+    adOverlay.style.display = 'flex';
+    adOverlay.style.justifyContent = 'center';
+    adOverlay.style.alignItems = 'center';
+    adOverlay.style.zIndex = '10'; // Đảm bảo lớp phủ nằm trên video
+    adOverlay.innerHTML = '<p>Quảng cáo của bạn ở đây!</p>'; // Nội dung quảng cáo
+
+    // Thêm lớp phủ vào container
+    container.appendChild(adOverlay);
+
+    // Khởi tạo YouTube Player
     player = new YT.Player(iframe, {
-      events: {
-        'onStateChange': onPlayerStateChange
-      }
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
     });
-  }
+
+    // Ẩn lớp phủ quảng cáo sau 5 giây
+    setTimeout(() => {
+        adOverlay.style.display = 'none';
+    }, 30000);
+}
 
   // Hàm xử lý trạng thái của player
   async function onPlayerStateChange(event) {
