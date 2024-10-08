@@ -72,19 +72,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
   }
 
-  // Đăng ký lắng nghe sự thay đổi
-  function subscribeToVideoIdChanges() {
-    const channel = supabaseClient
-      .channel('public:karaoke_songs')
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'karaoke_songs' },
-        async (payload) => {
-          await fetchUnplayedVideoIds(); // Cập nhật videoIds khi có thay đổi
-        }
-      )
-      .subscribe();
-  }
   function displayVideo(videoId) {
     const container = document.getElementById('videoContainer');
     container.innerHTML = ''; // Xóa nội dung cũ
@@ -106,7 +93,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       if (currentVideoIndex < videoIds.length) {
         displayVideo(videoIds[currentVideoIndex]); // Hiển thị video tiếp theo
       } else {
-        subscribeToVideoIdChanges(); // Đăng ký theo dõi sự thay đổi
+        fetchUnplayedVideoIds(); // Đăng ký theo dõi sự thay đổi
       }
     }
   }
