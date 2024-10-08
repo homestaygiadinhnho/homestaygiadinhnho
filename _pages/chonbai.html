@@ -124,7 +124,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
       songs.forEach((song) => {
         const songContainer = document.createElement('div');
-        songContainer.classList.add('bg-gray-800', 'p-4', 'rounded', 'w-full', 'max-w-2xl', 'shadow-md', 'flex', 'justify-between', 'items-center');
+        songContainer.classList.add('p-4', 'w-full', 'max-w-2xl', 'shadow-md', 'flex', 'justify-between', 'items-center');
         
         // Hiển thị thông tin bài hát
         const songInfo = document.createElement('div');
@@ -183,7 +183,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   </div>
   <div class="text-center h-screen">
     <h1 class="text-4xl font-bold mb-6 hidden">Karaoke với YouTube</h1>
-    <div id="selectedSongsList" class="space-y-4"></div>
+    <div id="selectedSongsList" class="flex justify-center items-center w-full flex-col"></div>
   </div>
   <div class="fixed bottom-0 left-0 right-0 text-black flex justify-between p-4" style="background: #000; max-width: 720px; margin: 0 auto;">
     <button class="flex flex-col items-center" style="color: #b3b3b3;">
