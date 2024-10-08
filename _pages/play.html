@@ -62,7 +62,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
   function onPlayerReady(event) {
     displayAndPlaySongs(); // Bắt đầu phát bài hát khi player đã sẵn sàng
-    subscribeToSongChanges(); // Đăng ký theo dõi thay đổi bài hát
   }
 
   function onPlayerStateChange(event) {
@@ -75,6 +74,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     if (event.data === YT.PlayerState.ENDED) {
       markSongAsPlayed(currentVideoId); // Đánh dấu bài hát đã được hát
       nextSong(); // Chuyển sang bài hát tiếp theo
+      subscribeToSongChanges(); // Đăng ký theo dõi thay đổi bài hát sau khi đã hát xong
     }
   }
 
@@ -166,6 +166,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       .subscribe();
   }
 </script>
+
 
 
 
