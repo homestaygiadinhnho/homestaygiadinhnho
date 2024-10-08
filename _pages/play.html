@@ -120,7 +120,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     // Hàm phát bài hát dựa trên video_id
     function playSong(song) {
       const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
-      player.loadVideoByUrl(videoUrl);
+      player.loadVideoByUrl({mediaContentUrl: videoUrl});
       markSongAsChecked(song.video_id); // Đánh dấu bài hát là đã được hát
     }
 
