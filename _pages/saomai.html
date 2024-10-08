@@ -116,10 +116,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     #videoList>div:first-child {
       margin-top: 12px;
     }
-
-    #videoList>div:last-child {
-      margin-bottom: 92px;
-    }
     
     #videoContainer {
         position: relative;
@@ -198,6 +194,9 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
             videoItem.append(thumbnailContainer).append(avatarContainer);
             $('#videoList').append(videoItem);
+            if (videoList.children.length === data.items.length) {
+              videoItem.style.marginBottom = '94px';
+            }
           });
         });
       });
