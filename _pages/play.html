@@ -6,11 +6,37 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'vi' }}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giao diện hiển thị bài hát karaoke</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="{{ site.baseurl }}/assets/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta property="og:locale" content="{{ site.locale | default: 'vi_VN' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:url" content="{{ page.url | prepend: site.baseurl }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="article:modified_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="msapplication-TileImage" content="{{ site.baseurl }}/assets/favicon/favicon-32x32.png">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="canonical" href="{{ page.url | prepend: site.baseurl }}">
+  <link rel="alternate" href="{{ page.url | prepend: site.baseurl }}" hreflang="{{ page.lang | default: 'vi' }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ site.baseurl }}/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="{{ site.baseurl }}/assets/favicon/safari-pinned-tab.svg" color="#ff5a5f">
+  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon/favicon.ico">
+  <link rel="icon" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" href="{{ site.baseurl }}/assets/favicon/android-chrome-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.png">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -33,11 +59,9 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 </head>
 <body>
   <div id="videoContainer">
-    <!-- Video và thông tin bài hát sẽ được thêm vào đây -->
   </div>
 
   <script>
-    // Khởi tạo Supabase
     const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay thế bằng khóa Supabase của bạn
     const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
@@ -45,8 +69,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     let player;
     let currentSongIndex = 0;
     let songs = [];
-
-    // Hàm gọi YouTube API
+    
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('videoContainer', {
         height: '100%',
@@ -57,27 +80,25 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       });
     }
 
-    // Hàm xử lý sự kiện khi trạng thái video thay đổi
     function onPlayerStateChange(event) {
       if (event.data === YT.PlayerState.ENDED) {
-        nextSong(); // Chuyển sang bài hát tiếp theo khi bài hiện tại kết thúc
+        nextSong();
       }
     }
 
-    // Hàm lấy danh sách bài hát từ Supabase
     async function fetchKaraokeSongs() {
       try {
         const { data, error } = await supabaseClient
           .from('karaoke_songs')
           .select('video_id, song_name, personal, checked')
-          .eq('checked', 0); // Lấy các bài hát chưa được hát
+          .eq('checked', 0);
 
         if (error) {
           console.error('Error fetching karaoke songs:', error);
-          return []; // Trả về mảng rỗng nếu có lỗi
+          return [];
         }
 
-        return data; // Trả về danh sách bài hát
+        return data;
       } catch (error) {
         console.error('Error fetching karaoke songs:', error);
         return []; // Trả về mảng rỗng nếu có lỗi
