@@ -48,11 +48,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   let player;
   let currentSongIndex = 0;
   let songs = [];
-
-const { error } = await supabaseClient
-  .from('karaoke_songs')
-  .update({ played: true })
-  .eq('video_id', 'LEuWlmUGLYA');
   
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('videoContainer', {
@@ -109,7 +104,7 @@ const { error } = await supabaseClient
 
   function playSong(song) {
     const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
-    player.loadVideoByUrl(videoUrl); // Sử dụng mediaContentUrl
+    player.loadVideoByUrl(videoUrl);
   }
 
   async function markSongAsChecked(videoId) {
@@ -134,7 +129,5 @@ const { error } = await supabaseClient
     playSong(songs[currentSongIndex]);
   }
 </script>
-
-
 </body>
 </html>
