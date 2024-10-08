@@ -271,38 +271,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         return `${minutes}:${seconds}`;
       }
     }
-
-function displayMessages() {
-    const messages = [
-        "Gia đình Mẫn Nguyệt",
-        "Dàn nhạc Sao Mai",
-        "Tiệc cưới Diệu Phú",
-        "Trân trọng cảm ơn"
-    ];
-
-    const messageContainer = $('#messageContainer');
-
-    messages.forEach((message, index) => {
-        setTimeout(() => {
-            const messageElement = $('<div>', {
-                class: 'message',
-                text: message // Nội dung của thông điệp
-            });
-
-            messageContainer.append(messageElement); // Thêm thông điệp vào container
-
-            // Thêm lớp show để kích hoạt hiệu ứng
-            messageElement.addClass('show');
-        }, index * 4000); // Độ trễ 4 giây giữa các thông điệp
-    });
-}
-
-// Gọi hàm khi DOM đã sẵn sàng
-$(document).ready(function() {
-    displayMessages();
-});
-
-
   </script>
 </head>
 
@@ -330,9 +298,6 @@ $(document).ready(function() {
         <source src="assets/videos/Black and Gold Film Save the Date Wedding Mobile Video (1).mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <div id="messageContainer" class="absolute inset-0 flex flex-col items-center justify-center text-white">
-        <!-- Các thông điệp sẽ được thêm vào đây -->
-    </div>
 </div>
 
   </div>
