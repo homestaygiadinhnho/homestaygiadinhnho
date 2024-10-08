@@ -90,7 +90,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       try {
         const { data, error } = await supabaseClient
           .from('karaoke_songs')
-          .select('video_id, song_name, personal, checked')
+          .select('video_id, song_name, checked')
           .eq('checked', 0);
 
         if (error) {
