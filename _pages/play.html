@@ -44,68 +44,81 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     <!-- Video và thông tin bài hát sẽ được thêm vào đây -->
   </div>
 
-  <script>
-    // Khởi tạo Supabase
-    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  // Khởi tạo Supabase
+  const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-    // Hàm lấy danh sách bài hát từ Supabase
-    async function fetchKaraokeSongs() {
-      try {
-        const { data, error } = await supabaseClient
-          .from('karaoke_songs') // Tên bảng của bạn
-          .select('video_id, song_name, name, age, personal');
+  let player;
+  let currentSongIndex = 0;
+  let songs = [];
 
-        if (error) throw error;
-
-        return data; // Trả về danh sách bài hát
-      } catch (error) {
-        console.error('Error fetching karaoke songs:', error);
+  // Hàm gọi YouTube API
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('videoContainer', {
+      height: '100%',
+      width: '100%',
+      events: {
+        'onStateChange': onPlayerStateChange
       }
+    });
+  }
+
+  // Hàm xử lý sự kiện khi trạng thái video thay đổi
+  function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+      nextSong(); // Chuyển sang bài hát tiếp theo khi bài hiện tại kết thúc
+    }
+  }
+
+  // Hàm lấy danh sách bài hát từ Supabase
+  async function fetchKaraokeSongs() {
+    try {
+      const { data, error } = await supabaseClient
+        .from('karaoke_songs') // Tên bảng của bạn
+        .select('video_id, song_name, name, age, personal');
+
+      if (error) throw error;
+
+      return data; // Trả về danh sách bài hát
+    } catch (error) {
+      console.error('Error fetching karaoke songs:', error);
+    }
+  }
+
+  // Hàm hiển thị và phát bài hát tự động
+  async function displayAndPlaySongs() {
+    songs = await fetchKaraokeSongs();
+
+    if (songs.length === 0) {
+      console.log('Không có bài hát nào.');
+      return;
     }
 
-    // Hàm hiển thị và phát bài hát tự động
-    async function displayAndPlaySongs() {
-      const songs = await fetchKaraokeSongs();
-      
-      if (songs.length === 0) {
-        console.log('Không có bài hát nào.');
-        return;
-      }
+    playSong(songs[currentSongIndex]);
+  }
 
-      let currentSongIndex = 0;
+  // Hàm phát bài hát dựa trên video_id
+  function playSong(song) {
+    const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
 
-      // Hàm phát bài hát dựa trên video_id
-      function playSong(song) {
-        const videoContainer = document.getElementById('videoContainer');
-        const videoUrl = `https://www.youtube.com/embed/${song.video_id}?autoplay=1&mute=0&loop=0`;
+    player.loadVideoByUrl(videoUrl);
+  }
 
-        videoContainer.innerHTML = `
-          <iframe src="${videoUrl}" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        `;
-      }
+  // Hàm để chuyển bài hát tự động
+  function nextSong() {
+    currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo hoặc lặp lại từ đầu
+    playSong(songs[currentSongIndex]);
+  }
 
-      // Hàm để chuyển bài hát tự động
-      function nextSong() {
-        currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo hoặc lặp lại từ đầu
-        playSong(songs[currentSongIndex]);
-      }
+  // Gọi hàm khi trang được load
+  window.onload = function() {
+    displayAndPlaySongs();
+  };
+</script>
 
-      // Bắt đầu phát bài hát đầu tiên
-      playSong(songs[currentSongIndex]);
-      
-      // Thiết lập khoảng thời gian giữa các bài hát (nếu cần)
-      const songDuration = 0; // Thời gian chơi mỗi bài hát (30 giây)
-      setInterval(nextSong, songDuration); // Chuyển bài sau mỗi 30 giây
-    }
-
-    // Gọi hàm khi trang được load
-    window.onload = function() {
-      displayAndPlaySongs();
-    };
-  </script>
 </body>
 </html>
 
