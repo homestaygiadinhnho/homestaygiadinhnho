@@ -156,19 +156,6 @@ function displayVideo(videoId) {
     });
 }
 
-    // Hàm để yêu cầu fullscreen
-    function enterFullscreen() {
-      const iframe = document.querySelector('iframe');
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.mozRequestFullScreen) { // Firefox
-        iframe.mozRequestFullScreen();
-      } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) { // IE/Edge
-        iframe.msRequestFullscreen();
-      }
-    }
 
   // Hàm xử lý trạng thái của player
   async function onPlayerStateChange(event) {
@@ -178,9 +165,6 @@ function displayVideo(videoId) {
       videoIds.shift(); // Xóa video đã phát khỏi danh sách
       playNextVideo(); // Phát video tiếp theo
     }
-      if (event.data === YT.PlayerState.PLAYING) {
-        enterFullscreen(); // Gọi hàm để vào chế độ fullscreen khi video bắt đầu chơi
-      }
   }
 
   // Hàm để phát video tiếp theo
