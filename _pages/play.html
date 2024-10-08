@@ -1,0 +1,111 @@
+---
+layout: 
+title: "Karaoke Sao Mai"
+permalink: /play
+description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ Karaoke đẳng cấp."
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giao diện hiển thị bài hát karaoke</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    #videoContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 134px);
+    }
+    .song-info {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="videoContainer">
+    <!-- Video và thông tin bài hát sẽ được thêm vào đây -->
+  </div>
+
+  <script>
+// Khởi tạo Supabase
+const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+// Hàm lấy danh sách bài hát từ Supabase
+async function fetchKaraokeSongs() {
+  try {
+    const { data, error } = await supabaseClient
+      .from('karaoke_songs') // Tên bảng của bạn
+      .select('video_id, song_name, name, age, personal');
+
+    if (error) throw error;
+
+    return data; // Trả về danh sách bài hát
+  } catch (error) {
+    console.error('Error fetching karaoke songs:', error);
+  }
+}
+// Hàm hiển thị và phát bài hát tự động
+async function displayAndPlaySongs() {
+  const songs = await fetchKaraokeSongs();
+  
+  if (songs.length === 0) {
+    console.log('Không có bài hát nào.');
+    return;
+  }
+
+  let currentSongIndex = 0;
+
+  // Hàm phát bài hát dựa trên video_id
+  function playSong(song) {
+    const videoContainer = document.getElementById('videoContainer');
+    const videoUrl = `https://www.youtube.com/embed/${song.video_id}?autoplay=1&mute=1&loop=0`;
+
+    videoContainer.innerHTML = `
+      <iframe width="560" height="315" src="${videoUrl}" 
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="song-info">
+        <h2 class="text-white text-lg">${song.song_name}</h2>
+        <p class="text-gray-400">Người chọn: ${song.personal} (${song.age} tuổi)</p>
+      </div>
+    `;
+  }
+
+  // Hàm để chuyển bài hát tự động
+  function nextSong() {
+    currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo hoặc lặp lại từ đầu
+    playSong(songs[currentSongIndex]);
+  }
+
+  // Lắng nghe sự kiện kết thúc của iframe YouTube để phát bài kế tiếp
+  function monitorSongEnd() {
+    const iframe = document.querySelector('iframe');
+    iframe.addEventListener('ended', nextSong, false); // Phát bài hát kế tiếp khi hết bài hiện tại
+  }
+
+  // Bắt đầu phát bài hát đầu tiên
+  playSong(songs[currentSongIndex]);
+
+  // Bắt đầu lắng nghe sự kiện kết thúc bài hát
+  monitorSongEnd();
+}
+
+// Gọi hàm khi trang được load
+window.onload = function() {
+  displayAndPlaySongs();
+};
+
+  </script>
+</body>
+</html>
