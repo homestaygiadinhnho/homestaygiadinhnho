@@ -46,9 +46,10 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
   let videoIds = [];
-  let currentVideoIndex = 0; // Thêm chỉ mục để theo dõi video hiện tại
+  let currentVideoIndex = 0; // Chỉ mục video hiện tại
   let player; // Biến để lưu trữ player của YouTube
 
+  // Hàm lấy video_id chưa phát
   async function fetchUnplayedVideoIds() {
     try {
       const { data, error } = await supabaseClient
@@ -73,6 +74,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
   }
 
+  // Đăng ký lắng nghe sự thay đổi
   function subscribeToVideoIdChanges() {
     const channel = supabaseClient
       .channel('public:karaoke_songs')
@@ -118,16 +120,11 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
   }
 
-  // Hàm tự động phát video
-  function playCurrentVideo() {
-    if (player) {
-      player.playVideo(); // Tự động phát video
-    }
-  }
-
   // Gọi hàm để lấy videoIds ban đầu và hiển thị video đầu tiên
   fetchUnplayedVideoIds();
+  subscribeToVideoIdChanges(); // Đăng ký lắng nghe sự thay đổi ngay từ đầu
 </script>
+
 
 
 </body>
