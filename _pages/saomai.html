@@ -112,10 +112,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       padding: 0 4px;
       color: #ffffff;
     }
-
-    #videoList>div:first-child {
-      margin-top: 12px;
-    }
     
     #videoContainer {
         position: relative;
@@ -161,7 +157,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
             const duration = formatDuration(videoDetailsData.items[index].contentDetails.duration);
 
             // Tạo video item
-            const videoItem = $('<div>', { class: 'cursor-pointer flex w-full flex-col' });
+            const videoItem = $('<div>', { class: 'cursor-pointer flex w-full flex-col my-3' });
             videoItem.on('click', () => handleSongSelection(videoId, title));
 
             // Tạo phần hình ảnh (thumbnail)
@@ -267,7 +263,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       </div>
     </div>
 
-    <div id="videoList" class="flex justify-center items-center w-full flex-col gap-6">
+    <div id="videoList" class="flex justify-center items-center w-full flex-col">
       <div class="relative w-full h-screen overflow-hidden">
         <video autoplay muted loop playsinline class="absolute top-0 left-0 w-auto h-full" style="max-height: calc(100vh - 134px);min-width: 100%;margin: 0 auto;margin-bottom: 70px;object-fit:contain;">
             <source src="assets/videos/Green and White Simple Minimalist Simple Elegant Wedding Video Mobile.mp4" type="video/mp4">
