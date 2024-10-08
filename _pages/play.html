@@ -11,11 +11,11 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giao diện hiển thị bài hát karaoke</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-black text-white flex justify-center items-center h-screen">
-
+  
   <div id="videoContainer" class="w-full h-full flex flex-col justify-center items-center">
     <!-- Video sẽ được nhúng ở đây -->
     <div class="song-info text-center mt-5">
@@ -23,7 +23,9 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     </div>
   </div>
 
+  <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
+
   <script>
     // Khởi tạo Supabase
     const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
@@ -39,6 +41,10 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       player = new YT.Player('videoContainer', {
         height: '100%',
         width: '100%',
+        playerVars: {
+          'autoplay': 1,
+          'controls': 0
+        },
         events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
@@ -46,54 +52,55 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       });
     }
 
+    // Hàm xử lý khi Player đã sẵn sàng
     function onPlayerReady() {
-      displayAndPlaySongs();
+      fetchKaraokeSongs().then(data => {
+        songs = data;
+        playSong(songs[currentSongIndex]); // Phát bài hát đầu tiên
+      });
     }
 
+    // Hàm xử lý sự kiện khi trạng thái video thay đổi
     function onPlayerStateChange(event) {
       if (event.data === YT.PlayerState.ENDED) {
         nextSong(); // Chuyển sang bài hát tiếp theo khi bài hiện tại kết thúc
       }
     }
 
+    // Lấy danh sách bài hát từ Supabase
     async function fetchKaraokeSongs() {
       try {
         const { data, error } = await supabaseClient
-          .from('karaoke_songs')
+          .from('karaoke_songs') // Tên bảng
           .select('video_id, song_name, name');
 
         if (error) throw error;
-
         return data;
       } catch (error) {
         console.error('Error fetching karaoke songs:', error);
+        return [];
       }
     }
 
-    async function displayAndPlaySongs() {
-      songs = await fetchKaraokeSongs();
-
-      if (songs.length === 0) {
-        console.log('Không có bài hát nào.');
-        return;
-      }
-
-      playSong(songs[currentSongIndex]);
-    }
-
+    // Phát bài hát
     function playSong(song) {
-      const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
-      player.loadVideoByUrl({mediaContentUrl: videoUrl});
+      const videoUrl = `https://www.youtube.com/watch?v=${song.video_id}`;
+      player.loadVideoById(song.video_id); // Dùng loadVideoById thay vì loadVideoByUrl
+
+      // Hiển thị thông tin bài hát
+      $(".song-info").html(`
+        <h2 class="text-lg">${song.song_name}</h2>
+        <p class="text-gray-400">Người chọn: ${song.name}</p>
+      `);
     }
 
+    // Chuyển bài hát tiếp theo
     function nextSong() {
-      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      currentSongIndex = (currentSongIndex + 1) % songs.length; // Lặp lại từ đầu nếu hết danh sách
       playSong(songs[currentSongIndex]);
     }
 
-    window.onload = function() {
-      displayAndPlaySongs();
-    };
   </script>
+
 </body>
 </html>
