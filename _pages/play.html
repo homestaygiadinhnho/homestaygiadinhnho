@@ -139,8 +139,9 @@ function displayVideo(videoId) {
     adOverlay.style.display = 'flex';
     adOverlay.style.justifyContent = 'center';
     adOverlay.style.alignItems = 'center';
+    adOverlay.style.fontWeight = '700';
     adOverlay.style.zIndex = '10'; // Đảm bảo lớp phủ nằm trên video
-    adOverlay.innerHTML = '<p>SAO MAI MEDIA <br> HÂN HẠNH ĐƯỢC PHỤC VU</p>'; // Nội dung quảng cáo
+    adOverlay.innerHTML = '<p class="bold text-6xl">SAO MAI MEDIA <br> HÂN HẠNH ĐƯỢC PHỤC VU</p>'; // Nội dung quảng cáo
 
     // Thêm lớp phủ vào container
     container.appendChild(adOverlay);
