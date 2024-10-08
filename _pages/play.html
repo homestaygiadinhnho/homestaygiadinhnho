@@ -104,7 +104,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
   function playSong(song) {
     const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
-    player.loadVideoByUrl({ mediaContentUrl: videoUrl }); // Sử dụng mediaContentUrl
+    player.loadVideoByUrl(videoUrl); // Sử dụng mediaContentUrl
   }
 
   async function markSongAsChecked(videoId) {
@@ -129,6 +129,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     playSong(songs[currentSongIndex]);
   }
 </script>
+
 
 </body>
 </html>
