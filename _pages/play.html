@@ -34,6 +34,18 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       width: 100%; 
       height: 100%; 
     }
+        .multicolor-3d-text {
+      font-size: 60px;
+      font-weight: bold;
+      text-align: center;
+      color: transparent;
+      background: linear-gradient(45deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF);
+      background-clip: text;
+      -webkit-background-clip: text;
+      text-fill-color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -143,9 +155,8 @@ function displayVideo(videoId) {
     adOverlay.style.justifyContent = 'center';
     adOverlay.style.alignItems = 'center';
     adOverlay.style.fontWeight = '400';
-    adOverlay.style.fontFamily = 'Bungee Spice';
     adOverlay.style.zIndex = '10'; // Đảm bảo lớp phủ nằm trên video
-    adOverlay.innerHTML = '<p class="bold text-6xl text-center leading-normal">SAO MAI MEDIA <br> HÂN HẠNH ĐƯỢC PHỤC VU</p>'; // Nội dung quảng cáo
+    adOverlay.innerHTML = '<p class="bold text-6xl text-center leading-normal multicolor-3d-text">SAO MAI MEDIA <br> HÂN HẠNH ĐƯỢC PHỤC VU</p>'; // Nội dung quảng cáo
 
     // Thêm lớp phủ vào container
     container.appendChild(adOverlay);
