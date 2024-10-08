@@ -148,35 +148,12 @@ function displayVideo(videoId) {
     // Thêm iframe vào container
     container.appendChild(iframe); 
 
-    // Tạo lớp phủ quảng cáo
-    const adOverlay = document.createElement('div');
-    adOverlay.style.position = 'absolute';
-    adOverlay.style.top = '0';
-    adOverlay.style.left = '0';
-    adOverlay.style.width = '100%';
-    adOverlay.style.height = '100%';
-    adOverlay.style.background = 'rgba(0, 0, 0, 0.5)'; // Màu nền nửa trong suốt
-    adOverlay.style.color = 'white';
-    adOverlay.style.display = 'flex';
-    adOverlay.style.justifyContent = 'center';
-    adOverlay.style.alignItems = 'center';
-    adOverlay.style.fontWeight = '700';
-    adOverlay.style.fontFamily = 'saomaiMedia';
-    adOverlay.style.zIndex = '10'; // Đảm bảo lớp phủ nằm trên video
-    adOverlay.innerHTML = '<p class="bold text-6xl text-center">Sao Mai Media<br>Hân hạnh được phục vụ</p>'; // Nội dung quảng cáo
-
-    // Thêm lớp phủ vào container
-    container.appendChild(adOverlay);
-
     // Khởi tạo YouTube Player
     player = new YT.Player(iframe, {
         events: {
             'onStateChange': onPlayerStateChange
         }
     });
-    setTimeout(() => {
-        adOverlay.style.display = 'none';
-    }, 5000);
 }
 
   // Hàm xử lý trạng thái của player
