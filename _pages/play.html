@@ -73,7 +73,6 @@ function subscribeToVideoIdChanges() {
   const channel = supabaseClient
     .channel('public:karaoke_songs')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'karaoke_songs' }, async (payload) => {
-      console.log('Database change detected:', payload);
       videoIds = await getUnplayedVideoIds(); // Cập nhật videoIds khi có thay đổi
     })
     .subscribe();
@@ -91,7 +90,6 @@ function subscribeToVideoIdChanges() {
         .from('karaoke_songs')
         .update({ playing: true })
         .eq('video_id', currentVideoId); // Đặt video hiện tại thành true
-      console.log('Danh sách videoIds hiện tại:', videoIds); 
     } catch (error) {
       console.error('Error updating playing status:', error);
     }
