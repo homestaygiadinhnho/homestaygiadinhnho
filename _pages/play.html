@@ -155,7 +155,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
           console.log('Real-time update:', payload);
           // Chỉ cập nhật danh sách khi bài hát đã kết thúc
           if (payload.eventType === 'DELETE' || payload.eventType === 'INSERT' || payload.eventType === 'UPDATE') {
-            // Bạn có thể thực hiện thêm logic kiểm tra nếu cần
             // Không làm gì cho đến khi bài hát hiện tại kết thúc
           }
         }
@@ -163,6 +162,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       .subscribe();
   }
 </script>
+
 
 </body>
 </html>
