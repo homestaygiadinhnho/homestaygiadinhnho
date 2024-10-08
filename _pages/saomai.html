@@ -173,13 +173,15 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
 
     // Hàm xử lý chọn bài hát
-    function handleSongSelection(videoId, title) {
+    function handleSongSelection(videoId, title, img) {
       const name = prompt("Nhập tên của bạn:");
       const age = prompt("Nhập tuổi của bạn:");
-      if (name && age) {
-        saveSong(videoId, name, age)
+      const personal = prompt("Nhập tên Personal của bạn:");
+    
+      if (name && age && personal) {
+        saveSong(videoId, title, img, name, age, personal)
           .then(() => {
-            window.location.href = 'https://homestaygiadinhnho.github.io/chonbai';
+            window.location.href = 'https://homestaygiadinhnho.github.io/chonbai'; // Chuyển hướng sau khi lưu thành công
           })
           .catch((error) => {
             alert("Đã xảy ra lỗi khi lưu thông tin. Vui lòng thử lại.");
@@ -188,8 +190,19 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
 
     // Hàm lưu thông tin bài hát vào Supabase
-    function saveSong(videoId, name, age) {
-      return supabaseClient.from('karaoke_songs').insert([{ video_id: videoId, name: name, age: age }]);
+    function saveSong(videoId, songName, img, name, age, personal) {
+      return supabaseClient
+        .from('karaoke_songs') // Đảm bảo đúng tên bảng
+        .insert([
+          {
+            video_id: videoId,
+            song_name: songName,
+            img: img, // Lưu URL hình ảnh
+            name: name,
+            age: age,
+            personal: personal
+          }
+        ]);
     }
 
     // Format ngày
