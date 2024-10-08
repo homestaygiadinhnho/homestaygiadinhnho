@@ -89,12 +89,13 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
       currentVideoIndex++;
-      fetchUnplayedVideoIds();
-      if (currentVideoIndex < videoIds.length) {
-        displayVideo(videoIds[currentVideoIndex]); // Hiển thị video tiếp theo
-      } else {
-        fetchUnplayedVideoIds(); // Đăng ký theo dõi sự thay đổi
-      }
+      fetchUnplayedVideoIds().then(() => {
+        if (currentVideoIndex < videoIds.length) {
+          displayVideo(videoIds[currentVideoIndex]);
+        } else {
+          console.log('Không còn video nào để phát.');
+        }
+      });
     }
   }
   fetchUnplayedVideoIds();
