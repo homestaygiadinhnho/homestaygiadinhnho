@@ -190,8 +190,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
             videoItem.append(thumbnailContainer).append(avatarContainer);
             $('#videoList').append(videoItem);
-            if (videoList.children.length === data.items.length) {
-              videoItem.style.marginBottom = '94px';
+            if ($('#videoList').children().length === data.items.length) {
+              $(videoItem).css('margin-bottom', '94px');
             }
           });
         });
