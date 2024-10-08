@@ -132,8 +132,8 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       const timeText = timeDiff < 60 ? `${timeDiff} phút trước` : `${Math.round(timeDiff / 60)} giờ trước`;
 
       // Hiển thị thông tin bài hát
-      const songInfo = $('<div></div>').html(`
-        <p class="text-white text-lg font-bold">${song.song_name}</p>
+      const songInfo = $('<div class="flex flex-col text-left"></div>').html(`
+        <p class="text-white font-bold text-xl line-clamp-2">${song.song_name}</p>
         <p class="text-gray-400">${song.Personal} ${song.name} (${song.age} tuổi) | ${timeText}</p>
       `);
       
