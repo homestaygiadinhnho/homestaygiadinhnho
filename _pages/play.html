@@ -49,7 +49,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     let currentSongIndex = 0;
     let songs = [];
     
-    // Hàm gọi YouTube API
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('videoContainer', {
         height: '100%',
@@ -61,14 +60,14 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       });
     }
 
-    // Hàm xử lý khi player sẵn sàng
     function onPlayerReady(event) {
       displayAndPlaySongs(); // Bắt đầu phát bài hát khi player đã sẵn sàng
     }
 
     function onPlayerStateChange(event) {
       if (event.data === YT.PlayerState.ENDED) {
-        nextSong();
+        markSongAsChecked(songs[currentSongIndex].video_id); // Đánh dấu bài hát là đã được hát
+        nextSong(); // Chuyển sang bài hát tiếp theo
       }
     }
 
@@ -105,18 +104,19 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     function playSong(song) {
       const videoUrl = `https://www.youtube.com/embed/${song.video_id}?enablejsapi=1&autoplay=1&mute=0`;
       player.loadVideoByUrl(videoUrl);
-      markSongAsChecked(song.video_id); // Đánh dấu bài hát là đã được hát
     }
 
     async function markSongAsChecked(videoId) {
       try {
         const { error } = await supabaseClient
           .from('karaoke_songs')
-          .update({ checked: 1 })
-          .eq('video_id', videoId);
+          .update({ checked: 1 }) // Đánh dấu bài hát là đã hát
+          .eq('video_id', videoId); // Chỉ cập nhật bài hát tương ứng
 
         if (error) {
           console.error('Error marking song as checked:', error);
+        } else {
+          console.log(`Bài hát với video_id ${videoId} đã được đánh dấu là đã hát.`);
         }
       } catch (error) {
         console.error('Error marking song as checked:', error);
