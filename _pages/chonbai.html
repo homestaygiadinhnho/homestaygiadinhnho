@@ -141,6 +141,15 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
         // Thêm các phần tử vào giao diện
         songContainer.append(songInfo).append(playButton);
         selectedSongsList.append(songContainer);
+        if (selectedSongsList.children().length === 1) {
+          $(songContainer).css('margin-top', '64px');
+        }
+    
+        // Áp dụng margin-bottom cho bài hát cuối cùng
+        if (selectedSongsList.children().length === songs.length) {
+          $(songContainer).css('margin-bottom', '82px');
+        }
+        
       });
     }
 
