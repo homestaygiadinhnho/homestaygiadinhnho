@@ -45,7 +45,6 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
   let videoIds = [];
-  let currentVideoIndex = 0;
   let player;
 
   // Hàm để lấy danh sách videoIds chưa phát
@@ -70,19 +69,40 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     }
   }
 
-  // Hàm để phát video từ danh sách videoIds
-  async function playNextVideo() {
-    if (currentVideoIndex < videoIds.length) {
-      displayVideo(videoIds[currentVideoIndex]);
-    } else {
-      console.log('Không còn video nào để phát.');
-      // Cập nhật videoIds khi hết video
-      videoIds = await getUnplayedVideoIds(); // Gọi hàm để lấy videoIds mới
-      currentVideoIndex = 0; // Reset chỉ mục
-      if (videoIds.length > 0) {
-        displayVideo(videoIds[currentVideoIndex]); // Phát video đầu tiên trong danh sách mới
-      }
+  // Hàm để cập nhật trạng thái playing của video
+  async function updatePlayingStatus(currentVideoId) {
+    try {
+      // Cập nhật video hiện tại là playing và các video khác là không
+      await supabaseClient
+        .from('karaoke_songs')
+        .update({ playing: false }) // Đặt tất cả thành false
+        .neq('video_id', currentVideoId); // Không thay đổi video đang phát
+
+      await supabaseClient
+        .from('karaoke_songs')
+        .update({ playing: true })
+        .eq('video_id', currentVideoId); // Đặt video hiện tại thành true
+    } catch (error) {
+      console.error('Error updating playing status:', error);
     }
+  }
+
+  // Hàm để cập nhật trạng thái played khi video kết thúc
+  async function updatePlayedStatus(videoId) {
+    try {
+      await supabaseClient
+        .from('karaoke_songs')
+        .update({ played: true })
+        .eq('video_id', videoId); // Cập nhật trạng thái played
+    } catch (error) {
+      console.error('Error updating played status:', error);
+    }
+  }
+
+  // Hàm để phát video từ video_id
+  async function playVideo(videoId) {
+    await updatePlayingStatus(videoId); // Cập nhật trạng thái playing
+    displayVideo(videoId); // Hiển thị video
   }
 
   // Hàm để hiển thị video
@@ -104,22 +124,40 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   }
 
   // Hàm xử lý trạng thái của player
-  function onPlayerStateChange(event) {
+  async function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
-      currentVideoIndex++; // Tăng chỉ mục sau khi video kết thúc
-      playNextVideo(); // Gọi hàm để phát video tiếp theo
+      const currentVideoId = videoIds[0]; // Lấy video hiện tại
+      await updatePlayedStatus(currentVideoId); // Cập nhật trạng thái played
+      videoIds.shift(); // Xóa video đã phát khỏi danh sách
+      playNextVideo(); // Phát video tiếp theo
     }
   }
 
+  // Hàm để phát video tiếp theo
+  async function playNextVideo() {
+    if (videoIds.length > 0) {
+      const nextVideoId = videoIds[0]; // Lấy video đầu tiên trong danh sách
+      await playVideo(nextVideoId); // Phát video
+    } else {
+      console.log('Không còn video nào để phát.');
+      // Cập nhật videoIds khi hết video
+      videoIds = await getUnplayedVideoIds(); // Gọi hàm để lấy videoIds mới
+      if (videoIds.length > 0) {
+        await playVideo(videoIds[0]); // Phát video đầu tiên trong danh sách mới
+      }
+    }
+  }
+
+  // Khởi đầu bằng cách lấy videoIds ban đầu và phát video đầu tiên
   async function startKaraoke() {
     videoIds = await getUnplayedVideoIds(); // Lấy videoIds chưa phát
-    currentVideoIndex = 0;
-    playNextVideo();
+    playNextVideo(); // Phát video đầu tiên
   }
 
   // Gọi hàm để khởi động
   startKaraoke();
 </script>
+
 
 
 
