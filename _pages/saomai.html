@@ -129,7 +129,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
             // Tạo video item
             const videoItem = $('<div>', { class: 'cursor-pointer flex w-full flex-col my-3' });
-            videoItem.on('click', () => handleSongSelection(videoId, title));
+            videoItem.on('click', () => handleSongSelection(videoId, title, thumbnailUrl));
 
             // Tạo phần hình ảnh (thumbnail)
             const thumbnailContainer = $('<div>', { class: 'relative' });
