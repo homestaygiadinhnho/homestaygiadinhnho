@@ -62,6 +62,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
   function onPlayerReady(event) {
     fetchKaraokeSongs(); // Lấy danh sách bài hát khi player đã sẵn sàng
+    subscribeToSongChanges(); // Đăng ký theo dõi thay đổi bài hát
   }
 
   function onPlayerStateChange(event) {
@@ -150,15 +151,16 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       .channel('public:karaoke_songs')
       .on(
         'postgres_changes',
-        { event: '*', schema: 'public', table: 'karaoke_songs' },
+        { event: 'INSERT', schema: 'public', table: 'karaoke_songs' }, // Chỉ lắng nghe sự kiện thêm
         async (payload) => {
-          console.log('Real-time update:', payload);
+          console.log('Bài hát mới được thêm:', payload);
           await fetchKaraokeSongs(); // Cập nhật danh sách bài hát sau khi có thay đổi
         }
       )
       .subscribe();
   }
 </script>
+
 
 
 
