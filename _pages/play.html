@@ -52,49 +52,49 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
 
 
-let videoIds = []; // Biến để lưu video IDs
-
-async function fetchUnplayedVideoIds() {
-  try {
-    const { data, error } = await supabaseClient
-      .from('karaoke_songs')
-      .select('video_id')
-      .eq('played', false) // Lấy các video_id có played là false
-      .order('priority', { ascending: false }) // Sắp xếp theo priority
-      .order('id', { ascending: true }); // Sắp xếp theo id
-
-    if (error) {
-      console.error('Error fetching unplayed video IDs:', error);
-      return;
+    let videoIds = []; // Biến để lưu video IDs
+    
+    async function fetchUnplayedVideoIds() {
+      try {
+        const { data, error } = await supabaseClient
+          .from('karaoke_songs')
+          .select('video_id')
+          .eq('played', false) // Lấy các video_id có played là false
+          .order('priority', { ascending: false }) // Sắp xếp theo priority
+          .order('id', { ascending: true }); // Sắp xếp theo id
+    
+        if (error) {
+          console.error('Error fetching unplayed video IDs:', error);
+          return;
+        }
+    
+        // Lưu video_id vào biến
+        videoIds = data.map(song => song.video_id);
+        console.log('Updated unplayed video IDs:', videoIds); // In ra video IDs
+      } catch (error) {
+        console.error('Error fetching unplayed video IDs:', error);
+      }
+    }
+    
+    function subscribeToVideoIdChanges() {
+      const channel = supabaseClient
+        .channel('public:karaoke_songs')
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'karaoke_songs' },
+          async (payload) => {
+            console.log('Change detected:', payload);
+            // Cập nhật mảng videoIds khi có thay đổi
+            await fetchUnplayedVideoIds();
+          }
+        )
+        .subscribe();
     }
 
-    // Lưu video_id vào biến
-    videoIds = data.map(song => song.video_id);
-    console.log('Updated unplayed video IDs:', videoIds); // In ra video IDs
-  } catch (error) {
-    console.error('Error fetching unplayed video IDs:', error);
-  }
-}
-
-function subscribeToVideoIdChanges() {
-  const channel = supabaseClient
-    .channel('public:karaoke_songs')
-    .on(
-      'postgres_changes',
-      { event: '*', schema: 'public', table: 'karaoke_songs' },
-      async (payload) => {
-        console.log('Change detected:', payload);
-        // Cập nhật mảng videoIds khi có thay đổi
-        await fetchUnplayedVideoIds();
-      }
-    )
-    .subscribe();
-}
-
-// Gọi hàm để lấy danh sách videoIds lần đầu tiên
-fetchUnplayedVideoIds();
-// Gọi hàm để bắt đầu theo dõi thay đổi
-subscribeToVideoIdChanges();
+    // Gọi hàm để lấy danh sách videoIds lần đầu tiên
+    fetchUnplayedVideoIds();
+    // Gọi hàm để bắt đầu theo dõi thay đổi
+    subscribeToVideoIdChanges();
 
     
 
@@ -205,24 +205,6 @@ subscribeToVideoIdChanges();
       } catch (error) {
         console.error('Error marking song as played:', error);
       }
-    }
-
-    // Đăng ký theo dõi thay đổi bài hát
-    function subscribeToSongChanges() {
-      const channel = supabaseClient
-        .channel('public:karaoke_songs')
-        .on(
-          'postgres_changes',
-          { event: '*', schema: 'public', table: 'karaoke_songs' },
-          async (payload) => {
-            console.log('Real-time update:', payload);
-            // Chỉ cập nhật danh sách khi bài hát đã kết thúc
-            if (payload.eventType === 'DELETE' || payload.eventType === 'INSERT' || payload.eventType === 'UPDATE') {
-              // Không làm gì cho đến khi bài hát hiện tại kết thúc
-            }
-          }
-        )
-        .subscribe();
     }
   </script>
 </body>
