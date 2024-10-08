@@ -21,16 +21,18 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       background-color: black;
       color: white;
     }
-    #videoContainer {
-      width: 100%;
-      height: 100vh;
-      position: relative;
-    }
-    iframe {
-      width: 100%; 
-      height: 100%;
-      border: none;
-    }
+  #videoContainer {
+    position: relative;
+    width: 100%; /* Chiều rộng đầy đủ */
+    padding-top: 56.25%; /* Tỷ lệ 16:9 (9 / 16 = 0.5625) */
+  }
+  #videoContainer iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
     @font-face {
       font-family: saomaiMedia;
       font-style: normal;
@@ -135,26 +137,22 @@ function subscribeToVideoIdChanges() {
   }
 
   // Hàm để hiển thị video
-function displayVideo(videoId) {
+  function displayVideo(videoId) {
     const container = document.getElementById('videoContainer');
     container.innerHTML = ''; // Xóa nội dung cũ
 
-    // Tạo iframe chứa video
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1`;
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
-    
-    // Thêm iframe vào container
-    container.appendChild(iframe); 
-
-    // Khởi tạo YouTube Player
-    player = new YT.Player(iframe, {
-        events: {
-            'onStateChange': onPlayerStateChange
-        }
+    // Khởi tạo YouTube Player trực tiếp, thay vì tạo thủ công iframe
+    player = new YT.Player(container, {
+      videoId: videoId,
+      playerVars: {
+        'autoplay': 1,
+        'controls': 1
+      },
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
     });
-}
+  }
 
 
   // Hàm xử lý trạng thái của player
