@@ -48,7 +48,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   let player;
   let currentSongIndex = 0;
   let songs = [];
-  
+
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('videoContainer', {
       height: '100%',
@@ -82,8 +82,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       const { data, error } = await supabaseClient
         .from('karaoke_songs')
         .select('video_id, song_name, playing, played')
-        .eq('played', false)
-        .eq('playing', false); // Chọn các bài hát chưa được hát và không đang phát
+        .eq('played', false); // Chọn các bài hát chưa được hát
 
       if (error) {
         console.error('Error fetching karaoke songs:', error);
@@ -151,7 +150,23 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     currentSongIndex = (currentSongIndex + 1) % songs.length; // Chuyển bài tiếp theo hoặc lặp lại từ đầu
     playSong(songs[currentSongIndex]);
   }
+
+  async function updateSongsRealtime() {
+    setInterval(async () => {
+      const updatedSongs = await fetchKaraokeSongs();
+      if (JSON.stringify(updatedSongs) !== JSON.stringify(songs)) {
+        songs = updatedSongs; // Cập nhật lại danh sách bài hát
+        if (currentSongIndex >= songs.length) {
+          currentSongIndex = 0; // Đảm bảo không chỉ số vượt quá độ dài mảng
+          playSong(songs[currentSongIndex]);
+        }
+      }
+    }, 5000); // Cập nhật sau mỗi 5 giây
+  }
+
+  updateSongsRealtime(); // Khởi động cập nhật thời gian thực
 </script>
+
 
 </body>
 </html>
