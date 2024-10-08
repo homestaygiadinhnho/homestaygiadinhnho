@@ -79,7 +79,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       // Hàm phát bài hát dựa trên video_id
       function playSong(song) {
         const videoContainer = document.getElementById('videoContainer');
-        const videoUrl = `https://www.youtube.com/embed/${song.video_id}?autoplay=1&mute=1&loop=0`;
+        const videoUrl = `https://www.youtube.com/embed/${song.video_id}?autoplay=1&mute=0&loop=0`;
 
         videoContainer.innerHTML = `
           <iframe src="${videoUrl}" 
