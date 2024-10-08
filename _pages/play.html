@@ -74,16 +74,10 @@ function subscribeToVideoIdChanges() {
     .channel('public:karaoke_songs')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'karaoke_songs' }, async (payload) => {
       console.log('Database change detected:', payload);
-      await getUnplayedVideoIds(); // Cập nhật videoIds khi có thay đổi
+      videoIds = await getUnplayedVideoIds(); // Cập nhật videoIds khi có thay đổi
     })
     .subscribe();
 }
-function initialize() {
-  subscribeToVideoIdChanges(); // Đăng ký theo dõi thay đổi ngay từ đầu
-}
-
-// Gọi hàm khởi động
-initialize();
 
   // Hàm để cập nhật trạng thái playing của video
   async function updatePlayingStatus(currentVideoId) {
@@ -168,6 +162,7 @@ initialize();
   // Khởi đầu bằng cách lấy videoIds ban đầu và phát video đầu tiên
   async function startKaraoke() {
     videoIds = await getUnplayedVideoIds(); // Lấy videoIds chưa phát
+    subscribeToVideoIdChanges();
     playNextVideo(); // Phát video đầu tiên
   }
 
