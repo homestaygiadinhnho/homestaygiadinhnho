@@ -178,14 +178,17 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 
 <body class="mx-auto container h-screen" style="max-width:720px;background: #121212;">
   <div class="flex justify-center items-center w-full px-4 fixed top-0 left-0 right-0 z-10" style="padding: 12px 16px;background: black;">
-    <div class="relative w-full max-w-full">
-      <div class="absolute inset-y-0 flex items-center pointer-events-none" style="left: 12px;">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"></path>
-        </svg>
-      </div>
-      <input type="text" id="searchInput" autocomplete="off" placeholder="Bạn muốn hát bài gì?" class="p-3 pl-12 pr-14 w-full h-10 text-black text-base font-bold rounded-full border-1 border-gray-300" onkeydown="if(event.key === 'Enter') searchVideos()" style="background:#fff;padding:8px 40px;border:none;border-radius:4px;line-height:1">
-    </div>
+<div class="relative w-full max-w-full text-white font-bold">
+  <button class="flex items-center bg-transparent border-none text-white" aria-label="Go back" data-encore-id="buttonTertiary">
+    <span aria-hidden="true" class="IconWrapper__Wrapper-sc-16usrgb-0 hYdsxw">
+      <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" class="Svg-sc-ytk21e-0 zsGU">
+        <path d="M13.414 3.5a.999.999 0 0 0-1.707-.707l-9.207 9.2 9.207 9.202a1 1 0 1 0 1.414-1.413L6.335 13H20.5a1 1 0 0 0 0-2H6.322l6.799-6.794a.999.999 0 0 0 .293-.707z"></path>
+      </svg>
+    </span>
+  </button>
+  <span class="ml-2">Các bài hát đã chọn</span>
+</div>
+
   </div>
   <div class="text-center h-screen">
     <h1 class="text-4xl font-bold mb-6 hidden">Karaoke với YouTube</h1>
