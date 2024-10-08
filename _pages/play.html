@@ -78,7 +78,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     try {
       const { data, error } = await supabaseClient
         .from('karaoke_songs') // Tên bảng của bạn
-        .select('video_id, song_name, name, age, personal');
+        .select('video_id, song_name, name');
 
       if (error) throw error;
 
