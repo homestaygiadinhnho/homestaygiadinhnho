@@ -50,6 +50,37 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
     let currentSongIndex = 0;
     let songs = [];
 
+async function fetchUnplayedVideoIds() {
+  try {
+    const { data, error } = await supabaseClient
+      .from('karaoke_songs')
+      .select('video_id')
+      .eq('played', false); // Chọn các bài hát chưa được hát
+
+    if (error) {
+      console.error('Error fetching unplayed video IDs:', error);
+      return []; // Trả về mảng rỗng nếu có lỗi
+    }
+
+    // Trả về mảng các video_id
+    const videoIds = data.map(song => song.video_id);
+    return videoIds;
+
+  } catch (error) {
+    console.error('Error fetching unplayed video IDs:', error);
+    return []; // Trả về mảng rỗng nếu có lỗi
+  }
+}
+
+// Sử dụng hàm để lấy video_id
+fetchUnplayedVideoIds().then(videoIds => {
+  console.log('Unplayed video IDs:', videoIds);
+});
+
+
+
+    
+
     // Khởi tạo YouTube Player
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('videoContainer', {
