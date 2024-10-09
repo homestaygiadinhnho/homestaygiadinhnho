@@ -220,7 +220,7 @@ async function fetchAndUpdateSongsBackground() {
 }
 
 // Gọi hàm cập nhật danh sách mỗi 30 giây mà không ảnh hưởng đến video đang phát
-setInterval(fetchAndUpdateSongsBackground, 30000);
+setInterval(fetchAndUpdateSongsBackground, 3000);
 
 $(document).ready(function() {
     fetchAndUpdateSongs(); // Gọi hàm để lấy danh sách bài hát ban đầu
