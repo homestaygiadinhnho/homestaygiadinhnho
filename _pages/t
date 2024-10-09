@@ -1,0 +1,127 @@
+
+
+  
+  let videoIds = [];
+  let player;
+
+  // Hàm để lấy danh sách videoIds chưa phát
+  async function getUnplayedVideoIds() {
+    try {
+      const { data, error } = await supabaseClient
+        .from('karaoke_songs')
+        .select('video_id')
+        .eq('played', false)
+        .order('priority', { ascending: false })
+        .order('id', { ascending: true });
+
+      if (error) {
+        console.error('Error fetching unplayed video IDs:', error);
+        return [];
+      }
+
+      return data.map(song => song.video_id);
+    } catch (error) {
+      console.error('Error fetching unplayed video IDs:', error);
+      return [];
+    }
+  }
+
+function subscribeToVideoIdChanges() {
+  const channel = supabaseClient
+    .channel('public:karaoke_songs')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'karaoke_songs' }, async (payload) => {
+      videoIds = await getUnplayedVideoIds(); // Cập nhật videoIds khi có thay đổi
+    })
+    .subscribe();
+}
+
+  // Hàm để cập nhật trạng thái playing của video
+  async function updatePlayingStatus(currentVideoId) {
+    try {
+      await supabaseClient
+        .from('karaoke_songs')
+        .update({ playing: false }) // Đặt tất cả thành false
+        .neq('video_id', currentVideoId); // Không thay đổi video đang phát
+
+      await supabaseClient
+        .from('karaoke_songs')
+        .update({ playing: true })
+        .eq('video_id', currentVideoId); // Đặt video hiện tại thành true
+    } catch (error) {
+      console.error('Error updating playing status:', error);
+    }
+  }
+
+  // Hàm để cập nhật trạng thái played khi video kết thúc
+  async function updatePlayedStatus(videoId) {
+    try {
+      await supabaseClient
+        .from('karaoke_songs')
+        .update({ played: true })
+        .eq('video_id', videoId); // Cập nhật trạng thái played
+    } catch (error) {
+      console.error('Error updating played status:', error);
+    }
+  }
+
+  // Hàm để phát video từ video_id
+  async function playVideo(videoId) {
+    await updatePlayingStatus(videoId); // Cập nhật trạng thái playing
+    displayVideo(videoId); // Hiển thị video
+  }
+
+  // Hàm để hiển thị video
+function displayVideo(videoId) {
+    const container = document.getElementById('videoContainer');
+    container.innerHTML = ''; // Xóa nội dung cũ
+
+    // Tạo iframe chứa video và gán id cho iframe
+    const iframe = document.createElement('iframe');
+    iframe.id = 'youtubeIframe'; // Gán id cho iframe
+    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0`;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    container.appendChild(iframe); 
+
+    // Khởi tạo YouTube Player từ iframe bằng id
+    player = new YT.Player('youtubeIframe', {
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+  // Hàm xử lý trạng thái của player
+  async function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+      const currentVideoId = videoIds[0]; // Lấy video hiện tại
+      await updatePlayedStatus(currentVideoId); // Cập nhật trạng thái played
+      videoIds.shift(); // Xóa video đã phát khỏi danh sách
+      playNextVideo(); // Phát video tiếp theo
+    }
+  }
+
+  // Hàm để phát video tiếp theo
+  async function playNextVideo() {
+    if (videoIds.length > 0) {
+      const nextVideoId = videoIds[0]; // Lấy video đầu tiên trong danh sách
+      await playVideo(nextVideoId); // Phát video
+    } else {
+      console.log('Không còn video nào để phát.');
+      // Cập nhật videoIds khi hết video
+      videoIds = await getUnplayedVideoIds(); // Gọi hàm để lấy videoIds mới
+      console.log('Danh sách videoIds mới:', videoIds);
+      if (videoIds.length > 0) {
+        await playVideo(videoIds[0]); // Phát video đầu tiên trong danh sách mới
+      }
+    }
+  }
+
+  // Khởi đầu bằng cách lấy videoIds ban đầu và phát video đầu tiên
+  async function startKaraoke() {
+    videoIds = await getUnplayedVideoIds(); // Lấy videoIds chưa phát
+    subscribeToVideoIdChanges();
+    playNextVideo(); // Phát video đầu tiên
+  }
+
+  // Gọi hàm để khởi động
+  startKaraoke();
