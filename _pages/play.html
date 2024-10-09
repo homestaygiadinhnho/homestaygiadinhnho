@@ -120,23 +120,41 @@ async function fetchAndUpdateSongs() {
                 .eq('video_id', currentVideoId);
 
             if (!updateError) {
-                console.log('Cập nhật trạng thái playing thành công:', updateData);
+                console.log('Cập nhật trạng thái playing thành công cho video:', currentVideoId);
 
                 // Đặt tất cả các bài hát khác thành next: false trước
                 const { error: resetNextError } = await supabaseClient
                     .from('karaoke_songs')
                     .update({ next: false });
-
-                if (!resetNextError && nextVideoId) {
+                
+                if (resetNextError) {
+                    console.error('Có lỗi khi đặt next về false:', resetNextError);
+                } else {
+                    console.log('Đặt tất cả next về false thành công.');
+                    
                     // Cập nhật bài hát tiếp theo thành next: true
-                    await supabaseClient
-                        .from('karaoke_songs')
-                        .update({ next: true })
-                        .eq('video_id', nextVideoId);
+                    if (nextVideoId) {
+                        const { data: nextUpdateData, error: nextUpdateError } = await supabaseClient
+                            .from('karaoke_songs')
+                            .update({ next: true })
+                            .eq('video_id', nextVideoId);
+                        
+                        if (nextUpdateError) {
+                            console.error('Có lỗi khi cập nhật bài hát tiếp theo:', nextUpdateError);
+                        } else {
+                            console.log('Cập nhật bài hát tiếp theo thành công:', nextVideoId);
+                        }
+                    } else {
+                        console.log('Không có bài hát tiếp theo.');
+                    }
                 }
 
                 displayVideo(currentVideoId);
+            } else {
+                console.error('Có lỗi khi cập nhật trạng thái playing:', updateError);
             }
+        } else {
+            console.error('Có lỗi khi reset trạng thái playing:', resetPlayingError);
         }
     } else {
         console.log('Không có video nào để phát.');
