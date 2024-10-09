@@ -77,77 +77,80 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest"></script>
 <script>
-const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; 
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+  const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay thế bằng khóa Supabase của bạn
+  const { createClient } = supabase;
+  const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
-function fetchAndUpdateSongs() {
-  supabaseClient
-    .from('karaoke_songs')
-    .select('video_id, played, priority, id')
-    .eq('played', false)
-    .order('priority', { ascending: false })
-    .order('id', { ascending: true })
-    .then(({ data, error }) => {
-      if (error) {
-        console.error('Có lỗi xảy ra khi lấy video_id:', error);
-        return;
-      }
+  function fetchAndUpdateSongs() {
+    supabaseClient
+      .from('karaoke_songs')
+      .select('video_id, played, priority, id')
+      .eq('played', false)
+      .order('priority', { ascending: false })
+      .order('id', { ascending: true })
+      .then(({ data, error }) => {
+        if (error) {
+          console.error('Có lỗi xảy ra khi lấy video_id:', error);
+          return;
+        }
 
-      const videoIds = data.map(song => song.video_id);
+        const videoIds = data.map(song => song.video_id);
 
-      if (videoIds.length > 0) {
-        const currentVideoId = videoIds[0];
-        const nextVideoId = videoIds.length > 1 ? videoIds[1] : null;
+        if (videoIds.length > 0) {
+          const currentVideoId = videoIds[0];
+          const nextVideoId = videoIds.length > 1 ? videoIds[1] : null;
 
-        supabaseClient
-          .from('karaoke_songs')
-          .update({ playing: true })
-          .eq('video_id', currentVideoId)
-          .then(({ data: updateData, error: updateError }) => {
-            if (updateError) {
-              console.error('Cập nhật trạng thái playing không thành công:', updateError);
-            } else {
-              console.log('Cập nhật trạng thái playing thành công cho bài hát hiện tại:', updateData);
+          supabaseClient
+            .from('karaoke_songs')
+            .update({ playing: true })
+            .eq('video_id', currentVideoId)
+            .then(({ data: updateData, error: updateError }) => {
+              if (updateError) {
+                console.error('Cập nhật trạng thái playing không thành công:', updateError);
+              } else {
+                console.log('Cập nhật trạng thái playing thành công cho bài hát hiện tại:', updateData);
 
-              if (nextVideoId) {
-                supabaseClient
-                  .from('karaoke_songs')
-                  .update({ next: true })
-                  .eq('video_id', nextVideoId)
-                  .then(({ data: nextUpdateData, error: nextUpdateError }) => {
-                    if (nextUpdateError) {
-                      console.error('Cập nhật không thành công cho bài hát tiếp theo:', nextUpdateError);
-                    } else {
-                      console.log('Cập nhật thành công cho bài hát tiếp theo:', nextUpdateData);
-                    }
-                  });
+                if (nextVideoId) {
+                  supabaseClient
+                    .from('karaoke_songs')
+                    .update({ next: true })
+                    .eq('video_id', nextVideoId)
+                    .then(({ data: nextUpdateData, error: nextUpdateError }) => {
+                      if (nextUpdateError) {
+                        console.error('Cập nhật không thành công cho bài hát tiếp theo:', nextUpdateError);
+                      } else {
+                        console.log('Cập nhật thành công cho bài hát tiếp theo:', nextUpdateData);
+                      }
+                    });
+                }
               }
-            }
-          });
-      } else {
-        console.log('Không có video nào để phát.');
-      }
-    })
-    .catch(error => {
-      console.error('Có lỗi xảy ra:', error);
-    });
-}
+            });
+        } else {
+          console.log('Không có video nào để phát.');
+        }
+      })
+      .catch(error => {
+        console.error('Có lỗi xảy ra:', error);
+      });
+  }
 
-$(document).ready(function() {
-  fetchAndUpdateSongs();
+  $(document).ready(function() {
+    fetchAndUpdateSongs();
 
-  // Theo dõi tất cả các sự kiện trong cơ sở dữ liệu
-  supabaseClient
-    .from('karaoke_songs')
-    .on('*', payload => {
-      console.log('Có thay đổi trong karaoke_songs:', payload);
-      fetchAndUpdateSongs(); // Gọi lại hàm khi có bất kỳ thay đổi nào
-    })
-    .subscribe();
-});
+    // Theo dõi tất cả các sự kiện trong cơ sở dữ liệu
+    supabaseClient
+      .from('karaoke_songs')
+      .on('*', payload => {
+        console.log('Có thay đổi trong karaoke_songs:', payload);
+        fetchAndUpdateSongs(); // Gọi lại hàm khi có bất kỳ thay đổi nào
+      })
+      .subscribe();
+  });
 </script>
+
 
 
 
