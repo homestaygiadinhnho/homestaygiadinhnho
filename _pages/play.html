@@ -76,10 +76,11 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   
 <script>
 
-// Khởi tạo client Supabase bên ngoài các hàm để sử dụng được toàn bộ
-const { createClient } = supabase;
+
+// Khởi tạo client Supabase
 const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co'; // Thay thế với URL Supabase của bạn
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay thế với khóa Supabase của bạn
+const { createClient } = require('@supabase/supabase-js'); // Đảm bảo import đúng thư viện
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Hàm lấy và sắp xếp video_id từ cơ sở dữ liệu
@@ -133,6 +134,7 @@ $(document).ready(function() {
       console.log('Video ID của bài hát đầu tiên:', currentVideoId);
       console.log('Video ID của bài hát tiếp theo:', nextVideoId);
 
+      // Phát video đầu tiên (giả định có hàm loadAndPlaySong)
 
 
       // Cập nhật bài hát tiếp theo
@@ -142,23 +144,6 @@ $(document).ready(function() {
     }
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </script>
