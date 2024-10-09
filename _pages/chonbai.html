@@ -141,6 +141,7 @@ function displaySelectedSongs(songs) {
         const songContainer = $('<div></div>').addClass('relative bg-white p-2 cursor-pointer hover:bg-gray-100 w-full')
             .css({
                 display: 'flex',
+                alignItems: 'center', // Căn giữa theo chiều dọc
                 gap: '12px',
                 minHeight: '56px',
                 background: '#1f1f1f'
@@ -150,14 +151,12 @@ function displaySelectedSongs(songs) {
         const clickableArea = $('<div></div>').addClass('absolute inset-0 z-0 cursor-pointer');
 
         // Image Thumbnail Area
-        const thumbnail = $('<div></div>').addClass('flex items-center').css({
-            gap: '16px'
-        }).html(`
+        const thumbnail = $('<div></div>').addClass('flex-shrink-0').html(`
             <img alt="${song.song_name}" src="https://img.youtube.com/vi/${song.video_id}/default.jpg" class="object-cover rounded-md" style="width: 48px; height: 48px;">
         `);
 
-        // Song Info and Play Button Area
-        const songInfo = $('<div></div>').addClass('flex flex-col items-start w-full').html(`
+        // Song Info Area
+        const songInfo = $('<div></div>').addClass('flex-grow text-center').html(`
             <a href="https://www.youtube.com/watch?v=${song.video_id}" draggable="false" class="font-bold text-white">
                 <p class="truncate">${song.song_name}</p>
             </a>
@@ -165,15 +164,15 @@ function displaySelectedSongs(songs) {
         `);
 
         // Button Area
-        const buttonArea = $('<div></div>').addClass('flex flex-shrink-0 align-self-stretch items-center');
-        const playButton = $('<button></button>').addClass('text-white hover:text-white flex items-center').html(`
-            <svg role="img" aria-hidden="true" viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-            </svg>
+        const buttonArea = $('<div></div>').addClass('flex-shrink-0').html(`
+            <button class="text-white hover:text-white flex items-center">
+                <svg role="img" aria-hidden="true" viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                    <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
+                </svg>
+            </button>
         `);
 
         // Thêm các phần tử vào giao diện
-        buttonArea.append(playButton);
         songContainer.append(clickableArea).append(thumbnail).append(songInfo).append(buttonArea);
         selectedSongsList.append(songContainer);
 
@@ -188,6 +187,7 @@ function displaySelectedSongs(songs) {
         }
     });
 }
+
 
 
   // Đăng ký subscription để cập nhật danh sách bài hát theo thời gian thực
