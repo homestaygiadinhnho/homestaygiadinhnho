@@ -146,6 +146,7 @@ function onPlayerStateChange(event) {
         const currentVideoId = videoIds[0];
         updateSongStatusOnFinish(currentVideoId);
     }
+    fetchAndUpdateSongs();
 }
 
 function displayVideo(videoId) {
