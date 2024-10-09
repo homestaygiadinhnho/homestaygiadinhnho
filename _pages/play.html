@@ -122,8 +122,13 @@ async function fetchAndUpdateSongs() {
             if (!updateError) {
                 console.log('Cập nhật trạng thái playing thành công:', updateData);
 
-                // Cập nhật bài hát tiếp theo
-                if (nextVideoId) {
+                // Đặt tất cả các bài hát khác thành next: false trước
+                const { error: resetNextError } = await supabaseClient
+                    .from('karaoke_songs')
+                    .update({ next: false });
+
+                if (!resetNextError && nextVideoId) {
+                    // Cập nhật bài hát tiếp theo thành next: true
                     await supabaseClient
                         .from('karaoke_songs')
                         .update({ next: true })
