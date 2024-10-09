@@ -81,10 +81,7 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay thế bằng Supabase key của bạn
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-  
-  // Biến để lưu danh sách video_id chưa phát
   let videoIds = [];
-
   async function getUnplayedVideoIds() {
     const { data, error } = await supabaseClient
       .from('karaoke_songs')
@@ -109,28 +106,52 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
       const currentVideoId = videoIds[0];
       const nextVideoId = videoIds.length > 1 ? videoIds[1] : null;
 
-      // Cập nhật trạng thái bài hát hiện tại
-      const { data: updateData, error: updateError } = await supabaseClient
+      // Đặt tất cả các bài hát thành không đang phát
+      const { error: resetPlayingError } = await supabaseClient
         .from('karaoke_songs')
-        .update({ playing: true })
-        .eq('video_id', currentVideoId);
+        .update({ playing: false })
+        .eq('played', false); // Chỉ đặt cho những bài chưa phát
 
-      if (updateError) {
-        console.error('Cập nhật trạng thái playing không thành công:', updateError);
+      if (resetPlayingError) {
+        console.error('Cập nhật trạng thái playing không thành công cho tất cả bài hát:', resetPlayingError);
       } else {
-        console.log('Cập nhật trạng thái playing thành công cho bài hát hiện tại:', updateData);
+        console.log('Đặt tất cả bài hát thành không đang phát thành công.');
 
-        // Cập nhật bài hát tiếp theo nếu có
-        if (nextVideoId) {
-          const { data: nextUpdateData, error: nextUpdateError } = await supabaseClient
+        // Cập nhật trạng thái bài hát hiện tại
+        const { data: updateData, error: updateError } = await supabaseClient
+          .from('karaoke_songs')
+          .update({ playing: true })
+          .eq('video_id', currentVideoId);
+
+        if (updateError) {
+          console.error('Cập nhật trạng thái playing không thành công:', updateError);
+        } else {
+          console.log('Cập nhật trạng thái playing thành công cho bài hát hiện tại:', updateData);
+
+          // Đặt tất cả các bài hát tiếp theo thành không
+          const { error: resetNextError } = await supabaseClient
             .from('karaoke_songs')
-            .update({ next: true })
-            .eq('video_id', nextVideoId);
+            .update({ next: false })
+            .eq('played', false); // Chỉ đặt cho những bài chưa phát
 
-          if (nextUpdateError) {
-            console.error('Cập nhật không thành công cho bài hát tiếp theo:', nextUpdateError);
+          if (resetNextError) {
+            console.error('Cập nhật trạng thái next không thành công cho tất cả bài hát:', resetNextError);
           } else {
-            console.log('Cập nhật thành công cho bài hát tiếp theo:', nextUpdateData);
+            console.log('Đặt tất cả bài hát thành không tiếp theo thành công.');
+
+            // Cập nhật bài hát tiếp theo nếu có
+            if (nextVideoId) {
+              const { data: nextUpdateData, error: nextUpdateError } = await supabaseClient
+                .from('karaoke_songs')
+                .update({ next: true })
+                .eq('video_id', nextVideoId);
+
+              if (nextUpdateError) {
+                console.error('Cập nhật không thành công cho bài hát tiếp theo:', nextUpdateError);
+              } else {
+                console.log('Cập nhật thành công cho bài hát tiếp theo:', nextUpdateData);
+              }
+            }
           }
         }
       }
