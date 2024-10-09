@@ -122,23 +122,24 @@ async function fetchAndUpdateSongs() {
             if (!updateError) {
                 console.log('Cập nhật trạng thái playing thành công cho video:', currentVideoId);
 
-                // Đặt tất cả các bài hát khác thành next: false trước
+                // Đặt tất cả các bài hát chưa chơi về next: false trước
                 const { error: resetNextError } = await supabaseClient
                     .from('karaoke_songs')
-                    .update({ next: false });
-                
+                    .update({ next: false })
+                    .eq('played', false); // Điều kiện WHERE để cập nhật
+
                 if (resetNextError) {
                     console.error('Có lỗi khi đặt next về false:', resetNextError);
                 } else {
                     console.log('Đặt tất cả next về false thành công.');
-                    
+
                     // Cập nhật bài hát tiếp theo thành next: true
                     if (nextVideoId) {
                         const { data: nextUpdateData, error: nextUpdateError } = await supabaseClient
                             .from('karaoke_songs')
                             .update({ next: true })
                             .eq('video_id', nextVideoId);
-                        
+
                         if (nextUpdateError) {
                             console.error('Có lỗi khi cập nhật bài hát tiếp theo:', nextUpdateError);
                         } else {
