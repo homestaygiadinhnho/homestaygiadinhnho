@@ -164,29 +164,14 @@ function displaySelectedSongs(songs) {
                 </a>
                 <p class="text-sm text-gray-500">${song.name}</p>
             </div>
-            <div  flex-shrink: 0;
-    align-self: stretch;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;>
-                <button class="text-white hover:text-white" display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;>
-                    <svg role="img" aria-hidden="true" viewBox="0 0 24 24" class="w-6 h-6">
-                        <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                    </svg>
-                </button>
-            </div>
+            <div class="flex flex-shrink-0 align-self-stretch items-center">
+    <button class="text-white hover:text-white flex items-center">
+        <svg role="img" aria-hidden="true" viewBox="0 0 24 24" class="w-6 h-6">
+            <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
+        </svg>
+    </button>
+</div>
+
         `);
 
         // Thêm các phần tử vào giao diện
