@@ -79,8 +79,10 @@ const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 let videoIds = [];
+let isVideoPlaying = false; // Đánh dấu trạng thái video đang phát
 let player;
 
+// Hàm lấy danh sách video chưa phát từ cơ sở dữ liệu
 async function getUnplayedVideoIds() {
     const { data, error } = await supabaseClient
         .from('karaoke_songs')
@@ -97,6 +99,7 @@ async function getUnplayedVideoIds() {
     return data.map(song => song.video_id);
 }
 
+// Hàm cập nhật danh sách bài hát
 async function fetchAndUpdateSongs() {
     videoIds = await getUnplayedVideoIds();
 
@@ -104,6 +107,7 @@ async function fetchAndUpdateSongs() {
         const currentVideoId = videoIds[0];
         const nextVideoId = videoIds.length > 1 ? videoIds[1] : null;
 
+        // Đặt trạng thái bài hát hiện tại
         const { error: resetPlayingError } = await supabaseClient
             .from('karaoke_songs')
             .update({ playing: false })
@@ -116,12 +120,16 @@ async function fetchAndUpdateSongs() {
                 .eq('video_id', currentVideoId);
 
             if (!updateError) {
+                console.log('Cập nhật trạng thái playing thành công:', updateData);
+
+                // Cập nhật bài hát tiếp theo
                 if (nextVideoId) {
                     await supabaseClient
                         .from('karaoke_songs')
                         .update({ next: true })
                         .eq('video_id', nextVideoId);
                 }
+
                 displayVideo(currentVideoId);
             }
         }
@@ -130,6 +138,7 @@ async function fetchAndUpdateSongs() {
     }
 }
 
+// Hàm cập nhật trạng thái bài hát khi kết thúc
 async function updateSongStatusOnFinish(currentVideoId) {
     const { data: updateData, error: updateError } = await supabaseClient
         .from('karaoke_songs')
@@ -137,25 +146,31 @@ async function updateSongStatusOnFinish(currentVideoId) {
         .eq('video_id', currentVideoId);
 
     if (!updateError) {
+        console.log('Cập nhật trạng thái bài hát đã phát thành công:', updateData);
         await fetchAndUpdateSongs();
     }
 }
 
+// Hàm xử lý sự thay đổi trạng thái video
 function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.PLAYING) {
+        isVideoPlaying = true;
+    }
     if (event.data === YT.PlayerState.ENDED) {
+        isVideoPlaying = false;
         const currentVideoId = videoIds[0];
         updateSongStatusOnFinish(currentVideoId);
     }
-    fetchAndUpdateSongs();
 }
 
+// Hiển thị video theo videoId
 function displayVideo(videoId) {
     const container = document.getElementById('videoContainer');
     container.innerHTML = '';
 
     const iframe = document.createElement('iframe');
     iframe.id = 'youtubeIframe';
-    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0&playlist=${videoId}`;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0`;
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     container.appendChild(iframe); 
@@ -167,10 +182,27 @@ function displayVideo(videoId) {
     });
 }
 
+// Hàm cập nhật danh sách song song mà không ảnh hưởng đến video hiện tại
+async function fetchAndUpdateSongsBackground() {
+    const newVideoIds = await getUnplayedVideoIds();
+
+    // Chỉ cập nhật danh sách nếu có sự thay đổi
+    if (JSON.stringify(newVideoIds) !== JSON.stringify(videoIds)) {
+        videoIds = newVideoIds;
+        console.log('Danh sách video đã được cập nhật.');
+    } else {
+        console.log('Không có thay đổi trong danh sách video.');
+    }
+}
+
+// Gọi hàm cập nhật danh sách mỗi 30 giây mà không ảnh hưởng đến video đang phát
+setInterval(fetchAndUpdateSongsBackground, 30000);
+
 $(document).ready(function() {
-    fetchAndUpdateSongs();
+    fetchAndUpdateSongs(); // Gọi hàm để lấy danh sách bài hát ban đầu
 });
 </script>
+
 
 
 
