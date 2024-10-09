@@ -194,7 +194,7 @@ function displayVideo(videoId) {
 
     const iframe = document.createElement('iframe');
     iframe.id = 'youtubeIframe';
-    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0`;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0&playlist=`;
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     container.appendChild(iframe); 
