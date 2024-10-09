@@ -157,7 +157,7 @@ function displaySelectedSongs(songs) {
         `);
 
         // Song Info and Play Button Area
-        const songInfo = $('<div></div>').addClass('flex flex-col justify-between w-full').html(`
+        const songInfo = $('<div></div>').addClass('flex flex-col items-start w-full').html(`
             <a href="https://www.youtube.com/watch?v=${song.video_id}" draggable="false" class="font-bold text-white">
                 <p class="truncate">${song.song_name}</p>
             </a>
