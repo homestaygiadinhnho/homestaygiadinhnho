@@ -137,6 +137,15 @@ function fetchAndUpdateSongs() {
 
 $(document).ready(function() {
   fetchAndUpdateSongs();
+
+  // Theo dõi tất cả các sự kiện trong cơ sở dữ liệu
+  supabaseClient
+    .from('karaoke_songs')
+    .on('*', payload => {
+      console.log('Có thay đổi trong karaoke_songs:', payload);
+      fetchAndUpdateSongs(); // Gọi lại hàm khi có bất kỳ thay đổi nào
+    })
+    .subscribe();
 });
 </script>
 
