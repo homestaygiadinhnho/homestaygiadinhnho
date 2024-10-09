@@ -73,187 +73,80 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <script>
-    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-    function fetchVideoIds() {
-      return supabase
-        .from('karaoke_songs')
-        .select('video_id, played, priority, id')
-        .then(response => {
-          if (response.error) {
-            console.error('Lỗi khi lấy video_id:', response.error);
-            return [];
-          }
-          return response.data
-            .filter(song => !song.played)
-            .sort((a, b) => {
-              if (a.priority === b.priority) {
-                return a.id - b.id;
-              }
-              return a.priority ? -1 : 1;
-            })
-            .map(song => song.video_id);
-        });
-    }
-
-    function updateNextSong(videoIds) {
-      if (videoIds.length === 0) return;
-      const nextVideoId = videoIds[0];
-      supabase
-        .from('karaoke_songs')
-        .update({ next: false })
-        .then(() => {
-          return supabase
-            .from('karaoke_songs')
-            .update({ next: true })
-            .eq('video_id', nextVideoId);
-        })
-        .then(response => {
-          if (response.error) {
-            console.error('Lỗi khi cập nhật next:', response.error);
-          } else {
-            console.log('Đã cập nhật bài hát tiếp theo:', nextVideoId);
-          }
-        })
-        .catch(error => {
-          console.error('Lỗi:', error);
-        });
-    }
-
-    
-  </script>
   
 <script>
-  const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-  let videoIds = [];
-  let player;
+function fetchVideoIds() {
+  return new Promise((resolve, reject) => {
+    const { createClient } = supabase;
+    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-  // Hàm để lấy danh sách videoIds chưa phát
-  async function getUnplayedVideoIds() {
-    try {
-      const { data, error } = await supabaseClient
-        .from('karaoke_songs')
-        .select('video_id')
-        .eq('played', false)
-        .order('priority', { ascending: false })
-        .order('id', { ascending: true });
-
-      if (error) {
-        console.error('Error fetching unplayed video IDs:', error);
-        return [];
-      }
-
-      return data.map(song => song.video_id);
-    } catch (error) {
-      console.error('Error fetching unplayed video IDs:', error);
-      return [];
-    }
-  }
-
-function subscribeToVideoIdChanges() {
-  const channel = supabaseClient
-    .channel('public:karaoke_songs')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'karaoke_songs' }, async (payload) => {
-      videoIds = await getUnplayedVideoIds(); // Cập nhật videoIds khi có thay đổi
-    })
-    .subscribe();
-}
-
-  // Hàm để cập nhật trạng thái playing của video
-  async function updatePlayingStatus(currentVideoId) {
-    try {
-      await supabaseClient
-        .from('karaoke_songs')
-        .update({ playing: false }) // Đặt tất cả thành false
-        .neq('video_id', currentVideoId); // Không thay đổi video đang phát
-
-      await supabaseClient
-        .from('karaoke_songs')
-        .update({ playing: true })
-        .eq('video_id', currentVideoId); // Đặt video hiện tại thành true
-    } catch (error) {
-      console.error('Error updating playing status:', error);
-    }
-  }
-
-  // Hàm để cập nhật trạng thái played khi video kết thúc
-  async function updatePlayedStatus(videoId) {
-    try {
-      await supabaseClient
-        .from('karaoke_songs')
-        .update({ played: true })
-        .eq('video_id', videoId); // Cập nhật trạng thái played
-    } catch (error) {
-      console.error('Error updating played status:', error);
-    }
-  }
-
-  // Hàm để phát video từ video_id
-  async function playVideo(videoId) {
-    await updatePlayingStatus(videoId); // Cập nhật trạng thái playing
-    displayVideo(videoId); // Hiển thị video
-  }
-
-  // Hàm để hiển thị video
-function displayVideo(videoId) {
-    const container = document.getElementById('videoContainer');
-    container.innerHTML = ''; // Xóa nội dung cũ
-
-    // Tạo iframe chứa video và gán id cho iframe
-    const iframe = document.createElement('iframe');
-    iframe.id = 'youtubeIframe'; // Gán id cho iframe
-    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0`;
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
-    container.appendChild(iframe); 
-
-    // Khởi tạo YouTube Player từ iframe bằng id
-    player = new YT.Player('youtubeIframe', {
-        events: {
-            'onStateChange': onPlayerStateChange
+    supabase
+      .from('karaoke_songs')
+      .select('video_id, played, priority, id')
+      .order('played', { ascending: true })
+      .order('priority', { ascending: true })
+      .order('id', { ascending: true })
+      .then(({ data, error }) => {
+        if (error) {
+          reject(error);
+        } else {
+          const videoIds = data.map(song => song.video_id);
+          resolve(videoIds);
         }
-    });
+      });
+  });
 }
-  // Hàm xử lý trạng thái của player
-  async function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.ENDED) {
-      const currentVideoId = videoIds[0]; // Lấy video hiện tại
-      await updatePlayedStatus(currentVideoId); // Cập nhật trạng thái played
-      videoIds.shift(); // Xóa video đã phát khỏi danh sách
-      playNextVideo(); // Phát video tiếp theo
-    }
-  }
 
-  // Hàm để phát video tiếp theo
-  async function playNextVideo() {
+function updateNextSong(videoIds) {
+  // Giả định videoIds đã được lấy và sắp xếp
+  const nextVideoId = videoIds.length > 1 ? videoIds[1] : null; // Bài hát tiếp theo
+
+  if (nextVideoId) {
+    supabase
+      .from('karaoke_songs')
+      .update({ next: true })
+      .eq('video_id', nextVideoId) // Cập nhật next cho bài hát tiếp theo
+      .then(({ data, error }) => {
+        if (error) {
+          console.error('Cập nhật không thành công:', error);
+        } else {
+          console.log('Cập nhật thành công cho bài hát tiếp theo:', data);
+        }
+      });
+  }
+}
+
+$(document).ready(function() {
+  fetchVideoIds().then(videoIds => {
+    console.log('Danh sách video_id:', videoIds);
+
     if (videoIds.length > 0) {
-      const nextVideoId = videoIds[0]; // Lấy video đầu tiên trong danh sách
-      await playVideo(nextVideoId); // Phát video
+      const currentVideoId = videoIds[0]; // Video đầu tiên
+      const nextVideoId = videoIds.length > 1 ? videoIds[1] : null; // Video tiếp theo
+
+      console.log('Video ID của bài hát đầu tiên:', currentVideoId);
+      console.log('Video ID của bài hát tiếp theo:', nextVideoId);
+
+
     } else {
-      console.log('Không còn video nào để phát.');
-      // Cập nhật videoIds khi hết video
-      videoIds = await getUnplayedVideoIds(); // Gọi hàm để lấy videoIds mới
-      console.log('Danh sách videoIds mới:', videoIds);
-      if (videoIds.length > 0) {
-        await playVideo(videoIds[0]); // Phát video đầu tiên trong danh sách mới
-      }
+      console.log('Không có video nào để phát.');
     }
-  }
+  });
+});
 
-  // Khởi đầu bằng cách lấy videoIds ban đầu và phát video đầu tiên
-  async function startKaraoke() {
-    videoIds = await getUnplayedVideoIds(); // Lấy videoIds chưa phát
-    subscribeToVideoIdChanges();
-    playNextVideo(); // Phát video đầu tiên
-  }
 
-  // Gọi hàm để khởi động
-  startKaraoke();
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
