@@ -144,7 +144,8 @@ function displaySelectedSongs(songs) {
                 alignItems: 'center', // Căn giữa theo chiều dọc
                 gap: '12px',
                 minHeight: '56px',
-                background: '#1f1f1f'
+                background: '#1f1f1f',
+                  maxWidth: 100vw
             });
 
         // Invisible link for clickable area
@@ -214,7 +215,7 @@ function displaySelectedSongs(songs) {
 
 </head>
 
-<body class="mx-auto container h-screen" style="max-width:720px;background: #1f1f1f;">
+<body class="mx-auto container" style="background: #1f1f1f;">
 <div class="fixed top-0 left-0 right-0 text-black flex justify-between p-4 z-10" style="box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .60), 0 1px 3px 1px rgba(0, 0, 0, .30);background: #1f1f1f;">
     <button class="flex flex-col items-center" style="color: #e3e3e3;" onclick="window.location.href='https://homestaygiadinhnho.github.io';">
       <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="fill: currentcolor; width: 24px; height: 24px;">
