@@ -75,32 +75,35 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
 <script>
+
+// Khởi tạo client Supabase bên ngoài các hàm để sử dụng được toàn bộ
+const { createClient } = supabase;
+const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co'; // Thay thế với URL Supabase của bạn
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay thế với khóa Supabase của bạn
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Hàm lấy và sắp xếp video_id từ cơ sở dữ liệu
 function fetchVideoIds() {
   return new Promise((resolve, reject) => {
-    const { createClient } = supabase;
-    const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
     supabase
       .from('karaoke_songs')
       .select('video_id, played, priority, id')
-      .order('played', { ascending: true })
-      .order('priority', { ascending: true })
-      .order('id', { ascending: true })
+      .order('played', { ascending: true }) // played = false trước
+      .order('priority', { ascending: true }) // priority = true sau
+      .order('id', { ascending: true }) // id theo thứ tự
       .then(({ data, error }) => {
         if (error) {
           reject(error);
         } else {
-          const videoIds = data.map(song => song.video_id);
+          const videoIds = data.map(song => song.video_id); // Lấy video_id từ dữ liệu
           resolve(videoIds);
         }
       });
   });
 }
 
+// Hàm cập nhật giá trị next cho bài hát tiếp theo trong cơ sở dữ liệu
 function updateNextSong(videoIds) {
-  // Giả định videoIds đã được lấy và sắp xếp
   const nextVideoId = videoIds.length > 1 ? videoIds[1] : null; // Bài hát tiếp theo
 
   if (nextVideoId) {
@@ -118,6 +121,7 @@ function updateNextSong(videoIds) {
   }
 }
 
+// Lấy video_id của video đầu tiên và video_id của bài hát tiếp theo
 $(document).ready(function() {
   fetchVideoIds().then(videoIds => {
     console.log('Danh sách video_id:', videoIds);
@@ -130,11 +134,21 @@ $(document).ready(function() {
       console.log('Video ID của bài hát tiếp theo:', nextVideoId);
 
 
+
+      // Cập nhật bài hát tiếp theo
+      updateNextSong(videoIds);
     } else {
       console.log('Không có video nào để phát.');
     }
   });
 });
+
+
+
+
+
+
+
 
 
 
