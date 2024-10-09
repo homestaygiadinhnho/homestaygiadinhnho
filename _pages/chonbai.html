@@ -138,51 +138,42 @@ function displaySelectedSongs(songs) {
     selectedSongsList.empty(); // Xóa các bài cũ (nếu có)
 
     $.each(songs, function(index, song) {
-        const songContainer = $('<div></div>').addClass('relative bg-gray-800 p-3 py-2 w-full max-w-2xl shadow-md').css({
+        const songContainer = $('<div></div>').addClass('relative bg-white p-2 cursor-pointer hover:bg-gray-100 rounded-md').css({
             display: 'grid',
             gridTemplateColumns: 'auto 1fr',
             gap: '8px 12px',
-            minHeight: '56px',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            marginBottom: '12px' // khoảng cách giữa các bài hát
+            minHeight: '56px'
         });
 
-        // Format thời gian
-        const createdAt = new Date(song.created_at);
-        const now = new Date();
-        const timeDiff = Math.round((now - createdAt) / 60000); // Tính phút trước
-        const timeText = timeDiff < 60 ? `${timeDiff} phút trước` : `${Math.round(timeDiff / 60)} giờ trước`;
+        // Invisible link for clickable area
+        const clickableArea = $('<div></div>').addClass('absolute inset-0 z-0 cursor-pointer');
 
-        // Hiển thị thông tin bài hát
-        const songInfo = $('<div></div>').css({
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center'
+        // Image Thumbnail Area
+        const thumbnail = $('<div></div>').addClass('flex items-center').css({
+            gap: '16px'
         }).html(`
-            <p class="text-white font-bold text-xl line-clamp-2">${song.song_name}</p>
-            <p class="text-gray-400 text-sm" style="color:#b3b3b3">${song.name} | ${timeText}</p>
+            <img alt="${song.song_name}" src="https://img.youtube.com/vi/${song.video_id}/default.jpg" class="object-cover rounded-md" style="width: 48px; height: 48px;">
         `);
 
-        // Thêm hình ảnh thumbnail của bài hát
-        const thumbnail = $('<div></div>').css({
-            display: 'flex',
-            alignItems: 'center',
-            width: '48px',
-            height: '48px',
-            borderRadius: '4px',
-            overflow: 'hidden'
-        }).html(`<img src="https://img.youtube.com/vi/${song.video_id}/default.jpg" alt="${song.song_name}" class="object-cover" style="width: 100%; height: 100%;" />`);
-
-        // Nút phát video
-        const playButton = $('<a></a>')
-            .attr('href', `https://www.youtube.com/watch?v=${song.video_id}`)
-            .attr('target', '_blank')
-            .text('Ưu tiên')
-            .addClass('bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded');
+        // Song Info and Play Button Area
+        const songInfo = $('<div></div>').addClass('flex justify-between items-center w-full').html(`
+            <div class="flex flex-col">
+                <a href="https://www.youtube.com/watch?v=${song.video_id}" draggable="false" class="font-medium text-black">
+                    <p class="truncate">${song.song_name}</p>
+                </a>
+                <p class="text-sm text-gray-500">${song.name}</p>
+            </div>
+            <div>
+                <button class="text-gray-500 p-2 hover:text-black">
+                    <svg role="img" aria-hidden="true" viewBox="0 0 24 24" class="w-6 h-6">
+                        <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
+                    </svg>
+                </button>
+            </div>
+        `);
 
         // Thêm các phần tử vào giao diện
-        songContainer.append(thumbnail).append(songInfo).append(playButton);
+        songContainer.append(clickableArea).append(thumbnail).append(songInfo);
         selectedSongsList.append(songContainer);
 
         // Kiểm tra và đặt margin-top nếu là bài đầu tiên
@@ -196,6 +187,7 @@ function displaySelectedSongs(songs) {
         }
     });
 }
+
 
 
   // Đăng ký subscription để cập nhật danh sách bài hát theo thời gian thực
