@@ -159,7 +159,7 @@ function displaySelectedSongs(songs) {
         // Song Info and Play Button Area
         const songInfo = $('<div></div>').addClass('flex justify-between items-center w-full').html(`
             <div class="flex flex-col">
-                <a href="https://www.youtube.com/watch?v=${song.video_id}" draggable="false" class="font-medium text-black">
+                <a href="https://www.youtube.com/watch?v=${song.video_id}" draggable="false" class="font-bold text-white">
                     <p class="truncate">${song.song_name}</p>
                 </a>
                 <p class="text-sm text-gray-500">${song.name}</p>
