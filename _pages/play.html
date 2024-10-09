@@ -87,8 +87,8 @@ function fetchVideoIds() {
     supabaseClient
       .from('karaoke_songs')
       .select('video_id, played, priority, id')
-      .order('played', { ascending: true })
-      .order('priority', { ascending: true })
+      .eq('played', false)
+      .order('priority', { ascending: false })
       .order('id', { ascending: true })
       .then(({ data, error }) => {
         if (error) {
