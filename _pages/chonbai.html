@@ -156,9 +156,13 @@ function displaySelectedSongs(songs) {
         `);
 
         // Song Info Area
-        const songInfo = $('<div></div>').addClass('flex-grow text-left').html(`  <!-- Đổi từ text-center thành text-left -->
+        const songInfo = $('<div></div>').addClass('flex-grow text-left').css({
+            overflow: 'hidden', // Ẩn overflow
+            whiteSpace: 'normal', // Cho phép xuống dòng
+            textOverflow: 'ellipsis' // Hiển thị "..." nếu văn bản quá dài
+        }).html(`
             <a href="https://www.youtube.com/watch?v=${song.video_id}" draggable="false" class="font-bold text-white">
-                <p class="truncate">${song.song_name}</p>
+                <p class="whitespace-normal overflow-hidden text-ellipsis" style="max-height: 2.4em;">${song.song_name}</p>
             </a>
             <p class="text-sm text-gray-500">${song.name}</p>
         `);
@@ -187,6 +191,7 @@ function displaySelectedSongs(songs) {
         }
     });
 }
+
 
 
   // Đăng ký subscription để cập nhật danh sách bài hát theo thời gian thực
