@@ -73,109 +73,103 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-  const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA'; // Thay thế bằng Supabase key của bạn
-  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-  let videoIds = [];
-  async function getUnplayedVideoIds() {
+const supabaseUrl = 'https://wndajplczagmlxbvkmtk.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZGFqcGxjemFnbWx4YnZrbXRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMTUzNDcsImV4cCI6MjA0MzU5MTM0N30.1ffeOEC-jOQtar3tgD8OPBUeyK79itCPYmBe3_k08MA';
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+let videoIds = [];
+let player;
+
+async function getUnplayedVideoIds() {
     const { data, error } = await supabaseClient
-      .from('karaoke_songs')
-      .select('video_id')
-      .eq('played', false)
-      .order('priority', { ascending: false })
-      .order('id', { ascending: true });
+        .from('karaoke_songs')
+        .select('video_id')
+        .eq('played', false)
+        .order('priority', { ascending: false })
+        .order('id', { ascending: true });
 
     if (error) {
-      console.error('Có lỗi xảy ra khi lấy video_ids:', error);
-      return [];
+        console.error('Có lỗi xảy ra khi lấy video_ids:', error);
+        return [];
     }
 
     return data.map(song => song.video_id);
-  }
+}
 
-  async function fetchAndUpdateSongs() {
-    // Lấy danh sách video_id chưa phát
+async function fetchAndUpdateSongs() {
     videoIds = await getUnplayedVideoIds();
 
     if (videoIds.length > 0) {
-      const currentVideoId = videoIds[0];
-      const nextVideoId = videoIds.length > 1 ? videoIds[1] : null;
+        const currentVideoId = videoIds[0];
+        const nextVideoId = videoIds.length > 1 ? videoIds[1] : null;
 
-      // Đặt tất cả các bài hát thành không đang phát
-      const { error: resetPlayingError } = await supabaseClient
-        .from('karaoke_songs')
-        .update({ playing: false })
-        .eq('played', false); // Chỉ đặt cho những bài chưa phát
-
-      if (resetPlayingError) {
-        console.error('Cập nhật trạng thái playing không thành công cho tất cả bài hát:', resetPlayingError);
-      } else {
-        console.log('Đặt tất cả bài hát thành không đang phát thành công.');
-
-        // Cập nhật trạng thái bài hát hiện tại
-        const { data: updateData, error: updateError } = await supabaseClient
-          .from('karaoke_songs')
-          .update({ playing: true })
-          .eq('video_id', currentVideoId);
-
-        if (updateError) {
-          console.error('Cập nhật trạng thái playing không thành công:', updateError);
-        } else {
-          console.log('Cập nhật trạng thái playing thành công cho bài hát hiện tại:', updateData);
-
-          // Đặt tất cả các bài hát tiếp theo thành không
-          const { error: resetNextError } = await supabaseClient
+        const { error: resetPlayingError } = await supabaseClient
             .from('karaoke_songs')
-            .update({ next: false })
-            .eq('played', false); // Chỉ đặt cho những bài chưa phát
+            .update({ playing: false })
+            .eq('played', false);
 
-          if (resetNextError) {
-            console.error('Cập nhật trạng thái next không thành công cho tất cả bài hát:', resetNextError);
-          } else {
-            console.log('Đặt tất cả bài hát thành không tiếp theo thành công.');
-
-            // Cập nhật bài hát tiếp theo nếu có
-            if (nextVideoId) {
-              const { data: nextUpdateData, error: nextUpdateError } = await supabaseClient
+        if (!resetPlayingError) {
+            const { data: updateData, error: updateError } = await supabaseClient
                 .from('karaoke_songs')
-                .update({ next: true })
-                .eq('video_id', nextVideoId);
+                .update({ playing: true })
+                .eq('video_id', currentVideoId);
 
-              if (nextUpdateError) {
-                console.error('Cập nhật không thành công cho bài hát tiếp theo:', nextUpdateError);
-              } else {
-                console.log('Cập nhật thành công cho bài hát tiếp theo:', nextUpdateData);
-              }
+            if (!updateError) {
+                if (nextVideoId) {
+                    await supabaseClient
+                        .from('karaoke_songs')
+                        .update({ next: true })
+                        .eq('video_id', nextVideoId);
+                }
+                displayVideo(currentVideoId);
             }
-          }
         }
-      }
     } else {
-      console.log('Không có video nào để phát.');
+        console.log('Không có video nào để phát.');
     }
-  }
+}
 
-  function subscribeToVideoIdChanges() {
-    supabaseClient
-      .channel('public:karaoke_songs')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'karaoke_songs' }, async (payload) => {
-        console.log('Có thay đổi trong karaoke_songs:', payload);
-        await fetchAndUpdateSongs(); // Gọi lại hàm khi có bất kỳ thay đổi nào
-      })
-      .subscribe();
-  }
+async function updateSongStatusOnFinish(currentVideoId) {
+    const { data: updateData, error: updateError } = await supabaseClient
+        .from('karaoke_songs')
+        .update({ playing: false, played: true })
+        .eq('video_id', currentVideoId);
 
-  $(document).ready(function() {
-    fetchAndUpdateSongs(); // Gọi hàm để lấy danh sách bài hát ban đầu
-    subscribeToVideoIdChanges(); // Theo dõi thay đổi trong karaoke_songs
-  });
+    if (!updateError) {
+        await fetchAndUpdateSongs();
+    }
+}
+
+function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+        const currentVideoId = videoIds[0];
+        updateSongStatusOnFinish(currentVideoId);
+    }
+}
+
+function displayVideo(videoId) {
+    const container = document.getElementById('videoContainer');
+    container.innerHTML = '';
+
+    const iframe = document.createElement('iframe');
+    iframe.id = 'youtubeIframe';
+    iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0`;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    container.appendChild(iframe); 
+
+    player = new YT.Player('youtubeIframe', {
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+$(document).ready(function() {
+    fetchAndUpdateSongs();
+});
 </script>
-
 
 
 
