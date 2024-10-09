@@ -138,11 +138,12 @@ function displaySelectedSongs(songs) {
     selectedSongsList.empty(); // Xóa các bài cũ (nếu có)
 
     $.each(songs, function(index, song) {
-        const songContainer = $('<div></div>').addClass('relative bg-white p-2 cursor-pointer hover:bg-gray-100 rounded-md').css({
+        const songContainer = $('<div></div>').addClass('relative bg-white p-2 cursor-pointer hover:bg-gray-100 w-full').css({
             display: 'grid',
             gridTemplateColumns: 'auto 1fr',
             gap: '8px 12px',
             minHeight: '56px'
+          background: '#1f1f1f';
         });
 
         // Invisible link for clickable area
