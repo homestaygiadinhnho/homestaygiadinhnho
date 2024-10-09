@@ -133,47 +133,70 @@ description: "Sao Mai Media - Nơi bạn thăng hoa cảm xúc với dịch vụ
   }
 
   // Hàm hiển thị danh sách bài hát đã chọn
-  function displaySelectedSongs(songs) {
+function displaySelectedSongs(songs) {
     const selectedSongsList = $('#selectedSongsList');
     selectedSongsList.empty(); // Xóa các bài cũ (nếu có)
 
     $.each(songs, function(index, song) {
-      const songContainer = $('<div></div>').addClass('p-3 py-2 w-full max-w-2xl shadow-md flex justify-between items-center');
-      
-      // Format thời gian
-      const createdAt = new Date(song.created_at);
-      const now = new Date();
-      const timeDiff = Math.round((now - createdAt) / 60000); // Tính phút trước
-      const timeText = timeDiff < 60 ? `${timeDiff} phút trước` : `${Math.round(timeDiff / 60)} giờ trước`;
+        const songContainer = $('<div></div>').addClass('relative bg-gray-800 p-3 py-2 w-full max-w-2xl shadow-md').css({
+            display: 'grid',
+            gridTemplateColumns: 'auto 1fr',
+            gap: '8px 12px',
+            minHeight: '56px',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            marginBottom: '12px' // khoảng cách giữa các bài hát
+        });
 
-      // Hiển thị thông tin bài hát
-      const songInfo = $('<div class="flex flex-col text-left"></div>').html(`
-        <p class="text-white font-bold text-xl line-clamp-2">${song.song_name}</p>
-        <p class="text-gray-400 text-sm" style="color:#b3b3b3">${song.name} | ${timeText}</p>
-      `);
-      
-      // Nút phát video
-      const playButton = $('<a></a>')
-        .attr('href', `https://www.youtube.com/watch?v=${song.video_id}`)
-        .attr('target', '_blank')
-        .text('Ưu tiên')
-        .addClass('bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded');
-      
-      // Thêm các phần tử vào giao diện
-      songContainer.append(songInfo).append(playButton);
-      selectedSongsList.append(songContainer);
+        // Format thời gian
+        const createdAt = new Date(song.created_at);
+        const now = new Date();
+        const timeDiff = Math.round((now - createdAt) / 60000); // Tính phút trước
+        const timeText = timeDiff < 60 ? `${timeDiff} phút trước` : `${Math.round(timeDiff / 60)} giờ trước`;
 
-      // Kiểm tra và đặt margin-top nếu là bài đầu tiên
-      if (selectedSongsList.children().length === 1) {
-        $(songContainer).css('margin-top', '82px');
-      }
+        // Hiển thị thông tin bài hát
+        const songInfo = $('<div></div>').css({
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'
+        }).html(`
+            <p class="text-white font-bold text-xl line-clamp-2">${song.song_name}</p>
+            <p class="text-gray-400 text-sm" style="color:#b3b3b3">${song.name} | ${timeText}</p>
+        `);
 
-      // Áp dụng margin-bottom cho bài hát cuối cùng
-      if (selectedSongsList.children().length === songs.length) {
-        $(songContainer).css('margin-bottom', '82px');
-      }
+        // Thêm hình ảnh thumbnail của bài hát
+        const thumbnail = $('<div></div>').css({
+            display: 'flex',
+            alignItems: 'center',
+            width: '48px',
+            height: '48px',
+            borderRadius: '4px',
+            overflow: 'hidden'
+        }).html(`<img src="https://img.youtube.com/vi/${song.video_id}/default.jpg" alt="${song.song_name}" class="object-cover" style="width: 100%; height: 100%;" />`);
+
+        // Nút phát video
+        const playButton = $('<a></a>')
+            .attr('href', `https://www.youtube.com/watch?v=${song.video_id}`)
+            .attr('target', '_blank')
+            .text('Ưu tiên')
+            .addClass('bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded');
+
+        // Thêm các phần tử vào giao diện
+        songContainer.append(thumbnail).append(songInfo).append(playButton);
+        selectedSongsList.append(songContainer);
+
+        // Kiểm tra và đặt margin-top nếu là bài đầu tiên
+        if (selectedSongsList.children().length === 1) {
+            $(songContainer).css('margin-top', '82px');
+        }
+
+        // Áp dụng margin-bottom cho bài hát cuối cùng
+        if (selectedSongsList.children().length === songs.length) {
+            $(songContainer).css('margin-bottom', '82px');
+        }
     });
-  }
+}
+
 
   // Đăng ký subscription để cập nhật danh sách bài hát theo thời gian thực
   function subscribeToSongChanges() {
