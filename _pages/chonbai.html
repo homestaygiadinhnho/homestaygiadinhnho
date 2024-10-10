@@ -128,7 +128,7 @@ function displaySelectedSongs(songs) {
 
     $.each(songs, function(index, song) {
         // Container for each song
-        const songContainer = $('<div></div>').addClass('flex p-3 items-center cursor-pointer hover:bg-gray-100 border-b border-gray-200');
+        const songContainer = $('<div></div>').addClass('flex p-3 items-center cursor-pointer hover:bg-gray-100 border-b border-gray-200 width-full');
 
         // Thumbnail with duration badge
         const thumbnail = $('<div></div>').addClass('relative flex-shrink-0').html(`
