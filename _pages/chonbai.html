@@ -124,53 +124,44 @@ async function fetchSelectedSongs() {
   // Hàm hiển thị danh sách bài hát đã chọn
 function displaySelectedSongs(songs) {
     const selectedSongsList = $('#selectedSongsList');
-    selectedSongsList.empty(); // Xóa các bài cũ (nếu có)
+    selectedSongsList.empty(); // Clear old songs if any
 
     $.each(songs, function(index, song) {
-        const songContainer = $('<div></div>').addClass('relative bg-white p-2 cursor-pointer hover:bg-gray-100 w-full')
-            .css({
-                display: 'flex',
-                alignItems: 'center', // Căn giữa theo chiều dọc
-                gap: '12px',
-                minHeight: '56px',
-                background: '#1f1f1f'
-            });
+        const songContainer = $('<div></div>').addClass('block p-3').css('padding', '12px');
 
-        // Invisible link for clickable area
-        const clickableArea = $('<div></div>').addClass('absolute inset-0 z-0 cursor-pointer');
+        const compactMediaItem = $('<div></div>').addClass('flex').css('padding', '0');
 
-        // Image Thumbnail Area
-        const thumbnail = $('<div></div>').addClass('flex-shrink-0').html(`
-            <img alt="${song.song_name}" src="https://img.youtube.com/vi/${song.video_id}/hqdefault.jpg" class="object-cover" style="width: 48px; height: 48px;">
-        `);
+        // Thumbnail
+        const thumbnail = $('<a></a>').addClass('block text-current no-underline flex-shrink-0')
+            .attr('href', `https://www.youtube.com/watch?v=${song.video_id}`)
+            .html(`
+                <div class="relative rounded-md overflow-hidden" style="width: 160px; height: 90px;">
+                    <img alt="${song.song_name}" class="w-full h-full object-cover" src="https://img.youtube.com/vi/${song.video_id}/hqdefault.jpg">
+                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    <div class="absolute bottom-0 right-0 m-2 bg-black bg-opacity-60 text-white px-1 text-sm rounded">4:56</div>
+                </div>
+            `);
 
-        // Song Info Area
-        const songInfo = $('<div></div>').addClass('flex-grow text-left').html(`
-            <a href="https://www.youtube.com/watch?v=${song.video_id}" draggable="false">
-                <p class="whitespace-normal overflow-hidden text-ellipsis font-normal text-white" style="max-height: 28px;line-height: 28px;font-size: 1rem;">${song.song_name}</p>
+        // Song Info
+        const songInfo = $('<div></div>').addClass('ml-4').html(`
+            <a href="https://www.youtube.com/watch?v=${song.video_id}" class="text-white no-underline">
+                <h4 class="text-base font-bold truncate">${song.song_name}</h4>
             </a>
-            <p class="text-xs text-gray-500" style="color: #b3b3b3;">${song.name}</p>
+            <div class="text-sm text-gray-400">
+                <span>${song.name}</span>
+            </div>
         `);
 
-        // Button Area
-        const buttonArea = $('<div></div>').addClass('flex-shrink-0').html(`
-            <button class="text-white hover:text-white flex items-center">
-                <svg role="img" aria-hidden="true" viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                    <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                </svg>
-            </button>
-        `);
-
-        // Thêm các phần tử vào giao diện
-        songContainer.append(clickableArea).append(thumbnail).append(songInfo).append(buttonArea);
+        // Append components
+        compactMediaItem.append(thumbnail).append(songInfo);
+        songContainer.append(compactMediaItem);
         selectedSongsList.append(songContainer);
 
-        // Kiểm tra và đặt margin-top nếu là bài đầu tiên
+        // Apply margin for first and last songs
         if (selectedSongsList.children().length === 1) {
             $(songContainer).css('margin-top', '82px');
         }
 
-        // Áp dụng margin-bottom cho bài hát cuối cùng
         if (selectedSongsList.children().length === songs.length) {
             $(songContainer).css('margin-bottom', '82px');
         }
