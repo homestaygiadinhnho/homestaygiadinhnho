@@ -124,47 +124,29 @@ async function fetchSelectedSongs() {
   // Hàm hiển thị danh sách bài hát đã chọn
 function displaySelectedSongs(songs) {
     const selectedSongsList = $('#selectedSongsList');
-    selectedSongsList.empty(); // Clear old songs if any
+    selectedSongsList.empty(); // Clear the previous song list
 
     $.each(songs, function(index, song) {
-        const songContainer = $('<div></div>').addClass('block p-3').css('padding', '12px');
+        // Container for each song
+        const songContainer = $('<div></div>').addClass('flex p-3 items-center cursor-pointer hover:bg-gray-100 border-b border-gray-200');
 
-        const compactMediaItem = $('<div></div>').addClass('flex').css('padding', '0');
-
-        // Thumbnail
-        const thumbnail = $('<a></a>').addClass('block text-current no-underline flex-shrink-0')
-            .attr('href', `https://www.youtube.com/watch?v=${song.video_id}`)
-            .html(`
-                <div class="relative rounded-md overflow-hidden" style="width: 160px; height: 90px;">
-                    <img alt="${song.song_name}" class="w-full h-full object-cover" src="https://img.youtube.com/vi/${song.video_id}/hqdefault.jpg">
-                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-                    <div class="absolute bottom-0 right-0 m-2 bg-black bg-opacity-60 text-white px-1 text-sm rounded">4:56</div>
-                </div>
-            `);
-
-        // Song Info
-        const songInfo = $('<div></div>').addClass('ml-4').html(`
-            <a href="https://www.youtube.com/watch?v=${song.video_id}" class="text-white no-underline">
-                <h4 class="text-base font-bold truncate">${song.song_name}</h4>
-            </a>
-            <div class="text-sm text-gray-400">
-                <span>${song.name}</span>
-            </div>
+        // Thumbnail with duration badge
+        const thumbnail = $('<div></div>').addClass('relative flex-shrink-0').html(`
+            <img src="https://img.youtube.com/vi/${song.video_id}/hqdefault.jpg" alt="${song.song_name}" class="w-40 h-24 rounded-md object-cover">
+            <div class="absolute bottom-0 right-0 mb-1 mr-1 bg-black text-white text-xs px-1 rounded">${song.duration || ''}</div>
         `);
 
-        // Append components
-        compactMediaItem.append(thumbnail).append(songInfo);
-        songContainer.append(compactMediaItem);
+        // Video information: Title and Channel
+        const songInfo = $('<div></div>').addClass('ml-4 flex flex-col justify-center').html(`
+            <a href="https://www.youtube.com/watch?v=${song.video_id}" target="_blank" class="text-sm font-medium text-black line-clamp-2">
+                ${song.song_name}
+            </a>
+            <p class="text-xs text-gray-500 mt-1">${song.name}</p>
+        `);
+
+        // Append thumbnail and info to song container
+        songContainer.append(thumbnail).append(songInfo);
         selectedSongsList.append(songContainer);
-
-        // Apply margin for first and last songs
-        if (selectedSongsList.children().length === 1) {
-            $(songContainer).css('margin-top', '82px');
-        }
-
-        if (selectedSongsList.children().length === songs.length) {
-            $(songContainer).css('margin-bottom', '82px');
-        }
     });
 }
 
